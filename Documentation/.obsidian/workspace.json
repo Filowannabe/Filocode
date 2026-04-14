@@ -11,10 +11,17 @@
             "id": "c40cd85e3b122ecd",
             "type": "leaf",
             "state": {
-              "type": "graph",
-              "state": {},
-              "icon": "lucide-git-fork",
-              "title": "Vista gráfica"
+              "type": "canvas",
+              "state": {
+                "file": "03-hud-components.canvas",
+                "viewState": {
+                  "x": 600,
+                  "y": -175,
+                  "zoom": 0
+                }
+              },
+              "icon": "lucide-layout-dashboard",
+              "title": "03-hud-components"
             }
           }
         ]
@@ -176,12 +183,14 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "c40cd85e3b122ecd",
+  "active": "77568b8e6bbec34d",
   "lastOpenFiles": [
+    "06-final-report.md",
+    "04-arquitectura-fase2.md",
+    "05-production.canvas",
+    "1 - Proyecto/Plan de Construccion - MVP.md",
     "02-base-setup.canvas",
     "03-hud-components.canvas",
-    "1 - Proyecto/Plan de Construccion - MVP.md",
-    "04-arquitectura-fase2.md",
     "2 - Arquitectura/Stack Tecnologico.md",
     "3 - Componentes/UI.md",
     "4 - Rutas y Logica/Rutas.md",

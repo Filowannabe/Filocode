@@ -1,19 +1,24 @@
 "use client";
 
 import { HudPanel } from "./hud-panel";
+import { TerminalContact } from "./terminal-contact";
 import { cn } from "@/lib/utils";
 
 interface HeroDashboardProps {
   className?: string;
+  delay?: number;
 }
 
 /**
  * HeroDashboard - El núcleo de identidad visual con estética HUD.
- * Tipografía masiva y stats RPG con bordes afilados.
+ * Actualizado con TerminalContact para mayor interactividad.
  */
-export function HeroDashboard({ className }: HeroDashboardProps) {
+export function HeroDashboard({ className, delay }: HeroDashboardProps) {
   return (
-    <HudPanel className={cn("flex flex-col justify-between p-6 md:p-8", className)}>
+    <HudPanel 
+      className={cn("flex flex-col justify-between p-6 md:p-8 h-full", className)}
+      delay={delay}
+    >
       <div className="space-y-4">
         {/* Títulos Identitarios */}
         <div className="space-y-1">
@@ -33,11 +38,9 @@ export function HeroDashboard({ className }: HeroDashboardProps) {
         </div>
       </div>
 
-      {/* Acción Principal */}
+      {/* Interacción: Terminal de Contacto */}
       <div className="mt-8">
-        <button className="group relative w-fit border border-[var(--color-primary)] bg-transparent px-6 py-2 text-sm font-bold tracking-wider text-[var(--color-primary)] transition-all hover:bg-[var(--color-primary)]/10 uppercase active:scale-95">
-          EXPLORAR PROYECTOS
-        </button>
+        <TerminalContact />
       </div>
     </HudPanel>
   );

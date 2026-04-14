@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 
 interface StatsBarProps {
   className?: string;
+  delay?: number;
 }
 
 const STATS = [
@@ -16,13 +17,17 @@ const STATS = [
 
 /**
  * StatsBar - Fila de indicadores cuantitativos.
- * Utiliza HudPanel para mantener la coherencia visual.
+ * Ahora soporta orquestación de animaciones.
  */
-export function StatsBar({ className }: StatsBarProps) {
+export function StatsBar({ className, delay = 0 }: StatsBarProps) {
   return (
     <div className={cn("grid grid-cols-2 md:grid-cols-4 gap-4", className)}>
-      {STATS.map((stat) => (
-        <HudPanel key={stat.label} className="p-4 text-center">
+      {STATS.map((stat, index) => (
+        <HudPanel 
+          key={stat.label} 
+          className="p-4 text-center"
+          delay={delay + (index * 0.05)}
+        >
           <div className="flex flex-col">
             <span className="text-3xl font-bold text-[var(--color-primary)]">
               {stat.value}

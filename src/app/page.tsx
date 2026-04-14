@@ -2,11 +2,12 @@ import { HeroDashboard } from "@/components/hud/hero-dashboard";
 import { StatsBar } from "@/components/hud/stats-bar";
 import { HudPanel } from "@/components/hud/hud-panel";
 import { ProjectCard } from "@/components/hud/project-card";
+import { SkillsPanel } from "@/components/hud/skills-panel";
 import { getTopRepos } from "@/lib/github";
 
 /**
- * Home Page - Async Server Component para la FASE 3.
- * Integra datos de GitHub con ISR (revalidate) y estética HUD.
+ * Home Page - Async Server Component para la FASE 4.
+ * Orquestación de animaciones en cascada y nuevos módulos de perfil.
  */
 export default async function Home() {
   // Obtención de datos del motor de GitHub
@@ -16,33 +17,16 @@ export default async function Home() {
     <main className="p-6 md:p-12 max-w-7xl mx-auto min-h-screen">
       <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-min">
         
-        {/* HERO DASHBOARD - Spans 8 columns */}
-        <HeroDashboard className="md:col-span-8 h-full" />
+        {/* HERO DASHBOARD - Delay 0.1 */}
+        <HeroDashboard className="md:col-span-8 h-full" delay={0.1} />
 
-        {/* SYSTEM STATUS PANEL - Spans 4 columns */}
-        <HudPanel className="md:col-span-4 p-4 flex flex-col justify-between">
-          <div>
-            <h3 className="text-[10px] font-mono tracking-widest text-[var(--color-primary)] uppercase">
-              {">"} SYSTEM_STATUS
-            </h3>
-            <div className="mt-4 flex items-center gap-2">
-              <div className="size-2 animate-pulse rounded-full bg-green-500" />
-              <span className="text-[10px] font-mono text-green-500 uppercase tracking-widest">
-                ONLINE // V2.0.1
-              </span>
-            </div>
-          </div>
-          <div className="mt-8 border-t border-white/5 pt-4 font-mono text-[9px] text-white/20">
-            ENCRYPTION: ACTIVE<br />
-            HUD_CORE: LOADED<br />
-            GITHUB_SYNC: {repos.length > 0 ? "STABLE" : "OFFLINE"}
-          </div>
-        </HudPanel>
+        {/* SKILLS PANEL - Delay 0.2 (Sustituye al System Status previo) */}
+        <SkillsPanel className="md:col-span-4" delay={0.2} />
 
-        {/* STATS BAR - Spans 12 columns */}
-        <StatsBar className="md:col-span-12 mt-4" />
+        {/* STATS BAR - Delay 0.3 */}
+        <StatsBar className="md:col-span-12 mt-4" delay={0.3} />
 
-        {/* SECCIÓN DE PROYECTOS - Despliegue de Datos Reales */}
+        {/* SECCIÓN DE PROYECTOS - Inyección con delay dinámico */}
         <div className="md:col-span-12 mt-8 space-y-4">
           <div className="border-b border-white/10 pb-2">
             <h2 className="text-xs font-mono tracking-[0.4em] text-[var(--color-primary)] uppercase">
@@ -52,8 +36,12 @@ export default async function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {repos.length > 0 ? (
-              repos.map((repo) => (
-                <ProjectCard key={repo.id} repo={repo} />
+              repos.map((repo, index) => (
+                <ProjectCard 
+                  key={repo.id} 
+                  repo={repo} 
+                  delay={0.4 + (index * 0.05)} 
+                />
               ))
             ) : (
               <div className="col-span-full font-mono text-xs text-red-500/60 border border-red-500/20 p-8 text-center uppercase tracking-widest bg-red-500/5">

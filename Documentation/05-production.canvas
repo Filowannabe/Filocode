@@ -1,0 +1,13 @@
+{
+	"nodes":[
+		{"id":"node-layout-seo","x":0,"y":-200,"width":250,"height":100,"type":"file","file":"src/app/layout.tsx","label":"Metadatos Globales"},
+		{"id":"node-og-image","x":300,"y":-400,"width":250,"height":100,"type":"file","file":"src/app/opengraph-image.tsx","label":"OpenGraph Dinámico (Satori)"},
+		{"id":"node-sitemap","x":300,"y":-200,"width":250,"height":100,"type":"file","file":"src/app/sitemap.ts","label":"Sitemap (SEO)"},
+		{"id":"node-robots","x":300,"y":0,"width":250,"height":100,"type":"file","file":"src/app/robots.ts","label":"Robots.txt"},
+		{"id":"node-a11y-checks","x":600,"y":-200,"width":300,"height":150,"type":"text","text":"## Protocolo A11y\n- Aria-labels descriptivos\n- Foco visible en elementos interactivos\n- Semántica correcta (Heading levels)\n- Iconografía con aria-hidden","label":"Accesibilidad"}
+	],
+	"edges":[
+		{"id":"edge-layout-to-og","fromNode":"node-layout-seo","fromSide":"top","toNode":"node-og-image","toSide":"bottom","label":"inyección dinámica"},
+		{"id":"edge-sitemap-to-robots","fromNode":"node-sitemap","fromSide":"bottom","toNode":"node-robots","toSide":"top","label":"referenciado en robots"}
+	]
+}

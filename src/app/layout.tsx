@@ -13,9 +13,34 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
+/**
+ * Metadata Global - Configuración de SEO y Redes Sociales.
+ * Utiliza la Metadata API de Next.js 16 para inyección automática en el <head>.
+ */
 export const metadata: Metadata = {
-  title: "filocode.dev | HUD Brutalista",
-  description: "Portafolio personal de filocode",
+  title: "Filocode | Senior Software Engineer",
+  description: "Portafolio técnico HUD Brutalista. Arquitectura de sistemas, desarrollo fullstack y ecosistema Next.js/Node.js.",
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
+  
+  openGraph: {
+    title: "Filocode | Senior Software Engineer",
+    description: "Portafolio técnico HUD Brutalista.",
+    url: "/",
+    siteName: "Filocode",
+    locale: "es_CO",
+    type: "website",
+  },
+  
+  twitter: {
+    card: "summary_large_image",
+    title: "Filocode | Senior Software Engineer",
+    description: "Portafolio técnico HUD Brutalista.",
+  },
+  
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -24,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="dark">
+    <html lang="es" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} relative min-h-screen overflow-x-hidden bg-[#0A0A0A] text-white antialiased`}
       >
