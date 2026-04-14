@@ -1,0 +1,7 @@
+{
+	"nodes":[
+		{"id":"node-1","type":"text","text":"Tailwind v4 @theme","x":0,"y":0,"width":250,"height":60},
+		{"id":"node-2","type":"text","text":"Root Layout Dark Mode","x":0,"y":100,"width":250,"height":60}
+	],
+	"edges":[]
+}
