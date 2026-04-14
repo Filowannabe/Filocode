@@ -1,33 +1,36 @@
 "use client";
 
 import { HudPanel } from "./hud-panel";
+import { cn } from "@/lib/utils";
+
+interface StatsBarProps {
+  className?: string;
+}
 
 const STATS = [
   { label: "AÑOS EXP", value: "5+" },
-  { label: "PROYECTOS", value: "24" },
-  { label: "MENTORÍAS", value: "12" },
-  { label: "COMMITS", value: "2.5K" },
+  { label: "PROYECTOS", value: "12" },
+  { label: "HRS MENTORÍA", value: "200+" },
+  { label: "COMMITS", value: "1.2k" },
 ];
 
 /**
  * StatsBar - Fila de indicadores cuantitativos.
  * Utiliza HudPanel para mantener la coherencia visual.
  */
-export function StatsBar() {
+export function StatsBar({ className }: StatsBarProps) {
   return (
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-4">
-      {STATS.map((stat, index) => (
-        <HudPanel
-          key={stat.label}
-          delay={0.1 * (index + 1)}
-          className="flex flex-col items-center justify-center py-6 text-center"
-        >
-          <span className="text-3xl font-bold tracking-tighter text-white md:text-4xl">
-            {stat.value}
-          </span>
-          <span className="mt-1 font-mono text-[10px] tracking-widest text-white/40">
-            {stat.label}
-          </span>
+    <div className={cn("grid grid-cols-2 md:grid-cols-4 gap-4", className)}>
+      {STATS.map((stat) => (
+        <HudPanel key={stat.label} className="p-4 text-center">
+          <div className="flex flex-col">
+            <span className="text-3xl font-bold text-[var(--color-primary)]">
+              {stat.value}
+            </span>
+            <span className="text-[10px] font-mono tracking-wider text-white/50 uppercase">
+              {stat.label}
+            </span>
+          </div>
         </HudPanel>
       ))}
     </div>

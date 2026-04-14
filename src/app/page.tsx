@@ -5,76 +5,56 @@ import { StatsBar } from "@/components/hud/stats-bar";
 import { HudPanel } from "@/components/hud/hud-panel";
 
 /**
- * Home Page - Ensamblaje de la Fase 2 con Estructura Bento.
- * Organiza los componentes en una grilla brutalista de 12 columnas.
+ * Home Page - Estructura Bento final para la FASE 2.
+ * Utiliza una grilla de 12 columnas para un diseño asimétrico y brutalista.
  */
 export default function Home() {
   return (
-    <main className="mx-auto max-w-7xl p-6 md:p-12">
-      {/* Bento Grid Principal */}
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-12">
+    <main className="p-6 md:p-12 max-w-7xl mx-auto min-h-screen">
+      <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-min">
         
-        {/* HERO DASHBOARD - Gran impacto visual */}
-        <div className="md:col-span-8 md:row-span-2">
-          <HeroDashboard />
-        </div>
+        {/* HERO DASHBOARD - Spans 8 columns */}
+        <HeroDashboard className="md:col-span-8 h-full" />
 
-        {/* SIDEBAR PANEL 1 - Info rápida (Placeholder para Fase 3) */}
-        <div className="md:col-span-4">
-          <HudPanel className="flex h-full flex-col justify-between">
-            <div>
-              <h3 className="text-xs font-mono tracking-widest text-[var(--color-primary)]">
-                {">"} SYSTEM_STATUS
-              </h3>
-              <p className="mt-4 text-sm leading-relaxed text-white/60">
-                Núcleo operacional activo. Interfaz HUD optimizada para 
-                exploración de arquitectura y desarrollo fullstack.
-              </p>
-            </div>
-            <div className="mt-8 flex items-center gap-2">
+        {/* SYSTEM STATUS PANEL - Spans 4 columns */}
+        <HudPanel className="md:col-span-4 p-4 flex flex-col justify-between">
+          <div>
+            <h3 className="text-[10px] font-mono tracking-widest text-[var(--color-primary)] uppercase">
+              {">"} SYSTEM_STATUS
+            </h3>
+            <div className="mt-4 flex items-center gap-2">
               <div className="size-2 animate-pulse rounded-full bg-green-500" />
-              <span className="text-[10px] font-mono text-green-500/80 uppercase">
-                Online - v2.0.1
+              <span className="text-[10px] font-mono text-green-500 uppercase tracking-widest">
+                ONLINE // V2.0.1
               </span>
             </div>
-          </HudPanel>
+          </div>
+          <div className="mt-8 border-t border-white/5 pt-4 font-mono text-[9px] text-white/20">
+            ENCRYPTION: ACTIVE<br />
+            HUD_CORE: LOADED
+          </div>
+        </HudPanel>
+
+        {/* STATS BAR - Spans 12 columns */}
+        <StatsBar className="md:col-span-12 mt-4" />
+
+        {/* Espacio reservado para Fase 3 (Galería) */}
+        <div className="md:col-span-12 mt-8">
+          <div className="border-b border-white/10 pb-2">
+            <h2 className="text-xs font-mono tracking-[0.5em] text-white/30 uppercase">
+              Despliegue_de_Proyectos
+            </h2>
+          </div>
         </div>
 
-        {/* SIDEBAR PANEL 2 - Navegación (Placeholder para Fase 3) */}
-        <div className="md:col-span-4">
-          <HudPanel className="h-full">
-            <h3 className="text-xs font-mono tracking-widest text-white/40 uppercase">
-              Recursos_Externos
-            </h3>
-            <ul className="mt-4 space-y-2 font-mono text-xs">
-              <li className="flex justify-between border-b border-white/5 pb-1">
-                <span>GITHUB</span>
-                <span className="text-[var(--color-primary)]">LINK_01</span>
-              </li>
-              <li className="flex justify-between border-b border-white/5 pb-1">
-                <span>LINKEDIN</span>
-                <span className="text-[var(--color-primary)]">LINK_02</span>
-              </li>
-              <li className="flex justify-between border-b border-white/5 pb-1">
-                <span>TWITTER</span>
-                <span className="text-[var(--color-primary)]">LINK_03</span>
-              </li>
-            </ul>
-          </HudPanel>
-        </div>
-
-        {/* STATS BAR - Toda la anchura inferior */}
-        <div className="md:col-span-12">
-          <StatsBar />
-        </div>
-        
       </div>
 
       {/* Footer minimalista */}
-      <footer className="mt-24 border-t border-white/5 pt-8 text-center">
-        <p className="font-mono text-[10px] tracking-[0.3em] text-white/20 uppercase">
-          Filocode.dev // Distributed Systems Architecture // 2026
-        </p>
+      <footer className="mt-24 border-t border-white/5 pt-8">
+        <div className="flex justify-between items-center font-mono text-[9px] tracking-widest text-white/10 uppercase">
+          <span>© 2026 // FILOCODE</span>
+          <span>ESTADO: ESTABLE</span>
+        </div>
       </footer>
     </main>
   );
