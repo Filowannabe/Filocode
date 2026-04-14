@@ -1,0 +1,78 @@
+{
+	"nodes": [
+		{
+			"id": "node-hud-panel",
+			"x": 0,
+			"y": -200,
+			"width": 250,
+			"height": 100,
+			"type": "file",
+			"file": "src/components/hud/hud-panel.tsx",
+			"label": "HudPanel (Base UI)"
+		},
+		{
+			"id": "node-hero-dashboard",
+			"x": 300,
+			"y": -200,
+			"width": 250,
+			"height": 100,
+			"type": "file",
+			"file": "src/components/hud/hero-dashboard.tsx",
+			"label": "HeroDashboard (Hero)"
+		},
+		{
+			"id": "node-stats-bar",
+			"x": 300,
+			"y": 0,
+			"width": 250,
+			"height": 100,
+			"type": "file",
+			"file": "src/components/hud/stats-bar.tsx",
+			"label": "StatsBar (Data)"
+		},
+		{
+			"id": "node-home-page",
+			"x": 600,
+			"y": -100,
+			"width": 300,
+			"height": 150,
+			"type": "file",
+			"file": "src/app/page.tsx",
+			"label": "Home Page (Bento Grid Assembler)"
+		}
+	],
+	"edges": [
+		{
+			"id": "edge-panel-to-hero",
+			"fromNode": "node-hud-panel",
+			"fromSide": "right",
+			"toNode": "node-hero-dashboard",
+			"toSide": "left",
+			"label": "base de estilo"
+		},
+		{
+			"id": "edge-panel-to-stats",
+			"fromNode": "node-hud-panel",
+			"fromSide": "bottom",
+			"toNode": "node-stats-bar",
+			"toSide": "top",
+			"label": "base de estilo"
+		},
+		{
+			"id": "edge-hero-to-home",
+			"fromNode": "node-hero-dashboard",
+			"fromSide": "right",
+			"toNode": "node-home-page",
+			"toSide": "left",
+			"label": "inyectado en col-span-8"
+		},
+		{
+			"id": "edge-stats-to-home",
+			"fromNode": "node-stats-bar",
+			"fromSide": "right",
+			"toNode": "node-home-page",
+			"toSide": "bottom",
+			"label": "inyectado en col-span-12"
+		}
+	]
+}

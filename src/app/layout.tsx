@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { FlashlightEffect } from "@/components/hud/flashlight-effect";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} relative min-h-screen overflow-x-hidden bg-[#0A0A0A] text-white antialiased`}
       >
+        <FlashlightEffect />
         {children}
       </body>
     </html>
