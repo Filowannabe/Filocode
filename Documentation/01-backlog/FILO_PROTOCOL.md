@@ -194,6 +194,45 @@ src/components/
 
 ---
 
+### 🔄 POLÍTICA DE COMMITS (EXPERIMENTAL v1.0)
+
+**"Control de versiones con autoridad compartida"**
+
+**DEFINICIÓN DE BRANCHES:**
+
+| Tipo | Nombres | Política de Commits |
+|------|---------|---------------------|
+| **PRINCIPAL** | `master`, `main`, `development`, `staging`, `production` | ❌ **PROHIBIDO**: Requiere autorización explícita `APROBADO:` |
+| **SECUNDARIO** | `feat/*`, `fix/*`, `hotfix/*`, `tdd/*`, `refactor/*` | ✅ **PERMITIDO**: Puedo hacer commits con tu autorización por mensaje |
+
+**FLUJO DE COMMIT (CORRECTO):**
+
+1. **Verificar estado**: `git status`
+   - Identificar archivos modificados
+   - Confirmar archivos a incluir
+
+2. **Agregar cambios**: `git add <archivos>` o `git add .`
+   - Solo agregar lo necesario (NO todo si solo hay un cambio)
+   - Verificar con `git status` después
+
+3. **Usuario autoriza**: `APROBADO: genera commit con mensaje "..."`
+
+4. **Ejecutar commit**: `git commit -m "..."`
+
+5. **Confirmar**: Reportar commit exitoso
+
+**⚠️ VERIFICACIÓN OBLIGATORIA:**
+- ❌ **NUNCA** ejecutar `git add . && git commit -m "..."` (uno solo)
+- ✅ **SIEMPRE** verificar: `git status` ANTES de `git add`
+- ✅ **SEPARAR** commits: Cada cambio significativo = commit separado
+
+**NOTA DE EXPERIMENTACIÓN:**
+- Esta política es **EXPERIMENTAL v1.0**
+- Podría evolucionar a: **CERO commits automáticos** (todos manuales)
+- Objetivo: Equilibrio entre eficiencia y control
+
+---
+
 ## 🚨 CASOS DE ERROR GRAVE
 
 Las siguientes acciones serán consideradas **VIOLACIONES DEL PROTOCOLO**:
@@ -865,7 +904,7 @@ Cada tarea se registra en este mismo archivo (al final del documento):
 | **Bifurcación de Métricas** | ✅ **INTEGRADO**: GESTIÓN (1-5 min), IMPLEMENTACIÓN (60-120 min), PROPUESTA (5-15 min) |
 | **Estándares de Estimación** | ✅ **ACTUALIZADO**: Tabla de estimación por Scope + KPIs definidos |
 | **Scope en registros** | ✅ **OBLIGATORIO**: Cada registro debe incluir Scope (GESTIÓN | IMPLEMENTACIÓN | PROPUESTA) |
-| **Versión** | **v2.5** — Integrado bifurcación de métricas + Estándares de Estimación + **REGLA TDD v2.5** |
+| **Versión** | **v2.5** — Bifurcación métricas + Estándares Estimación + **REGLA TDD v2.5** + **POLÍTICA COMMITS v1.0** + **VERIFY BEFORE COMMIT** |
 
 **⚠️ REGLA OBLIGATORIA**: Solo `Documentation/01-backlog/FILO_PROTOCOL.md` es fuente de verdad para time tracking.
 
@@ -906,6 +945,12 @@ Al cargar este protocolo, el asistente confirma:
 20. ✅ **NUNCA promediar**: Mezclar métricas de diferentes Scopes = pérdida de trazabilidad.
 21. ✅ **Estándares de Estimación**: Usar tabla de estimación por Scope (v2.3) para todos los registros futuros.
 22. ✅ **REGLA TDD v2.5**: **NUNCA** crear código en `src/` sin test primero en `src/__tests__/` o `.test.ts`/`.spec.ts`. Test first — Green — Refactor.
+23. ✅ **POLÍTICA DE COMMITS v1.0 (EXPERIMENTAL)**: 
+    - **BRANCHES SECUNDARIOS** (`feat/*`, `fix/*`, `tdd/*`): ✅ Permisos de commit con autorización explícita
+    - **BRANCHES PRINCIPALES** (`master`, `development`, `staging`, `production`): ❌ PROHIBIDO sin autorización explícita
+    - **FLUJO CORRECTO**: `git status` → `git add` → `git commit -m "..."`
+    - **VERIFICACIÓN OBLIGATORIA**: Nunca ejecutar `git add . && git commit -m "..."` sin verificar primero
+    - **NOTA**: Esta política es EXPERIMENTAL — Podría evolucionar a cero commits automáticos (todos manuales)
 
 ---
 
