@@ -2,7 +2,7 @@
 // TDD Phase: GREEN - Validar implementación
 
 import { describe, test, expect, beforeEach, vi } from 'vitest';
-import { fetchRepositoriosGitHub, exportData, exportDataCSV } from './githubApi';
+import { fetchRepositoriosGitHub, exportData, exportDataCSV } from '../../services/githubApi';
 
 // Mock de fetch global para cada test
 describe('githubApi - fetchRepositoriosGitHub', () => {
