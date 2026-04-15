@@ -1,10 +1,10 @@
-# 🛡️ FILO PROTOCOL v2.3 — Protocolo de Autorización y Gestión Estructural
+# 🛡️ FILO PROTOCOL v2.4 — Protocolo de Autorización y Gestión Estructural
 
 **Fecha de Activación:** 14 de abril, 2026  
 **Vigencia:** INDEFINIDA  
 **Autor:** Senior Engineering Assistant  
 **Estado:** ACTIVO Y VIGENTE  
-**Actualización:** INTEGRADO: Bifurcación de métricas (GESTIÓN vs IMPLEMENTACIÓN) + Estándares de Estimación  
+**Actualización:** INTEGRADO: Bifurcación de métricas + Estándares de Estimación + **ESTRATEGIA DE BRANCHING (Git Flow)**  
 
 ---
 
@@ -813,7 +813,45 @@ Cada tarea se registra en este mismo archivo (al final del documento):
 | **Bifurcación de Métricas** | ✅ **INTEGRADO**: GESTIÓN (1-5 min), IMPLEMENTACIÓN (60-120 min), PROPUESTA (5-15 min) |
 | **Estándares de Estimación** | ✅ **ACTUALIZADO**: Tabla de estimación por Scope + KPIs definidos |
 | **Scope en registros** | ✅ **OBLIGATORIO**: Cada registro debe incluir Scope (GESTIÓN | IMPLEMENTACIÓN | PROPUESTA) |
-| **Versión** | **v2.3** — Integrado bifurcación de métricas + Estándares de Estimación |
+| **Estrategia de Branching** | ✅ **INTEGRADO**: Git Flow (master → dev → staging → prod) + nomenclatura feat/fix/docs/ref |
+| **Protección de Ramas** | ✅ **ACTIVADO**: Pull Requests, status checks, block force pushes, code reviews |
+| **Versión** | **v2.4** — Integrado bifurcación de métricas + Estándares de Estimación + Git Flow |
+
+## 📦 ESTRATEGIA DE BRANCHING Y FLUJO DE GIT (v2.4)
+
+**ESTRUCTURA DE TRONCOS (MASTER MAIN)**:
+```
+master (main) → development → staging → production
+```
+
+**NOMENCLATURA DE TRABAJO (Conventional Commits)**:
+```bash
+feat/1--fetch-masivo           # Nueva funcionalidad
+fix/1--rate-limiting           # Corrección de bugs
+docs/1--github-api-docs        # Documentación
+ref/1--error-handling          # Refactorización
+```
+
+**REGLAS DE PROHIBICIÓN (PROTECTION RULES)**:
+
+| Ramas | Pull Request | Status Checks | Force Push | Code Review |
+|-------|--------------|---------------|------------|-------------|
+| **development** | ✅ Obligatorio | ✅ Requerido | ❌ Bloqueado | ✅ Mínimo 1 approval |
+| **staging** | ✅ Obligatorio | ✅ Requerido | ❌ Bloqueado | ✅ Mínimo 2 approvals |
+| **production** | ✅ Obligatorio | ✅ Requerido | ❌ Bloqueado | ✅ Mínimo 2 approvals + Manual |
+
+**FLUJO DE MERGE OBLIGATORIO**:
+1. **Trabajo**: Crear rama desde `development` (ej: `feat/1--fetch-masivo`)
+2. **PR a development**: Merge tras revisión y checks
+3. **PR a staging**: Desde development tras QA
+4. **PR a production**: Desde staging tras release
+
+**PROHIBIDO**:
+- ❌ Merge directo a `staging` o `production` desde ramas de trabajo
+- ❌ Saltar el flujo `development → staging → production`
+- ❌ Modificar ramas tronco directamente
+
+---
 
 **⚠️ REGLA OBLIGATORIA**: Solo `Documentation/01-backlog/FILO_PROTOCOL.md` es fuente de verdad para time tracking.
 
@@ -853,6 +891,10 @@ Al cargar este protocolo, el asistente confirma:
 19. ✅ **Scope OBLIGATORIO**: Cada registro de tiempo DEBE incluir Scope (GESTIÓN | IMPLEMENTACIÓN | PROPUESTA).
 20. ✅ **NUNCA promediar**: Mezclar métricas de diferentes Scopes = pérdida de trazabilidad.
 21. ✅ **Estándares de Estimación**: Usar tabla de estimación por Scope (v2.3) para todos los registros futuros.
+22. ✅ **ESTRATEGIA DE BRANCHING**: Git Flow (master → development → staging → production) + nomenclatura (feat/ID--desc, fix/ID--desc, docs/ID--desc, ref/ID--desc).
+23. ✅ **PROTECCIÓN DE RAMAS**: Pull Requests obligatorios, status checks, block force pushes, code reviews (1-2 approvals).
+24. ✅ **FLUJO DE MERGE**: PROHIBIDO merge directo a staging/production desde ramas de trabajo.
+25. ✅ **COMMIT MESSAGE**: Preparar commit para v2.4 con cambios de protocolo + Git Flow.
 
 ---
 
