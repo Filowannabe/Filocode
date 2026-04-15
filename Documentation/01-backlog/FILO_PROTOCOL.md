@@ -1,10 +1,10 @@
-# 🛡️ FILO PROTOCOL v2.3 — Protocolo de Autorización y Gestión Estructural
+# 🛡️ FILO PROTOCOL v2.5 — Protocolo de Autorización y Gestión Estructural
 
 **Fecha de Activación:** 14 de abril, 2026  
 **Vigencia:** INDEFINIDA  
 **Autor:** Senior Engineering Assistant  
 **Estado:** ACTIVO Y VIGENTE  
-**Actualización:** INTEGRADO: Bifurcación de métricas (GESTIÓN vs IMPLEMENTACIÓN) + Estándares de Estimación  
+**Actualización:** INTEGRADO: Bifurcación de métricas (GESTIÓN vs IMPLEMENTACIÓN) + Estándares de Estimación + **REGLA TDD v2.5**  
 
 ---
 
@@ -139,6 +139,58 @@ Antes de cualquier acción que modifique:
 2. Confirmar que el usuario entiende
 3. Esperar `APROBADO:` explícito
 4. Solo entonces ejecutar
+
+---
+
+### 🚨 REGLA DE DESARROLLO TDD (v2.5)
+
+**"Test First — Código sin pruebas es código sin propósito"**
+
+**PRINCIPIO FUNDAMENTAL:**
+- ❌ **PROHIBIDO** crear lógica en `src/` sin su respectivo test en `src/__tests__/` o junto al archivo (`.test.ts` / `.spec.ts`)
+- ✅ **OBLIGATORIO** definir el test ANTES de escribir la implementación
+
+**FLUJO DE DESARROLLO TDD:**
+
+1. **Escribe un test FALLIDO** (Red)
+   - Crea el archivo `src/services/githubApi.test.ts`
+   - Define el comportamiento esperado
+   - El test debe fallar inicialmente (sin implementación)
+
+2. **Escribe el código MÍNIMO** (Green)
+   - Implementa solo lo necesario para que el test pase
+   - No más, no menos
+
+3. **Refactoriza con confianza** (Refactor)
+   - Mejora la estructura
+   - El test verifica que no se rompió nada
+   - Mantén cobertura de pruebas
+
+**HERRAMIENTAS SUGERIDAS:**
+- ✅ **Vitest** — Lightweight, integrado con Vite/Next.js
+- ✅ **Jest** — Estándar de la industria, robusto
+- ✅ **Testing Library** — Para pruebas de componentes React
+
+**PÁGINA 1: TESTES DE INTEGRACIÓN/API**
+```
+src/services/
+├── githubApi.ts              # Implementación
+├── githubApi.test.ts         # Tests de integración (Mock de API)
+└── __tests__/
+    └── githubApi.spec.ts     # Tests unitarios (si aplica)
+```
+
+**PÁGINA 2: TESTES DE COMPONENTES**
+```
+src/components/
+├── RepoFetcher.tsx           # Componente
+└── RepoFetcher.test.tsx      # Tests de componentes
+```
+
+**CRÍTICO:**
+- Sin test = Sin commit (política de calidad)
+- Los tests GUARDAN el comportamiento esperado
+- Refactoriza con confianza — los tests son tu red de seguridad
 
 ---
 
@@ -813,7 +865,7 @@ Cada tarea se registra en este mismo archivo (al final del documento):
 | **Bifurcación de Métricas** | ✅ **INTEGRADO**: GESTIÓN (1-5 min), IMPLEMENTACIÓN (60-120 min), PROPUESTA (5-15 min) |
 | **Estándares de Estimación** | ✅ **ACTUALIZADO**: Tabla de estimación por Scope + KPIs definidos |
 | **Scope en registros** | ✅ **OBLIGATORIO**: Cada registro debe incluir Scope (GESTIÓN | IMPLEMENTACIÓN | PROPUESTA) |
-| **Versión** | **v2.3** — Integrado bifurcación de métricas + Estándares de Estimación |
+| **Versión** | **v2.5** — Integrado bifurcación de métricas + Estándares de Estimación + **REGLA TDD v2.5** |
 
 **⚠️ REGLA OBLIGATORIA**: Solo `Documentation/01-backlog/FILO_PROTOCOL.md` es fuente de verdad para time tracking.
 
@@ -853,6 +905,7 @@ Al cargar este protocolo, el asistente confirma:
 19. ✅ **Scope OBLIGATORIO**: Cada registro de tiempo DEBE incluir Scope (GESTIÓN | IMPLEMENTACIÓN | PROPUESTA).
 20. ✅ **NUNCA promediar**: Mezclar métricas de diferentes Scopes = pérdida de trazabilidad.
 21. ✅ **Estándares de Estimación**: Usar tabla de estimación por Scope (v2.3) para todos los registros futuros.
+22. ✅ **REGLA TDD v2.5**: **NUNCA** crear código en `src/` sin test primero en `src/__tests__/` o `.test.ts`/`.spec.ts`. Test first — Green — Refactor.
 
 ---
 
