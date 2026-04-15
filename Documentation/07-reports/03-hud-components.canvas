@@ -1,0 +1,14 @@
+{
+	"nodes":[
+		{"id":"node-hud-panel","type":"file","file":"../../src/components/hud/hud-panel.tsx","label":"HudPanel (Core)","x":0,"y":-200,"width":250,"height":100},
+		{"id":"node-skills-panel","type":"file","file":"../../src/components/hud/skills-panel.tsx","label":"SkillsPanel (Tech Stack)","x":300,"y":-400,"width":250,"height":100},
+		{"id":"node-terminal-contact","type":"file","file":"../../src/components/hud/terminal-contact.tsx","label":"TerminalContact (Interaction)","x":600,"y":-400,"width":250,"height":100},
+		{"id":"node-hero-dashboard","type":"file","file":"../../src/components/hud/hero-dashboard.tsx","label":"HeroDashboard","x":300,"y":-200,"width":250,"height":100},
+		{"id":"node-home-page","type":"file","file":"../../src/app/page.tsx","label":"Home Page (Orchestrator)","x":850,"y":-100,"width":300,"height":150}
+	],
+	"edges":[
+		{"id":"edge-terminal-to-hero","fromNode":"node-terminal-contact","fromSide":"bottom","toNode":"node-hero-dashboard","toSide":"top","label":"inyectado en Hero"},
+		{"id":"edge-skills-to-home","fromNode":"node-skills-panel","fromSide":"right","toNode":"node-home-page","toSide":"left","label":"md:col-span-4"},
+		{"id":"edge-hero-to-home","fromNode":"node-hero-dashboard","fromSide":"right","toNode":"node-home-page","toSide":"left","label":"stagger delay: 0.1"}
+	]
+}

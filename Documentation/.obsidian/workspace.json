@@ -4,24 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "859cc05fa211565c",
+        "id": "4a33b3b4b3e7a129",
         "type": "tabs",
         "children": [
           {
-            "id": "c40cd85e3b122ecd",
+            "id": "890c4cae2f3cbfb3",
             "type": "leaf",
             "state": {
-              "type": "canvas",
+              "type": "markdown",
               "state": {
-                "file": "03-hud-components.canvas",
-                "viewState": {
-                  "x": 600,
-                  "y": -175,
-                  "zoom": 0
-                }
+                "file": "Home.md",
+                "mode": "preview",
+                "source": false
               },
-              "icon": "lucide-layout-dashboard",
-              "title": "03-hud-components"
+              "icon": "lucide-file",
+              "title": "Home"
             }
           }
         ]
@@ -183,22 +180,39 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "77568b8e6bbec34d",
+  "active": "890c4cae2f3cbfb3",
   "lastOpenFiles": [
+    "2 - Arquitectura/Stack Tecnologico.md",
+    "01-backlog/issue_10_description.md",
+    "Home.md",
+    "01-backlog/issue_1_description.md",
+    "07-reports/02-base-setup.canvas",
+    "07-reports/03-hud-components.canvas",
+    "01-backlog/issue_5_description.md",
+    "01-backlog/issue_3_description.md",
+    "01-backlog/issue_2_description.md",
+    "07-reports/05-production.canvas",
+    "03-hud-components.canvas",
+    "07-reports/06-final-report.md",
+    "07-reports/04-arquitectura-fase2.md",
+    "07-reports",
+    "05-production.canvas",
+    "02-base-setup.canvas",
+    "propuesta_expansion_backlog.md",
+    "issue_5_description.md",
+    "issue_4_description.md",
+    "issue_3_description.md",
+    "issue_2_description.md",
+    "issue_1_description.md",
+    "6 - Configuracion/Scripts.md",
     "06-final-report.md",
     "04-arquitectura-fase2.md",
-    "05-production.canvas",
     "1 - Proyecto/Plan de Construccion - MVP.md",
-    "02-base-setup.canvas",
-    "03-hud-components.canvas",
-    "2 - Arquitectura/Stack Tecnologico.md",
     "3 - Componentes/UI.md",
     "4 - Rutas y Logica/Rutas.md",
     "3 - Componentes/Boton.md",
-    "6 - Configuracion/Scripts.md",
     "4 - Rutas y Logica/Utilidades CSS.md",
     "1 - Proyecto/Roadmap.md",
-    "Home.md",
     "6 - Configuracion",
     "5 - Recursos",
     "4 - Rutas y Logica",
