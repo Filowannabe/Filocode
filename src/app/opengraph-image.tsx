@@ -40,7 +40,7 @@ export default async function Image() {
             letterSpacing: "0.2em",
           }}
         >
-          // HUD_INTERACTIVE_PORTFOLIO
+          {"// HUD_INTERACTIVE_PORTFOLIO"}
         </div>
 
         {/* Título Principal */}

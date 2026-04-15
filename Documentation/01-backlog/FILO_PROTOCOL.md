@@ -1,18 +1,52 @@
-# 🛡️ FILO PROTOCOL v2.5 — Protocolo de Autorización y Gestión Estructural
+# 🛡️ FILO PROTOCOL v2.6 — Protocolo de Autorización y Gestión Estructural
 
-**Fecha de Activación:** 14 de abril, 2026  
+**Fecha de Activación:** 15 de abril, 2026  
 **Vigencia:** INDEFINIDA  
 **Autor:** Senior Engineering Assistant  
 **Estado:** ACTIVO Y VIGENTE  
-**Actualización:** INTEGRADO: Bifurcación de métricas (GESTIÓN vs IMPLEMENTACIÓN) + Estándares de Estimación + **REGLA TDD v2.5**  
+**Actualización:** INTEGRADO: Infraestructura Yarn 4 + Turbopack + **MANDATO CONTEXT7 MCP v2.6**  
 
 ---
 
 ## 📜 DECLARACIÓN DE PRINCIPIO
 
-**A partir de este momento, está PROHIBIDO modificar cualquier contenido en GitHub (issues, labels, projects, milestones, etc.) sin autorización explícita del usuario.**
+**A partir de este momento, está PROHIBIDO modificar cualquier contenido en GitHub o infraestructura del proyecto sin autorización explícita del usuario.**
 
-Este protocolo se activa en todas las interacciones futuras relacionadas con gestión de backlog, issues de GitHub, y cualquier acción que modifique el repositorio en GitHub.
+Este protocolo se activa en todas las interacciones futuras relacionadas con gestión de backlog, infraestructura (Yarn/Tailwind/Next.js) y cualquier acción de persistencia.
+
+---
+
+## 🧭 COPILOTO OBLIGATORIO: CONTEXT7 MCP
+
+**"Nadie investiga solo — La documentación es la brújula"**
+
+**REGLA DE ORO:** El uso del MCP `context7` es **OBLIGATORIO Y ABSOLUTO** en las siguientes fases:
+1. **Lectura de Documentación**: Antes de asumir cómo funciona una librería (React, Next.js, Yarn, Tailwind).
+2. **Exploración**: Para buscar mejores prácticas o breaking changes de versiones (ej: salto a Tailwind v4).
+3. **Debugging**: Para consultar errores conocidos del ecosistema o sintaxis de herramientas.
+
+*Nota: Context7 no toma las decisiones finales, pero su consulta es un pre-requisito para cualquier propuesta técnica.*
+
+---
+
+## 🏗️ ESTÁNDARES DE INFRAESTRUCTURA (YARN 4 + TURBOPACK)
+
+**"Velocidad sin fricción — El linker físico es la clave"**
+
+1. **Gestor de Paquetes**: Uso **MANDATORIO** de `yarn` (Berry v4). Prohibido `npm` o `pnpm`.
+2. **Compatibilidad Turbopack**: Debido a las restricciones de seguridad de Next.js 16 y Turbopack en Windows, el `nodeLinker` en `.yarnrc.yml` debe estar configurado como `node-modules`.
+3. **Sincronización**: Cualquier cambio en `package.json` requiere un `yarn install` inmediato para mantener la integridad del `yarn.lock`.
+4. **Tailwind v4**: Uso del plugin oficial `@tailwindcss/postcss` y configuración en `postcss.config.mjs`. El archivo `globals.css` debe liderar con `@import "tailwindcss";`.
+
+---
+
+## 🛡️ SEGURIDAD DE PROCESOS (ASISTENTE INTEGRITY)
+
+**"No dispares a tu propio equipo — El asistente es sagrado"**
+
+1. **Gestión de Puertos**: Al liberar el puerto 3000 o limpiar procesos de Node, el asistente tiene **PROHIBIDO** usar comandos de "matanza masiva" (`taskkill /F /IM node.exe`).
+2. **Método Quirúrgico**: Se debe identificar el PID específico que ocupa el puerto (`Get-NetTCPConnection`) y detener **únicamente** ese proceso para no matar el proceso del propio Gemini.
+3. **Resiliencia**: Si el comando de matanza falla, el asistente debe informar al usuario en lugar de intentar acciones de fuerza bruta que comprometan la sesión.
 
 ---
 

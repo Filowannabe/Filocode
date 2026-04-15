@@ -27,7 +27,7 @@ export function SkillsPanel({ className, delay }: SkillsPanelProps) {
         {CORE_SKILLS.map((skill) => (
           <span 
             key={skill}
-            className="border border-[var(--color-primary)]/30 bg-[var(--color-primary)]/5 px-2 py-1 text-xs font-mono text-[var(--color-primary)] font-bold"
+            className="border border-(--color-primary)/30 bg-(--color-primary)/5 px-2 py-1 text-xs font-mono text-[var(--color-primary)] font-bold"
           >
             {skill}
           </span>
