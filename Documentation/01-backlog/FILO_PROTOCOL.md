@@ -11,7 +11,7 @@
 **Vigencia:** INDEFINIDA  
 **Autor:** Senior Engineering Assistant  
 **Estado:** ACTIVO Y VIGENTE  
-**Actualización:** INTEGRADO: Infraestructura Yarn 4 + Turbopack + **MANDATO CONTEXT7 MCP v2.6** + **GIT FLOW v2.4** + **REGLA DE AISLAMIENTO ABSOLUTO v2.7** + **REGLA DE DEUDA CERO v2.8**
+**Actualización:** INTEGRADO: Infraestructura Yarn 4 + Turbopack + **MANDATO CONTEXT7 MCP v2.6** + **GIT FLOW v2.4** + **REGLA DE AISLAMIENTO ABSOLUTO v2.7** + **REGLA DE DEUDA CERO v2.8** + **REGLA DE LAYOUT INTEGRITY v2.9** + **REGLA DE DATA RESILIENCE v2.9**
 
 ---
 
@@ -87,6 +87,73 @@ const MotionButton = motion.button as any;
 1. **Gestión de Puertos**: Al liberar el puerto 3000 o limpiar procesos de Node, el asistente tiene **PROHIBIDO** usar comandos de "matanza masiva" (`taskkill /F /IM node.exe`).
 2. **Método Quirúrgico**: Se debe identificar el PID específico que ocupa el puerto (`Get-NetTCPConnection`) y detener **únicamente** ese proceso para no matar el proceso del propio Gemini.
 3. **Resiliencia**: Si el comando de matanza falla, el asistente debe informar al usuario en lugar de intentar acciones de fuerza bruta que comprometan la sesión.
+
+---
+
+## 🛡️ REGLA DE LAYOUT INTEGRITY (v2.9)
+
+**"Queda estrictamente prohibido el uso de absolute para iconos dentro de contenedores de texto dinámico"**
+
+### Problema Detectado
+El uso de `position: absolute` para dropdowns de sugerencias dentro de inputs flexibles causa superposiciones y desfases en layouts responsivos, especialmente con `AnimatePresence` lazy de Framer Motion.
+
+### Solución Obligatoria
+**SE DEBE USAR FLEXBOX FÍSICO** para todos los contenedores de inputs HUD:
+- Los inputs deben tener `width: 100%` o `flex: 1`
+- Los dropdowns deben ser hijos directos del contenedor flex (no posicionados absolutamente)
+- Las animaciones deben ocurrir dentro del flujo natural del DOM
+
+### Ejemplo Incorrecto (PROHIBIDO):
+```tsx
+<div className="relative">
+  <input className="w-full" />
+  <AnimatePresence>
+    <Dropdown className="absolute inset-0" /> {/* ❌ PROHIBIDO */}
+  </AnimatePresence>
+</div>
+```
+
+### Ejemplo Correcto (REQUERIDO):
+```tsx
+<div className="flex items-center gap-2">
+  <input className="flex-1" />
+  <AnimatePresence>
+    <Dropdown /> {/* ✅ CORRECTO: dentro del flujo flex */}
+  </AnimatePresence>
+</div>
+```
+
+---
+
+## 🛡️ REGLA DE DATA RESILIENCE (v2.9)
+
+**"La capa de datos debe prever la ausencia de metadatos externos mediante inyección local"**
+
+### Problema Detectado (Miopía de Datos)
+Los tests pasan con datos perfectos (topics enriquecidos localmente) pero fallan en producción cuando la API de GitHub no devuelve todos los metadatos (ej: topics vacíos, campos null).
+
+### Solución Obligatoria
+**LA CAPA DE DATOS DEBE INJETAR VALORES POR DEFECTO**:
+- Si GitHub API devuelve topics vacíos → inyectar topics heredados del repositorio
+- Si un campo es null → usar fallbacks locales (ej: language, description)
+- Los tests deben usar datos REALISTAS (no perfectos):
+  ```typescript
+  // ❌ DATOS PERFECTOS (fallan en producción)
+  const testData = { topics: ['react', 'node'] }
+  
+  // ✅ DATOS RESILIENTES (sobreviven a la realidad)
+  const testData = { 
+    topics: [], 
+    language: 'TypeScript',
+    description: 'A sample repository'
+  }
+  ```
+
+### Patrón Implementado
+**Enriquecimiento Local**:
+1. Intentar obtener datos de API externa
+2. Si falla o está vacío → inyectar desde datos locales
+3. Validar que el resultado final tenga mínimos requeridos
 
 ---
 
@@ -239,6 +306,10 @@ ref/ID--desc            # Refactorización
 - **Tarea**: Issue #1 — IMPLEMENTACIÓN: UI Galería, Skeletons y Paginación Brutalista. **Scope**: IMPLEMENTACIÓN. **Duración**: 45 min.
 - **Tarea**: Resolución de Conflictos y Consolidación v2.7. **Scope**: GESTIÓN. **Duración**: 15 min. **Notas**: Fallo de integridad resuelto mediante restauración de development y blindaje de protocolo.
 - **Tarea**: Auditoría Integral y Deuda Cero (Issue #2). **Scope**: GESTIÓN/IMPLEMENTACIÓN. **Duración**: 60 min. **Notas**: Corrección crítica de desastres del agente anterior. Implementación de *Casting Absoluto* para Framer Motion + React 19, purga de Tailwind arbitrario, limpieza de código muerto, restauración de utilidades mutiladas y blindaje de lint (`tsc && eslint`).
+
+#### 16 de abril de 2026
+- **Tarea**: Issue #2 — IMPLEMENTACIÓN: Suite de tests regresión. **Scope**: IMPLEMENTACIÓN. **Duración**: 90 min. **Notas**: 8 tests passing, API obsoleta corregida (activeTopic → activeTopics).
+- **Tarea**: Persistencia en Memoria (Engram). **Scope**: GESTIÓN. **Duración**: 2 min.
 
 ---
 

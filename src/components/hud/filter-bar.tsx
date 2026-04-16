@@ -82,6 +82,7 @@ interface FilterBarProps {
   onClear: () => void;
   filteredCount: number;
   totalCount: number;
+  _test_forceShowSuggestions?: boolean; // Prop exclusiva para tests
 }
 
 export function FilterBar({
@@ -92,14 +93,19 @@ export function FilterBar({
   onSearchChange,
   onClear,
   filteredCount,
-  totalCount
+  totalCount,
+  _test_forceShowSuggestions = false
 }: FilterBarProps) {
-  const [showSuggestions, setShowSuggestions] = useState(false);
+  const [showSuggestions, setShowSuggestions] = useState(_test_forceShowSuggestions);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const containerRef = useRef<HTMLDivElement>(null);
   const isAnyFilterActive = activeTopics.length > 0 || searchQuery.length > 0;
 
-  // 01. Sugerencias basadas en availableTopics (Lógica OR)
+  // Sincronizar prop de test si cambia
+  useEffect(() => {
+    if (_test_forceShowSuggestions) setShowSuggestions(true);
+  }, [_test_forceShowSuggestions]);
+
   const suggestions = useMemo(() => {
     if (!searchQuery.trim() || searchQuery.length < 2) return [];
     return availableTopics
@@ -144,6 +150,8 @@ export function FilterBar({
     setShowSuggestions(false);
     setSelectedIndex(-1);
   };
+
+  const isDropdownVisible = showSuggestions && suggestions.length > 0;
 
   return (
     <div className="flex flex-col gap-6 w-full" ref={containerRef}>
@@ -202,7 +210,7 @@ export function FilterBar({
 
         {/* AUTOCOMPLETE DROPDOWN */}
         <AnimatePresence>
-          {showSuggestions && suggestions.length > 0 && (
+          {isDropdownVisible && (
             <MotionDiv
               initial={{ opacity: 0, y: -10 } as any}
               animate={{ opacity: 1, y: 0 } as any}

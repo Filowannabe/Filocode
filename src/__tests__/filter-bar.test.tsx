@@ -1,120 +1,93 @@
-import { describe, it, expect, vi } from 'vitest';
-import { render, screen, fireEvent } from '@testing-library/react';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { render, screen, waitFor, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { FilterBar } from '../components/hud/filter-bar';
 
-const mockTheme = {
-  bg: '#fbb03b',
-  text: '#000000',
-  activeBg: '#fbb03b',
-  activeText: '#000000',
-  border: '#fbb03b'
-};
+/**
+ * Mock de framer-motion para desactivar animaciones en tests.
+ */
+vi.mock('framer-motion', async (importOriginal) => {
+  const actual = await importOriginal() as any;
+  return {
+    ...actual,
+    motion: {
+      ...actual.motion,
+      div: ({ children, ...props }: any) => <div {...props}>{children}</div>,
+      button: ({ children, ...props }: any) => <button {...props}>{children}</button>,
+      span: ({ children, ...props }: any) => <span {...props}>{children}</span>,
+    },
+    AnimatePresence: ({ children }: any) => <div data-testid="animate-presence-root">{children}</div>,
+  };
+});
 
-describe('FilterBar Component - SINGLE SELECT', () => {
-  it('debe renderizar con [ ALL ] como filtro inicial', () => {
-    const availableTopics = ['react', 'typescript', 'node'];
-    const setActiveTopic = vi.fn();
-    
-    const { rerender } = render(
-      <FilterBar 
-        availableTopics={availableTopics}
-        activeTopic={null}
-        onTopicChange={setActiveTopic}
-        theme={mockTheme}
-      />
-    );
-    
-    expect(screen.getByText('[ ALL ]')).toBeInTheDocument();
-    
-    // Simular click y re-render
-    fireEvent.click(screen.getByText('[ ALL ]'));
-    rerender(
-      <FilterBar 
-        availableTopics={availableTopics}
-        activeTopic={null}
-        onTopicChange={setActiveTopic}
-        theme={mockTheme}
-      />
-    );
-    
-    expect(screen.getByText('[ ALL ]')).toHaveAttribute('data-active', 'true');
+describe('FilterBar Component - ESCUDO DE REGRESIÓN v4.2', () => {
+  const mockOnTopicToggle = vi.fn();
+  const mockOnSearchChange = vi.fn();
+  const mockOnClear = vi.fn();
+
+  const defaultProps = {
+    searchQuery: "",
+    availableTopics: ['react', 'csharp', 'java', 'javascript'],
+    activeTopics: [],
+    onTopicToggle: mockOnTopicToggle,
+    onSearchChange: mockOnSearchChange,
+    onClear: mockOnClear,
+    filteredCount: 31,
+    totalCount: 31
+  };
+
+  beforeEach(() => {
+    vi.clearAllMocks();
   });
 
-  it('debe mostrar el topic activo al hacer click en [ ALL ]', () => {
-    const availableTopics = ['react', 'typescript', 'node'];
-    const setActiveTopic = vi.fn();
-    
-    const { rerender } = render(
-      <FilterBar 
-        availableTopics={availableTopics}
-        activeTopic={null}
-        onTopicChange={setActiveTopic}
-        theme={mockTheme}
-      />
-    );
-    
-    const allButton = screen.getByText('[ ALL ]');
-    fireEvent.click(allButton);
-    
-    // Re-render con el nuevo estado
-    rerender(
-      <FilterBar 
-        availableTopics={availableTopics}
-        activeTopic={null}
-        onTopicChange={setActiveTopic}
-        theme={mockTheme}
-      />
-    );
-    
-    expect(allButton).toHaveAttribute('data-active', 'true');
+  /**
+   * FASE 1: INTEGRIDAD ESTRUCTURAL
+   */
+  it('debe garantizar la presencia del Command Bar y el buscador', () => {
+    render(<FilterBar {...defaultProps} />);
+    const input = screen.getByPlaceholderText(/BUSCAR PROYECTO/i);
+    expect(input).toBeInTheDocument();
   });
 
-  it('debe mostrar el topic seleccionado al hacer click en un topic', async () => {
-    const availableTopics = ['react', 'typescript', 'node'];
-    const setActiveTopic = vi.fn();
+  /**
+   * FASE 2: AUTOCOMPLETADO Y TECLADO
+   */
+  it('debe mostrar el dropdown de sugerencias cuando se fuerza su visibilidad', async () => {
+    render(<FilterBar {...defaultProps} searchQuery="ja" _test_forceShowSuggestions={true} />);
     
-    const { rerender } = render(
-      <FilterBar 
-        availableTopics={availableTopics}
-        activeTopic={null}
-        onTopicChange={setActiveTopic}
-        theme={mockTheme}
-      />
-    );
+    expect(screen.getByText(/Sugerencias_Filtro/i)).toBeInTheDocument();
     
-    const reactButton = screen.getByText('[ react ]');
-    fireEvent.click(reactButton);
-    
-    // Re-render con el nuevo estado
-    rerender(
-      <FilterBar 
-        availableTopics={availableTopics}
-        activeTopic='react'
-        onTopicChange={setActiveTopic}
-        theme={mockTheme}
-      />
-    );
-    
-    expect(reactButton).toHaveAttribute('data-active', 'true');
-    const allButton = screen.getByText('[ ALL ]');
-    expect(allButton).not.toHaveAttribute('data-active', 'true');
+    // Usamos getAllByText y verificamos que al menos uno contenga el texto (desambiguación manual)
+    const javaElements = screen.getAllByText(/Java/i);
+    expect(javaElements.length).toBeGreaterThan(0);
   });
 
-  it('debe mostrar todos los topics disponibles', () => {
-    const availableTopics = ['react', 'typescript', 'node'];
-    const setActiveTopic = vi.fn();
+  it('debe permitir seleccionar una sugerencia con el teclado', async () => {
+    const user = userEvent.setup();
+    render(<FilterBar {...defaultProps} searchQuery="ja" _test_forceShowSuggestions={true} />);
     
-    render(
-      <FilterBar 
-        availableTopics={availableTopics}
-        activeTopic={null}
-        onTopicChange={setActiveTopic}
-        theme={mockTheme}
-      />
-    );
+    const input = screen.getByPlaceholderText(/BUSCAR PROYECTO/i);
+    await user.click(input); // Asegurar foco activo
+
+    // Navegar: ArrowDown (selecciona la primera sugerencia, que es java) -> Enter
+    await user.keyboard('{ArrowDown}');
+    await user.keyboard('{Enter}');
+
+    // Verificamos que se llamó a la función con el valor 'java' (normalizado)
+    expect(mockOnTopicToggle).toHaveBeenCalledWith('java');
+  });
+
+  /**
+   * FASE 3: INTERACCIÓN DE FILTROS
+   */
+  it('debe llamar a onTopicToggle al hacer click en un tag', async () => {
+    const user = userEvent.setup();
+    render(<FilterBar {...defaultProps} availableTopics={['react']} />);
     
-    expect(screen.getByText('[ react ]')).toBeInTheDocument();
-    expect(screen.getByText('[ typescript ]')).toBeInTheDocument();
-    expect(screen.getByText('[ node ]')).toBeInTheDocument();
+    const tag = screen.getByText('React').closest('button');
+    await user.click(tag!);
+    
+    expect(mockOnTopicToggle).toHaveBeenCalledWith('react');
   });
 });
+
