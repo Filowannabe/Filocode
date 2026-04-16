@@ -1,53 +1,31 @@
-/**
- * GitHub API Service - Capa de datos para la integración con repositorios.
- * Implementa ISR (revalidate) para optimizar el rendimiento y evitar Rate Limits.
- */
-
-export interface GitHubRepo {
-  id: number;
-  name: string;
-  description: string | null;
-  html_url: string;
-  language: string | null;
-  stargazers_count: number;
-}
+import { fetchRepositoriosGitHub } from "@/services/githubApi";
+import { GitHubRepository } from "@/types/repositorio";
 
 /**
- * Obtiene los repositorios más recientes del usuario configurado.
- * @returns Array de GitHubRepo o array vacío en caso de error o falta de credenciales.
+ * Obtiene los repositorios del usuario configurado.
+ * Utiliza el motor robusto de fetch con resiliencia integrada.
+ * @returns Array de GitHubRepository (hasta 100 items por llamada según Issue #1).
  */
-export async function getTopRepos(): Promise<GitHubRepo[]> {
-  const username = process.env.GITHUB_USERNAME;
-  const token = process.env.GITHUB_TOKEN;
-
-  // Validación preventiva de variables de entorno
-  if (!username || !token) {
-    console.error("[GITHUB_SERVICE] Missing credentials: GITHUB_USERNAME or GITHUB_TOKEN");
-    return [];
-  }
-
+export async function getTopRepos(): Promise<GitHubRepository[]> {
+  const username = process.env.GITHUB_USERNAME || 'Filowannabe';
+  
   try {
-    const response = await fetch(
-      `https://api.github.com/users/${username}/repos?sort=updated&per_page=6`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-          Accept: "application/vnd.github.v3+json",
-        },
-        // ISR: Revalidación cada hora (3600 segundos)
-        next: { revalidate: 3600 },
+    // FETCH MASIVO: Traemos hasta 100 items en una sola llamada (Requisito Issue #1).
+    // La UI (ProjectGallery) se encargará de paginarlos visualmente de a 6.
+    const repos = await fetchRepositoriosGitHub(username, 100);
+    
+    // ORDENAMIENTO (Issue #1 Small Change):
+    // Priorizamos primero por estrellas y luego por watchers (descendente).
+    const sortedRepos = repos.sort((a, b) => {
+      if (b.stargazers_count !== a.stargazers_count) {
+        return b.stargazers_count - a.stargazers_count;
       }
-    );
+      return b.watchers_count - a.watchers_count;
+    });
 
-    if (!response.ok) {
-      throw new Error(`GitHub API responded with status: ${response.status}`);
-    }
-
-    const data = (await response.json()) as GitHubRepo[];
-    return data;
+    return sortedRepos;
   } catch (error) {
-    console.error("[GITHUB_SERVICE] Fetch failed:", error);
-    // Retornamos array vacío para evitar que la página falle en runtime/build
+    console.error("[GITHUB_LIB] Error recuperando repositorios destacados:", error);
     return [];
   }
 }

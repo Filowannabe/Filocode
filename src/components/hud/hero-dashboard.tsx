@@ -25,7 +25,7 @@ export function HeroDashboard({ className, delay }: HeroDashboardProps) {
           <h1 className="text-6xl font-bold tracking-tight md:text-7xl">
             FILOCODE
           </h1>
-          <p className="text-xs font-medium tracking-widest text-[var(--color-primary)]/80 uppercase">
+          <p className="text-xs font-medium tracking-widest text-(--color-primary)/80 uppercase">
             Senior Software Engineer | 5 Years Experience
           </p>
         </div>

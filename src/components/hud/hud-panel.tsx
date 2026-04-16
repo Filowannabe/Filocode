@@ -26,7 +26,7 @@ export function HudPanel({ children, className, delay = 0 }: HudPanelProps) {
       }}
       className={cn(
         "relative overflow-hidden rounded-sm border border-white/5 bg-black/40 backdrop-blur-md transition-all duration-300",
-        "hover:border-[var(--color-primary)]/50 hover:bg-black/60",
+        "hover:border-(--color-primary)/50 hover:bg-black/60",
         className
       )}
     >

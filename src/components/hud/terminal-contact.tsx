@@ -24,7 +24,7 @@ export function TerminalContact({ className }: TerminalContactProps) {
           aria-label="Iniciar transmisión de correo electrónico"
           className={cn(
             "inline-block border border-[var(--color-primary)] px-4 py-2 font-mono text-sm font-bold uppercase tracking-wider text-[var(--color-primary)]",
-            "transition-all duration-300 hover:bg-[var(--color-primary)] hover:text-black active:scale-95",
+            "transition-all duration-300 hover:bg-(--color-primary) hover:text-black active:scale-95",
             "focus-visible:ring-2 focus-visible:ring-[var(--color-primary)] focus-visible:outline-none"
           )}
         >
