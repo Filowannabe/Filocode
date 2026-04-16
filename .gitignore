@@ -36,6 +36,17 @@ yarn-error.log*
 # vercel
 .vercel
 
+# visual artifacts
+*.png
+*.jpg
+*.jpeg
+*-screenshot.png
+*-snapshot.png
+page-snapshot.png
+page-screenshot.png
+integration-screenshot.png
+integration-filter-screenshot.png
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts

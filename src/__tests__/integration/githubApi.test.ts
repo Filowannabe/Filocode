@@ -12,7 +12,7 @@ describe('githubApi - fetchRepositoriosGitHub', () => {
 
   beforeEach(() => {
     mockFetch = vi.fn(() => Promise.resolve({} as unknown as Response));
-    globalThis.fetch = mockFetch;
+    globalThis.fetch = mockFetch as unknown as typeof fetch;
     // Limpiar archivos
     try { fs.unlinkSync(path.join(process.cwd(), '.github-api-state.json')); } catch {}
     try { fs.unlinkSync(path.join(process.cwd(), '.github-api-logs.json')); } catch {}

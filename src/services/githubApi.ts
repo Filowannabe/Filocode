@@ -66,7 +66,8 @@ async function logAudit(owner: string, action: string, details: Record<string, u
 }
 
 /**
- * Fetch masivo de repositorios de GitHub (Issue #1 - COMPLIANCE VERSION v3.3)
+ * Fetch masivo de repositorios de GitHub (Issue #1 - COMPLIANCE VERSION v3.4)
+ * v3.4: Agregado header mercy-preview para asegurar recuperación de topics.
  */
 export async function fetchRepositoriosGitHub(
   owner: string,
@@ -80,10 +81,13 @@ export async function fetchRepositoriosGitHub(
   const allRepos: GitHubRepository[] = [];
   const storage = await getStorage();
   
+  // Headers optimizados para topics
+  const headers = { 
+    'Accept': 'application/vnd.github.mercy-preview+json' 
+  };
+  
   if (specificPage) {
-    const response = await fetch(`${url}&page=${specificPage}`, {
-      headers: { 'Accept': 'application/vnd.github.v3+json' },
-    });
+    const response = await fetch(`${url}&page=${specificPage}`, { headers });
     if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
     const data = (await response.json()) as GitHubRawRepo[];
     if (!Array.isArray(data)) return [];
@@ -116,9 +120,7 @@ export async function fetchRepositoriosGitHub(
     if (totalFetched > 0) await new Promise(resolve => setTimeout(resolve, 1000));
 
     while (attempt < DEFAULT_RETRY_CONFIG.maxAttempts) {
-      response = await fetch(`${url}&page=${currentPage}`, {
-        headers: { 'Accept': 'application/vnd.github.v3+json' },
-      });
+      response = await fetch(`${url}&page=${currentPage}`, { headers });
       if (response.ok) break;
       if (response.status === 403 || response.status === 429) {
         attempt++;

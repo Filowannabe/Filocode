@@ -1,47 +1,52 @@
 import { cn } from "@/lib/utils";
 
 /**
- * ProjectSkeleton - Reflejando EXACTAMENTE la estructura de ProjectCard v6.
- * Mismo padding, redondeado y negro profundo (#020202).
+ * ProjectSkeleton PRO-MAX v21 (Espejo Pixel-Perfect)
+ * Refleja EXACTAMENTE la estructura de ProjectCard v20.
+ * Mismo padding (p-7), redondeado (rounded-2xl) y layout.
  */
 export function ProjectSkeleton() {
   return (
     <div className={cn(
         "group relative flex flex-col justify-between h-full min-h-[300px] p-[1px] rounded-2xl overflow-hidden",
-        "bg-(--color-primary)/10 shadow-lg animate-pulse"
+        "bg-primary/10 shadow-lg animate-pulse"
       )}>
       <div className="relative z-10 flex flex-col justify-between h-full bg-[#020202] rounded-[15px] p-7">
         
-        {/* Header Skeleton */}
-        <div className="flex items-start justify-between gap-4 mb-5">
-          <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 shrink-0" />
-          <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 shrink-0" />
-        </div>
+        {/* Glow Skeleton */}
+        <div className="absolute -top-20 -right-20 w-48 h-48 bg-primary/5 rounded-full blur-[60px] pointer-events-none" />
 
-        {/* Title & Description Skeleton */}
-        <div className="flex-grow flex flex-col justify-start mb-6 gap-4">
-          <div className="h-6 w-3/4 bg-white/10 rounded-sm" />
-          <div className="space-y-2">
-            <div className="h-3 w-full bg-white/5 rounded-sm" />
-            <div className="h-3 w-5/6 bg-white/5 rounded-sm" />
-            <div className="h-3 w-4/6 bg-white/5 rounded-sm" />
+        <div className="relative z-10 flex flex-col h-full">
+          {/* Header Skeleton */}
+          <div className="flex items-start justify-between gap-4 mb-5">
+            <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/10 shrink-0" />
+            <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 shrink-0" />
           </div>
-        </div>
 
-        {/* Topics Skeleton */}
-        <div className="flex flex-wrap gap-2 mb-6">
-          <div className="h-6 w-16 bg-(--color-primary)/10 rounded-full border border-(--color-primary)/20" />
-          <div className="h-6 w-20 bg-(--color-primary)/10 rounded-full border border-(--color-primary)/20" />
-          <div className="h-6 w-12 bg-(--color-primary)/10 rounded-full border border-(--color-primary)/20" />
-        </div>
-
-        {/* Footer Skeleton */}
-        <div className="flex items-center justify-between pt-5 border-t border-white/10">
-          <div className="flex items-center gap-5">
-            <div className="w-10 h-4 bg-white/10 rounded-sm" />
-            <div className="w-10 h-4 bg-white/10 rounded-sm" />
+          {/* Title & Description Skeleton */}
+          <div className="grow flex flex-col justify-start mb-6 gap-4">
+            <div className="h-6 w-3/4 bg-white/10 rounded-sm" />
+            <div className="space-y-2">
+              <div className="h-3 w-full bg-white/5 rounded-sm" />
+              <div className="h-3 w-5/6 bg-white/5 rounded-sm" />
+              <div className="h-3 w-4/6 bg-white/5 rounded-sm" />
+            </div>
           </div>
-          <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/10" />
+
+          {/* Topics Skeleton - Pills Style */}
+          <div className="flex flex-wrap gap-2 mb-6">
+            <div className="h-6 w-16 bg-primary/5 rounded-full border border-white/5" />
+            <div className="h-6 w-20 bg-primary/5 rounded-full border-white/5" />
+          </div>
+
+          {/* Footer Skeleton */}
+          <div className="flex items-center justify-between pt-5 border-t border-white/10">
+            <div className="flex items-center gap-5">
+              <div className="w-12 h-4 bg-white/5 rounded-sm" />
+              <div className="w-12 h-4 bg-white/5 rounded-sm" />
+            </div>
+            <div className="w-9 h-9 rounded-xl bg-white/5 border border-white/10" />
+          </div>
         </div>
       </div>
     </div>
@@ -50,7 +55,7 @@ export function ProjectSkeleton() {
 
 /**
  * GallerySkeleton - Estructura espejo de ProjectSection.tsx.
- * Elimina duplicidad de márgenes para evitar el "margin top raro".
+ * v21: Restaurado header de carga para evitar saltos visuales.
  */
 export function GallerySkeleton() {
   return (

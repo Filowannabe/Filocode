@@ -1,9 +1,7 @@
 import { HeroDashboard } from "@/components/hud/hero-dashboard";
 import { StatsBar } from "@/components/hud/stats-bar";
 import { SkillsPanel } from "@/components/hud/skills-panel";
-import { Suspense } from "react";
 import { ProjectSection } from "@/components/hud/project-section";
-import { GallerySkeleton } from "@/components/hud/project-skeleton";
 
 /**
  * Home Page - Server Component con Streaming UI.
@@ -23,12 +21,9 @@ export default function Home() {
         {/* STATS BAR - Delay 0.3 */}
         <StatsBar className="md:col-span-12 mt-4" delay={0.3} />
 
-        {/* SECCIÓN DE PROYECTOS - Inyectada vía Server Component + Suspense (Issue #1 Compliance) */}
+        {/* SECCIÓN DE PROYECTOS - Client Component con Fetch (Issue #1 Compliance) */}
         <div className="md:col-span-12 mt-16 space-y-8">
-          {/* Skeletons de carga asíncrona */}
-          <Suspense fallback={<GallerySkeleton />}>
-            <ProjectSection />
-          </Suspense>
+          <ProjectSection />
         </div>
 
       </div>

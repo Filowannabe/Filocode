@@ -23,9 +23,11 @@
     }
   },
   "include": [
+    "vitest.d.ts",
     "next-env.d.ts",
     "**/*.ts",
     "**/*.tsx",
+    "src/components/setup.ts",
     ".next/types/**/*.ts",
     ".next/dev/types/**/*.ts",
     "**/*.mts"
