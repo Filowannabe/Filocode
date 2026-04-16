@@ -1,149 +1,107 @@
-import { describe, it, expect } from 'vitest';
+import { describe, it, expect, beforeEach, vi } from 'vitest';
 import { renderHook, act } from '@testing-library/react';
 import { GitHubRepository } from '../types/repositorio';
 import { TopicsProvider, useTopics } from '../contexts/use-topics';
 
-function createMockRepo(id: number, name: string, topics: string[]): GitHubRepository {
+function createMockRepo(id: number, name: string, topics: string[], description: string = ''): GitHubRepository {
   return {
     id,
     name,
     full_name: `user/${name.toLowerCase().replace(/\s+/g, '-')}`,
-    description: `A ${topics[0]} application`,
-    stargazers_count: Math.floor(Math.random() * 1000),
-    forks_count: Math.floor(Math.random() * 100),
+    description: description || `A ${topics[0]} application`,
+    stargazers_count: 10,
+    forks_count: 2,
     watchers_count: 0,
-    html_url: `https://github.com/user/${name.toLowerCase().replace(/\s+/g, '-')}`,
-    clone_url: `https://github.com/user/${name.toLowerCase().replace(/\s+/g, '-')}.git`,
+    html_url: `https://github.com/user/repo`,
+    clone_url: `https://github.com/user/repo.git`,
     topics,
   };
 }
 
-describe('useTopics Hook - SINGLE SELECT', () => {
-  it('debe iniciar con ALL (null) como estado por defecto', () => {
-    const mockRepos: GitHubRepository[] = [
-      createMockRepo(1, 'React App', ['react', 'ts']),
-      createMockRepo(2, 'Node App', ['node', 'ts']),
-    ];
+describe('useTopics Hook - MULTI SELECT & SEARCH', () => {
+  const mockRepos: GitHubRepository[] = [
+    createMockRepo(1, 'Alpha React', ['react', 'frontend'], 'UI component library'),
+    createMockRepo(2, 'Beta Node', ['node', 'backend'], 'API service'),
+    createMockRepo(3, 'Gamma Fullstack', ['react', 'node'], 'Complete solution'),
+  ];
 
-    const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <TopicsProvider repositories={mockRepos}>{children}</TopicsProvider>
-    );
+  const wrapper = ({ children }: { children: React.ReactNode }) => (
+    <TopicsProvider repositories={mockRepos}>{children}</TopicsProvider>
+  );
 
-    const { result } = renderHook(() => useTopics(), { wrapper });
-
-    expect(result.current.activeTopic).toBeNull();
+  beforeEach(() => {
+    localStorage.clear();
+    vi.useFakeTimers();
   });
 
-  it('debe retornar todos los repos si activeTopic es null (ALL)', () => {
-    const mockRepos: GitHubRepository[] = [
-      createMockRepo(1, 'React App', ['react', 'ts']),
-      createMockRepo(2, 'Node App', ['node', 'ts']),
-      createMockRepo(3, 'Vue App', ['vue', 'ts']),
-    ];
-
-    const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <TopicsProvider repositories={mockRepos}>{children}</TopicsProvider>
-    );
-
+  it('debe iniciar con filtros vacíos', () => {
     const { result } = renderHook(() => useTopics(), { wrapper });
-
-    expect(result.current.activeTopic).toBeNull();
+    expect(result.current.activeTopics).toEqual([]);
+    expect(result.current.searchQuery).toBe('');
     expect(result.current.filteredRepos).toHaveLength(3);
   });
 
-  it('debe filtrar solo repos con el topic seleccionado (SINGLE SELECT)', () => {
-    const mockRepos: GitHubRepository[] = [
-      createMockRepo(1, 'React + TS', ['react', 'ts']),
-      createMockRepo(2, 'Node + TS', ['node', 'ts']),
-      createMockRepo(3, 'React + Node', ['react', 'node']),
-      createMockRepo(4, 'Solo TS', ['ts']),
-    ];
-
-    const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <TopicsProvider repositories={mockRepos}>{children}</TopicsProvider>
-    );
-
+  it('debe permitir seleccionar múltiples topics (OR logic)', async () => {
     const { result } = renderHook(() => useTopics(), { wrapper });
-
-    expect(result.current.filteredRepos).toHaveLength(4);
-  });
-
-  it('debe persistir el filtro activo en localStorage', async () => {
-    const mockRepos: GitHubRepository[] = [
-      createMockRepo(1, 'React App', ['react', 'ts']),
-      createMockRepo(2, 'Node App', ['node', 'ts']),
-    ];
-
-    const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <TopicsProvider repositories={mockRepos}>{children}</TopicsProvider>
-    );
-
-    const { result } = renderHook(() => useTopics(), { wrapper });
+    
+    await act(async () => {
+      result.current.toggleTopic('frontend');
+    });
+    expect(result.current.filteredRepos).toHaveLength(1);
 
     await act(async () => {
-      result.current.setActiveTopic('react');
+      result.current.toggleTopic('backend');
+    });
+    // Alpha (frontend) + Beta (backend) = 2 repos
+    expect(result.current.filteredRepos).toHaveLength(2);
+  });
+
+  it('debe filtrar por búsqueda de texto tras debounce', async () => {
+    const { result } = renderHook(() => useTopics(), { wrapper });
+    
+    await act(async () => {
+      result.current.setSearchQuery('Complete');
+    });
+    
+    // Antes del debounce sigue habiendo 3
+    expect(result.current.filteredRepos).toHaveLength(3);
+
+    await act(async () => {
+      vi.advanceTimersByTime(300);
+    });
+    
+    expect(result.current.filteredRepos).toHaveLength(1);
+    expect(result.current.filteredRepos[0].id).toBe(3);
+  });
+
+  it('debe combinar topics y búsqueda con debounce', async () => {
+    const { result } = renderHook(() => useTopics(), { wrapper });
+    
+    await act(async () => {
+      result.current.toggleTopic('react'); // Repos 1 y 3 (Instantáneo)
+      result.current.setSearchQuery('UI'); // Repo 1 (Debounced)
     });
 
-    expect(result.current.activeTopic).toBe('react');
+    await act(async () => {
+      vi.advanceTimersByTime(300);
+    });
+    
+    expect(result.current.filteredRepos).toHaveLength(1);
+    expect(result.current.filteredRepos[0].id).toBe(1);
   });
 
-  it('debe resetear el filtro a ALL (null) al llamar clearFilter', async () => {
-    const mockRepos: GitHubRepository[] = [
-      createMockRepo(1, 'React App', ['react', 'ts']),
-      createMockRepo(2, 'Node App', ['node', 'ts']),
-    ];
-
-    const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <TopicsProvider repositories={mockRepos}>{children}</TopicsProvider>
-    );
-
+  it('debe limpiar todos los filtros al llamar clearFilter', async () => {
     const { result } = renderHook(() => useTopics(), { wrapper });
-
+    
     await act(async () => {
+      result.current.toggleTopic('react');
+      result.current.setSearchQuery('test');
+      vi.advanceTimersByTime(300);
       result.current.clearFilter();
     });
 
-    expect(result.current.activeTopic).toBeNull();
-  });
-
-  it('debe normalizar y activar el topic (ej: "React" → "react")', async () => {
-    const mockRepos: GitHubRepository[] = [
-      createMockRepo(1, 'React App', ['react', 'ts']),
-    ];
-
-    const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <TopicsProvider repositories={mockRepos}>{children}</TopicsProvider>
-    );
-
-    const { result } = renderHook(() => useTopics(), { wrapper });
-
-    await act(async () => {
-      result.current.toggleTopic('React');
-    });
-
-    expect(result.current.activeTopic).toBe('react');
-  });
-
-  it('debe deseleccionar el topic activo al volver a seleccionarlo (vuelve a ALL)', async () => {
-    const mockRepos: GitHubRepository[] = [
-      createMockRepo(1, 'React App', ['react', 'ts']),
-      createMockRepo(2, 'Node App', ['node', 'ts']),
-    ];
-
-    const wrapper = ({ children }: { children: React.ReactNode }) => (
-      <TopicsProvider repositories={mockRepos}>{children}</TopicsProvider>
-    );
-
-    const { result } = renderHook(() => useTopics(), { wrapper });
-
-    await act(async () => {
-      result.current.toggleTopic('React');
-    });
-    expect(result.current.activeTopic).toBe('react');
-
-    await act(async () => {
-      result.current.toggleTopic('React');
-    });
-    expect(result.current.activeTopic).toBeNull();
+    expect(result.current.activeTopics).toEqual([]);
+    expect(result.current.searchQuery).toBe('');
+    expect(result.current.filteredRepos).toHaveLength(3);
   });
 });

@@ -20,35 +20,39 @@ export function normalizeTopic(topic: string): string {
  * Retorna un array ordenado alfabéticamente para consistencia
  */
 export function getUniqueTopics(repos: GitHubRepository[]): string[] {
-  const topicSet = new Set<string>();
+  const allTopics = repos.flatMap(repo => repo.topics || []);
+  const normalizedTopics = allTopics.map(normalizeTopic);
+  const topicSet = new Set<string>(normalizedTopics);
   
-  repos.forEach(repo => {
-    repo.topics.forEach(topic => {
-      topicSet.add(normalizeTopic(topic));
-    });
-  });
-  
-  return Array.from(topicSet).sort();
+  return Array.from(topicSet).filter(Boolean).sort();
 }
 
 /**
- * Filtra repositorios por topics usando lógica de INTERSECCIÓN
- * Un repositorio debe tener TODOS los topics seleccionados para ser incluido
+ * Filtra repositorios por topics (lógica OR) y búsqueda por texto
+ * - Topics: Si tiene al menos uno de los seleccionados (OR)
+ * - Búsqueda: Si el texto está contenido en nombre o descripción
  */
-export function filterReposByTopics(
+export function filterRepos(
   repos: GitHubRepository[],
-  selectedTopics: string[]
+  selectedTopics: string[],
+  searchQuery: string = ''
 ): GitHubRepository[] {
-  if (selectedTopics.length === 0) {
-    return repos;
-  }
-
+  const normalizedQuery = searchQuery.toLowerCase().trim();
   const normalizedSelectedTopics = selectedTopics.map(normalizeTopic);
 
   return repos.filter(repo => {
-    const repoTopics = repo.topics.map(normalizeTopic);
-    
-    return normalizedSelectedTopics.every(topic => 
+    // 1. Filtro por Búsqueda (Texto)
+    const matchesSearch = normalizedQuery === '' || 
+      repo.name.toLowerCase().includes(normalizedQuery) || 
+      (repo.description && repo.description.toLowerCase().includes(normalizedQuery));
+
+    if (!matchesSearch) return false;
+
+    // 2. Filtro por Topics (Lógica OR)
+    if (normalizedSelectedTopics.length === 0) return true;
+
+    const repoTopics = (repo.topics || []).map(normalizeTopic);
+    return normalizedSelectedTopics.some(topic => 
       repoTopics.includes(topic)
     );
   });

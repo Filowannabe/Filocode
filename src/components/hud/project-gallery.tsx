@@ -12,13 +12,14 @@ const MotionDiv = motion.div as any;
 
 interface ProjectGalleryProps {
   initialRepos: GitHubRepository[];
+  searchQuery?: string;
 }
 
 /**
  * ProjectGallery - Galería con paginación técnica.
- * v23: Restaurado uso directo de motion para asegurar animaciones vivas.
+ * v24: Soporte para highlight de búsqueda.
  */
-export function ProjectGallery({ initialRepos }: ProjectGalleryProps) {
+export function ProjectGallery({ initialRepos, searchQuery = '' }: ProjectGalleryProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [isPaginating, setIsPaginating] = useState(false);
   const itemsPerPage = 6;
@@ -97,6 +98,7 @@ export function ProjectGallery({ initialRepos }: ProjectGalleryProps) {
                   key={`${repo.id}-${currentPage}`} 
                   repo={repo} 
                   delay={index * 0.03}
+                  searchQuery={searchQuery}
                 />
               ))}
             </MotionDiv>

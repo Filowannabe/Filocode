@@ -39,7 +39,15 @@ export function ProjectSection() {
 }
 
 function ProjectSectionContent({ initialReposCount }: { initialReposCount: number }) {
-  const { availableTopics, activeTopic, filteredRepos, setActiveTopic } = useTopics();
+  const { 
+    availableTopics, 
+    activeTopics, 
+    searchQuery,
+    filteredRepos, 
+    toggleTopic,
+    setSearchQuery,
+    clearFilter
+  } = useTopics();
 
   return (
     <div className="relative">
@@ -57,19 +65,20 @@ function ProjectSectionContent({ initialReposCount }: { initialReposCount: numbe
       <div className="mb-8">
         <FilterBar 
           availableTopics={availableTopics}
-          activeTopic={activeTopic}
-          onTopicChange={setActiveTopic}
-          theme={{
-            bg: 'bg-amber-500', // Agregado bg- prefix para clases de Tailwind
-            text: 'text-black',
-            activeBg: 'bg-amber-500',
-            activeText: 'text-black',
-            border: 'border-amber-500'
-          }}
+          activeTopics={activeTopics}
+          searchQuery={searchQuery}
+          onTopicToggle={toggleTopic}
+          onSearchChange={setSearchQuery}
+          onClear={clearFilter}
+          filteredCount={filteredRepos.length}
+          totalCount={initialReposCount}
         />
       </div>
       
-      <ProjectGallery initialRepos={filteredRepos} />
+      <ProjectGallery 
+        initialRepos={filteredRepos} 
+        searchQuery={searchQuery}
+      />
     </div>
   );
 }

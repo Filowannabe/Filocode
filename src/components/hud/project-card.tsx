@@ -13,14 +13,14 @@ const MotionButton = motion.button as any;
 interface ProjectCardProps {
   repo: GitHubRepository;
   delay?: number;
+  searchQuery?: string;
 }
 
 /**
- * ProjectCard PRO-MAX v28 (Limpieza de Motores de Iconos)
- * RESOLUCIÓN FINAL: Se eliminan motion.div de los iconos de stats.
- * Se usa DIV plano con clases CSS nativas para evitar el congelamiento de transform.
+ * ProjectCard PRO-MAX v29 (Highlight Ready)
+ * RESOLUCIÓN FINAL: Se añade motor de resaltado de texto para búsquedas.
  */
-export function ProjectCard({ repo, delay = 0 }: ProjectCardProps) {
+export function ProjectCard({ repo, delay = 0, searchQuery = '' }: ProjectCardProps) {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleClone = (e: React.MouseEvent) => {
@@ -31,6 +31,20 @@ export function ProjectCard({ repo, delay = 0 }: ProjectCardProps) {
       setIsCopied(true);
       setTimeout(() => setIsCopied(false), 2000);
     }
+  };
+
+  const highlightText = (text: string, query: string) => {
+    if (!query.trim()) return text;
+    const parts = text.split(new RegExp(`(${query})`, 'gi'));
+    return (
+      <>
+        {parts.map((part, i) => 
+          part.toLowerCase() === query.toLowerCase() 
+            ? <span key={i} className="bg-(--color-primary)/30 text-white font-bold px-0.5 rounded-sm">{part}</span> 
+            : part
+        )}
+      </>
+    );
   };
 
   return (
@@ -44,7 +58,7 @@ export function ProjectCard({ repo, delay = 0 }: ProjectCardProps) {
         "transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(251,191,36,0.2)]"
       )}
     >
-      {/* EL BORDE ANIMADO (CSS NATIVO) */}
+      {/* ... (borde animado y glow interior iguales) ... */}
       <div
         className="absolute -inset-[100%] z-0 w-[300%] h-[300%] origin-center opacity-40 group-hover:opacity-100 transition-opacity duration-500 animate-spin-slow"
         style={{
@@ -54,12 +68,10 @@ export function ProjectCard({ repo, delay = 0 }: ProjectCardProps) {
 
       <div className="relative z-10 flex flex-col justify-between h-full bg-[#020202] rounded-[15px] p-7">
         
-        {/* Glow interior (CSS NATIVO) */}
         <div className="absolute -top-20 -right-20 w-48 h-48 bg-(--color-primary) rounded-full blur-[60px] pointer-events-none animate-glow-pulse" />
 
         <div className="relative z-10 flex flex-col h-full">
           <div className="flex items-start justify-between gap-4 mb-5">
-            {/* Icono Levitante (CSS NATIVO) */}
             <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-(--color-primary)/10 border border-(--color-primary)/20 text-(--color-primary) shadow-[0_0_15px_rgba(251,191,36,0.1)] group-hover:bg-(--color-primary)/20 group-hover:scale-110 transition-all duration-300 shrink-0 animate-icon-levitate">
               <FolderGit2 size={24} strokeWidth={1.5} />
             </div>
@@ -77,12 +89,13 @@ export function ProjectCard({ repo, delay = 0 }: ProjectCardProps) {
 
           <div className="flex-grow flex flex-col justify-start mb-6">
             <h3 className="font-bold text-xl text-white/90 tracking-tight mb-3 group-hover:text-white transition-colors line-clamp-1 uppercase font-mono">
-              {repo.name}
+              {highlightText(repo.name, searchQuery)}
             </h3>
             <p className="text-sm text-white/50 leading-relaxed font-light line-clamp-3 font-mono">
-              {repo.description || "Explora la arquitectura técnica y el código fuente de este nodo directamente en GitHub."}
+              {highlightText(repo.description || "Explora la arquitectura técnica y el código fuente de este nodo directamente en GitHub.", searchQuery)}
             </p>
           </div>
+          {/* ... resto del componente igual ... */}
 
           <div className="flex flex-wrap gap-2 mb-6">
             {repo.topics.slice(0, 3).map((topic, i) => (

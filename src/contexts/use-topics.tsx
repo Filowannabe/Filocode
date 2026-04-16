@@ -1,13 +1,15 @@
 'use client';
 
 import React, { createContext, useContext, useState, useMemo, useCallback, useEffect } from 'react';
-import { normalizeTopic, getUniqueTopics, filterReposByTopics } from '@/utils/topics';
+import { normalizeTopic, getUniqueTopics, filterRepos } from '@/utils/topics';
 import { GitHubRepository } from '@/types/repositorio';
 
 interface TopicsContextType {
-  activeTopic: string | null;
-  setActiveTopic: (topic: string | null) => void;
+  activeTopics: string[];
+  setActiveTopics: (topics: string[]) => void;
   toggleTopic: (topic: string) => void;
+  searchQuery: string;
+  setSearchQuery: (query: string) => void;
   availableTopics: string[];
   filteredRepos: GitHubRepository[];
   isFiltered: boolean;
@@ -23,66 +25,88 @@ interface TopicsProviderProps {
 
 /**
  * TopicsProvider - Gestión de estado de arsenal.
- * Corregido para evitar warnings de persistencia y cierres de tipos.
+ * v2.2: Corrección Crítica - Topics Reales de GitHub únicamente.
  */
 export function TopicsProvider({ children, repositories }: TopicsProviderProps) {
+  // 01. Extraer ÚNICAMENTE topics reales de GitHub
   const allTopics = useMemo(() => getUniqueTopics(repositories), [repositories]);
 
-  const [activeTopic, setActiveTopicState] = useState<string | null>(() => {
-    if (typeof window === 'undefined') return null;
+  const [activeTopics, setActiveTopicsState] = useState<string[]>(() => {
+    if (typeof window === 'undefined') return [];
     try {
-      const saved = window.localStorage.getItem('activeTopic');
-      if (!saved) return null;
+      const saved = window.localStorage.getItem('activeTopics');
+      if (!saved) return [];
       const parsed = JSON.parse(saved);
-      return typeof parsed === 'string' ? parsed : null;
+      return Array.isArray(parsed) ? parsed : [];
     } catch {
-      return null;
+      return [];
     }
   });
+
+  const [searchQuery, setSearchQuery] = useState(() => {
+    if (typeof window === 'undefined') return '';
+    return window.localStorage.getItem('searchQuery') || '';
+  });
+
+  const [debouncedSearchQuery, setDebouncedSearchQuery] = useState(searchQuery);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setDebouncedSearchQuery(searchQuery);
+    }, 300);
+    return () => clearTimeout(timer);
+  }, [searchQuery]);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
     try {
-      if (activeTopic === null) {
-        localStorage.removeItem('activeTopic');
-      } else {
-        localStorage.setItem('activeTopic', JSON.stringify(activeTopic));
-      }
+      localStorage.setItem('activeTopics', JSON.stringify(activeTopics));
+      localStorage.setItem('searchQuery', searchQuery);
     } catch (error) {
       console.warn('Persistence error:', error);
     }
-  }, [activeTopic]);
+  }, [activeTopics, searchQuery]);
 
-  const setActiveTopic = useCallback((topic: string | null) => {
-    setActiveTopicState(topic);
+  const setActiveTopics = useCallback((topics: string[]) => {
+    setActiveTopicsState(topics);
   }, []);
 
   const clearFilter = useCallback(() => {
-    setActiveTopicState(null);
+    setActiveTopicsState([]);
+    setSearchQuery('');
     if (typeof window !== 'undefined') {
-      try { localStorage.removeItem('activeTopic'); } catch { /* ignore */ }
+      try { 
+        localStorage.removeItem('activeTopics');
+        localStorage.removeItem('searchQuery');
+      } catch { /* ignore */ }
     }
   }, []);
 
   const toggleTopic = useCallback((topic: string) => {
-    setActiveTopicState(prev => {
-      const normalizedTopic = normalizeTopic(topic);
-      return prev === normalizedTopic ? null : normalizedTopic;
-    });
+    const normalized = normalizeTopic(topic);
+    setActiveTopicsState(prev => 
+      prev.includes(normalized)
+        ? prev.filter(t => t !== normalized)
+        : [...prev, normalized]
+    );
   }, []);
 
   const filteredRepos = useMemo(() => {
-    return filterReposByTopics(repositories, activeTopic === null ? [] : [activeTopic]);
-  }, [repositories, activeTopic]);
+    return filterRepos(repositories, activeTopics, debouncedSearchQuery);
+  }, [repositories, activeTopics, debouncedSearchQuery]);
 
-  const isFiltered = useMemo(() => activeTopic !== null, [activeTopic]);
+  const isFiltered = useMemo(() => 
+    activeTopics.length > 0 || searchQuery.length > 0, 
+  [activeTopics, searchQuery]);
 
   return (
     <TopicsContext.Provider
       value={{
-        activeTopic,
-        setActiveTopic,
+        activeTopics,
+        setActiveTopics,
         toggleTopic,
+        searchQuery,
+        setSearchQuery,
         availableTopics: allTopics,
         filteredRepos,
         isFiltered,
