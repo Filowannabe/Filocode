@@ -6,6 +6,10 @@ export const alt = "Filocode Portfolio";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
+// REQUERIDO PARA NEXT.JS 16 EXPORT MODE
+export const dynamic = "force-static";
+export const revalidate = 604800; // 1 semana (cache estática)
+
 /**
  * Generador de OpenGraph Image (OG) mediante Satori.
  * Utiliza estilos en línea compatibles con Satori para el renderizado en el Edge.
