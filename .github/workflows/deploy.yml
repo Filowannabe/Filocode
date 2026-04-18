@@ -45,7 +45,7 @@ jobs:
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
     environment:
-      name: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
+      name: ${{ github.ref == 'refs/heads/master' && 'production' || (github.ref == 'refs/heads/staging' && 'staging') || 'none' }}
     
     outputs:
       url: ${{ steps.deploy.outputs.url }}
@@ -74,8 +74,8 @@ jobs:
       - name: Build Next.js (export)
         id: build
         run: |
-          NEXT_PUBLIC_ENV=${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }} \
-          NODE_ENV=production \
+          NEXT_PUBLIC_ENV=${{ github.ref == 'refs/heads/master' && 'production' || (github.ref == 'refs/heads/staging' && 'staging') || 'development' }} \
+          NODE_ENV=${{ github.ref == 'refs/heads/master' && 'production' || (github.ref == 'refs/heads/staging' && 'production') || 'development' }} \
           yarn build
           echo "Build completed successfully"
       
