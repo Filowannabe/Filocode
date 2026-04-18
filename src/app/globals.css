@@ -48,4 +48,9 @@
     color: white;
     @apply antialiased;
   }
+  
+  ::selection {
+    background-color: var(--color-primary);
+    color: black;
+  }
 }

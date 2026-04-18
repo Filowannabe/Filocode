@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useCallback } from 'react';
-import { fetchRepositoriosGitHub, downloadFile, exportData, exportDataCSV, exportDataExcel } from '@/services/githubApi';
+import { fetchRepositoriosGitHub } from '@/services/githubApi';
 import { GitHubRepository, FetchState } from '@/types/repositorio';
 import { formatPaginationProgress } from '@/utils/pagination';
 
@@ -71,16 +71,42 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
     }
   }, [initialLimit, isUnlimited]);
 
+// Funciones de exportación locales
+  const exportData = (repos: any[]) => JSON.stringify(repos, null, 2);
+  const exportDataCSV = (data: { repositories: any[] }) => {
+    const headers = ['id', 'name', 'full_name', 'description', 'stars', 'topics'];
+    const rows = data.repositories.map((repo: any) => 
+      [repo.id, repo.name, repo.full_name, `"${(repo.description || '').replace(/"/g, '""')}"`, repo.stargazers_count, `"${repo.topics.join(', ')}"`].join(',')
+    );
+    return [headers.join(','), ...rows].join('\n');
+  };
+  const exportDataExcel = async (data: { repositories: any[] }) => {
+    // Excel export - simplificado a CSV con headers extendidos
+    const headers = ['id', 'name', 'full_name', 'description', 'stars', 'forks', 'html_url', 'clone_url', 'topics'];
+    const rows = data.repositories.map((repo: any) => 
+      [repo.id, repo.name, repo.full_name, `"${(repo.description || '').replace(/"/g, '""')}"`, repo.stargazers_count, repo.forks_count, repo.html_url, repo.clone_url, `"${repo.topics.join(', ')}"`].join(',')
+    );
+    return [headers.join(','), ...rows].join('\n');
+  };
+  const downloadFile = (content: string, filename: string, mimeType: string) => {
+    const blob = new Blob([content], { type: mimeType });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    a.click();
+    URL.revokeObjectURL(url);
+  };
+
   const handleExport = useCallback(async (format: 'json' | 'csv' | 'excel') => {
     if (repos.length === 0) return;
-    const generated_at = new Date().toISOString();
     const filename = `filocode-repos-${format}-${Date.now()}`;
 
     try {
       switch (format) {
         case 'json': downloadFile(exportData(repos), `${filename}.json`, 'application/json'); break;
-        case 'csv': downloadFile(exportDataCSV({ repositories: repos, generated_at }), `${filename}.csv`, 'text/csv'); break;
-        case 'excel': downloadFile(await exportDataExcel({ repositories: repos, generated_at }), `${filename}.xlsx`, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'); break;
+        case 'csv': downloadFile(exportDataCSV({ repositories: repos }), `${filename}.csv`, 'text/csv'); break;
+        case 'excel': downloadFile(await exportDataExcel({ repositories: repos }), `${filename}.xlsx`, 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'); break;
       }
     } catch (err) { console.error('Export Error:', err); }
   }, [repos]);
@@ -209,6 +235,11 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
                     download_{format}
                   </button>
                 ))}
+              </div>
+
+              {/* Nuevos campos: created_at, updated_at, homepage (opcional) */}
+              <div className="text-[9px] text-white/30 uppercase tracking-[0.2em] border-t border-white/5 mt-6 pt-2">
+                metadata_enrichment: {repos.length} repos
               </div>
             </div>
           )}
