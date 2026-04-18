@@ -1,4 +1,4 @@
-import { GitHubRepository, FetchState } from '../types/repositorio';
+import { GitHubRepository } from '../types/repositorio';
 
 /**
  * Allow-list de tecnologías autorizadas (Consolidada y Expandida)
@@ -11,18 +11,21 @@ export const TECH_ALLOW_LIST = new Set([
 ]);
 
 interface GitHubRawRepo {
-  id: number;
-  name: string;
-  full_name: string;
-  description: string | null;
-  stargazers_count: number;
-  forks_count: number;
-  watchers_count: number;
-  html_url: string;
-  clone_url: string;
-  topics: string[] | null;
-  language: string | null;
-}
+   id: number;
+   name: string;
+   full_name: string;
+   description: string | null;
+   stargazers_count: number;
+   forks_count: number;
+   watchers_count: number;
+   html_url: string;
+   clone_url: string;
+   topics: string[] | null;
+   language: string | null;
+   created_at?: string; // ISO 8601 - Issue #3
+   updated_at?: string; // ISO 8601 - Issue #3
+   homepage?: string;   // URL de despliegue - Issue #3
+ }
 
 /**
  * Mapeo LIGERO y RESILIENTE v5.8
@@ -44,18 +47,21 @@ function mapGitHubRepo(repo: GitHubRawRepo): GitHubRepository {
   rawTopics.forEach(processTerm);
   if (repo.language) processTerm(repo.language);
 
-  return {
-    id: repo.id,
-    name: repo.name,
-    full_name: repo.full_name,
-    description: repo.description || '',
-    stargazers_count: repo.stargazers_count || 0,
-    forks_count: repo.forks_count || 0,
-    watchers_count: repo.watchers_count || 0,
-    html_url: repo.html_url,
-    clone_url: repo.clone_url,
-    topics: Array.from(normalizedTopics),
-  };
+return {
+     id: repo.id,
+     name: repo.name,
+     full_name: repo.full_name,
+     description: repo.description || '',
+     stargazers_count: repo.stargazers_count || 0,
+     forks_count: repo.forks_count || 0,
+     watchers_count: repo.watchers_count || 0,
+     html_url: repo.html_url,
+     clone_url: repo.clone_url,
+     topics: Array.from(normalizedTopics),
+     created_at: repo.created_at, // Issue #3
+     updated_at: repo.updated_at, // Issue #3
+     homepage: repo.homepage,    // Issue #3
+   };
 }
 
 /**

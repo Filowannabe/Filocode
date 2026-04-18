@@ -5,6 +5,8 @@ import { FolderGit2, Star, Eye, ExternalLink, Copy, Check } from "lucide-react";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import { LinkPreview } from "@/components/hud/link-preview";
+// Timeline eliminado - integrado como badge simple directamente
 
 const MotionDiv = motion.div as any;
 const MotionSpan = motion.span as any;
@@ -98,20 +100,44 @@ export function ProjectCard({ repo, delay = 0, searchQuery = '' }: ProjectCardPr
           {/* ... resto del componente igual ... */}
 
           <div className="flex flex-wrap gap-2 mb-6">
-            {repo.topics.slice(0, 3).map((topic, i) => (
-              <MotionSpan 
-                key={topic}
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: delay + 0.2 + (i * 0.1) }}
-                className="text-[10px] font-bold px-3 py-1 bg-(--color-primary)/5 text-(--color-primary) border border-(--color-primary)/20 uppercase tracking-widest rounded-full"
-              >
-                {topic}
-              </MotionSpan>
-            ))}
-          </div>
+             {repo.topics.slice(0, 3).map((topic, i) => (
+               <MotionSpan 
+                 key={topic}
+                 initial={{ opacity: 0, scale: 0.9 }}
+                 animate={{ opacity: 1, scale: 1 }}
+                 transition={{ delay: delay + 0.2 + (i * 0.1) }}
+                 className="text-[10px] font-bold px-3 py-1 bg-(--color-primary)/5 text-(--color-primary) border border-(--color-primary)/20 uppercase tracking-widest rounded-full"
+               >
+                 {topic}
+               </MotionSpan>
+             ))}
+           </div>
 
-          <div className="flex items-center justify-between pt-5 border-t border-white/10 group-hover:border-(--color-primary)/30 transition-colors duration-500">
+           {/* Metadatos del Sistema: Fechas y Enlaces */}
+            <div className="mt-6 pt-4">
+              {repo.created_at && (
+                <motion.div
+                  initial={{ opacity: 0, x: -10 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  className="flex items-center gap-2 mb-2"
+                >
+                  {/* Nodo ámbar simple - sin líneas */}
+                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[var(--color-primary)]" />
+                  
+                  {/* Texto con fecha completa para claridad */}
+                  <span className="text-[10px] text-white/40 font-mono uppercase">
+                    [ {new Date(repo.created_at).toLocaleString("es-ES", { month: "short", day: "2-digit", year: "numeric" })} ]
+                  </span>
+                </motion.div>
+              )}
+              {repo.homepage && (
+                <div className="mt-3">
+                  <LinkPreview url={repo.homepage} />
+                </div>
+              )}
+            </div>
+
+           <div className="flex items-center justify-between pt-5 border-t border-white/10 group-hover:border-(--color-primary)/30 transition-colors duration-500">
             <div className="flex items-center gap-5">
               {/* Star Icon con Wiggle CSS - SIN MOTION PARA EVITAR CONGELAMIENTO */}
               <div className="flex items-center gap-1.5 text-xs font-bold text-white/60 font-mono">
