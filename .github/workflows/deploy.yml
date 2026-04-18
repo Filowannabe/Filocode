@@ -79,6 +79,16 @@ jobs:
           yarn build
           echo "Build completed successfully"
       
+      - name: Check Build Output (Next.js 16 Export)
+        run: |
+          if [ ! -f "out/index.html" ]; then
+            echo "❌ Build failed: out/index.html not found"
+            ls -la out/
+            exit 1
+          fi
+          echo "✅ Build output validated: index.html found"
+          ls -la out/
+      
       - name: Check Build Output
         run: |
           if [ ! -d "out" ]; then
@@ -88,7 +98,6 @@ jobs:
           fi
           echo "✅ Build output directory exists"
           ls -la out/
-          ls -la out/app/
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
