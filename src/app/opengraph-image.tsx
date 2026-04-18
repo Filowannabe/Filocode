@@ -13,10 +13,9 @@ export const revalidate = 604800; // 1 semana (cache estática)
  * Nota: runtime: 'edge' es incompatible con dynamic: 'force-static'
  * Se usa default runtime (nodejs) para permitir static generation
  */
-
 /**
  * Generador de OpenGraph Image (OG) mediante Satori.
- * Utiliza estilos en línea compatibles con Satori para el renderizado en el Edge.
+ * Utiliza estilos en línea compatibles con Satori para el renderizado.
  */
 export default async function Image() {
   return new ImageResponse(
