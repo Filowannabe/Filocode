@@ -13,6 +13,12 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
+      - name: Configure Git for GitHub Actions
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Actions"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
+      
       - name: Enable Corepack
         run: corepack enable
       
@@ -36,11 +42,16 @@ jobs:
 
   Deploy:
     needs: CI
-    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
     runs-on: ubuntu-latest
     environment:
       name: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
-      url: ${{ steps.deploy.outputs.url }}
+    
+    steps:
+      - name: Configure Git for GitHub Actions
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Actions"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
     
     outputs:
       url: ${{ steps.deploy.outputs.url }}
@@ -61,10 +72,12 @@ jobs:
         run: yarn install
       
       - name: Build Next.js (export)
-        run: yarn build
-        env:
-          NEXT_PUBLIC_ENV: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
-          NODE_ENV: production
+        id: build
+        run: |
+          NEXT_PUBLIC_ENV=${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }} \
+          NODE_ENV=production \
+          yarn build
+          echo "Build completed successfully"
       
       - name: Check Build Output
         run: |
@@ -75,10 +88,20 @@ jobs:
           fi
           echo "✅ Build output directory exists"
           ls -la out/
+          ls -la out/app/
       
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
+        id: deploy
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: out
           keep_files: true
+      
+      - name: Output Deploy URL
+        run: |
+          if [[ ${{ github.ref }} == 'refs/heads/master' ]]; then
+            echo "🚀 Production deployed: https://filowannabe.github.io/Filocode/"
+          elif [[ ${{ github.ref }} == 'refs/heads/staging' ]]; then
+            echo "🚀 Staging deployed: https://filowannabe.github.io/Filocode/"
+          fi
