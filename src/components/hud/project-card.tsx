@@ -51,13 +51,19 @@ export function ProjectCard({ repo, delay = 0, searchQuery = '' }: ProjectCardPr
 
   return (
     <MotionDiv
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay, ease: "easeOut" }}
+      initial={{ opacity: 0, y: 40, scale: 0.95 }}
+      whileInView={{ opacity: 1, y: 0, scale: 1 }}
+      viewport={{ once: true, margin: "-50px" }}
+      transition={{ 
+        duration: 0.7, 
+        delay, 
+        ease: [0.23, 1, 0.32, 1] 
+      }}
+      whileHover={{ y: -8, transition: { duration: 0.3 } }}
       className={cn(
-        "group relative flex flex-col justify-between h-full min-h-[300px] p-[1px] rounded-2xl overflow-hidden",
-        "bg-(--color-primary)/10 shadow-2xl cursor-pointer",
-        "transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(251,191,36,0.2)]"
+        "group relative flex flex-col justify-between h-full min-h-[350px] p-[1px] rounded-lg overflow-hidden",
+        "bg-white/[0.03] shadow-2xl cursor-pointer transition-all duration-500",
+        "hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_30px_rgba(245,158,11,0.1)]"
       )}
     >
       {/* ... (borde animado y glow interior iguales) ... */}
