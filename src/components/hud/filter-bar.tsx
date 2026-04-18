@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useMemo, useRef, useEffect } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, Command, Terminal, FileCode2 } from 'lucide-react';
 import * as Si from 'react-icons/si';
@@ -98,7 +98,6 @@ export function FilterBar({
 }: FilterBarProps) {
   const [showSuggestions, setShowSuggestions] = useState(_test_forceShowSuggestions);
   const [selectedIndex, setSelectedIndex] = useState(-1);
-  const containerRef = useRef<HTMLDivElement>(null);
   const isAnyFilterActive = activeTopics.length > 0 || searchQuery.length > 0;
 
   // Sincronizar prop de test si cambia - useEffect dependiente (no llama a setState para evitar cascadas)
@@ -118,15 +117,14 @@ export function FilterBar({
   }, [searchQuery, availableTopics, activeTopics]);
 
   // 02. Manejo de cierre al hacer clic fuera
-  useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setShowSuggestions(false);
-      }
-    };
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
-  }, []);
+   useEffect(() => {
+     const handleClickOutside = (_event: MouseEvent) => {
+       // Eliminada: closure con ref que fallaba en export mode
+       setShowSuggestions(false);
+     };
+     document.addEventListener('mousedown', handleClickOutside);
+     return () => document.removeEventListener('mousedown', handleClickOutside);
+   }, []);
 
   // 03. Navegación por teclado
   const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -155,7 +153,7 @@ export function FilterBar({
   const isDropdownVisible = showSuggestions && suggestions.length > 0;
 
   return (
-    <div className="flex flex-col gap-6 w-full" ref={containerRef}>
+    <div className="flex flex-col gap-6 w-full">
       
       {/* 01. MAIN COMMAND BAR */}
       <div className="relative w-full border border-white/10 rounded-lg bg-[#050505] shadow-2xl min-h-[56px] md:h-14 overflow-visible">
