@@ -1,8 +1,8 @@
-# 🛡️ FILO PROTOCOL v2.8 — Protocolo de Autorización y Gestión Estructural
+# 🛡️ FILO PROTOCOL v2.9 — Protocolo de Autorización y Gestión Estructural
 
 > [!CAUTION]
 > ## 🚨 PRIMARY RULE: TRUNK ISOLATION MANDATE
-> **EL ASISTENTE TIENE ESTRICTAMENTE PROHIBIDO REALIZAR MERGES HACIA O PUSHES DIRECTOS A LAS RAMAS TRONCO (`development`, `main`, `master`, `production`) BAJO NINGUNA CIRCUNSTANCIA.**
+> **EL ASISTENTE TIENE ESTRICTAMENTE PROHIBIDO REALIZAR MERGES HACIA O PUSHES DIRECTOS A LAS RAMAS TRONCO (`development`, `main`, `master`) BAJO NINGUNA CIRCUNSTANCIA.**
 > 1. Cualquier instrucción de "merge" o "sincronización" se interpreta ÚNICAMENTE como traer cambios desde el tronco hacia la rama de trabajo (`git merge development` estando en `feat/*`).
 > 2. La integración final al tronco se realiza EXCLUSIVAMENTE mediante Pull Request manual por el humano.
 > 3. La violación de esta regla invalida la sesión actual y requiere revisión de seguridad.
@@ -11,7 +11,7 @@
 **Vigencia:** INDEFINIDA  
 **Autor:** Senior Engineering Assistant  
 **Estado:** ACTIVO Y VIGENTE  
-**Actualización:** INTEGRADO: Infraestructura Yarn 4 + Turbopack + **MANDATO CONTEXT7 MCP v2.6** + **GIT FLOW v2.4** + **REGLA DE AISLAMIENTO ABSOLUTO v2.7** + **REGLA DE DEUDA CERO v2.8** + **REGLA DE LAYOUT INTEGRITY v2.9** + **REGLA DE DATA RESILIENCE v2.9**
+**Actualización**: INTEGRADO: Infraestructura Yarn 4 + Turbopack + **MANDATO CONTEXT7 MCP v2.6** + **GIT FLOW v2.5** + **REGLA DE AISLAMIENTO ABSOLUTO v2.7** + **REGLA DE DEUDA CERO v2.8** + **REGLA DE LAYOUT INTEGRITY v2.9** + **REGLA DE DATA RESILIENCE v2.9** + **Simplificación de Arquitectura de Ramas v2.9** + **Version Bump 0.3.1**
 
 ---
 
@@ -210,12 +210,13 @@ El asistente debe verificar que el directorio existe (`ls -la`) antes de intenta
 
 ---
 
-## 📦 ESTRATEGIA DE BRANCHING Y FLUJO DE GIT (v2.4)
+## 📦 ESTRATEGIA DE BRANCHING Y FLUJO DE GIT (v2.5)
 
 **ESTRUCTURA DE TRONCOS (MASTER MAIN)**:
 ```
-master (main) → development → staging → production
+master (main) ← development ← staging
 ```
+> **NOTA**: El branch `production` ha sido **eliminado** como redundante (apuntaba a la misma producción que `master`).
 
 **NOMENCLATURA DE TRABAJO (Conventional Commits)**:
 ```bash
@@ -231,13 +232,12 @@ ref/ID--desc            # Refactorización
 |-------|--------------|---------------|------------|-------------|
 | **development** | ✅ Obligatorio | ✅ Requerido | ❌ Bloqueado | ✅ Mínimo 1 approval |
 | **staging** | ✅ Obligatorio | ✅ Requerido | ❌ Bloqueado | ✅ Mínimo 2 approvals |
-| **production** | ✅ Obligatorio | ✅ Requerido | ❌ Bloqueado | ✅ Mínimo 2 approvals + Manual |
 
 **FLUJO DE MERGE OBLIGATORIO**:
 1. **Trabajo**: Crear rama desde `development`
 2. **PR a development**: Merge tras revisión y checks
 3. **PR a staging**: Desde development tras QA
-4. **PR a production**: Desde staging tras release
+4. **Deployment**: `master` se actualiza automáticamente desde `staging`
 
 ---
 
