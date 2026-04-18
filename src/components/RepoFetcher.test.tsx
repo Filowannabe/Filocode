@@ -55,8 +55,8 @@ describe('RepoFetcher Component - Component Testing', () => {
       startButton.click();
     });
     
-    // Debug: verificar que fetch fue llamado
-    console.log('Fetch llamado:', fetchSpy.mock.calls.length);
+    // Debug: verificar que fetch fue llamado (comentar en producción)
+     // console.log('Fetch llamado:', fetchSpy.mock.calls.length);
     
     // La llamada a fetch debería resolverse inmediatamente gracias al mock
     await waitFor(() => {

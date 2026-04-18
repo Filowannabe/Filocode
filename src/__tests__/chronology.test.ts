@@ -8,7 +8,7 @@
 import { describe, test, expect } from 'vitest';
 import { formatDate, parseIsoDate, calculateDifference } from '@/utils/dateFormatter';
 import { validateUrl, classifyLinkType } from '@/utils/dateFormatter';
-import { sortRepositories, groupByMonth, Repository } from '@/utils/dateFormatter';
+// import { sortRepositories, groupByMonth, Repository } from '@/utils/dateFormatter'; // Funciones no usadas en tests
 
 describe('Cronología y Fechas', () => {
  describe('parseIsoDate - Parseo de fechas ISO 8601', () => {

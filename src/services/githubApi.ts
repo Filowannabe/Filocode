@@ -119,7 +119,7 @@ export async function deepScanRepository(
           const packageJson = JSON.parse(decoded);
           
           const dependencies = packageJson.dependencies || {};
-          Object.entries(dependencies).forEach(([pkg, version]) => {
+           Object.entries(dependencies).forEach(([pkg, _]) => {
             const clean = pkg.toLowerCase().trim();
             if (TECH_ALLOW_LIST.has(clean) && !topics.has(clean)) {
               topics.add(clean);

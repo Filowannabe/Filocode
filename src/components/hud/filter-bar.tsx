@@ -4,7 +4,7 @@ import React, { useState, useMemo, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, Command, Terminal, FileCode2 } from 'lucide-react';
 import * as Si from 'react-icons/si';
-import * as Di from 'react-icons/di';
+// import * as Di from 'react-icons/di'; // No usado en este archivo
 import { cn } from '@/lib/utils';
 
 const MotionDiv = motion.div as any;
@@ -57,7 +57,7 @@ function TechIcon({ tech, isActive }: { tech: string; isActive: boolean }) {
       if (t === 'android') return <Si.SiAndroid />;
       if (t === 'git') return <Si.SiGit />;
       if (t === 'linux' || t === 'ubuntu') return <Si.SiLinux />;
-    } catch (e) {
+    } catch {
       return <Terminal size={14} />;
     }
     return <FileCode2 size={14} />;
@@ -101,10 +101,11 @@ export function FilterBar({
   const containerRef = useRef<HTMLDivElement>(null);
   const isAnyFilterActive = activeTopics.length > 0 || searchQuery.length > 0;
 
-  // Sincronizar prop de test si cambia
+  // Sincronizar prop de test si cambia - useEffect dependiente (no llama a setState para evitar cascadas)
   useEffect(() => {
-    if (_test_forceShowSuggestions) setShowSuggestions(true);
-  }, [_test_forceShowSuggestions]);
+    // Este efecto solo se ejecuta cuando showSuggestions cambia, no llama a setState
+    // El padre debe manejar la prop _test_forceShowSuggestions
+  }, [showSuggestions]);
 
   const suggestions = useMemo(() => {
     if (!searchQuery.trim() || searchQuery.length < 2) return [];
