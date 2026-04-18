@@ -42,23 +42,22 @@ jobs:
 
   Deploy:
     needs: CI
+    if: github.event_name == 'push'
     runs-on: ubuntu-latest
     environment:
       name: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
-    if: github.event_name == 'push'
-    
-    steps:
-      - name: Configure Git for GitHub Actions
-        run: |
-          git config --global user.email "action@github.com"
-          git config --global user.name "GitHub Actions"
-          git config --global --add safe.directory "$GITHUB_WORKSPACE"
     
     outputs:
       url: ${{ steps.deploy.outputs.url }}
     
     steps:
       - uses: actions/checkout@v4
+      
+      - name: Configure Git for GitHub Actions
+        run: |
+          git config --global user.email "action@github.com"
+          git config --global user.name "GitHub Actions"
+          git config --global --add safe.directory "$GITHUB_WORKSPACE"
       
       - name: Enable Corepack
         run: corepack enable
