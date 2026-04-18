@@ -3,9 +3,17 @@ import type { NextConfig } from "next";
 const isDev = process.env.NODE_ENV === 'development';
 const isStaging = process.env.NEXT_PUBLIC_ENV === 'staging';
 
+// basePath condicional para GitHub Pages
+// Producción (master) va en la raíz del repositorio: /Filocode
+// Staging va en la subcarpeta: /Filocode/staging
+const getBasePath = () => {
+  if (isDev) return '';
+  if (isStaging) return '/Filocode/staging';
+  return '/Filocode';
+};
+
 const nextConfig: NextConfig = {
-  // basePath condicional: staging usa /staging, production y dev usan raíz
-  basePath: isStaging ? '/staging' : (isDev ? '' : ''),
+  basePath: getBasePath(),
   
   // Output estático para GitHub Pages
   output: process.env.NODE_ENV === 'production' ? 'export' : undefined,

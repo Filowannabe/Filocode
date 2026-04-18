@@ -99,6 +99,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: out
           keep_files: true
+          destination_dir: ${{ github.ref == 'refs/heads/staging' && 'staging' || '.' }}
       
       - name: Output Deploy URL
         run: |
