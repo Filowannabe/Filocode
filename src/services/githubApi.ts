@@ -58,16 +58,118 @@ function mapGitHubRepo(repo: GitHubRawRepo): GitHubRepository {
   };
 }
 
+/**
+ * Escanea los detalles del repo (languages + package.json) y extrae topics
+ * 
+ * ⚠️ ADVERTENCIA: Esta función es ÚNICAMENTE para scripts de background o cron jobs.
+ * NO debe usarse en fetch principal para evitar el problema N+1 QUERY.
+ * 
+ * @param repo - Repositorio a escanear
+ * @param fetchFn - Función custom de fetch (para testing)
+ */
+export async function deepScanRepository(
+  repo: GitHubRawRepo,
+  fetchFn: typeof fetch = fetch
+): Promise<string[]> {
+  const topics = new Set<string>(repo.topics || []);
+
+  try {
+    // 1. Obtener languages del repo
+    const repoParts = repo.full_name.split('/');
+    const languagesUrl = `https://api.github.com/repos/${repoParts[0]}/${repoParts[1]}/languages`;
+    const languagesRes = await fetchFn(languagesUrl, {
+      headers: { 'Accept': 'application/vnd.github+json' }
+    });
+    
+    if (languagesRes.ok) {
+      const languages = await languagesRes.json();
+      if (languages) {
+        Object.entries(languages).forEach(([lang, _]) => {
+          const clean = lang.toLowerCase().trim();
+          if (TECH_ALLOW_LIST.has(clean)) {
+            topics.add(clean);
+          }
+        });
+      }
+    }
+  } catch {
+    // Silencioso - no romper el flujo
+  }
+
+  try {
+    // 2. Obtener package.json
+    const repoParts = repo.full_name.split('/');
+    const contentsUrl = `https://api.github.com/repos/${repoParts[0]}/${repoParts[1]}/contents/package.json`;
+    const contentsRes = await fetchFn(contentsUrl, {
+      headers: { 'Accept': 'application/vnd.github+json' }
+    });
+    
+    if (contentsRes.ok) {
+      const contents = await contentsRes.json();
+      // El contenido viene en base64
+      if (contents.content) {
+        try {
+          const decoded = atob(contents.content);
+          const packageJson = JSON.parse(decoded);
+          
+          const dependencies = packageJson.dependencies || {};
+          Object.entries(dependencies).forEach(([pkg, version]) => {
+            const clean = pkg.toLowerCase().trim();
+            if (TECH_ALLOW_LIST.has(clean) && !topics.has(clean)) {
+              topics.add(clean);
+            }
+          });
+        } catch {
+          // Silencioso - no romper el flujo
+        }
+      }
+    }
+  } catch {
+    // Silencioso - no romper el flujo
+  }
+
+  return Array.from(topics);
+}
+
+/**
+ * Fetch masivo de repositorios (CERO peticiones adicionales)
+ * 
+ * ⚠️ IMPORTANTE: Solo usa los datos que vienen del endpoint principal.
+ * La inteligencia reside en el procesamiento del lado del cliente con TECH_ALLOW_LIST.
+ * 
+ * @param owner - Owner del usuario/org
+ * @param limit - Número máximo de repositorios (default: 100)
+ * @param onProgress - Callback opcional para progreso (fetched: cantidad obtenida, total: límite)
+ * @param fetchFn - Función custom de fetch (para testing, opcional)
+ */
 export async function fetchRepositoriosGitHub(
   owner: string,
-  limit: number = 100
+  limit: number = 100,
+  onProgress?: (fetched: number, total: number) => void,
+  fetchFn?: typeof fetch
 ): Promise<GitHubRepository[]> {
   const url = `https://api.github.com/users/${owner}/repos?per_page=100&sort=updated`;
   const headers = { 'Accept': 'application/vnd.github.mercy-preview+json' };
   
-  const response = await fetch(url, { headers });
+  const fetchToUse = fetchFn || fetch;
+  
+  // Reportar progreso inicial
+  if (onProgress) {
+    onProgress(0, limit);
+  }
+  
+  const response = await fetchToUse(url, { headers });
   if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
   
   const rawRepos = (await response.json()) as GitHubRawRepo[];
-  return rawRepos.slice(0, limit).map(mapGitHubRepo);
+  
+  // ✅ CERO peticiones adicionales - solo mapeo y filtrado
+  const result = rawRepos.slice(0, limit).map(mapGitHubRepo);
+  
+  // Reportar progreso final
+  if (onProgress) {
+    onProgress(limit, limit);
+  }
+  
+  return result;
 }
