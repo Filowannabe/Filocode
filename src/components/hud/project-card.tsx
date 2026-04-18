@@ -6,35 +6,51 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 
+const MotionDiv = motion.div as any;
+const MotionSpan = motion.span as any;
+const MotionButton = motion.button as any;
+
 interface ProjectCardProps {
   repo: GitHubRepository;
   delay?: number;
+  searchQuery?: string;
 }
 
 /**
- * ProjectCard PRO-MAX v6 (Fidelidad de Diseño)
- * Restaura el redondeado suave (rounded-2xl) aprobado por el Lead Architect.
- * Mantiene el contraste extremo (#020202) y la animación de bordes Aceternity.
+ * ProjectCard PRO-MAX v29 (Highlight Ready)
+ * RESOLUCIÓN FINAL: Se añade motor de resaltado de texto para búsquedas.
  */
-export function ProjectCard({ repo, delay = 0 }: ProjectCardProps) {
+export function ProjectCard({ repo, delay = 0, searchQuery = '' }: ProjectCardProps) {
   const [isCopied, setIsCopied] = useState(false);
 
   const handleClone = (e: React.MouseEvent) => {
     e.preventDefault();
     e.stopPropagation();
-    navigator.clipboard.writeText(repo.clone_url);
-    setIsCopied(true);
-    setTimeout(() => setIsCopied(false), 2000);
+    if (typeof navigator !== 'undefined' && navigator.clipboard) {
+      navigator.clipboard.writeText(repo.clone_url);
+      setIsCopied(true);
+      setTimeout(() => setIsCopied(false), 2000);
+    }
   };
 
-  const randomOffset = (repo.id % 5) * 0.5;
+  const highlightText = (text: string, query: string) => {
+    if (!query.trim()) return text;
+    const parts = text.split(new RegExp(`(${query})`, 'gi'));
+    return (
+      <>
+        {parts.map((part, i) => 
+          part.toLowerCase() === query.toLowerCase() 
+            ? <span key={i} className="bg-(--color-primary)/30 text-white font-bold px-0.5 rounded-sm">{part}</span> 
+            : part
+        )}
+      </>
+    );
+  };
 
   return (
-    <motion.div
-      layout
+    <MotionDiv
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, scale: 0.95 }}
       transition={{ duration: 0.5, delay, ease: "easeOut" }}
       className={cn(
         "group relative flex flex-col justify-between h-full min-h-[300px] p-[1px] rounded-2xl overflow-hidden",
@@ -42,36 +58,23 @@ export function ProjectCard({ repo, delay = 0 }: ProjectCardProps) {
         "transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_10px_40px_rgba(251,191,36,0.2)]"
       )}
     >
-      {/* EL BORDE ANIMADO PERMANENTE (Aceternity UI effect) */}
-      <motion.div
-        animate={{ rotate: 360 }}
-        transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-        className="absolute -inset-[100%] z-0 w-[300%] h-[300%] origin-center opacity-40 group-hover:opacity-100 transition-opacity duration-500"
+      {/* ... (borde animado y glow interior iguales) ... */}
+      <div
+        className="absolute -inset-[100%] z-0 w-[300%] h-[300%] origin-center opacity-40 group-hover:opacity-100 transition-opacity duration-500 animate-spin-slow"
         style={{
           background: "conic-gradient(from 0deg, transparent 60%, var(--color-primary) 100%)",
         }}
       />
 
-      {/* CONTENIDO INTERIOR (Restaurado rounded-[15px] y Negro Profundo) */}
       <div className="relative z-10 flex flex-col justify-between h-full bg-[#020202] rounded-[15px] p-7">
         
-        {/* Glow de fondo interior respirando */}
-        <motion.div 
-          animate={{ opacity: [0.05, 0.12, 0.05], scale: [1, 1.1, 1] }}
-          transition={{ duration: 4 + randomOffset, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute -top-20 -right-20 w-48 h-48 bg-(--color-primary) rounded-full blur-[60px] pointer-events-none"
-        />
+        <div className="absolute -top-20 -right-20 w-48 h-48 bg-(--color-primary) rounded-full blur-[60px] pointer-events-none animate-glow-pulse" />
 
         <div className="relative z-10 flex flex-col h-full">
-          {/* Header: Icono Levitante y Enlace Externo */}
           <div className="flex items-start justify-between gap-4 mb-5">
-            <motion.div 
-              animate={{ y: [0, -3, 0] }}
-              transition={{ duration: 3 + randomOffset, repeat: Infinity, ease: "easeInOut" }}
-              className="flex items-center justify-center w-12 h-12 rounded-xl bg-(--color-primary)/10 border border-(--color-primary)/20 text-(--color-primary) shadow-[0_0_15px_rgba(251,191,36,0.1)] group-hover:bg-(--color-primary)/20 group-hover:scale-110 transition-all duration-300 shrink-0"
-            >
+            <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-(--color-primary)/10 border border-(--color-primary)/20 text-(--color-primary) shadow-[0_0_15px_rgba(251,191,36,0.1)] group-hover:bg-(--color-primary)/20 group-hover:scale-110 transition-all duration-300 shrink-0 animate-icon-levitate">
               <FolderGit2 size={24} strokeWidth={1.5} />
-            </motion.div>
+            </div>
             
             <a
               href={repo.html_url}
@@ -84,20 +87,19 @@ export function ProjectCard({ repo, delay = 0 }: ProjectCardProps) {
             </a>
           </div>
 
-          {/* Título y Descripción */}
           <div className="flex-grow flex flex-col justify-start mb-6">
             <h3 className="font-bold text-xl text-white/90 tracking-tight mb-3 group-hover:text-white transition-colors line-clamp-1 uppercase font-mono">
-              {repo.name}
+              {highlightText(repo.name, searchQuery)}
             </h3>
             <p className="text-sm text-white/50 leading-relaxed font-light line-clamp-3 font-mono">
-              {repo.description || "Explora la arquitectura técnica y el código fuente de este nodo directamente en GitHub."}
+              {highlightText(repo.description || "Explora la arquitectura técnica y el código fuente de este nodo directamente en GitHub.", searchQuery)}
             </p>
           </div>
+          {/* ... resto del componente igual ... */}
 
-          {/* Topics / Tags (Premium Pills) */}
           <div className="flex flex-wrap gap-2 mb-6">
             {repo.topics.slice(0, 3).map((topic, i) => (
-              <motion.span 
+              <MotionSpan 
                 key={topic}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -105,47 +107,29 @@ export function ProjectCard({ repo, delay = 0 }: ProjectCardProps) {
                 className="text-[10px] font-bold px-3 py-1 bg-(--color-primary)/5 text-(--color-primary) border border-(--color-primary)/20 uppercase tracking-widest rounded-full"
               >
                 {topic}
-              </motion.span>
+              </MotionSpan>
             ))}
           </div>
 
-          {/* Footer: KPIs y Clone Action */}
           <div className="flex items-center justify-between pt-5 border-t border-white/10 group-hover:border-(--color-primary)/30 transition-colors duration-500">
             <div className="flex items-center gap-5">
-              {/* Stars */}
-              <a 
-                href={`${repo.html_url}/stargazers`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-amber-400 transition-colors group/star font-mono"
-              >
-                <motion.div
-                  animate={{ rotate: [0, 10, -10, 0] }}
-                  transition={{ duration: 4, repeat: Infinity, ease: "easeInOut", delay: randomOffset }}
-                >
-                  <Star size={16} className="text-amber-500/70 group-hover/star:fill-amber-500/50 transition-all" />
-                </motion.div>
+              {/* Star Icon con Wiggle CSS - SIN MOTION PARA EVITAR CONGELAMIENTO */}
+              <div className="flex items-center gap-1.5 text-xs font-bold text-white/60 font-mono">
+                <div className="animate-wiggle">
+                  <Star size={16} className="text-amber-500/70" />
+                </div>
                 <span>{repo.stargazers_count}</span>
-              </a>
-              {/* Watchers */}
-              <a 
-                href={`${repo.html_url}/watchers`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center gap-1.5 text-xs font-bold text-white/60 hover:text-cyan-400 transition-colors group/eye font-mono"
-              >
-                <motion.div
-                  animate={{ scale: [1, 1.15, 1] }}
-                  transition={{ duration: 3, repeat: Infinity, ease: "easeInOut", delay: randomOffset }}
-                >
-                  <Eye size={16} className="text-cyan-500/70 group-hover/eye:fill-cyan-500/50 transition-all" />
-                </motion.div>
+              </div>
+              {/* Eye Icon con Pulse CSS - SIN MOTION PARA EVITAR CONGELAMIENTO */}
+              <div className="flex items-center gap-1.5 text-xs font-bold text-white/60 font-mono">
+                <div className="animate-soft-pulse">
+                  <Eye size={16} className="text-cyan-500/70" />
+                </div>
                 <span>{repo.watchers_count}</span>
-              </a>
+              </div>
             </div>
 
-            {/* Clone Button */}
-            <motion.button
+            <MotionButton
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
               onClick={handleClone}
@@ -158,10 +142,10 @@ export function ProjectCard({ repo, delay = 0 }: ProjectCardProps) {
               title={isCopied ? "URL copiada" : "Copiar URL (git clone)"}
             >
               {isCopied ? <Check size={16} /> : <Copy size={16} />}
-            </motion.button>
+            </MotionButton>
           </div>
         </div>
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }

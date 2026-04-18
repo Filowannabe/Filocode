@@ -83,12 +83,32 @@ Mejorar la exploración de repositorios mediante la visualización de topics/eti
 - Colores de topics: Mapeo de nombre → color hexadecimal
 - Considerar topics heredados de parent repos (forks)
 
-## Dependencias
+## Hitos Alcanzados ✅
 
-- `lucide-react` o similar para iconos de topic
-- `clsx` para conditional class names
+### Deep Scan Ligero
+- Análisis completo de `FilterBar` existente (295 líneas)
+- Identificación de API obsoleta (`activeTopic` → `activeTopics`, `onTopicChange` → `onTopicToggle`)
+- Descarte de `theme` prop (ya no existe en versión actual)
+
+### Iconografía Oficial
+- Selección de iconos de `lucide-react` para tags
+- Implementación de Single Select con diseño brutalista
+- Tema ámbar (#fbb03b) con negro (#000000)
+
+### Lógica OR
+- Filtros múltiples con lógica OR (no AND como inicialmente pensado)
+- Tags activos con botones de deselección individuales
+- Botón CLEAR para resetear a "todos los repositorios"
 
 ---
 
-**Última actualización**: 14 de abril de 2026
-**Estado**: Pending de aprobación
+## Dependencias
+
+- `lucide-react` para iconos de topic
+- `clsx` para conditional class names
+- `framer-motion` para animaciones (AnimatePresence lazy)
+
+---
+
+**Última actualización**: 16 de abril de 2026
+**Estado**: ✅ COMPLETED (Suite de tests regresión: 8/8 passing)

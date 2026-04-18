@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import "@/styles/tw-animate.css";
 import "./globals.css";
 import { FlashlightEffect } from "@/components/hud/flashlight-effect";
 

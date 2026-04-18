@@ -8,15 +8,18 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronLeft, ChevronRight } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
+const MotionDiv = motion.div as any;
+
 interface ProjectGalleryProps {
   initialRepos: GitHubRepository[];
+  searchQuery?: string;
 }
 
 /**
- * ProjectGallery PRO-MAX - Paginación Reactiva Ultra-Rápida.
- * Optimizado para transiciones instantáneas con skeletons de baja latencia.
+ * ProjectGallery - Galería con paginación técnica.
+ * v24: Soporte para highlight de búsqueda.
  */
-export function ProjectGallery({ initialRepos }: ProjectGalleryProps) {
+export function ProjectGallery({ initialRepos, searchQuery = '' }: ProjectGalleryProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [isPaginating, setIsPaginating] = useState(false);
   const itemsPerPage = 6;
@@ -30,19 +33,16 @@ export function ProjectGallery({ initialRepos }: ProjectGalleryProps) {
 
   const changePage = (page: number) => {
     if (page >= 1 && page <= totalPages && page !== currentPage) {
-      // 1. Mostrar Skeletons instantáneamente
       setIsPaginating(true);
-      
-      // 2. Cambiar datos en el background de inmediato
       setCurrentPage(page);
 
-      // 3. Scroll táctico rápido
-      window.scrollTo({ 
-        top: (document.getElementById('repos-section')?.offsetTop || 0) - 100, 
-        behavior: 'auto' // 'auto' para instantaneidad si 'smooth' se siente lento
-      });
+      if (typeof window !== 'undefined') {
+        window.scrollTo({ 
+          top: (document.getElementById('repos-section')?.offsetTop || 0) - 100, 
+          behavior: 'auto'
+        });
+      }
       
-      // 4. Revelado veloz (250ms es el sweet spot de UX para feedback de sistema)
       setTimeout(() => {
         setIsPaginating(false);
       }, 250);
@@ -68,11 +68,10 @@ export function ProjectGallery({ initialRepos }: ProjectGalleryProps) {
   return (
     <div className="relative flex flex-col min-h-[600px]" id="repos-section">
       
-      {/* Grid de Capas con AnimatePresence para Crossfading */}
       <div className="relative flex-grow">
         <AnimatePresence mode="wait" initial={false}>
           {isPaginating ? (
-            <motion.div 
+            <MotionDiv 
               key="skeletons-layer"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -83,10 +82,11 @@ export function ProjectGallery({ initialRepos }: ProjectGalleryProps) {
               {[...Array(itemsPerPage)].map((_, i) => (
                 <ProjectSkeleton key={`skeleton-${i}`} />
               ))}
-            </motion.div>
+            </MotionDiv>
           ) : (
-            <motion.div 
+            <MotionDiv 
               key={`page-data-${currentPage}`}
+              
               initial={{ opacity: 0, scale: 0.99, y: 10 }}
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 1.01, y: -10 }}
@@ -97,15 +97,15 @@ export function ProjectGallery({ initialRepos }: ProjectGalleryProps) {
                 <ProjectCard 
                   key={`${repo.id}-${currentPage}`} 
                   repo={repo} 
-                  delay={index * 0.03} // Stagger ultra-rápido
+                  delay={index * 0.03}
+                  searchQuery={searchQuery}
                 />
               ))}
-            </motion.div>
+            </MotionDiv>
           )}
         </AnimatePresence>
       </div>
 
-      {/* Paginación Brutalista */}
       {totalPages > 1 && (
         <div className="flex justify-center mt-16 pb-8">
           <nav 

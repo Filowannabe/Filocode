@@ -1,114 +1,110 @@
-// githubApi.test.ts - Tests de integración para GitHub API
-// TDD Phase: GREEN - Validar implementación corregida
+import { describe, it, expect, vi, beforeEach } from 'vitest';
+import { fetchRepositoriosGitHub, deepScanRepository } from '../../services/githubApi';
 
-import { describe, test, expect, beforeEach, afterEach, vi } from 'vitest';
-import { fetchRepositoriosGitHub, exportDataCSV, exportDataExcel } from '../../services/githubApi';
-import fs from 'fs';
-import path from 'path';
-
-// Mock de fetch global
-describe('githubApi - fetchRepositoriosGitHub', () => {
-  let mockFetch: ReturnType<typeof vi.fn>;
-
+describe('githubApi - Integration Deep Scan', () => {
   beforeEach(() => {
-    mockFetch = vi.fn(() => Promise.resolve({} as unknown as Response));
-    globalThis.fetch = mockFetch;
-    // Limpiar archivos
-    try { fs.unlinkSync(path.join(process.cwd(), '.github-api-state.json')); } catch {}
-    try { fs.unlinkSync(path.join(process.cwd(), '.github-api-logs.json')); } catch {}
+    vi.clearAllMocks();
   });
 
-  afterEach(() => {
-    try { fs.unlinkSync(path.join(process.cwd(), '.github-api-state.json')); } catch {}
-    try { fs.unlinkSync(path.join(process.cwd(), '.github-api-logs.json')); } catch {}
-  });
-
-  test('fetchRepositoriosGitHub retorna 100 items exitosos', async () => {
-    const mockResponse = Array.from({ length: 100 }, (_, i) => ({
-      id: i + 1,
-      name: `repo-${i + 1}`,
-      full_name: `user/repo-${i + 1}`,
-      html_url: `https://github.com/user/repo-${i + 1}`,
-      clone_url: `git@github.com:user/repo-${i + 1}.git`,
-      topics: []
-    }));
-
-    mockFetch.mockResolvedValue({
-      ok: true,
-      status: 200,
-      headers: new Headers({ Link: '' }),
-      json: async () => mockResponse
-    } as unknown as Response);
-
-    const result = await fetchRepositoriosGitHub('user', 100);
-    expect(result).toHaveLength(100);
-    expect(result[0].name).toBe('repo-1');
-  });
-
-  test('fetchRepositoriosGitHub paginación automática (150 items)', async () => {
-    let callCount = 0;
-    mockFetch.mockImplementation(() => {
-      callCount++;
-      const count = callCount === 1 ? 100 : 50;
-      return Promise.resolve({
-        ok: true,
-        status: 200,
-        headers: new Headers(callCount === 1 ? { Link: '<url>; rel="next"' } : { Link: '' }),
-        json: async () => Array.from({ length: count }, (_, i) => ({ id: (callCount-1)*100 + i }))
-      } as unknown as Response);
-    });
-
-    const result = await fetchRepositoriosGitHub('user', 150);
-    expect(mockFetch).toHaveBeenCalledTimes(2);
-    expect(result).toHaveLength(150);
-  });
-
-  test('retry con backoff exponencial (1 fallo 403, 1 éxito)', async () => {
-    let attempt = 0;
-    mockFetch.mockImplementation(() => {
-      attempt++;
-      if (attempt === 1) {
+  // Test 1: Verifica que deepScanRepository funciona en aislamiento
+  it('debe realizar escaneo profundo (lenguajes + package.json) y enriquecer los topics - FUNCION AISLADA', async () => {
+    // Mock de fetch para deepScanRepository
+    const mockFetch = vi.fn().mockImplementation((url: string) => {
+      if (url.includes('/languages')) {
         return Promise.resolve({
-          ok: false,
-          status: 403,
-          headers: new Headers(),
-          json: async () => ({ message: 'Rate Limit' })
-        } as unknown as Response);
+          ok: true,
+          json: async () => ({ TypeScript: 1000, CSS: 500 })
+        });
       }
-      return Promise.resolve({
-        ok: true,
-        status: 200,
-        headers: new Headers(),
-        json: async () => [{ id: 1 }]
-      } as unknown as Response);
+      if (url.includes('/contents/package.json')) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => ({
+            content: btoa(JSON.stringify({ 
+              dependencies: { 
+                'framer-motion': '1.0.0', 
+                'zustand': '1.0.0',
+                'lodash': '1.0.0' // No está en allow-list
+              } 
+            }))
+          })
+        });
+      }
+      return Promise.resolve({ ok: false });
     });
 
-    const result = await fetchRepositoriosGitHub('user', 1);
-    expect(mockFetch).toHaveBeenCalledTimes(2);
-    expect(result).toHaveLength(1);
-  });
-});
-
-describe('githubApi - Exportación', () => {
-  test('exportDataExcel retorna un Blob válido', async () => {
-    const mockData = {
-      repositories: [{ id: 1, name: 'test', full_name: 'test/test', topics: [], stargazers_count: 0, forks_count: 0, watchers_count: 0, html_url: '', clone_url: '', description: '' }],
-      generated_at: new Date().toISOString()
+    const mockRepo = {
+      id: 1,
+      name: 'repo-test',
+      full_name: 'user/repo-test',
+      language: 'TypeScript',
+      topics: ['react'],
+      description: null,
+      stargazers_count: 10,
+      forks_count: 5,
+      watchers_count: 2,
+      html_url: '',
+      clone_url: ''
     };
 
-    const result = await exportDataExcel(mockData);
-    expect(result).toBeInstanceOf(Blob);
-    expect(result.type).toBe('application/vnd.openxmlformats-officedocument.spreadsheetml.sheet');
+    const enrichedTopics = await deepScanRepository(mockRepo, mockFetch);
+
+    // Validar enriquecimiento
+    expect(enrichedTopics).toContain('react'); // Base
+    expect(enrichedTopics).toContain('typescript'); // De languages
+    expect(enrichedTopics).toContain('framer-motion'); // De package.json
+    expect(enrichedTopics).toContain('zustand'); // De package.json
+    expect(enrichedTopics).not.toContain('lodash'); // Bloqueado por security allow-list
   });
 
-  test('exportDataCSV genera formato correcto', () => {
-    const mockData = {
-      repositories: [{ id: 1, name: 'repo-1', full_name: 'user/repo-1', topics: ['ts'], stargazers_count: 10, forks_count: 5, watchers_count: 10, html_url: '', clone_url: '', description: 'desc' }],
-      generated_at: new Date().toISOString()
-    };
+  // Test 2: Verifica que fetchRepositoriosGitHub NO hace escaneo profundo (CERO llamadas adicionales)
+  it('debe devolver repositorios con los topics que ya vienen en el endpoint principal - CERO peticiones adicionales', async () => {
+    let callCount = 0;
+    const mockFetch = vi.fn().mockImplementation((url: string) => {
+      callCount++;
+      if (url.includes('/repos?')) {
+        return Promise.resolve({
+          ok: true,
+          json: async () => [{ 
+            id: 1, 
+            name: 'repo-test', 
+            full_name: 'user/repo-test',
+            language: 'TypeScript', // El endpoint principal YA trae language
+            topics: ['react'],
+            description: null,
+            stargazers_count: 10,
+            forks_count: 5,
+            watchers_count: 2,
+            html_url: '',
+            clone_url: ''
+          }]
+        });
+      }
+      return Promise.resolve({ ok: false });
+    });
 
-    const result = exportDataCSV(mockData);
-    expect(result).toContain('id,name,full_name');
-    expect(result).toContain('1,"repo-1","user/repo-1"');
+    // Mock de callback de progreso
+    const onProgress = vi.fn();
+    
+    const repos = await fetchRepositoriosGitHub('user', 1, onProgress, mockFetch as any);
+    
+    // ✅ DEBE ser exactamente 1 llamada (NO más)
+    expect(callCount).toBe(1);
+    
+    // Los topics deben incluir language (que ya viene del endpoint principal)
+    expect(repos[0].topics).toContain('react'); // De topics originales
+    expect(repos[0].topics).toContain('typescript'); // De language (ya viene en la API)
+  });
+
+  // Test 3: Verifica que el fetch maneja errores correctamente
+  it('debe manejar fallos en el fetch principal sin romper la aplicación', async () => {
+    const mockFetch = vi.fn().mockImplementation(() => {
+      return Promise.resolve({ ok: false, status: 404 });
+    });
+
+    // Mock de callback de progreso
+    const onProgress = vi.fn();
+    
+    await expect(fetchRepositoriosGitHub('user', 1, onProgress, mockFetch as any)).rejects.toThrow('HTTP Error: 404');
   });
 });

@@ -16,8 +16,8 @@ const STATS = [
 ];
 
 /**
- * StatsBar - Fila de indicadores cuantitativos.
- * Ahora soporta orquestación de animaciones.
+ * StatsBar - Fila de métricas.
+ * Corregido para Tailwind 4: 'primary' shorthand.
  */
 export function StatsBar({ className, delay = 0 }: StatsBarProps) {
   return (
@@ -29,7 +29,7 @@ export function StatsBar({ className, delay = 0 }: StatsBarProps) {
           delay={delay + (index * 0.05)}
         >
           <div className="flex flex-col">
-            <span className="text-3xl font-bold text-(--color-primary)">
+            <span className="text-3xl font-bold text-primary">
               {stat.value}
             </span>
             <span className="text-[10px] font-mono tracking-wider text-white/50 uppercase">

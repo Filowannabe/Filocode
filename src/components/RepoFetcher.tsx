@@ -15,13 +15,16 @@ interface AuditLogEntry {
   [key: string]: unknown;
 }
 
+/**
+ * RepoFetcher - Extracción técnica de datos.
+ * v10: Cero warnings de Tailwind 4 y tipos React 19.
+ */
 export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
   const [isScanning, setIsScanning] = useState(false);
   const [progress, setProgress] = useState(0);
   const [repos, setRepos] = useState<GitHubRepository[]>([]);
   const [isUnlimited, setIsUnlimited] = useState(false);
 
-  // Inicialización de estado desde localStorage (evita cascading renders)
   const [hasSavedState, setHasSavedState] = useState(() => {
     if (typeof window === 'undefined') return false;
     const saved = localStorage.getItem('github-api-state');
@@ -83,12 +86,13 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
   }, [repos]);
 
   return (
-    <div className="bg-black/90 border border-[var(--color-primary)] p-6 rounded-lg relative overflow-hidden font-mono shadow-[0_0_30px_rgba(251,191,36,0.05)]">
-      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-[length:100%_4px] opacity:10" />
+    <div className="bg-black/90 border border-primary p-6 rounded-lg relative overflow-hidden font-mono shadow-[0_0_30px_rgba(251,191,36,0.05)]">
+      {/* Corregido: bg-size-[100%_4px] en lugar de bg-[length:...] */}
+      <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-size-[100%_4px] opacity-10" />
       
       <div className="relative z-10">
         <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-2">
-          <h2 className="text-[var(--color-primary)] text-xl tracking-[0.4em] uppercase">
+          <h2 className="text-primary text-xl tracking-[0.4em] uppercase">
             {">"} advanced_fetch_module_v3.1
           </h2>
           <div className="flex items-center gap-4">
@@ -97,9 +101,9 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
                 type="checkbox" 
                 checked={isUnlimited} 
                 onChange={(e) => setIsUnlimited(e.target.checked)}
-                className="w-3 h-3 accent-(--color-primary) bg-black border-white/20"
+                className="w-3 h-3 accent-primary bg-black border-white/20"
               />
-              <span className="text-[9px] text-white/40 group-hover:text-[var(--color-primary)] uppercase tracking-tighter transition-colors">
+              <span className="text-[9px] text-white/40 group-hover:text-primary uppercase tracking-tighter transition-colors">
                 [ infinity_mode ]
               </span>
             </label>
@@ -111,7 +115,7 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
             <div className="flex flex-wrap gap-4">
               <button
                 onClick={() => startScan(false)}
-                className="bg-[var(--color-primary)] text-black px-8 py-4 uppercase tracking-[0.2em] font-bold hover:bg-white transition-all shadow-[0_0_20px_rgba(251,191,36,0.2)]"
+                className="bg-primary text-black px-8 py-4 uppercase tracking-[0.2em] font-bold hover:bg-white transition-all shadow-[0_0_20px_rgba(251,191,36,0.2)]"
               >
                 iniciar_secuencia_escaneo
               </button>
@@ -129,14 +133,14 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
           {isScanning && (
             <div className="border border-white/10 p-6 bg-black/60 backdrop-blur-xl rounded">
               <div className="flex justify-between items-end mb-3">
-                <div className="text-[10px] text-[var(--color-primary)] uppercase tracking-[0.3em] animate-pulse">
+                <div className="text-[10px] text-primary uppercase tracking-[0.3em] animate-pulse">
                   ejecutando_mapeo_de_nodos...
                 </div>
                 <div className="text-sm font-bold text-white">{progress}%</div>
               </div>
               <div className="w-full bg-white/5 h-2 rounded-full overflow-hidden border border-white/5">
                 <div 
-                  className="bg-[var(--color-primary)] h-full transition-all duration-1000 ease-in-out shadow-[0_0_15px_rgba(251,191,36,0.6)]"
+                  className="bg-primary h-full transition-all duration-1000 ease-in-out shadow-[0_0_15px_rgba(251,191,36,0.6)]"
                   style={{ width: `${progress}%` }}
                 />
               </div>
@@ -181,11 +185,12 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
                       {repos.map((repo, index) => (
                         <tr key={repo.id} className="border-b border-white/5 hover:bg-white/5 transition-colors group">
                           <td className="p-3 text-white/10">{index + 1}</td>
-                          <td className="p-3 text-[var(--color-primary)] group-hover:text-white transition-colors">
+                          <td className="p-3 text-primary group-hover:text-white transition-colors">
                             <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="hover:underline">{repo.name}</a>
                           </td>
                           <td className="p-3 text-center">{repo.stargazers_count}</td>
-                          <td className="p-3 text-blue-400/40 text-[9px] truncate max-w-[150px]">{repo.clone_url}</td>
+                          {/* Corregido: max-w-37.5 en lugar de [150px] */}
+                          <td className="p-3 text-blue-400/40 text-[9px] truncate max-w-37.5">{repo.clone_url}</td>
                           <td className="p-3 text-white/20 italic">{repo.topics.slice(0, 2).join(' · ')}</td>
                         </tr>
                       ))}
@@ -199,7 +204,7 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
                   <button
                     key={format}
                     onClick={() => handleExport(format as 'json' | 'csv' | 'excel')}
-                    className="bg-white/5 border border-white/10 py-3 text-[9px] uppercase tracking-[0.4em] hover:bg-[var(--color-primary)] hover:text-black transition-all"
+                    className="bg-white/5 border border-white/10 py-3 text-[9px] uppercase tracking-[0.4em] hover:bg-primary hover:text-black transition-all"
                   >
                     download_{format}
                   </button>

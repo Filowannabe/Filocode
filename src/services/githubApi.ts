@@ -1,8 +1,15 @@
 import { GitHubRepository, FetchState } from '../types/repositorio';
 
 /**
- * Interfaz para los datos crudos que devuelve la API de GitHub
+ * Allow-list de tecnologías autorizadas (Consolidada y Expandida)
  */
+export const TECH_ALLOW_LIST = new Set([
+  'java', 'typescript', 'javascript', 'python', 'kotlin', 'bash', 'shell', 'sql', 'html', 'css', 'markdown', 'csharp', 'dotnet', 'php', 'c#', 'c++', 'go',
+  'react', 'angular', 'vue', 'nextjs', 'spring-boot', 'springboot', 'nestjs', 'express', 'django', 'flask', 'bootstrap', 'electron', 
+  'framer-motion', 'zustand', 'vite', 'vitest', 'lucide', 'shadcn', 'hibernate', 'junit', 'graphql', 'apollo', 'redux', 'prisma', 'tailwind',
+  'docker', 'nginx', 'firebase', 'github-actions', 'postman', 'unity', 'gcp', 'aws', 'stripe', 'notion', 'trello', 'git', 'linux', 'ubuntu', 'vscode', 'android'
+]);
+
 interface GitHubRawRepo {
   id: number;
   name: string;
@@ -14,181 +21,155 @@ interface GitHubRawRepo {
   html_url: string;
   clone_url: string;
   topics: string[] | null;
+  language: string | null;
 }
 
 /**
- * Interfaz de error para GitHub API
+ * Mapeo LIGERO y RESILIENTE v5.8
+ * Unifica variantes internas para evitar duplicados pero preserva la detección.
  */
-export class GitHubAPIError extends Error {
-  constructor(message: string, public statusCode: number) {
-    super(message);
-    this.name = 'GitHubAPIError';
-  }
-}
+function mapGitHubRepo(repo: GitHubRawRepo): GitHubRepository {
+  const rawTopics = repo.topics || [];
+  const normalizedTopics = new Set<string>();
+  
+  const processTerm = (t: string) => {
+    let clean = t.toLowerCase().trim();
+    if (clean === 'c#') clean = 'csharp';
+    if (clean === 'springboot') clean = 'spring-boot';
+    if (TECH_ALLOW_LIST.has(clean) || TECH_ALLOW_LIST.has(t.toLowerCase().trim())) {
+      normalizedTopics.add(clean);
+    }
+  };
 
-interface RetryConfig {
-  maxAttempts: number;
-  initialDelayMs: number;
-  maxDelayMs: number;
-}
+  rawTopics.forEach(processTerm);
+  if (repo.language) processTerm(repo.language);
 
-const DEFAULT_RETRY_CONFIG: RetryConfig = {
-  maxAttempts: 3,
-  initialDelayMs: 200,
-  maxDelayMs: 5000
-};
-
-interface AuditLog {
-  timestamp: string;
-  owner: string;
-  action: string;
-  [key: string]: unknown;
-}
-
-async function getStorage() {
-  const isBrowser = typeof window !== 'undefined' && typeof localStorage !== 'undefined';
-  if (isBrowser) {
-    return {
-      save: (key: string, data: unknown) => { try { localStorage.setItem(key, JSON.stringify(data)); } catch { /* ignorar */ } },
-      load: (key: string) => { try { const item = localStorage.getItem(key); return item ? JSON.parse(item) : null; } catch { return null; } },
-      delete: (key: string) => { try { localStorage.removeItem(key); } catch { /* ignorar */ } }
-    };
-  }
-  return null;
-}
-
-async function logAudit(owner: string, action: string, details: Record<string, unknown>): Promise<void> {
-  const storage = await getStorage();
-  if (!storage) return;
-  const logs = (storage.load('github-audit-logs') as AuditLog[]) || [];
-  logs.push({ timestamp: new Date().toISOString(), owner, action, ...details });
-  storage.save('github-audit-logs', logs.slice(-50));
+  return {
+    id: repo.id,
+    name: repo.name,
+    full_name: repo.full_name,
+    description: repo.description || '',
+    stargazers_count: repo.stargazers_count || 0,
+    forks_count: repo.forks_count || 0,
+    watchers_count: repo.watchers_count || 0,
+    html_url: repo.html_url,
+    clone_url: repo.clone_url,
+    topics: Array.from(normalizedTopics),
+  };
 }
 
 /**
- * Fetch masivo de repositorios de GitHub (Issue #1 - COMPLIANCE VERSION v3.3)
+ * Escanea los detalles del repo (languages + package.json) y extrae topics
+ * 
+ * ⚠️ ADVERTENCIA: Esta función es ÚNICAMENTE para scripts de background o cron jobs.
+ * NO debe usarse en fetch principal para evitar el problema N+1 QUERY.
+ * 
+ * @param repo - Repositorio a escanear
+ * @param fetchFn - Función custom de fetch (para testing)
+ */
+export async function deepScanRepository(
+  repo: GitHubRawRepo,
+  fetchFn: typeof fetch = fetch
+): Promise<string[]> {
+  const topics = new Set<string>(repo.topics || []);
+
+  try {
+    // 1. Obtener languages del repo
+    const repoParts = repo.full_name.split('/');
+    const languagesUrl = `https://api.github.com/repos/${repoParts[0]}/${repoParts[1]}/languages`;
+    const languagesRes = await fetchFn(languagesUrl, {
+      headers: { 'Accept': 'application/vnd.github+json' }
+    });
+    
+    if (languagesRes.ok) {
+      const languages = await languagesRes.json();
+      if (languages) {
+        Object.entries(languages).forEach(([lang, _]) => {
+          const clean = lang.toLowerCase().trim();
+          if (TECH_ALLOW_LIST.has(clean)) {
+            topics.add(clean);
+          }
+        });
+      }
+    }
+  } catch {
+    // Silencioso - no romper el flujo
+  }
+
+  try {
+    // 2. Obtener package.json
+    const repoParts = repo.full_name.split('/');
+    const contentsUrl = `https://api.github.com/repos/${repoParts[0]}/${repoParts[1]}/contents/package.json`;
+    const contentsRes = await fetchFn(contentsUrl, {
+      headers: { 'Accept': 'application/vnd.github+json' }
+    });
+    
+    if (contentsRes.ok) {
+      const contents = await contentsRes.json();
+      // El contenido viene en base64
+      if (contents.content) {
+        try {
+          const decoded = atob(contents.content);
+          const packageJson = JSON.parse(decoded);
+          
+          const dependencies = packageJson.dependencies || {};
+          Object.entries(dependencies).forEach(([pkg, version]) => {
+            const clean = pkg.toLowerCase().trim();
+            if (TECH_ALLOW_LIST.has(clean) && !topics.has(clean)) {
+              topics.add(clean);
+            }
+          });
+        } catch {
+          // Silencioso - no romper el flujo
+        }
+      }
+    }
+  } catch {
+    // Silencioso - no romper el flujo
+  }
+
+  return Array.from(topics);
+}
+
+/**
+ * Fetch masivo de repositorios (CERO peticiones adicionales)
+ * 
+ * ⚠️ IMPORTANTE: Solo usa los datos que vienen del endpoint principal.
+ * La inteligencia reside en el procesamiento del lado del cliente con TECH_ALLOW_LIST.
+ * 
+ * @param owner - Owner del usuario/org
+ * @param limit - Número máximo de repositorios (default: 100)
+ * @param onProgress - Callback opcional para progreso (fetched: cantidad obtenida, total: límite)
+ * @param fetchFn - Función custom de fetch (para testing, opcional)
  */
 export async function fetchRepositoriosGitHub(
   owner: string,
   limit: number = 100,
   onProgress?: (fetched: number, total: number) => void,
-  specificPage?: number,
-  perPageOverride?: number
+  fetchFn?: typeof fetch
 ): Promise<GitHubRepository[]> {
-  const perPage = perPageOverride || 100;
-  const url = `https://api.github.com/users/${owner}/repos?per_page=${perPage}`;
-  const allRepos: GitHubRepository[] = [];
-  const storage = await getStorage();
+  const url = `https://api.github.com/users/${owner}/repos?per_page=100&sort=updated`;
+  const headers = { 'Accept': 'application/vnd.github.mercy-preview+json' };
   
-  if (specificPage) {
-    const response = await fetch(`${url}&page=${specificPage}`, {
-      headers: { 'Accept': 'application/vnd.github.v3+json' },
-    });
-    if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
-    const data = (await response.json()) as GitHubRawRepo[];
-    if (!Array.isArray(data)) return [];
-    return data.map((repo): GitHubRepository => ({
-      id: repo.id,
-      name: repo.name,
-      full_name: repo.full_name,
-      description: repo.description || '',
-      stargazers_count: repo.stargazers_count || 0,
-      forks_count: repo.forks_count || 0,
-      watchers_count: repo.watchers_count || 0,
-      html_url: repo.html_url,
-      clone_url: repo.clone_url,
-      topics: repo.topics || [],
-    }));
+  const fetchToUse = fetchFn || fetch;
+  
+  // Reportar progreso inicial
+  if (onProgress) {
+    onProgress(0, limit);
   }
-
-  const state = storage ? (storage.load('github-api-state') as FetchState) : null;
-  let currentPage = (state && state.owner === owner && !state.isComplete) ? state.lastPage + 1 : 1;
-  let totalFetched = (state && state.owner === owner && !state.isComplete) ? state.fetchedCount : 0;
-  const isUnlimited = limit === 0;
-  const effectiveLimit = isUnlimited ? Infinity : limit;
-
-  await logAudit(owner, 'FETCH_START', { limit: isUnlimited ? 'UNLIMITED' : limit, resume: totalFetched > 0 });
-
-  while (totalFetched < effectiveLimit) {
-    let response: Response | null = null;
-    let attempt = 0;
-    
-    if (totalFetched > 0) await new Promise(resolve => setTimeout(resolve, 1000));
-
-    while (attempt < DEFAULT_RETRY_CONFIG.maxAttempts) {
-      response = await fetch(`${url}&page=${currentPage}`, {
-        headers: { 'Accept': 'application/vnd.github.v3+json' },
-      });
-      if (response.ok) break;
-      if (response.status === 403 || response.status === 429) {
-        attempt++;
-        await new Promise(resolve => setTimeout(resolve, DEFAULT_RETRY_CONFIG.initialDelayMs * Math.pow(2, attempt - 1)));
-      } else { break; }
-    }
-
-    if (!response || !response.ok) { 
-      await logAudit(owner, 'PAGE_FAILURE', { page: currentPage, status: response?.status });
-      currentPage++; continue; 
-    }
-    
-    const data = (await response.json()) as GitHubRawRepo[];
-    if (!Array.isArray(data) || data.length === 0) break;
-
-    const repos = data.map((repo): GitHubRepository => ({
-      id: repo.id,
-      name: repo.name,
-      full_name: repo.full_name,
-      description: repo.description || '',
-      stargazers_count: repo.stargazers_count || 0,
-      forks_count: repo.forks_count || 0,
-      watchers_count: repo.watchers_count || 0,
-      html_url: repo.html_url,
-      clone_url: repo.clone_url,
-      topics: repo.topics || [],
-    }));
-    
-    allRepos.push(...repos);
-    totalFetched += repos.length;
-    if (onProgress) onProgress(totalFetched, isUnlimited ? totalFetched + 100 : limit);
-
-    const linkHeader = response.headers.get('Link');
-    if (!linkHeader || !linkHeader.includes('rel="next"') || totalFetched >= effectiveLimit) {
-      if (storage) storage.save('github-api-state', { owner, lastPage: currentPage, fetchedCount: totalFetched, isComplete: true });
-      break;
-    }
-    
-    if (storage) storage.save('github-api-state', { owner, lastPage: currentPage, fetchedCount: totalFetched, isComplete: false });
-    currentPage++;
+  
+  const response = await fetchToUse(url, { headers });
+  if (!response.ok) throw new Error(`HTTP Error: ${response.status}`);
+  
+  const rawRepos = (await response.json()) as GitHubRawRepo[];
+  
+  // ✅ CERO peticiones adicionales - solo mapeo y filtrado
+  const result = rawRepos.slice(0, limit).map(mapGitHubRepo);
+  
+  // Reportar progreso final
+  if (onProgress) {
+    onProgress(limit, limit);
   }
-
-  await logAudit(owner, 'FETCH_COMPLETE', { count: allRepos.length });
-  return allRepos.slice(0, effectiveLimit);
-}
-
-export function exportData<T>(data: T): string { return JSON.stringify(data, null, 2); }
-
-export function exportDataCSV(data: { repositories: GitHubRepository[]; generated_at?: string }): string {
-  const { repositories } = data;
-  const headers = ['id', 'name', 'full_name', 'stars', 'watchers', 'clone_url'].join(',');
-  const rows = repositories.map(r => [r.id, `"${r.name}"`, `"${r.full_name}"`, r.stargazers_count, r.watchers_count, r.clone_url].join(','));
-  return [headers, ...rows].join('\n');
-}
-
-export async function exportDataExcel(data: { repositories: GitHubRepository[]; generated_at?: string }): Promise<Blob> {
-  const XLSX = await import('xlsx');
-  const { repositories } = data;
-  const ws = XLSX.utils.json_to_sheet(repositories);
-  const wb = XLSX.utils.book_new();
-  XLSX.utils.book_append_sheet(wb, ws, 'Repos');
-  const wbout = XLSX.write(wb, { bookType: 'xlsx', type: 'array' });
-  return new Blob([wbout], { type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet' });
-}
-
-export function downloadFile(content: string | Blob, filename: string, type: string): void {
-  const blob = typeof content === 'string' ? new Blob([content], { type }) : content;
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url; a.download = filename;
-  document.body.appendChild(a); a.click(); document.body.removeChild(a);
-  URL.revokeObjectURL(url);
+  
+  return result;
 }
