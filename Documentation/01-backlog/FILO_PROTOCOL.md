@@ -260,6 +260,33 @@ ref/ID--desc            # Refactorización
 
 ---
 
+## 📦 POLÍTICA DE VERSIONING SEMÁNTICO
+
+**Regla de ORO**: El version bump debe reflejar el tipo de cambio implementado.
+
+| Tipo de Cambio | Version Bump | Ejemplo |
+|----------------|--------------|---------|
+| **Nueva funcionalidad MAJOR** (Issue #3 completo) | `0.2.0` → `0.3.0` | Feature principal, API breaking |
+| **Nueva funcionalidad MINOR** | `0.3.0` → `0.3.1` | Feature incremental, API compatible |
+| **Bug fix** | `0.3.1` → `0.3.2` | Corrección, API compatible |
+| **Hotfix** | `0.3.2` → `0.3.2.1` | Corrección crítica |
+
+**Documentación**:
+- Version bump debe incluirse en `package.json`
+- Update debe documentarse en `Documentation/07-reports/`
+- PR description debe mencionar el version bump
+
+**Comando Manual**:
+```bash
+# El usuario debe actualizar manualmente
+git add package.json
+git commit -m "chore: version bump 0.3.0 (Issue #3 completado)"
+```
+
+**Nota**: El asistente NO debe modificar version bump automáticamente. Es responsabilidad del humano validar el tipo de cambio y aplicar el bump correcto.
+
+---
+
 ## 🚫 REGLA DE ACCIONES MANUALES EN GITHUB
 
 **CRÍTICO:** Las siguientes acciones se realizan **MANUALMENTE** por el usuario.
