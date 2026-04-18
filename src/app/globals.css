@@ -1,6 +1,4 @@
 @import "tailwindcss";
-@import "tw-animate-css";
-@import "shadcn/tailwind.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -8,16 +6,35 @@
   --color-primary: oklch(0.75 0.15 65);
   --color-background: #0A0A0A;
   --color-foreground: white;
-}
 
-:root {
-  --background: #0A0A0A;
-  --foreground: white;
-}
+  /* Animaciones integradas en el motor de TW4 */
+  @keyframes spin-slow {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.05; transform: scale(1); }
+    50% { opacity: 0.15; transform: scale(1.1); }
+  }
+  @keyframes icon-levitate {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-4px); }
+  }
+  @keyframes icon-wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25% { transform: rotate(8deg); }
+    75% { transform: rotate(-8deg); }
+  }
+  @keyframes soft-pulse {
+    0%, 100% { transform: scale(1); opacity: 0.7; }
+    50% { transform: scale(1.15); opacity: 1; }
+  }
 
-.dark {
-  --background: #0A0A0A;
-  --foreground: white;
+  --animate-spin-slow: spin-slow 10s linear infinite;
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
+  --animate-icon-levitate: icon-levitate 3s ease-in-out infinite;
+  --animate-wiggle: icon-wiggle 4s ease-in-out infinite;
+  --animate-soft-pulse: soft-pulse 3s ease-in-out infinite;
 }
 
 @layer base {
@@ -30,5 +47,10 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05' /%3E%3C/svg%3E");
     color: white;
     @apply antialiased;
+  }
+  
+  ::selection {
+    background-color: var(--color-primary);
+    color: black;
   }
 }

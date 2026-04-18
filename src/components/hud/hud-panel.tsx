@@ -3,6 +3,8 @@
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
+const MotionDiv = motion.div as any;
+
 interface HudPanelProps {
   children: React.ReactNode;
   className?: string;
@@ -10,13 +12,13 @@ interface HudPanelProps {
 }
 
 /**
- * HudPanel - Primitiva de interfaz HUD/Bento brutalista.
- * Enfoque: Backdrop blur de cristal oscuro con bordes reactivos.
- * Habilita orquestación en cascada mediante el prop delay.
+ * HudPanel - Primitiva de interfaz HUD.
+ * v23: Restaurado uso directo de motion para asegurar animaciones vivas.
  */
 export function HudPanel({ children, className, delay = 0 }: HudPanelProps) {
   return (
-    <motion.div
+    <MotionDiv
+      
       initial={{ opacity: 0, y: 10 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ 
@@ -26,13 +28,13 @@ export function HudPanel({ children, className, delay = 0 }: HudPanelProps) {
       }}
       className={cn(
         "relative overflow-hidden rounded-sm border border-white/5 bg-black/40 backdrop-blur-md transition-all duration-300",
-        "hover:border-[var(--color-primary)]/50 hover:bg-black/60",
+        "hover:border-(--color-primary)/50 hover:bg-black/60",
         className
       )}
     >
       <div className="relative z-10 h-full w-full">
         {children}
       </div>
-    </motion.div>
+    </MotionDiv>
   );
 }
