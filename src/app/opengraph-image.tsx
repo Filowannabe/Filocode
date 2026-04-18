@@ -1,7 +1,6 @@
 import { ImageResponse } from "next/og";
 
-// Configuración de la imagen dinámica
-export const runtime = "edge";
+// Configuración de la imagen estática
 export const alt = "Filocode Portfolio";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
@@ -9,6 +8,11 @@ export const contentType = "image/png";
 // REQUERIDO PARA NEXT.JS 16 EXPORT MODE
 export const dynamic = "force-static";
 export const revalidate = 604800; // 1 semana (cache estática)
+
+/**
+ * Nota: runtime: 'edge' es incompatible con dynamic: 'force-static'
+ * Se usa default runtime (nodejs) para permitir static generation
+ */
 
 /**
  * Generador de OpenGraph Image (OG) mediante Satori.
