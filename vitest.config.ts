@@ -13,6 +13,9 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
+    env: {
+      TZ: 'America/Bogota',
+    },
     include: [
       'src/__tests__/**/*.test.tsx',
       'src/__tests__/**/*.test.ts',
