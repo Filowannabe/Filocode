@@ -1,0 +1,67 @@
+name: Deploy
+
+on:
+  push:
+    branches: [master, staging, development]
+  pull_request:
+    branches: [master, staging]
+
+jobs:
+  CI:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+      
+      - name: Install dependencies
+        run: yarn install
+      
+      - name: Run Linter
+        run: yarn lint
+        continue-on-error: false
+      
+      - name: Run Tests
+        run: yarn test --run
+        env:
+          CI: true
+
+  Deploy:
+    needs: CI
+    if: github.ref == 'refs/heads/master' || github.ref == 'refs/heads/staging'
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
+      url: ${{ steps.deploy.outputs.url }}
+    
+    outputs:
+      url: ${{ steps.deploy.outputs.url }}
+    
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'yarn'
+      
+      - name: Install dependencies
+        run: yarn install
+      
+      - name: Build Next.js (export)
+        run: yarn build
+        env:
+          NEXT_PUBLIC_ENV: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
+          NODE_ENV: production
+      
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: out
+          keep_files: true
