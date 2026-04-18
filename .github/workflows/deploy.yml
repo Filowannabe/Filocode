@@ -10,43 +10,33 @@ on:
 jobs:
   CI:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-
+      
       - name: Configure Git for GitHub Actions
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Actions"
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-
+      
       - name: Enable Corepack
         run: corepack enable
-
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'yarn'
-
-      - name: Clean Yarn Cache
-        run: |
-          yarn cache clean
-          echo "🧹 Yarn cache cleaned"
-
+      
       - name: Install dependencies
         run: yarn install
-        timeout-minutes: 5
-        continue-on-error: true
-
+      
       - name: Run Linter
         run: yarn lint
-        timeout-minutes: 5
-        continue-on-error: true
-
+        continue-on-error: false
+      
       - name: Run Tests
         run: yarn test --run
-        timeout-minutes: 10
         env:
           CI: true
 
@@ -54,49 +44,41 @@ jobs:
     needs: CI
     if: github.event_name == 'push'
     runs-on: ubuntu-latest
-    timeout-minutes: 15
     environment:
-      name: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
-
+      name: ${{ github.ref == 'refs/heads/master' && 'production' || (github.ref == 'refs/heads/staging' && 'staging') || 'none' }}
+    
     outputs:
       url: ${{ steps.deploy.outputs.url }}
-
+    
     steps:
       - uses: actions/checkout@v4
-
+      
       - name: Configure Git for GitHub Actions
         run: |
           git config --global user.email "action@github.com"
           git config --global user.name "GitHub Actions"
           git config --global --add safe.directory "$GITHUB_WORKSPACE"
-
+      
       - name: Enable Corepack
         run: corepack enable
-
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'yarn'
-
-      - name: Clean Yarn Cache
-        run: |
-          yarn cache clean
-          echo "🧹 Yarn cache cleaned"
-
+      
       - name: Install dependencies
         run: yarn install
-        timeout-minutes: 5
-        continue-on-error: true
-
+      
       - name: Build Next.js (export)
         id: build
         run: |
-          NEXT_PUBLIC_ENV=${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }} \
-          NODE_ENV=production \
+          NEXT_PUBLIC_ENV=${{ github.ref == 'refs/heads/master' && 'production' || (github.ref == 'refs/heads/staging' && 'staging') || 'development' }} \
+          NODE_ENV=${{ github.ref == 'refs/heads/master' && 'production' || (github.ref == 'refs/heads/staging' && 'production') || 'development' }} \
           yarn build
-          echo "✅ Build completed successfully"
-
+          echo "Build completed successfully"
+      
       - name: Check Build Output (Next.js 16 Export)
         run: |
           if [ ! -f "out/index.html" ]; then
@@ -106,7 +88,7 @@ jobs:
           fi
           echo "✅ Build output validated: index.html found"
           ls -la out/
-
+      
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         id: deploy
@@ -114,7 +96,7 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: out
           keep_files: true
-
+      
       - name: Output Deploy URL
         run: |
           if [[ ${{ github.ref }} == 'refs/heads/master' ]]; then
