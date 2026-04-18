@@ -66,6 +66,16 @@ jobs:
           NEXT_PUBLIC_ENV: ${{ github.ref == 'refs/heads/master' && 'production' || 'staging' }}
           NODE_ENV: production
       
+      - name: Check Build Output
+        run: |
+          if [ ! -d "out" ]; then
+            echo "❌ Build failed: output directory 'out' not found"
+            ls -la
+            exit 1
+          fi
+          echo "✅ Build output directory exists"
+          ls -la out/
+      
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
