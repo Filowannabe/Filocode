@@ -17,6 +17,7 @@ Bienvenido a la documentación oficial de **filocode.dev**. Este es un proyecto 
 - [[2 - Arquitectura/Stack Tecnologico|🛠️ Stack Tecnológico]] - ¿Qué herramientas usamos?
 - [[3 - Componentes/Boton|🎨 Librería de UI]] - Componentes disponibles (shadcn/ui).
 - [[4 - Rutas y Logica/Rutas|🛣️ Rutas y Estructura]] - Mapa del App Router.
+- [[6 - Configuracion/GitHub_Pages_y_Actions|🚀 GitHub Pages & Actions]] - Configuración Multi-Environment (CI/CD).
 - [[1 - Proyecto/Roadmap|📅 Hoja de Ruta]] - Tareas pendientes y planes futuros.
 
 ## 🖼️ Vistas Técnicas (Canvas)
