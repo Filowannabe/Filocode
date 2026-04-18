@@ -210,11 +210,11 @@ El asistente debe verificar que el directorio existe (`ls -la`) antes de intenta
 
 ---
 
-## 📦 ESTRATEGIA DE BRANCHING Y FLUJO DE GIT (v2.5)
+## 📦 ESTRATEGIA DE BRANCHING Y FLUJO DE GIT (v2.6)
 
 **ESTRUCTURA DE TRONCOS (MASTER MAIN)**:
 ```
-master (main) ← development ← staging
+master (main) ← staging ← development
 ```
 > **NOTA**: El branch `production` ha sido **eliminado** como redundante (apuntaba a la misma producción que `master`).
 
@@ -232,12 +232,17 @@ ref/ID--desc            # Refactorización
 |-------|--------------|---------------|------------|-------------|
 | **development** | ✅ Obligatorio | ✅ Requerido | ❌ Bloqueado | ✅ Mínimo 1 approval |
 | **staging** | ✅ Obligatorio | ✅ Requerido | ❌ Bloqueado | ✅ Mínimo 2 approvals |
+| **master** | ✅ Obligatorio | ✅ Requerido | ❌ Bloqueado | ✅ Mínimo 2 approvals |
 
-**FLUJO DE MERGE OBLIGATORIO**:
-1. **Trabajo**: Crear rama desde `development`
-2. **PR a development**: Merge tras revisión y checks
-3. **PR a staging**: Desde development tras QA
-4. **Deployment**: `master` se actualiza automáticamente desde `staging`
+**FLUJO DE MERGE OBLIGATORIO (TRUNK ISOLATION MANDATE)**:
+1. **Trabajo Local (`feat/*`, `fix/*`, `docs/*`)**: Las ramas de trabajo parten siempre de `development`. Al hacer push, GitHub Actions ejecuta **exclusivamente CI** (Lint y Tests).
+2. **Integración a `development`**: A través de Pull Request manual. **NO se despliega código**.
+3. **Pre-Producción (`staging`)**: Merge desde `development` a través de Pull Request manual. GitHub Actions despliega automáticamente a la subcarpeta `/staging` en GitHub Pages.
+4. **Producción (`master`)**: Merge desde `staging` a través de Pull Request manual. GitHub Actions despliega automáticamente a la raíz `/` en GitHub Pages.
+
+**RESTRICCIONES DE DESPLIEGUE ESTÁTICO (NEXT.JS + GH PAGES)**:
+- El job de despliegue tiene estrictamente prohibido correr en `development` para evitar que `NODE_ENV=development` rompa el pre-renderizado de rutas estáticas como `/_global-error` (Punto Ciego v16).
+- Es obligatorio el uso dinámico de `basePath` en Next.js según el entorno (`/Filocode` vs `/Filocode/staging`).
 
 ---
 
