@@ -4,47 +4,87 @@
 
 @theme inline {
   --color-primary: oklch(0.75 0.15 65);
-  --color-background: #0A0A0A;
+  --color-background: #000000;
   --color-foreground: white;
 
-  /* Animaciones integradas en el motor de TW4 */
+  /* HUD Variables - Cinematic Gold & Obsidian */
+  --shadow-hud-glow: 0 0 40px rgba(245, 158, 11, 0.15);
+  --drop-shadow-neon: 0 0 12px rgba(245, 158, 11, 0.8);
+  --color-hud-panel: rgba(5, 5, 5, 0.4);
+  --color-gold-bright: #fbbf24;
+  --color-gold-shine: #fcd34d;
+
+  /* Keyframes */
   @keyframes spin-slow {
     from { transform: rotate(0deg); }
     to { transform: rotate(360deg); }
   }
-  @keyframes glow-pulse {
-    0%, 100% { opacity: 0.05; transform: scale(1); }
-    50% { opacity: 0.15; transform: scale(1.1); }
+  @keyframes solar-flare {
+    0%, 100% { transform: scale(1); opacity: 0.8; filter: blur(80px); }
+    50% { transform: scale(1.1); opacity: 1; filter: blur(100px); }
+  }
+  @keyframes button-shine {
+    0% { background-position: -200% center; }
+    100% { background-position: 200% center; }
+  }
+  @keyframes float-y {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+  }
+  @keyframes snow-fall {
+    0% { transform: translateY(-20px) translateX(0); opacity: 0; }
+    20% { opacity: 1; }
+    100% { transform: translateY(100vh) translateX(40px); opacity: 0; }
   }
   @keyframes icon-levitate {
     0%, 100% { transform: translateY(0); }
-    50% { transform: translateY(-4px); }
+    50% { transform: translateY(-6px); }
   }
-  @keyframes icon-wiggle {
+  @keyframes wiggle {
     0%, 100% { transform: rotate(0deg); }
-    25% { transform: rotate(8deg); }
-    75% { transform: rotate(-8deg); }
+    25% { transform: rotate(10deg); }
+    75% { transform: rotate(-10deg); }
+  }
+  @keyframes glow-pulse {
+    0%, 100% { opacity: 0.3; transform: scale(1); }
+    50% { opacity: 0.6; transform: scale(1.2); }
   }
   @keyframes soft-pulse {
-    0%, 100% { transform: scale(1); opacity: 0.7; }
-    50% { transform: scale(1.15); opacity: 1; }
+    0%, 100% { opacity: 0.6; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.1); }
   }
 
-  --animate-spin-slow: spin-slow 10s linear infinite;
-  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
+  --animate-solar-flare: solar-flare 8s ease-in-out infinite;
+  --animate-shine: button-shine 3s linear infinite;
+  --animate-float: float-y 6s ease-in-out infinite;
+  --animate-snow: snow-fall 10s linear infinite;
   --animate-icon-levitate: icon-levitate 3s ease-in-out infinite;
-  --animate-wiggle: icon-wiggle 4s ease-in-out infinite;
-  --animate-soft-pulse: soft-pulse 3s ease-in-out infinite;
+  --animate-wiggle: wiggle 2s ease-in-out infinite;
+  --animate-glow-pulse: glow-pulse 4s ease-in-out infinite;
+  --animate-soft-pulse: soft-pulse 2s ease-in-out infinite;
+  --animate-spin-slow: spin-slow 12s linear infinite;
+}
+
+@layer utilities {
+  .bg-gold-gradient {
+    background: linear-gradient(135deg, #b45309 0%, #fbbf24 50%, #fcd34d 100%);
+  }
+  .text-gold-shine {
+    @apply text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-200 to-amber-500;
+    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.5));
+  }
+  .hud-window-shadow {
+    shadow: 0 30px 60px -12px rgba(0,0,0,0.5), 0 18px 36px -18px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.05);
+  }
 }
 
 @layer base {
   * {
-    @apply border-white/10;
+    @apply border-white/5;
   }
   
   body {
-    background-color: #0A0A0A;
-    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05' /%3E%3C/svg%3E");
+    background-color: #010208;
     color: white;
     @apply antialiased;
   }
@@ -52,5 +92,11 @@
   ::selection {
     background-color: var(--color-primary);
     color: black;
+  }
+}
+
+@layer utilities {
+  .bg-noise {
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch' /%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05' /%3E%3C/svg%3E");
   }
 }

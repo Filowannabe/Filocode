@@ -21,10 +21,11 @@ describe('Integridad Visual y Estructural - HUD Layer', () => {
   it('ProjectCard debe tener la estructura PRO-MAX (Glow, Border, Tags)', () => {
     const { container } = render(<ProjectCard repo={mockRepo} />);
     
-    // Validar el contenedor principal con redondeado 2xl y padding de borde
+    // Validar el contenedor principal con redondeado lg (Macbook Style) y padding de borde
     const card = container.firstChild as HTMLElement;
-    expect(card.className).toContain('rounded-2xl');
+    expect(card.className).toContain('rounded-lg');
     expect(card.className).toContain('p-[1px]');
+    expect(card.className).toContain('min-h-[350px]');
 
     // Validar presencia del gradiente cónico (Borde Animado)
     const border = container.querySelector('div[style*="conic-gradient"]');
@@ -40,7 +41,7 @@ describe('Integridad Visual y Estructural - HUD Layer', () => {
     // Validar estilo de los tags (Pills Premium) - Soporta ambas nomenclaturas de TW4
     const tag = screen.getByText('react');
     expect(tag.className).toContain('rounded-full');
-    expect(tag.className).toMatch(/bg-primary\/5|bg-\(--color-primary\)\/5/);
+    expect(tag.className).toMatch(/bg-\(--color-primary\)\/5/);
   });
 
   it('ProjectSkeleton debe ser un espejo exacto de ProjectCard', () => {
@@ -48,7 +49,7 @@ describe('Integridad Visual y Estructural - HUD Layer', () => {
     
     // Validar que el skeleton tiene la misma estructura de bordes
     const skeleton = container.firstChild as HTMLElement;
-    expect(skeleton.className).toContain('rounded-2xl');
+    expect(skeleton.className).toContain('rounded-lg');
     expect(skeleton.className).toContain('p-[1px]');
 
     const inner = container.querySelector('.bg-\\[\\#020202\\]');
