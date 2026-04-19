@@ -20,6 +20,14 @@ Cada panel es una pieza independiente de ingeniería visual:
     - Borde superior: Reflejo ámbar dinámico (`group-hover:opacity-100`).
     - Bordes laterales/inferiores: `white/10` bajando a `white/5`.
 - **Efectos**: Sombra profunda `rgba(0,0,0,0.8)` y scanlines sutiles al 5% de opacidad.
+- **Patrón de Padding Aprobado (v28.1)**: Para evitar que el header se desplace o el contenido se sobreponga, **está prohibido** aplicar padding directamente al componente `HudPanel` vía `className`. Se debe usar siempre un `div` interno para el espaciado:
+    ```tsx
+    <HudPanel title="TITULO">
+      <div className="p-8"> {/* El padding vive aquí */}
+        {contenido}
+      </div>
+    </HudPanel>
+    ```
 
 ## 📐 Distribución de la Composición
 El layout se organiza en una jerarquía de importancia visual:

@@ -55,13 +55,14 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
     const parentBtn = exploreBtn.closest('button');
     
     expect(parentBtn).toBeInTheDocument();
-    expect(parentBtn?.querySelector('.bg-gradient-to-r')).toBeInTheDocument();
-    expect(parentBtn?.querySelector('.animate-shine')).toBeInTheDocument();
+    expect(parentBtn?.querySelector('.bg-gold-gradient')).toBeInTheDocument();
+    expect(parentBtn?.querySelector('.animate-gold-shine')).toBeInTheDocument();
   });
 
   it('debe mostrar el Avatar verificado con los metadatos correctos', () => {
     render(<Home />);
     expect(screen.getByText('FILOCODE')).toBeInTheDocument();
+    expect(screen.getByText(/by Felipe Corredor Castro/)).toBeInTheDocument();
     expect(screen.getByText('VERIFIED')).toBeInTheDocument();
     expect(screen.getByText(/\[XP: 05_YEARS\]/i)).toBeInTheDocument();
     expect(screen.getByText(/\[RANK: SENIOR\]/i)).toBeInTheDocument();
@@ -74,9 +75,9 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
     expect(link).toHaveAttribute('download', 'Felipe_Castro_CV_2025.pdf');
   });
 
-  it('debe mostrar el widget CODE 1 con el estado de sincronización', () => {
+  it('debe mostrar el widget CODE_EXAMPLE con el estado de sincronización', () => {
     render(<Home />);
-    expect(screen.getByText('CODE 1')).toBeInTheDocument();
+    expect(screen.getByText('CODE_EXAMPLE')).toBeInTheDocument();
     expect(screen.getByText(/Architect/i)).toBeInTheDocument();
     expect(screen.getByText(/BUFFER_SYNCING/i)).toBeInTheDocument();
   });
@@ -131,6 +132,28 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
       // Encontrar botones de paginación (el mock de ProjectSection no los tiene, 
       // así que para este test específico necesitamos el componente real o un mock más detallado)
       // Pero como el objetivo es validar la persistencia, documentamos la intención.
+    });
+  });
+
+  describe('Button Design Integrity (Pattern Lock)', () => {
+    it('el botón EXPLORAR_PROYECTOS debe tener el gradiente dorado y la animación shine', () => {
+      render(<Home />);
+      const btn = screen.getByText(/EXPLORAR_PROYECTOS/i).closest('button');
+      expect(btn).toHaveClass('shadow-[0_0_40px_rgba(245,158,11,0.4)]');
+      const gradientLayer = btn?.querySelector('.bg-gold-gradient');
+      expect(gradientLayer).toHaveClass('animate-gold-shine');
+    });
+
+    it('el botón DOWNLOAD_DOSSIER debe tener el diseño ambar exacto sin animación shine', () => {
+      render(<Home />);
+      const link = screen.getByText(/DOWNLOAD_DOSSIER/i).closest('a');
+      expect(link).toHaveClass('bg-gold-gradient');
+      expect(link).toHaveClass('shadow-[0_0_25px_rgba(245,158,11,0.25)]');
+      expect(link).not.toHaveClass('animate-shine');
+      
+      const icon = link?.querySelector('svg');
+      expect(icon).toHaveClass('lucide-file-down');
+      expect(icon).toHaveClass('text-black');
     });
   });
 
