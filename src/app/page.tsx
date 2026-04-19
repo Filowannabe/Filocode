@@ -71,45 +71,47 @@ export default function Home() {
           <div className="lg:col-span-5 flex flex-col gap-8">
             
             {/* WINDOW: AVATAR */}
-            <HudPanel title="AVATAR" className="p-6 sm:p-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-10" delay={0.2}>
-              <div className="relative shrink-0 group">
-                <div className="absolute inset-[-15%] bg-amber-500/30 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
-                <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-xl overflow-hidden border border-white/20 shadow-2xl">
-                  <Image 
-                    src={avatarImg} 
-                    alt="Filocode" 
-                    fill 
-                    className="object-cover sepia-[0.6] brightness-125 contrast-110 saturate-[1.2] hover:sepia-0 hover:saturate-100 transition-all duration-1000" 
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
-                  <div className="absolute inset-0 bg-amber-500/10 mix-blend-color pointer-events-none" />
+            <HudPanel title="AVATAR" delay={0.2}>
+              <div className="p-6 sm:p-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-10">
+                <div className="relative shrink-0 group">
+                  <div className="absolute inset-[-15%] bg-amber-500/30 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
+                  <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-xl overflow-hidden border border-white/20 shadow-2xl">
+                    <Image 
+                      src={avatarImg} 
+                      alt="Filocode" 
+                      fill 
+                      className="object-cover sepia-[0.6] brightness-125 contrast-110 saturate-[1.2] hover:sepia-0 hover:saturate-100 transition-all duration-1000" 
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
+                    <div className="absolute inset-0 bg-amber-500/10 mix-blend-color pointer-events-none" />
+                  </div>
+                  <div className="absolute -bottom-2 -right-2 bg-amber-500 text-black text-[9px] font-black px-2 py-1 tracking-tighter uppercase">
+                    VERIFIED
+                  </div>
                 </div>
-                <div className="absolute -bottom-2 -right-2 bg-amber-500 text-black text-[9px] font-black px-2 py-1 tracking-tighter uppercase">
-                  VERIFIED
-                </div>
-              </div>
-              <div className="space-y-3 text-center sm:text-left w-full">
-                <h2 className="text-3xl sm:text-4xl font-black tracking-tighter uppercase italic leading-none text-white/90">FILOCODE</h2>
-                <div className="font-mono text-[10px] text-amber-500/70 uppercase tracking-[0.2em] flex flex-col gap-2">
-                  <span>[XP: 05_YEARS]</span>
-                  <span>[RANK: SENIOR]</span>
-                  <span className="text-green-500 animate-flicker">[SYSTEM: ONLINE]</span>
-                </div>
+                <div className="space-y-3 text-center sm:text-left w-full">
+                  <h2 className="text-3xl sm:text-4xl font-black tracking-tighter uppercase italic leading-none text-white/90">FILOCODE</h2>
+                  <div className="font-mono text-[10px] text-amber-500/70 uppercase tracking-[0.2em] flex flex-col gap-2">
+                    <span>[XP: 05_YEARS]</span>
+                    <span>[RANK: SENIOR]</span>
+                    <span className="text-green-500 animate-flicker">[SYSTEM: ONLINE]</span>
+                  </div>
 
-                {/* DOSSIER DOWNLOAD BUTTON (v28 HUD) */}
-                <div className="pt-3">
-                  <a 
-                    href="documents/Felipe_Castro_CV_2025.pdf"
-                    download="Felipe_Castro_CV_2025.pdf"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 px-6 py-3 bg-gold-gradient rounded-sm shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all hover:scale-105 active:scale-95 group w-full cursor-pointer"
-                  >
-                    <FileDown size={16} className="text-black group-hover:translate-y-0.5 transition-transform" />
-                    <span className="font-mono text-[10px] font-black text-black uppercase tracking-[0.2em]">
-                      DOWNLOAD_DOSSIER [PDF]
-                    </span>
-                  </a>
+                  {/* DOSSIER DOWNLOAD BUTTON (v28 HUD) */}
+                  <div className="pt-3">
+                    <a 
+                      href="documents/Felipe_Castro_CV_2025.pdf"
+                      download="Felipe_Castro_CV_2025.pdf"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="flex items-center justify-center gap-3 px-6 py-3 bg-gold-gradient rounded-sm shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all hover:scale-105 active:scale-95 group w-full cursor-pointer"
+                    >
+                      <FileDown size={16} className="text-black group-hover:translate-y-0.5 transition-transform" />
+                      <span className="font-mono text-[10px] font-black text-black uppercase tracking-[0.2em]">
+                        DOWNLOAD_DOSSIER [PDF]
+                      </span>
+                    </a>
+                  </div>
                 </div>
               </div>
             </HudPanel>
