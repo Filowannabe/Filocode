@@ -28,6 +28,11 @@ El layout se organiza en una jerarquía de importancia visual:
 3. **Zona de Lógica (Derecha Media)**: Widget CODE 1 (Editor de código simulado).
 4. **Zona de Telemetría (Derecha Inferior)**: GITHUB_TELEMETRY y SKILL TREE.
 
+## 📄 Dossier Técnico (CV)
+Se ha integrado un acceso directo al CV del ingeniero (`DOWNLOAD_DOSSIER [PDF]`) con un estilo de alta prioridad:
+- **Visual**: Gradiente de oro puro con animación de brillo dinámico.
+- **Ubicación**: Anclado en el panel **BIO_METRICS** para máxima relevancia contextual.
+
 ## 🧠 Hallazgos y Decisiones Críticas
 - **Espacio Negativo**: En tipografías masivas, el margen es parte del diseño. Menos margen = menos impacto.
 - **Iluminación**: Los paneles deben reaccionar a la luz del Sol Dorado del fondo; por eso se implementó el gradiente de reflejo en el borde superior.

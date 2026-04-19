@@ -4,6 +4,7 @@ import { ProjectSection } from "@/components/hud/project-section";
 import { TopicsProvider } from "@/contexts/use-topics";
 import { HudPanel } from "@/components/hud/hud-panel";
 import { TerminalContact } from "@/components/hud/terminal-contact";
+import { FileDown } from "lucide-react";
 import Image from "next/image";
 import avatarImg from "../../public/images/avatar.jpg";
 
@@ -72,10 +73,26 @@ export default function Home() {
               </div>
               <div className="space-y-3">
                 <h2 className="text-4xl font-black tracking-tighter uppercase italic leading-none text-white/90">FILOCODE</h2>
-                <div className="font-mono text-[11px] text-amber-500/70 uppercase tracking-[0.2em] flex flex-col gap-2">
+                <div className="font-mono text-[10px] text-amber-500/70 uppercase tracking-[0.2em] flex flex-col gap-2">
                   <span>[XP: 05_YEARS]</span>
                   <span>[RANK: SENIOR]</span>
                   <span className="text-green-500 animate-flicker">[SYSTEM: ONLINE]</span>
+                </div>
+
+                {/* DOSSIER DOWNLOAD BUTTON (v28 HUD) */}
+                <div className="pt-3">
+                  <a 
+                    href="documents/Felipe_Castro_CV_2025.pdf"
+                    download="Felipe_Castro_CV_2025.pdf"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center justify-center gap-3 px-6 py-3 bg-gold-gradient rounded-sm animate-shine bg-[length:200%_100%] shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all hover:scale-105 active:scale-95 group w-full"
+                  >
+                    <FileDown size={16} className="text-black group-hover:translate-y-0.5 transition-transform" />
+                    <span className="font-mono text-[10px] font-black text-black uppercase tracking-[0.2em]">
+                      DOWNLOAD_DOSSIER [PDF]
+                    </span>
+                  </a>
                 </div>
               </div>
             </HudPanel>

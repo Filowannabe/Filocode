@@ -134,7 +134,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                 FILOCODE
               </h2>
               <div
-                class="font-mono text-[11px] text-amber-500/70 uppercase tracking-[0.2em] flex flex-col gap-2"
+                class="font-mono text-[10px] text-amber-500/70 uppercase tracking-[0.2em] flex flex-col gap-2"
               >
                 <span>
                   [XP: 05_YEARS]
@@ -147,6 +147,49 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                 >
                   [SYSTEM: ONLINE]
                 </span>
+              </div>
+              <div
+                class="pt-3"
+              >
+                <a
+                  class="flex items-center justify-center gap-3 px-6 py-3 bg-gold-gradient rounded-sm animate-shine bg-[length:200%_100%] shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all hover:scale-105 active:scale-95 group w-full"
+                  download="Felipe_Castro_CV_2025.pdf"
+                  href="documents/Felipe_Castro_CV_2025.pdf"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                >
+                  <svg
+                    aria-hidden="true"
+                    class="lucide lucide-file-down text-black group-hover:translate-y-0.5 transition-transform"
+                    fill="none"
+                    height="16"
+                    stroke="currentColor"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    viewBox="0 0 24 24"
+                    width="16"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"
+                    />
+                    <path
+                      d="M14 2v5a1 1 0 0 0 1 1h5"
+                    />
+                    <path
+                      d="M12 18v-6"
+                    />
+                    <path
+                      d="m9 15 3 3 3-3"
+                    />
+                  </svg>
+                  <span
+                    class="font-mono text-[10px] font-black text-black uppercase tracking-[0.2em]"
+                  >
+                    DOWNLOAD_DOSSIER [PDF]
+                  </span>
+                </a>
               </div>
             </div>
           </div>
