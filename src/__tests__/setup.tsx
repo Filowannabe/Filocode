@@ -51,6 +51,16 @@ Object.defineProperty(window, 'scrollTo', {
   writable: true
 });
 
+// Mock de IntersectionObserver
+class IntersectionObserverMock {
+  observe = vi.fn();
+  disconnect = vi.fn();
+  unobserve = vi.fn();
+  takeRecords = vi.fn();
+}
+
+vi.stubGlobal('IntersectionObserver', IntersectionObserverMock);
+
 // Reset localStorage mock before each test
 beforeEach(() => {
   Object.keys(localStorageStore).forEach((key: string) => {

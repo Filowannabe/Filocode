@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export function ProjectSkeleton() {
   return (
     <div className={cn(
-        "group relative flex flex-col justify-between h-full min-h-[300px] p-[1px] rounded-2xl overflow-hidden",
+        "group relative flex flex-col justify-between h-full min-h-[350px] p-[1px] rounded-lg overflow-hidden",
         "bg-primary/10 shadow-lg animate-pulse"
       )}>
       <div className="relative z-10 flex flex-col justify-between h-full bg-[#020202] rounded-[15px] p-7">

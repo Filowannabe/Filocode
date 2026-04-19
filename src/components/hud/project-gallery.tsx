@@ -37,10 +37,13 @@ export function ProjectGallery({ initialRepos, searchQuery = '' }: ProjectGaller
       setCurrentPage(page);
 
       if (typeof window !== 'undefined') {
-        window.scrollTo({ 
-          top: (document.getElementById('repos-section')?.offsetTop || 0) - 100, 
-          behavior: 'auto'
-        });
+        const section = document.getElementById('repos-section');
+        if (section) {
+          window.scrollTo({ 
+            top: section.offsetTop - 80, 
+            behavior: 'smooth'
+          });
+        }
       }
       
       setTimeout(() => {
@@ -107,28 +110,43 @@ export function ProjectGallery({ initialRepos, searchQuery = '' }: ProjectGaller
       </div>
 
       {totalPages > 1 && (
-        <div className="flex justify-center mt-16 pb-8">
+        <div className="flex justify-center mt-12 md:mt-16 pb-8">
           <nav 
             aria-label="Navegación de proyectos" 
-            className="inline-flex items-center gap-1.5 p-2 bg-[#020202] border border-(--color-primary)/30 rounded-sm shadow-[0_10px_30px_rgba(0,0,0,0.8)] relative overflow-hidden"
+            className="flex flex-col sm:flex-row items-center gap-3 p-2 bg-[#020202]/80 backdrop-blur-md border border-(--color-primary)/30 rounded-sm shadow-[0_10px_30px_rgba(0,0,0,0.8)] relative overflow-hidden w-full sm:w-auto"
           >
             <div className="absolute inset-0 bg-gradient-to-r from-(--color-primary)/5 via-transparent to-(--color-primary)/5 pointer-events-none" />
 
-            <button
-              onClick={() => changePage(currentPage - 1)}
-              disabled={currentPage === 1 || isPaginating}
-              className="w-12 h-12 rounded-sm flex items-center justify-center text-white/50 hover:bg-(--color-primary)/10 hover:text-(--color-primary) hover:border-(--color-primary)/50 border border-transparent transition-all disabled:opacity-20 disabled:pointer-events-none relative z-10 cursor-pointer"
-              aria-label="Página anterior"
-            >
-              <ChevronLeft size={20} strokeWidth={2.5} />
-            </button>
+            <div className="flex items-center gap-1.5 z-10 w-full sm:w-auto justify-between sm:justify-start">
+              <button
+                onClick={() => changePage(currentPage - 1)}
+                disabled={currentPage === 1 || isPaginating}
+                className="w-10 h-10 md:w-12 md:h-12 rounded-sm flex items-center justify-center text-white/50 hover:bg-(--color-primary)/10 hover:text-(--color-primary) hover:border-(--color-primary)/50 border border-transparent transition-all disabled:opacity-10 disabled:pointer-events-none cursor-pointer"
+                aria-label="Página anterior"
+              >
+                <ChevronLeft size={20} strokeWidth={2.5} />
+              </button>
 
-            <div className="flex items-center gap-1.5 sm:gap-2 px-3 relative z-10 font-mono text-[10px]">
+              <div className="flex sm:hidden font-mono text-[10px] text-(--color-primary) font-black tracking-widest px-4">
+                PAGE_{currentPage.toString().padStart(2, '0')} {"//"} {totalPages.toString().padStart(2, '0')}
+              </div>
+
+              <button
+                onClick={() => changePage(currentPage + 1)}
+                disabled={currentPage === totalPages || isPaginating}
+                className="w-10 h-10 md:w-12 md:h-12 rounded-sm flex items-center justify-center text-white/50 hover:bg-(--color-primary)/10 hover:text-(--color-primary) hover:border-(--color-primary)/50 border border-transparent transition-all disabled:opacity-10 disabled:pointer-events-none cursor-pointer"
+                aria-label="Página siguiente"
+              >
+                <ChevronRight size={20} strokeWidth={2.5} />
+              </button>
+            </div>
+
+            <div className="hidden sm:flex items-center gap-1.5 md:gap-2 px-3 relative z-10 font-mono text-[10px]">
               {getPageNumbers().map((pageNum, idx) => (
                 pageNum === '...' ? (
                   <span 
                     key={`ellipsis-${idx}`} 
-                    className="w-8 flex justify-center text-(--color-primary)/30 font-bold tracking-widest"
+                    className="w-6 md:w-8 flex justify-center text-(--color-primary)/30 font-bold tracking-widest"
                   >
                     ...
                   </span>
@@ -139,9 +157,9 @@ export function ProjectGallery({ initialRepos, searchQuery = '' }: ProjectGaller
                     disabled={isPaginating}
                     aria-current={currentPage === pageNum ? "page" : undefined}
                     className={cn(
-                      "w-12 h-12 rounded-sm flex items-center justify-center font-bold transition-all duration-300 border cursor-pointer",
+                      "w-10 h-10 md:w-12 md:h-12 rounded-sm flex items-center justify-center font-bold transition-all duration-300 border cursor-pointer",
                       currentPage === pageNum 
-                        ? "bg-(--color-primary)/20 text-(--color-primary) border-(--color-primary)/60 shadow-[0_0_15px_rgba(251,191,36,0.2)]" 
+                        ? "bg-(--color-primary)/20 text-(--color-primary) border-(--color-primary)/60 shadow-[0_0_15px_rgba(245,158,11,0.2)]" 
                         : "bg-white/5 text-white/50 border-white/10 hover:text-white hover:bg-white/10 hover:border-white/20"
                     )}
                   >
@@ -150,15 +168,6 @@ export function ProjectGallery({ initialRepos, searchQuery = '' }: ProjectGaller
                 )
               ))}
             </div>
-
-            <button
-              onClick={() => changePage(currentPage + 1)}
-              disabled={currentPage === totalPages || isPaginating}
-              className="w-12 h-12 rounded-sm flex items-center justify-center text-white/50 hover:bg-(--color-primary)/10 hover:text-(--color-primary) hover:border-(--color-primary)/50 border border-transparent transition-all disabled:opacity-20 disabled:pointer-events-none relative z-10 cursor-pointer"
-              aria-label="Página siguiente"
-            >
-              <ChevronRight size={20} strokeWidth={2.5} />
-            </button>
           </nav>
         </div>
       )}

@@ -73,7 +73,7 @@ describe('UI Fidelity Guard - HUD Layer', () => {
   describe('Skeleton Mirror Integrity', () => {
     it('ProjectSkeleton debe copiar el layout exacto de la Card', () => {
       const { container } = render(<ProjectSkeleton />);
-      expect(container.querySelector('.rounded-2xl.p-\\[1px\\]')).toBeInTheDocument();
+      expect(container.querySelector('.rounded-lg.p-\\[1px\\]')).toBeInTheDocument();
       expect(container.querySelector('.rounded-\\[15px\\].bg-\\[\\#020202\\]')).toBeInTheDocument();
     });
   });

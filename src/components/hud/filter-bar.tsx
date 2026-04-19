@@ -161,6 +161,8 @@ export function FilterBar({
           <div className="flex-1 flex items-center px-8 gap-5 border-b md:border-b-0 md:border-r border-white/10 group-focus-within:bg-white/[0.02] transition-all relative">
             <Search size={18} strokeWidth={2.5} className="text-primary/40 shrink-0" />
             <input
+              id="command-search"
+              name="search"
               type="text"
               value={searchQuery}
               onFocus={() => setShowSuggestions(true)}
