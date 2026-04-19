@@ -56,7 +56,7 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
     
     expect(parentBtn).toBeInTheDocument();
     expect(parentBtn?.querySelector('.bg-gold-gradient')).toBeInTheDocument();
-    expect(parentBtn?.querySelector('.animate-shine')).toBeInTheDocument();
+    expect(parentBtn?.querySelector('.animate-gold-shine')).toBeInTheDocument();
   });
 
   it('debe mostrar el Avatar verificado con los metadatos correctos', () => {
@@ -140,7 +140,7 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
       const btn = screen.getByText(/EXPLORAR_PROYECTOS/i).closest('button');
       expect(btn).toHaveClass('shadow-[0_0_40px_rgba(245,158,11,0.4)]');
       const gradientLayer = btn?.querySelector('.bg-gold-gradient');
-      expect(gradientLayer).toHaveClass('animate-shine');
+      expect(gradientLayer).toHaveClass('animate-gold-shine');
     });
 
     it('el botón DOWNLOAD_DOSSIER debe tener el diseño ambar exacto sin animación shine', () => {

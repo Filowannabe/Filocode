@@ -73,7 +73,11 @@
     #fbbf24 80%, 
     #b45309 100%
   );
-  background-size: 200% auto;
+  background-size: 200% 100%;
+}
+
+@utility animate-gold-shine {
+  animation: button-shine 3s linear infinite;
 }
 
 @utility text-gold-shine {

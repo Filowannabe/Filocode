@@ -54,7 +54,7 @@ export default function Home() {
                 onClick={scrollToProjects}
                 className="relative group px-12 py-5 overflow-hidden rounded-md transition-all duration-500 active:scale-95 shadow-[0_0_40px_rgba(245,158,11,0.4)] hover:shadow-[0_0_60px_rgba(245,158,11,0.6)] cursor-pointer"
               >
-                <div className="absolute inset-0 bg-gold-gradient animate-shine bg-[length:200%_100%]" />
+                <div className="absolute inset-0 bg-gold-gradient animate-gold-shine" />
                 <span className="relative font-mono text-[14px] font-black text-black uppercase tracking-[0.25em] flex items-center gap-3">
                   EXPLORAR_PROYECTOS [0x26]
                 </span>
@@ -92,7 +92,12 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="space-y-3 text-center sm:text-left w-full">
-                  <h2 className="text-3xl sm:text-4xl font-black tracking-tighter uppercase italic leading-none text-white/90">FILOCODE</h2>
+                  <h2 className="text-3xl sm:text-4xl font-black tracking-tighter uppercase italic leading-none text-white/90">
+                    FILOCODE
+                    <span className="block sm:inline-block sm:ml-4 text-[10px] sm:text-[11px] font-normal lowercase tracking-normal text-white/20 not-italic align-middle mt-1 sm:mt-0">
+                      by Felipe Corredor Castro
+                    </span>
+                  </h2>
                   <div className="font-mono text-[10px] text-amber-500/70 uppercase tracking-[0.2em] flex flex-col gap-2">
                     <span>[XP: 05_YEARS]</span>
                     <span>[RANK: SENIOR]</span>
