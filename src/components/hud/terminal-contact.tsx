@@ -20,15 +20,15 @@ export function TerminalContact({ className }: TerminalContactProps) {
       
       <div className="pt-2">
         <a 
-          href="mailto:contacto@filocode.dev"
+          href="mailto:filocode@protonmail.com"
           aria-label="Iniciar transmisión de correo electrónico"
           className={cn(
             "inline-block border border-primary px-3 py-1.5 sm:px-4 sm:py-2 font-mono text-[10px] sm:text-sm font-bold uppercase tracking-wider text-primary",
             "transition-all duration-300 hover:bg-primary hover:text-black active:scale-95",
-            "focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none w-full sm:w-auto text-center"
+            "focus-visible:ring-2 focus-visible:ring-primary focus-visible:outline-none w-full sm:w-auto text-center cursor-pointer"
           )}
         >
-          [ INICIAR TRANSMISIÓN ]
+          CONTACT_PROTOCOL
         </a>
       </div>
     </div>

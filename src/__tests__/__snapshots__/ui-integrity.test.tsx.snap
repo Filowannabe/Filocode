@@ -152,7 +152,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                 class="pt-3"
               >
                 <a
-                  class="flex items-center justify-center gap-3 px-6 py-3 bg-gold-gradient rounded-sm animate-shine bg-[length:200%_100%] shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all hover:scale-105 active:scale-95 group w-full cursor-pointer"
+                  class="flex items-center justify-center gap-3 px-6 py-3 bg-gold-gradient rounded-sm shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all hover:scale-105 active:scale-95 group w-full cursor-pointer"
                   download="Felipe_Castro_CV_2025.pdf"
                   href="documents/Felipe_Castro_CV_2025.pdf"
                   rel="noopener noreferrer"

@@ -134,6 +134,28 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
     });
   });
 
+  describe('Button Design Integrity (Pattern Lock)', () => {
+    it('el botón EXPLORAR_PROYECTOS debe tener el gradiente dorado y la animación shine', () => {
+      render(<Home />);
+      const btn = screen.getByText(/EXPLORAR_PROYECTOS/i).closest('button');
+      expect(btn).toHaveClass('shadow-[0_0_40px_rgba(245,158,11,0.4)]');
+      const gradientLayer = btn?.querySelector('.bg-gold-gradient');
+      expect(gradientLayer).toHaveClass('animate-shine');
+    });
+
+    it('el botón DOWNLOAD_DOSSIER debe tener el diseño ambar exacto sin animación shine', () => {
+      render(<Home />);
+      const link = screen.getByText(/DOWNLOAD_DOSSIER/i).closest('a');
+      expect(link).toHaveClass('bg-gold-gradient');
+      expect(link).toHaveClass('shadow-[0_0_25px_rgba(245,158,11,0.25)]');
+      expect(link).not.toHaveClass('animate-shine');
+      
+      const icon = link?.querySelector('svg');
+      expect(icon).toHaveClass('lucide-file-down');
+      expect(icon).toHaveClass('text-black');
+    });
+  });
+
   it('debe generar un snapshot estructural para prevenir cambios accidentales', () => {
     const { asFragment } = render(<Home />);
     expect(asFragment()).toMatchSnapshot();
