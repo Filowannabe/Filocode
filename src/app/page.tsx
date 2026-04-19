@@ -68,7 +68,7 @@ export default function Home() {
           <div className="lg:col-span-5 flex flex-col gap-8">
             
             {/* WINDOW: AVATAR */}
-            <HudPanel title="AVATAR" className="p-10 flex items-center gap-10" delay={0.2}>
+            <HudPanel title="AVATAR" className="p-6 sm:p-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-10" delay={0.2}>
               <div className="relative shrink-0 group">
                 <div className="absolute inset-[-15%] bg-amber-500/30 blur-3xl rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-1000" />
                 <div className="relative w-28 h-28 md:w-32 md:h-32 rounded-xl overflow-hidden border border-white/20 shadow-2xl">
@@ -85,8 +85,8 @@ export default function Home() {
                   VERIFIED
                 </div>
               </div>
-              <div className="space-y-3">
-                <h2 className="text-4xl font-black tracking-tighter uppercase italic leading-none text-white/90">FILOCODE</h2>
+              <div className="space-y-3 text-center sm:text-left w-full">
+                <h2 className="text-3xl sm:text-4xl font-black tracking-tighter uppercase italic leading-none text-white/90">FILOCODE</h2>
                 <div className="font-mono text-[10px] text-amber-500/70 uppercase tracking-[0.2em] flex flex-col gap-2">
                   <span>[XP: 05_YEARS]</span>
                   <span>[RANK: SENIOR]</span>

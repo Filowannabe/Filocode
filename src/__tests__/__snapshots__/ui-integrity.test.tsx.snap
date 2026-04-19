@@ -73,7 +73,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
       >
         <div
           animate="[object Object]"
-          class="relative overflow-hidden rounded-md transition-all duration-700 bg-[rgba(5,5,5,0.45)] backdrop-blur-3xl border border-white/10 border-b-white/5 border-r-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.05)] group p-10 flex items-center gap-10"
+          class="relative overflow-hidden rounded-md transition-all duration-700 bg-[rgba(5,5,5,0.45)] backdrop-blur-3xl border border-white/10 border-b-white/5 border-r-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.05)] group p-6 sm:p-10 flex flex-col sm:flex-row items-center gap-6 sm:gap-10"
           initial="[object Object]"
           transition="[object Object]"
         >
@@ -126,10 +126,10 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
               </div>
             </div>
             <div
-              class="space-y-3"
+              class="space-y-3 text-center sm:text-left w-full"
             >
               <h2
-                class="text-4xl font-black tracking-tighter uppercase italic leading-none text-white/90"
+                class="text-3xl sm:text-4xl font-black tracking-tighter uppercase italic leading-none text-white/90"
               >
                 FILOCODE
               </h2>
