@@ -571,6 +571,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
     <div
       animate="[object Object]"
       class="relative overflow-hidden rounded-md transition-all duration-700 bg-[rgba(5,5,5,0.45)] backdrop-blur-3xl border border-white/10 border-b-white/5 border-r-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.05)] group w-full mt-4 p-8 md:p-16"
+      id="arsenal-station"
       initial="[object Object]"
       transition="[object Object]"
     >

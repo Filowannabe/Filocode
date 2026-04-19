@@ -17,10 +17,12 @@ import avatarImg from "../../public/images/avatar.jpg";
 export default function Home() {
   const scrollToProjects = () => {
     if (typeof window !== 'undefined') {
-      window.scrollTo({ 
-        top: 1209, 
-        behavior: 'smooth' 
-      });
+      const section = document.getElementById('arsenal-station');
+      if (section) {
+        const yOffset = -100; 
+        const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        window.scrollTo({ top: y, behavior: 'smooth' });
+      }
     }
   };
 
@@ -166,7 +168,7 @@ export default function Home() {
         </div>
 
         {/* ROW 3: PROJECT ARSENAL (THE BIG WINDOW) */}
-        <HudPanel title="PROJECT_ARSENAL_STATION" className="w-full mt-4 p-8 md:p-16" delay={0.6}>
+        <HudPanel title="PROJECT_ARSENAL_STATION" className="w-full mt-4 p-8 md:p-16" delay={0.6} id="arsenal-station">
           <ProjectSection />
         </HudPanel>
 
