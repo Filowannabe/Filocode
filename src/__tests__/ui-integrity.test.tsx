@@ -55,7 +55,7 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
     const parentBtn = exploreBtn.closest('button');
     
     expect(parentBtn).toBeInTheDocument();
-    expect(parentBtn?.querySelector('.bg-gradient-to-r')).toBeInTheDocument();
+    expect(parentBtn?.querySelector('.bg-gold-gradient')).toBeInTheDocument();
     expect(parentBtn?.querySelector('.animate-shine')).toBeInTheDocument();
   });
 

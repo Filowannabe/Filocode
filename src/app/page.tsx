@@ -1,3 +1,5 @@
+"use client";
+
 import { StatsBar } from "@/components/hud/stats-bar";
 import { SkillsPanel } from "@/components/hud/skills-panel";
 import { ProjectSection } from "@/components/hud/project-section";
@@ -9,10 +11,19 @@ import Image from "next/image";
 import avatarImg from "../../public/images/avatar.jpg";
 
 /**
- * Home Page - Server Component.
+ * Home Page - Client Component.
  * Arquitectura de Ventanas Flotantes de Alta Fidelidad (v28).
  */
 export default function Home() {
+  const scrollToProjects = () => {
+    const section = document.getElementById('repos-section');
+    if (section) {
+      const yOffset = -100; 
+      const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
+      window.scrollTo({ top: y, behavior: 'smooth' });
+    }
+  };
+
   return (
     <TopicsProvider repositories={[]}>
       <main className="px-4 sm:px-6 md:px-16 max-w-[1800px] mx-auto min-h-screen relative z-10 flex flex-col gap-16">
@@ -37,14 +48,17 @@ export default function Home() {
             </div>
 
             <div className="flex flex-wrap gap-8 pt-8">
-              <button className="relative group px-12 py-5 overflow-hidden rounded-md transition-all duration-500 active:scale-95 shadow-[0_0_40px_rgba(245,158,11,0.4)] hover:shadow-[0_0_60px_rgba(245,158,11,0.6)]">
-                <div className="absolute inset-0 bg-gradient-to-r from-amber-700 via-amber-300 to-amber-600 animate-shine bg-[length:200%_100%]" />
+              <button 
+                onClick={scrollToProjects}
+                className="relative group px-12 py-5 overflow-hidden rounded-md transition-all duration-500 active:scale-95 shadow-[0_0_40px_rgba(245,158,11,0.4)] hover:shadow-[0_0_60px_rgba(245,158,11,0.6)] cursor-pointer"
+              >
+                <div className="absolute inset-0 bg-gold-gradient animate-shine bg-[length:200%_100%]" />
                 <span className="relative font-mono text-[14px] font-black text-black uppercase tracking-[0.25em] flex items-center gap-3">
                   EXPLORAR_PROYECTOS [0x26]
                 </span>
               </button>
               
-              <button className="font-mono text-[12px] font-bold text-white/40 hover:text-amber-400 border border-white/5 hover:border-amber-500/30 px-10 py-5 transition-all uppercase tracking-widest bg-white/[0.03] rounded-md">
+              <button className="font-mono text-[12px] font-bold text-white/40 hover:text-amber-400 border border-white/5 hover:border-amber-500/30 px-10 py-5 transition-all uppercase tracking-widest bg-white/[0.03] rounded-md cursor-pointer">
                 Contact_Protocol
               </button>
             </div>
@@ -86,7 +100,7 @@ export default function Home() {
                     download="Felipe_Castro_CV_2025.pdf"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 px-6 py-3 bg-gold-gradient rounded-sm animate-shine bg-[length:200%_100%] shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all hover:scale-105 active:scale-95 group w-full"
+                    className="flex items-center justify-center gap-3 px-6 py-3 bg-gold-gradient rounded-sm animate-shine bg-[length:200%_100%] shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all hover:scale-105 active:scale-95 group w-full cursor-pointer"
                   >
                     <FileDown size={16} className="text-black group-hover:translate-y-0.5 transition-transform" />
                     <span className="font-mono text-[10px] font-black text-black uppercase tracking-[0.2em]">

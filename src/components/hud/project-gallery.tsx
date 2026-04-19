@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo } from 'react';
+import { useState, useMemo, useRef } from 'react';
 import { ProjectCard } from './project-card';
 import { ProjectSkeleton } from './project-skeleton';
 import { GitHubRepository } from '@/types/repositorio';
@@ -17,11 +17,12 @@ interface ProjectGalleryProps {
 
 /**
  * ProjectGallery - Galería con paginación técnica.
- * v24: Soporte para highlight de búsqueda.
+ * v25: Refuerzo de scroll responsivo y estabilidad de estado.
  */
 export function ProjectGallery({ initialRepos, searchQuery = '' }: ProjectGalleryProps) {
   const [currentPage, setCurrentPage] = useState(1);
   const [isPaginating, setIsPaginating] = useState(false);
+  const galleryRef = useRef<HTMLDivElement>(null);
   const itemsPerPage = 6;
   
   const totalPages = Math.ceil(initialRepos.length / itemsPerPage);
@@ -36,19 +37,21 @@ export function ProjectGallery({ initialRepos, searchQuery = '' }: ProjectGaller
       setIsPaginating(true);
       setCurrentPage(page);
 
-      if (typeof window !== 'undefined') {
-        const section = document.getElementById('repos-section');
-        if (section) {
-          window.scrollTo({ 
-            top: section.offsetTop - 80, 
-            behavior: 'smooth'
-          });
-        }
+      // Scroll robusto (v25)
+      if (typeof window !== 'undefined' && galleryRef.current) {
+        const yOffset = -100; // Espacio para el header fijo
+        const element = galleryRef.current;
+        const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
+        
+        window.scrollTo({ 
+          top: y, 
+          behavior: 'smooth'
+        });
       }
       
       setTimeout(() => {
         setIsPaginating(false);
-      }, 250);
+      }, 300);
     }
   };
 
@@ -69,7 +72,7 @@ export function ProjectGallery({ initialRepos, searchQuery = '' }: ProjectGaller
   };
 
   return (
-    <div className="relative flex flex-col min-h-[600px]" id="repos-section">
+    <div ref={galleryRef} className="relative flex flex-col min-h-[600px]" id="repos-section">
       
       <div className="relative flex-grow">
         <AnimatePresence mode="wait" initial={false}>
