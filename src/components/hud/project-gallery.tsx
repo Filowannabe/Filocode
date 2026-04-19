@@ -17,7 +17,7 @@ interface ProjectGalleryProps {
 
 /**
  * ProjectGallery - Galería con paginación técnica.
- * v25: Refuerzo de scroll responsivo y estabilidad de estado.
+ * v27: Refuerzo de scroll responsivo y estabilidad de estado.
  */
 export function ProjectGallery({ initialRepos, searchQuery = '' }: ProjectGalleryProps) {
   const [currentPage, setCurrentPage] = useState(1);
@@ -179,8 +179,6 @@ export function ProjectGallery({ initialRepos, searchQuery = '' }: ProjectGaller
           </nav>
         </div>
       )}
-
     </div>
   );
 }
-

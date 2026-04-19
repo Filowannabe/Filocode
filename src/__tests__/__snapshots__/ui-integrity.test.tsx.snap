@@ -61,11 +61,12 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
               EXPLORAR_PROYECTOS [0x26]
             </span>
           </button>
-          <button
-            class="font-mono text-[12px] font-bold text-white/40 hover:text-amber-400 border border-white/5 hover:border-amber-500/30 px-10 py-5 transition-all uppercase tracking-widest bg-white/[0.03] rounded-md cursor-pointer"
+          <a
+            class="font-mono text-[12px] font-bold text-white/40 hover:text-amber-400 border border-white/5 hover:border-amber-500/30 px-10 py-5 transition-all uppercase tracking-widest bg-white/[0.03] rounded-md cursor-pointer text-center"
+            href="mailto:filocode@protonmail.com"
           >
             Contact_Protocol
-          </button>
+          </a>
         </div>
       </div>
       <div

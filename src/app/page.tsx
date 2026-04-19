@@ -58,9 +58,12 @@ export default function Home() {
                 </span>
               </button>
               
-              <button className="font-mono text-[12px] font-bold text-white/40 hover:text-amber-400 border border-white/5 hover:border-amber-500/30 px-10 py-5 transition-all uppercase tracking-widest bg-white/[0.03] rounded-md cursor-pointer">
+              <a 
+                href="mailto:filocode@protonmail.com"
+                className="font-mono text-[12px] font-bold text-white/40 hover:text-amber-400 border border-white/5 hover:border-amber-500/30 px-10 py-5 transition-all uppercase tracking-widest bg-white/[0.03] rounded-md cursor-pointer text-center"
+              >
                 Contact_Protocol
-              </button>
+              </a>
             </div>
           </div>
 
