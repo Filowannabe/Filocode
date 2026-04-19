@@ -94,7 +94,7 @@ export default function Home() {
                 <div className="space-y-3 text-center sm:text-left w-full">
                   <h2 className="text-3xl sm:text-4xl font-black tracking-tighter uppercase italic leading-none text-white/90">
                     FILOCODE
-                    <span className="block sm:inline-block sm:ml-4 text-[8px] sm:text-[8px] font-normal tracking-normal text-white/20 not-italic align-middle mt-1 sm:mt-0">
+                    <span className="block sm:inline-block sm:ml-4 text-[8px] sm:text-[10px] font-normal tracking-normal text-white/20 not-italic align-middle mt-1 sm:mt-0">
                       by Felipe Corredor Castro
                     </span>
                   </h2>
