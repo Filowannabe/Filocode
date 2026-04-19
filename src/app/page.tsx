@@ -124,28 +124,30 @@ export default function Home() {
             </HudPanel>
 
             {/* WINDOW: CODE 1 */}
-            <HudPanel title="CODE 1" className="p-8 flex-1 min-h-[220px]" delay={0.3}>
-              <div className="font-mono text-[11px] space-y-4">
-                <div className="flex items-center gap-3 text-white/20">
-                  <span className="text-amber-500/40 w-4">01</span>
-                  <span className="text-amber-500">import</span> <span className="text-white/60">{"{ Architect }"}</span> <span>from</span> <span className="text-amber-200/40">'core-engine'</span>
+            <HudPanel title="CODE 1" className="flex-1 min-h-[220px]" delay={0.3}>
+              <div className="p-8">
+                <div className="font-mono text-[11px] space-y-4">
+                  <div className="flex items-center gap-3 text-white/20">
+                    <span className="text-amber-500/40 w-4">01</span>
+                    <span className="text-amber-500">import</span> <span className="text-white/60">{"{ Architect }"}</span> <span>from</span> <span className="text-amber-200/40">'core-engine'</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-white/20">
+                    <span className="text-amber-500/40 w-4">02</span>
+                    <span className="text-amber-500">const</span> <span>skills</span> <span className="text-amber-500">=</span> <span className="text-white/60">["React 19", "Next.js 16"]</span>
+                  </div>
+                  <div className="flex items-center gap-3 text-white/20 pl-8">
+                    <span className="text-amber-500/40 w-4">03</span>
+                    <span className="text-amber-500">mastery</span> <span>=</span> <span className="text-green-500">'MAXIMUM'</span>
+                  </div>
                 </div>
-                <div className="flex items-center gap-3 text-white/20">
-                  <span className="text-amber-500/40 w-4">02</span>
-                  <span className="text-amber-500">const</span> <span>skills</span> <span className="text-amber-500">=</span> <span className="text-white/60">["React 19", "Next.js 16"]</span>
-                </div>
-                <div className="flex items-center gap-3 text-white/20 pl-8">
-                  <span className="text-amber-500/40 w-4">03</span>
-                  <span className="text-amber-500">mastery</span> <span>=</span> <span className="text-green-500">'MAXIMUM'</span>
-                </div>
-              </div>
-              
-              <div className="mt-12 flex justify-between items-end border-t border-white/5 pt-6 opacity-40">
-                <div className="text-[10px] font-black text-amber-500 uppercase tracking-[0.3em]">
-                  BUFFER_SYNCING...
-                </div>
-                <div className="w-10 h-10 rounded-full border border-dashed border-amber-500/30 animate-spin-slow flex items-center justify-center">
-                   <div className="w-2 h-2 bg-amber-500 rounded-full" />
+                
+                <div className="mt-12 flex justify-between items-end border-t border-white/5 pt-6 opacity-40">
+                  <div className="text-[10px] font-black text-amber-500 uppercase tracking-[0.3em]">
+                    BUFFER_SYNCING...
+                  </div>
+                  <div className="w-10 h-10 rounded-full border border-dashed border-amber-500/30 animate-spin-slow flex items-center justify-center">
+                    <div className="w-2 h-2 bg-amber-500 rounded-full" />
+                  </div>
                 </div>
               </div>
             </HudPanel>
@@ -156,25 +158,31 @@ export default function Home() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           
           {/* WINDOW: SKILL TREE */}
-          <HudPanel title="SKILL TREE" className="lg:col-span-5 p-8" delay={0.4}>
-             <SkillsPanel />
+          <HudPanel title="SKILL TREE" className="lg:col-span-5" delay={0.4}>
+            <div className="p-8">
+              <SkillsPanel />
+            </div>
           </HudPanel>
 
           {/* WINDOW: GITHUB / TELEMETRY */}
-          <HudPanel title="GITHUB_TELEMETRY" className="lg:col-span-7 p-8" delay={0.5}>
-             <StatsBar />
-             <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-between">
-                <div className="font-mono text-[10px] text-white/20 uppercase tracking-widest">
-                  DATA_STREAM_ACTIVE // 32_NODES_DETECTOR
-                </div>
-                <TerminalContact />
-             </div>
+          <HudPanel title="GITHUB_TELEMETRY" className="lg:col-span-7" delay={0.5}>
+            <div className="p-8">
+              <StatsBar />
+              <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-between">
+                  <div className="font-mono text-[10px] text-white/20 uppercase tracking-widest">
+                    DATA_STREAM_ACTIVE // 32_NODES_DETECTOR
+                  </div>
+                  <TerminalContact />
+              </div>
+            </div>
           </HudPanel>
         </div>
 
         {/* ROW 3: PROJECT ARSENAL (THE BIG WINDOW) */}
-        <HudPanel title="PROJECT_ARSENAL_STATION" className="w-full mt-4 p-8 md:p-16" delay={0.6} id="arsenal-station">
-          <ProjectSection />
+        <HudPanel title="PROJECT_ARSENAL_STATION" className="w-full mt-4" delay={0.6} id="arsenal-station">
+          <div className="p-8 md:p-16">
+            <ProjectSection />
+          </div>
         </HudPanel>
 
         {/* FOOTER */}

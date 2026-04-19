@@ -206,7 +206,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
         </div>
         <div
           animate="[object Object]"
-          class="relative overflow-hidden rounded-md transition-all duration-700 bg-[rgba(5,5,5,0.45)] backdrop-blur-3xl border border-white/10 border-b-white/5 border-r-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.05)] group p-8 flex-1 min-h-[220px]"
+          class="relative overflow-hidden rounded-md transition-all duration-700 bg-[rgba(5,5,5,0.45)] backdrop-blur-3xl border border-white/10 border-b-white/5 border-r-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.05)] group flex-1 min-h-[220px]"
           initial="[object Object]"
           transition="[object Object]"
         >
@@ -232,107 +232,111 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
             class="relative z-10 h-full w-full"
           >
             <div
-              class="font-mono text-[11px] space-y-4"
+              class="p-8"
             >
               <div
-                class="flex items-center gap-3 text-white/20"
-              >
-                <span
-                  class="text-amber-500/40 w-4"
-                >
-                  01
-                </span>
-                <span
-                  class="text-amber-500"
-                >
-                  import
-                </span>
-                 
-                <span
-                  class="text-white/60"
-                >
-                  { Architect }
-                </span>
-                 
-                <span>
-                  from
-                </span>
-                 
-                <span
-                  class="text-amber-200/40"
-                >
-                  'core-engine'
-                </span>
-              </div>
-              <div
-                class="flex items-center gap-3 text-white/20"
-              >
-                <span
-                  class="text-amber-500/40 w-4"
-                >
-                  02
-                </span>
-                <span
-                  class="text-amber-500"
-                >
-                  const
-                </span>
-                 
-                <span>
-                  skills
-                </span>
-                 
-                <span
-                  class="text-amber-500"
-                >
-                  =
-                </span>
-                 
-                <span
-                  class="text-white/60"
-                >
-                  ["React 19", "Next.js 16"]
-                </span>
-              </div>
-              <div
-                class="flex items-center gap-3 text-white/20 pl-8"
-              >
-                <span
-                  class="text-amber-500/40 w-4"
-                >
-                  03
-                </span>
-                <span
-                  class="text-amber-500"
-                >
-                  mastery
-                </span>
-                 
-                <span>
-                  =
-                </span>
-                 
-                <span
-                  class="text-green-500"
-                >
-                  'MAXIMUM'
-                </span>
-              </div>
-            </div>
-            <div
-              class="mt-12 flex justify-between items-end border-t border-white/5 pt-6 opacity-40"
-            >
-              <div
-                class="text-[10px] font-black text-amber-500 uppercase tracking-[0.3em]"
-              >
-                BUFFER_SYNCING...
-              </div>
-              <div
-                class="w-10 h-10 rounded-full border border-dashed border-amber-500/30 animate-spin-slow flex items-center justify-center"
+                class="font-mono text-[11px] space-y-4"
               >
                 <div
-                  class="w-2 h-2 bg-amber-500 rounded-full"
-                />
+                  class="flex items-center gap-3 text-white/20"
+                >
+                  <span
+                    class="text-amber-500/40 w-4"
+                  >
+                    01
+                  </span>
+                  <span
+                    class="text-amber-500"
+                  >
+                    import
+                  </span>
+                   
+                  <span
+                    class="text-white/60"
+                  >
+                    { Architect }
+                  </span>
+                   
+                  <span>
+                    from
+                  </span>
+                   
+                  <span
+                    class="text-amber-200/40"
+                  >
+                    'core-engine'
+                  </span>
+                </div>
+                <div
+                  class="flex items-center gap-3 text-white/20"
+                >
+                  <span
+                    class="text-amber-500/40 w-4"
+                  >
+                    02
+                  </span>
+                  <span
+                    class="text-amber-500"
+                  >
+                    const
+                  </span>
+                   
+                  <span>
+                    skills
+                  </span>
+                   
+                  <span
+                    class="text-amber-500"
+                  >
+                    =
+                  </span>
+                   
+                  <span
+                    class="text-white/60"
+                  >
+                    ["React 19", "Next.js 16"]
+                  </span>
+                </div>
+                <div
+                  class="flex items-center gap-3 text-white/20 pl-8"
+                >
+                  <span
+                    class="text-amber-500/40 w-4"
+                  >
+                    03
+                  </span>
+                  <span
+                    class="text-amber-500"
+                  >
+                    mastery
+                  </span>
+                   
+                  <span>
+                    =
+                  </span>
+                   
+                  <span
+                    class="text-green-500"
+                  >
+                    'MAXIMUM'
+                  </span>
+                </div>
+              </div>
+              <div
+                class="mt-12 flex justify-between items-end border-t border-white/5 pt-6 opacity-40"
+              >
+                <div
+                  class="text-[10px] font-black text-amber-500 uppercase tracking-[0.3em]"
+                >
+                  BUFFER_SYNCING...
+                </div>
+                <div
+                  class="w-10 h-10 rounded-full border border-dashed border-amber-500/30 animate-spin-slow flex items-center justify-center"
+                >
+                  <div
+                    class="w-2 h-2 bg-amber-500 rounded-full"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -344,7 +348,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
     >
       <div
         animate="[object Object]"
-        class="relative overflow-hidden rounded-md transition-all duration-700 bg-[rgba(5,5,5,0.45)] backdrop-blur-3xl border border-white/10 border-b-white/5 border-r-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.05)] group lg:col-span-5 p-8"
+        class="relative overflow-hidden rounded-md transition-all duration-700 bg-[rgba(5,5,5,0.45)] backdrop-blur-3xl border border-white/10 border-b-white/5 border-r-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.05)] group lg:col-span-5"
         initial="[object Object]"
         transition="[object Object]"
       >
@@ -370,84 +374,88 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
           class="relative z-10 h-full w-full"
         >
           <div
-            class="flex flex-col gap-6"
+            class="p-8"
           >
             <div
-              class="space-y-4"
+              class="flex flex-col gap-6"
             >
-              <h3
-                class="text-[11px] font-black font-mono tracking-[0.4em] text-amber-500 uppercase flex items-center gap-2"
-              >
-                <div
-                  class="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse"
-                />
-                Core_Matrix
-              </h3>
               <div
-                class="grid grid-cols-2 gap-3"
+                class="space-y-4"
               >
-                <div
-                  class="border border-amber-500/30 bg-amber-500/5 px-4 py-3 text-[10px] font-black font-mono text-amber-500 uppercase tracking-widest flex items-center justify-between group cursor-default hover:bg-amber-500/10 transition-all"
+                <h3
+                  class="text-[11px] font-black font-mono tracking-[0.4em] text-amber-500 uppercase flex items-center gap-2"
                 >
-                  <span>
-                    Node.js
-                  </span>
-                  <span
-                    class="text-[8px] opacity-30"
-                  >
-                    [ACTIVE]
-                  </span>
-                </div>
+                  <div
+                    class="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse"
+                  />
+                  Core_Matrix
+                </h3>
                 <div
-                  class="border border-amber-500/30 bg-amber-500/5 px-4 py-3 text-[10px] font-black font-mono text-amber-500 uppercase tracking-widest flex items-center justify-between group cursor-default hover:bg-amber-500/10 transition-all"
+                  class="grid grid-cols-2 gap-3"
                 >
-                  <span>
-                    TypeScript
-                  </span>
-                  <span
-                    class="text-[8px] opacity-30"
+                  <div
+                    class="border border-amber-500/30 bg-amber-500/5 px-4 py-3 text-[10px] font-black font-mono text-amber-500 uppercase tracking-widest flex items-center justify-between group cursor-default hover:bg-amber-500/10 transition-all"
                   >
-                    [ACTIVE]
-                  </span>
+                    <span>
+                      Node.js
+                    </span>
+                    <span
+                      class="text-[8px] opacity-30"
+                    >
+                      [ACTIVE]
+                    </span>
+                  </div>
+                  <div
+                    class="border border-amber-500/30 bg-amber-500/5 px-4 py-3 text-[10px] font-black font-mono text-amber-500 uppercase tracking-widest flex items-center justify-between group cursor-default hover:bg-amber-500/10 transition-all"
+                  >
+                    <span>
+                      TypeScript
+                    </span>
+                    <span
+                      class="text-[8px] opacity-30"
+                    >
+                      [ACTIVE]
+                    </span>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div
-              class="space-y-4"
-            >
-              <h3
-                class="text-[10px] font-bold font-mono tracking-[0.3em] text-white/30 uppercase"
-              >
-                Sub_Modules
-              </h3>
               <div
-                class="flex flex-wrap gap-2"
+                class="space-y-4"
               >
-                <span
-                  class="border border-white/5 bg-white/[0.02] px-3 py-1.5 text-[9px] font-mono text-white/50 hover:text-white hover:border-white/20 transition-all cursor-default"
+                <h3
+                  class="text-[10px] font-bold font-mono tracking-[0.3em] text-white/30 uppercase"
                 >
-                  Next.js
-                </span>
-                <span
-                  class="border border-white/5 bg-white/[0.02] px-3 py-1.5 text-[9px] font-mono text-white/50 hover:text-white hover:border-white/20 transition-all cursor-default"
+                  Sub_Modules
+                </h3>
+                <div
+                  class="flex flex-wrap gap-2"
                 >
-                  Docker
-                </span>
-                <span
-                  class="border border-white/5 bg-white/[0.02] px-3 py-1.5 text-[9px] font-mono text-white/50 hover:text-white hover:border-white/20 transition-all cursor-default"
-                >
-                  PostgreSQL
-                </span>
-                <span
-                  class="border border-white/5 bg-white/[0.02] px-3 py-1.5 text-[9px] font-mono text-white/50 hover:text-white hover:border-white/20 transition-all cursor-default"
-                >
-                  React
-                </span>
-                <span
-                  class="border border-white/5 bg-white/[0.02] px-3 py-1.5 text-[9px] font-mono text-white/50 hover:text-white hover:border-white/20 transition-all cursor-default"
-                >
-                  TailwindCSS
-                </span>
+                  <span
+                    class="border border-white/5 bg-white/[0.02] px-3 py-1.5 text-[9px] font-mono text-white/50 hover:text-white hover:border-white/20 transition-all cursor-default"
+                  >
+                    Next.js
+                  </span>
+                  <span
+                    class="border border-white/5 bg-white/[0.02] px-3 py-1.5 text-[9px] font-mono text-white/50 hover:text-white hover:border-white/20 transition-all cursor-default"
+                  >
+                    Docker
+                  </span>
+                  <span
+                    class="border border-white/5 bg-white/[0.02] px-3 py-1.5 text-[9px] font-mono text-white/50 hover:text-white hover:border-white/20 transition-all cursor-default"
+                  >
+                    PostgreSQL
+                  </span>
+                  <span
+                    class="border border-white/5 bg-white/[0.02] px-3 py-1.5 text-[9px] font-mono text-white/50 hover:text-white hover:border-white/20 transition-all cursor-default"
+                  >
+                    React
+                  </span>
+                  <span
+                    class="border border-white/5 bg-white/[0.02] px-3 py-1.5 text-[9px] font-mono text-white/50 hover:text-white hover:border-white/20 transition-all cursor-default"
+                  >
+                    TailwindCSS
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -455,7 +463,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
       </div>
       <div
         animate="[object Object]"
-        class="relative overflow-hidden rounded-md transition-all duration-700 bg-[rgba(5,5,5,0.45)] backdrop-blur-3xl border border-white/10 border-b-white/5 border-r-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.05)] group lg:col-span-7 p-8"
+        class="relative overflow-hidden rounded-md transition-all duration-700 bg-[rgba(5,5,5,0.45)] backdrop-blur-3xl border border-white/10 border-b-white/5 border-r-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.05)] group lg:col-span-7"
         initial="[object Object]"
         transition="[object Object]"
       >
@@ -481,93 +489,97 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
           class="relative z-10 h-full w-full"
         >
           <div
-            class="grid grid-cols-2 md:grid-cols-4 gap-6"
+            class="p-8"
           >
             <div
-              class="p-4 text-center group border border-white/5 bg-white/[0.02] rounded-lg transition-all hover:bg-white/[0.05] hover:border-amber-500/20"
+              class="grid grid-cols-2 md:grid-cols-4 gap-6"
             >
               <div
-                class="flex flex-col"
+                class="p-4 text-center group border border-white/5 bg-white/[0.02] rounded-lg transition-all hover:bg-white/[0.05] hover:border-amber-500/20"
               >
-                <span
-                  class="text-3xl font-black text-amber-500 drop-shadow-neon tracking-tighter"
+                <div
+                  class="flex flex-col"
                 >
-                  5+
-                </span>
-                <span
-                  class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
+                  <span
+                    class="text-3xl font-black text-amber-500 drop-shadow-neon tracking-tighter"
+                  >
+                    5+
+                  </span>
+                  <span
+                    class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
+                  >
+                    AÑOS EXP
+                  </span>
+                </div>
+              </div>
+              <div
+                class="p-4 text-center group border border-white/5 bg-white/[0.02] rounded-lg transition-all hover:bg-white/[0.05] hover:border-amber-500/20"
+              >
+                <div
+                  class="flex flex-col"
                 >
-                  AÑOS EXP
-                </span>
+                  <span
+                    class="text-3xl font-black text-amber-500 drop-shadow-neon tracking-tighter"
+                  >
+                    12
+                  </span>
+                  <span
+                    class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
+                  >
+                    PROYECTOS
+                  </span>
+                </div>
+              </div>
+              <div
+                class="p-4 text-center group border border-white/5 bg-white/[0.02] rounded-lg transition-all hover:bg-white/[0.05] hover:border-amber-500/20"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <span
+                    class="text-3xl font-black text-amber-500 drop-shadow-neon tracking-tighter"
+                  >
+                    200+
+                  </span>
+                  <span
+                    class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
+                  >
+                    HRS MENTORÍA
+                  </span>
+                </div>
+              </div>
+              <div
+                class="p-4 text-center group border border-white/5 bg-white/[0.02] rounded-lg transition-all hover:bg-white/[0.05] hover:border-amber-500/20"
+              >
+                <div
+                  class="flex flex-col"
+                >
+                  <span
+                    class="text-3xl font-black text-amber-500 drop-shadow-neon tracking-tighter"
+                  >
+                    1.2k
+                  </span>
+                  <span
+                    class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
+                  >
+                    COMMITS
+                  </span>
+                </div>
               </div>
             </div>
             <div
-              class="p-4 text-center group border border-white/5 bg-white/[0.02] rounded-lg transition-all hover:bg-white/[0.05] hover:border-amber-500/20"
+              class="mt-8 pt-8 border-t border-white/5 flex items-center justify-between"
             >
               <div
-                class="flex flex-col"
+                class="font-mono text-[10px] text-white/20 uppercase tracking-widest"
               >
-                <span
-                  class="text-3xl font-black text-amber-500 drop-shadow-neon tracking-tighter"
-                >
-                  12
-                </span>
-                <span
-                  class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
-                >
-                  PROYECTOS
-                </span>
+                DATA_STREAM_ACTIVE // 32_NODES_DETECTOR
               </div>
-            </div>
-            <div
-              class="p-4 text-center group border border-white/5 bg-white/[0.02] rounded-lg transition-all hover:bg-white/[0.05] hover:border-amber-500/20"
-            >
               <div
-                class="flex flex-col"
+                data-testid="terminal-contact"
               >
-                <span
-                  class="text-3xl font-black text-amber-500 drop-shadow-neon tracking-tighter"
-                >
-                  200+
-                </span>
-                <span
-                  class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
-                >
-                  HRS MENTORÍA
-                </span>
+                Comms Channel
               </div>
-            </div>
-            <div
-              class="p-4 text-center group border border-white/5 bg-white/[0.02] rounded-lg transition-all hover:bg-white/[0.05] hover:border-amber-500/20"
-            >
-              <div
-                class="flex flex-col"
-              >
-                <span
-                  class="text-3xl font-black text-amber-500 drop-shadow-neon tracking-tighter"
-                >
-                  1.2k
-                </span>
-                <span
-                  class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
-                >
-                  COMMITS
-                </span>
-              </div>
-            </div>
-          </div>
-          <div
-            class="mt-8 pt-8 border-t border-white/5 flex items-center justify-between"
-          >
-            <div
-              class="font-mono text-[10px] text-white/20 uppercase tracking-widest"
-            >
-              DATA_STREAM_ACTIVE // 32_NODES_DETECTOR
-            </div>
-            <div
-              data-testid="terminal-contact"
-            >
-              Comms Channel
             </div>
           </div>
         </div>
@@ -575,7 +587,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
     </div>
     <div
       animate="[object Object]"
-      class="relative overflow-hidden rounded-md transition-all duration-700 bg-[rgba(5,5,5,0.45)] backdrop-blur-3xl border border-white/10 border-b-white/5 border-r-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.05)] group w-full mt-4 p-8 md:p-16"
+      class="relative overflow-hidden rounded-md transition-all duration-700 bg-[rgba(5,5,5,0.45)] backdrop-blur-3xl border border-white/10 border-b-white/5 border-r-white/5 shadow-[0_20px_60px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.05)] group w-full mt-4"
       id="arsenal-station"
       initial="[object Object]"
       transition="[object Object]"
@@ -602,9 +614,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
         class="relative z-10 h-full w-full"
       >
         <div
-          data-testid="project-section"
+          class="p-8 md:p-16"
         >
-          Project Arsenal Loader
+          <div
+            data-testid="project-section"
+          >
+            Project Arsenal Loader
+          </div>
         </div>
       </div>
     </div>
