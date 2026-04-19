@@ -65,14 +65,29 @@
   --animate-spin-slow: spin-slow 12s linear infinite;
 }
 
+@utility bg-gold-gradient {
+  background-image: linear-gradient(90deg, 
+    #b45309 0%, 
+    #fbbf24 20%, 
+    #fef3c7 50%, 
+    #fbbf24 80%, 
+    #b45309 100%
+  );
+  background-size: 200% 100%;
+}
+
+@utility animate-gold-shine {
+  animation: button-shine 3s linear infinite;
+}
+
+@utility text-gold-shine {
+  color: transparent;
+  background-clip: text;
+  background-image: linear-gradient(to right, #b45309, #fcd34d, #d97706);
+  filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.6));
+}
+
 @layer utilities {
-  .bg-gold-gradient {
-    background: linear-gradient(135deg, #b45309 0%, #fbbf24 50%, #fcd34d 100%);
-  }
-  .text-gold-shine {
-    @apply text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-200 to-amber-500;
-    filter: drop-shadow(0 0 8px rgba(245, 158, 11, 0.5));
-  }
   .hud-window-shadow {
     shadow: 0 30px 60px -12px rgba(0,0,0,0.5), 0 18px 36px -18px rgba(0,0,0,0.5), inset 0 0 0 1px rgba(255,255,255,0.05);
   }

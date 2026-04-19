@@ -10,15 +10,17 @@ interface HudPanelProps {
   className?: string;
   delay?: number;
   title?: string;
+  id?: string;
 }
 
 /**
  * HudPanel - Primitiva de interfaz HUD.
  * v28: Compact Window Mode. Glassmorphism extremo y Brackets tácticos.
  */
-export function HudPanel({ children, className, delay = 0, title = "SYSTEM_PROCESS" }: HudPanelProps) {
+export function HudPanel({ children, className, delay = 0, title = "SYSTEM_PROCESS", id }: HudPanelProps) {
   return (
     <MotionDiv
+      id={id}
       initial={{ opacity: 0, scale: 0.98, y: 20 }}
       animate={{ opacity: 1, scale: 1, y: 0 }}
       transition={{ 
