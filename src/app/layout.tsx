@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-// @ts-ignore - side-effect import for Tailwind animations
 import "@/styles/tw-animate.css";
-// @ts-ignore - side-effect import for global styles
 import "@/app/globals.css";
 import { FlashlightEffect } from "@/components/hud/flashlight-effect";
+import { SnowParticles } from "@/components/hud/snow-particles";
 import Image from "next/image";
 import bgIllustration from "../../public/images/backgrounds/bg-brutalist.jpg";
 
@@ -61,31 +60,17 @@ export default function RootLayout({
 
           {/* Layer 2: CENTRAL MASSIVE GOLDEN SUN (The 'Sol Dorado') - LOWER & BRIGHTER */}
           {/* Core White-Hot Light */}
-          <div className="absolute top-[40%] left-1/2 -translate-x-1/2 w-32 h-32 bg-white blur-[20px] rounded-full mix-blend-plus-lighter z-10 opacity-60" />
+          <div className="absolute top-[40%] left-1/2 -translate-x-1/2 w-32 h-32 bg-white blur-[20px] rounded-full mix-blend-plus-lighter z-10 opacity-80" />
           {/* Golden Intensive Glow */}
-          <div className="absolute top-[35%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-amber-400 blur-[80px] rounded-full mix-blend-screen z-0 opacity-45 animate-solar-flare" />
+          <div className="absolute top-[35%] left-1/2 -translate-x-1/2 w-[400px] h-[400px] bg-amber-400 blur-[80px] rounded-full mix-blend-screen z-0 opacity-60 animate-solar-flare" />
           {/* Massive Atmospheric Bloom */}
-          <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-amber-600/20 blur-[180px] rounded-full mix-blend-plus-lighter opacity-30" />
+          <div className="absolute top-[10%] left-1/2 -translate-x-1/2 w-[1000px] h-[800px] bg-amber-600/20 blur-[180px] rounded-full mix-blend-plus-lighter opacity-40" />
           {/* Horizontal Lens Flare Element */}
-          <div className="absolute top-[48%] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-amber-200/20 to-transparent blur-[2px]" />
+          <div className="absolute top-[48%] left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-amber-200/30 to-transparent blur-[2px]" />
 
-          {/* Layer 3: Winter Atmosphere (Dense Snow Particles - Clean Look) */}
-          <div className="absolute inset-0 overflow-hidden">
-            {[...Array(140)].map((_, i) => (
-              <div 
-                key={i}
-                className="absolute w-[1.5px] h-[1.5px] bg-white rounded-full animate-snow"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * -30}%`,
-                  animationDelay: `${Math.random() * 25}s`,
-                  animationDuration: `${5 + Math.random() * 10}s`,
-                  opacity: 0.3 + Math.random() * 0.4,
-                  filter: `blur(${Math.random() * 0.5}px)`
-                }}
-              />
-            ))}
-          </div>
+          {/* Layer 3: Winter Atmosphere (Snow Particles Component) */}
+          <SnowParticles count={120} />
+
           {/* Layer 4: Textural Noise Overlay */}
           <div className="absolute inset-0 bg-noise opacity-40 mix-blend-overlay" />
 

@@ -343,6 +343,9 @@ git commit -m "chore: version bump 0.3.0 (Issue #3 completado)"
 - **Tarea**: Issue #2 — IMPLEMENTACIÓN: Suite de tests regresión. **Scope**: IMPLEMENTACIÓN. **Duración**: 90 min. **Notas**: 8 tests passing, API obsoleta corregida (activeTopic → activeTopics).
 - **Tarea**: Persistencia en Memoria (Engram). **Scope**: GESTIÓN. **Duración**: 2 min.
 
+#### 18 de abril de 2026
+- **Tarea**: Issue #46 — UI Foundation: HUD Pro-Max Architecture. **Scope**: IMPLEMENTACIÓN. **Duración**: 120 min. **Notas**: Refactor masivo de layout hacia composición de ventanas flotantes, inyección de atmósfera cinematográfica (Sol Dorado, Snowfall) y glassmorphism de alta fidelidad. Resolución de basePath en Next.js.
+
 ---
 
 ## 🛠️ MEJORAS PRÁCTICAS DE OBSIDIAN CLI

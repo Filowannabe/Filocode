@@ -1,4 +1,3 @@
-import { HeroDashboard } from "@/components/hud/hero-dashboard";
 import { StatsBar } from "@/components/hud/stats-bar";
 import { SkillsPanel } from "@/components/hud/skills-panel";
 import { ProjectSection } from "@/components/hud/project-section";
@@ -15,7 +14,7 @@ import avatarImg from "../../public/images/avatar.jpg";
 export default function Home() {
   return (
     <TopicsProvider repositories={[]}>
-      <main className="px-6 md:px-16 max-w-[1800px] mx-auto min-h-screen relative z-10 flex flex-col gap-16">
+      <main className="px-4 sm:px-6 md:px-16 max-w-[1800px] mx-auto min-h-screen relative z-10 flex flex-col gap-16">
         
         {/* ROW 1: CORE COMPOSITION - SPACE-BETWEEN FEEL */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-24 items-stretch">
@@ -29,7 +28,7 @@ export default function Home() {
                   System_Status: Operational
                 </span>
               </div>
-              <h1 className="text-6xl md:text-9xl font-black tracking-tighter leading-[0.8] uppercase">
+              <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl xl:text-9xl font-black tracking-tighter leading-[0.8] uppercase">
                 ARQUITECTURA Y <br />
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-amber-600 via-amber-200 to-amber-500 drop-shadow-[0_0_20px_rgba(245,158,11,0.4)]">DESARROLLO</span> <br />
                 DE SOFTWARE <span className="text-white/10 italic">SENIOR</span>

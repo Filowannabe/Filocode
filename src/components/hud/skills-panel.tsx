@@ -1,6 +1,5 @@
 "use client";
 
-import { HudPanel } from "./hud-panel";
 import { cn } from "@/lib/utils";
 
 interface SkillsPanelProps {
