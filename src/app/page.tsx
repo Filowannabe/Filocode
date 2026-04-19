@@ -94,7 +94,7 @@ export default function Home() {
                 <div className="space-y-3 text-center sm:text-left w-full">
                   <h2 className="text-3xl sm:text-4xl font-black tracking-tighter uppercase italic leading-none text-white/90">
                     FILOCODE
-                    <span className="block sm:inline-block sm:ml-4 text-[10px] sm:text-[11px] font-normal lowercase tracking-normal text-white/20 not-italic align-middle mt-1 sm:mt-0">
+                    <span className="block sm:inline-block sm:ml-4 text-[10px] sm:text-[11px] font-normal tracking-normal text-white/20 not-italic align-middle mt-1 sm:mt-0">
                       by Felipe Corredor Castro
                     </span>
                   </h2>
@@ -123,8 +123,8 @@ export default function Home() {
               </div>
             </HudPanel>
 
-            {/* WINDOW: CODE 1 */}
-            <HudPanel title="CODE 1" className="flex-1 min-h-[220px]" delay={0.3}>
+            {/* WINDOW: CODE_EXAMPLE */}
+            <HudPanel title="CODE_EXAMPLE" className="flex-1 min-h-[220px]" delay={0.3}>
               <div className="p-8">
                 <div className="font-mono text-[11px] space-y-4">
                   <div className="flex items-center gap-3 text-white/20">

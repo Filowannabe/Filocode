@@ -62,6 +62,7 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
   it('debe mostrar el Avatar verificado con los metadatos correctos', () => {
     render(<Home />);
     expect(screen.getByText('FILOCODE')).toBeInTheDocument();
+    expect(screen.getByText(/by Felipe Corredor Castro/)).toBeInTheDocument();
     expect(screen.getByText('VERIFIED')).toBeInTheDocument();
     expect(screen.getByText(/\[XP: 05_YEARS\]/i)).toBeInTheDocument();
     expect(screen.getByText(/\[RANK: SENIOR\]/i)).toBeInTheDocument();
@@ -74,9 +75,9 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
     expect(link).toHaveAttribute('download', 'Felipe_Castro_CV_2025.pdf');
   });
 
-  it('debe mostrar el widget CODE 1 con el estado de sincronización', () => {
+  it('debe mostrar el widget CODE_EXAMPLE con el estado de sincronización', () => {
     render(<Home />);
-    expect(screen.getByText('CODE 1')).toBeInTheDocument();
+    expect(screen.getByText('CODE_EXAMPLE')).toBeInTheDocument();
     expect(screen.getByText(/Architect/i)).toBeInTheDocument();
     expect(screen.getByText(/BUFFER_SYNCING/i)).toBeInTheDocument();
   });

@@ -137,7 +137,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                 >
                   FILOCODE
                   <span
-                    class="block sm:inline-block sm:ml-4 text-[10px] sm:text-[11px] font-normal lowercase tracking-normal text-white/20 not-italic align-middle mt-1 sm:mt-0"
+                    class="block sm:inline-block sm:ml-4 text-[10px] sm:text-[11px] font-normal tracking-normal text-white/20 not-italic align-middle mt-1 sm:mt-0"
                   >
                     by Felipe Corredor Castro
                   </span>
@@ -216,7 +216,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
             <div
               class="font-mono text-[9px] font-black tracking-[0.3em] text-white/30 uppercase"
             >
-              CODE 1
+              CODE_EXAMPLE
             </div>
             <div
               class="w-8 h-[1px] bg-amber-500/30"
