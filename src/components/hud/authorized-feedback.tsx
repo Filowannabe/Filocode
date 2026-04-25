@@ -17,7 +17,7 @@ export function AuthorizedFeedback() {
   
   const allFeedbacks = collaborations
     .filter((c: Collaboration) => c.clientFeedback && c.clientFeedback.length > 0)
-    .flatMap((c: Collaboration) => c.clientFeedback.map(f => ({
+    .flatMap((c: Collaboration) => (c.clientFeedback || []).map(f => ({
       ...f,
       company: c.company,
       projectId: c.id
