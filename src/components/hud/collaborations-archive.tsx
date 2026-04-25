@@ -17,15 +17,14 @@ const MotionButton = motion.button as any;
 
 /**
  * CollaborationsArchive - Visor Táctico de Colaboraciones.
- * v4.0 - ARSENAL_SYMMETRY & INTERACTIVE MARQUEE.
+ * v4.7 - GOLDEN_STATE: Infinite Wrap + Debt Zero.
  */
 export function CollaborationsArchive() {
   const { collaborations } = collaborationsData as any;
-  const [viewMode, setViewMode] = useState<'console' | 'carousel'>('console');
+  const [viewMode, setViewMode] = useState<'console' | 'carousel'>('carousel');
   const [activeId, setActiveId] = useState<string>(collaborations[0]?.id);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
-  const [dragConstraint, setDragConstraint] = useState(0);
   const activeProject = collaborations.find((c: any) => c.id === activeId);
 
   // Marquee Carousel Logic
@@ -33,23 +32,38 @@ export function CollaborationsArchive() {
   const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
-  const marqueeRef = useRef<() => Promise<void>>(() => Promise.resolve());
+  const marqueeRef = useRef<(() => Promise<void>) | null>(null);
   
   // Carousel Infinito: Duplicación para Marquee real
   const carouselItems = [...collaborations, ...collaborations];
 
-  useEffect(() => {
-    if (carouselRef.current) {
-      setDragConstraint(-(carouselRef.current.scrollWidth / 2));
+  // Wrap de Drag Infinito: Permite arrastrar sin fin (Sincronizado con x)
+  const handleDragWrap = useCallback(() => {
+    if (!carouselRef.current) return;
+    const halfWidth = carouselRef.current.scrollWidth / 2;
+    const currentX = x.get();
+
+    if (currentX <= -halfWidth) {
+      x.set(currentX + halfWidth);
+    } else if (currentX > 0) {
+      x.set(currentX - halfWidth);
     }
-  }, [viewMode]);
+  }, [x]);
 
   // Lógica de Animación Orgánica (Recursiva vía Ref)
   const startMarquee = useCallback(async () => {
-    if (!carouselRef.current) return;
+    if (!carouselRef.current || viewMode !== 'carousel') return;
     
-    const totalWidth = carouselRef.current.scrollWidth;
-    const halfWidth = totalWidth / 2;
+    const halfWidth = carouselRef.current.scrollWidth / 2;
+    
+    // Si el ancho no es válido aún (vistas recién montadas), reintentar en el próximo frame
+    if (halfWidth <= 0) {
+      requestAnimationFrame(() => {
+        if (marqueeRef.current) marqueeRef.current();
+      });
+      return;
+    }
+
     const currentX = x.get();
     
     // Sincronización de posición para loop infinito
@@ -60,34 +74,46 @@ export function CollaborationsArchive() {
     }
 
     const remainingDistance = halfWidth + x.get();
-    const speed = 50; // Pixeles por segundo
+    const speed = 35;
     const duration = remainingDistance / speed;
 
-    await controls.start({
-      x: -halfWidth,
-      transition: {
-        duration: duration,
-        ease: "linear",
+    try {
+      await controls.start({
+        x: -halfWidth,
+        transition: {
+          duration: duration,
+          ease: "linear",
+        }
+      });
+
+      if (viewMode === 'carousel') {
+        x.set(0);
+        if (marqueeRef.current) marqueeRef.current();
       }
-    });
+    } catch {
+      // Interrupción segura
+    }
+  }, [controls, x, viewMode]);
 
-    // Reset instantáneo al llegar al final
-    x.set(0);
-    marqueeRef.current(); // Llamada recursiva segura
-  }, [controls, x]);
-
-  // Actualizar ref para evitar error de declaración previa
+  // Actualizar ref para evitar error de declaración previa (Hoisting fix)
   useEffect(() => {
     marqueeRef.current = startMarquee;
   }, [startMarquee]);
 
+  // CONTROL DE FLUJO ATÓMICO: Switch de Vistas + Marquee Trigger
   useEffect(() => {
-    if (viewMode === 'carousel' && !isHovered && !isDragging) {
-      startMarquee();
+    if (viewMode === 'carousel') {
+      // Solo disparamos si no se está arrastrando manualmente
+      if (!isDragging) {
+        startMarquee();
+      }
     } else {
+      // Limpieza total al salir de modo carousel
+      x.set(0);
       controls.stop();
     }
-  }, [viewMode, isHovered, isDragging, controls, startMarquee]);
+    // Eliminamos isHovered de la ecuación para que el slider sea perpetuo
+  }, [viewMode, isDragging, startMarquee, x, controls]);
 
   return (
     <HudPanel title="COLLABORATIONS_HUB // INTEL_FEED" className="w-full overflow-hidden">
@@ -125,18 +151,6 @@ export function CollaborationsArchive() {
           
           <div className="flex bg-black/50 border border-white/10 rounded-sm p-1 backdrop-blur-md self-end md:self-auto">
             <MotionButton
-              onClick={() => setViewMode('console')}
-              className={cn(
-                "relative flex items-center gap-2 px-4 py-2 font-mono text-[10px] font-black uppercase tracking-widest z-10 transition-colors duration-300",
-                viewMode === 'console' ? "text-black" : "text-white/40 hover:text-white/80"
-              )}
-            >
-              {viewMode === 'console' && (
-                <MotionDiv layoutId="view-mode-indicator" className="absolute inset-0 bg-amber-500 rounded-sm -z-10" />
-              )}
-              <LayoutGrid size={14} /> Console
-            </MotionButton>
-            <MotionButton
               onClick={() => setViewMode('carousel')}
               className={cn(
                 "relative flex items-center gap-2 px-4 py-2 font-mono text-[10px] font-black uppercase tracking-widest z-10 transition-colors duration-300",
@@ -147,6 +161,18 @@ export function CollaborationsArchive() {
                 <MotionDiv layoutId="view-mode-indicator" className="absolute inset-0 bg-amber-500 rounded-sm -z-10" />
               )}
               <GalleryHorizontalEnd size={14} /> Carousel
+            </MotionButton>
+            <MotionButton
+              onClick={() => setViewMode('console')}
+              className={cn(
+                "relative flex items-center gap-2 px-4 py-2 font-mono text-[10px] font-black uppercase tracking-widest z-10 transition-colors duration-300",
+                viewMode === 'console' ? "text-black" : "text-white/40 hover:text-white/80"
+              )}
+            >
+              {viewMode === 'console' && (
+                <MotionDiv layoutId="view-mode-indicator" className="absolute inset-0 bg-amber-500 rounded-sm -z-10" />
+              )}
+              <LayoutGrid size={14} /> Console
             </MotionButton>
           </div>
         </div>
@@ -209,27 +235,39 @@ export function CollaborationsArchive() {
                     ))}
                   </div>
 
-                  <div className="flex flex-col gap-6 pt-6 border-t border-white/10 flex-grow overflow-y-auto amber-scrollbar pr-4">
-                    <div className="flex flex-col flex-none">
+                  <div className="flex flex-col pt-6 border-t border-white/10 flex-grow overflow-hidden">
+                    {/* A. Cabecera de Inteligencia (Fija) */}
+                    <div className="flex flex-col flex-none mb-6">
                       <div className="flex items-center gap-3 mb-4">
                         <span className="font-mono text-[9px] md:text-[10px] text-amber-500 font-bold tracking-widest bg-amber-500/10 px-2 py-0.5 rounded-sm">
                           [ COMPLETED ]
                         </span>
                         <div className="h-[1px] w-6 bg-white/10 shrink-0" />
-                        <span className="font-mono text-[9px] md:text-[10px] text-white/40 uppercase truncate">{activeProject.country}</span>
+                        <span className="font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0">
+                          {activeProject.country}
+                        </span>
                       </div>
                       <h3 className="text-3xl md:text-5xl font-black text-white leading-none tracking-tighter uppercase mb-4">{activeProject.company}</h3>
                       <p className="text-xs md:text-lg text-amber-500/60 font-mono tracking-tight uppercase leading-tight border-b border-white/5 pb-4">{activeProject.title}</p>
                     </div>
-                    <div className="flex-none">
-                      <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">{activeProject.clientOverview}</p>
+
+                    {/* B. Cuerpo de Inteligencia (Scrollable) */}
+                    <div className="flex-grow overflow-y-auto amber-scrollbar pr-2 pb-4 flex flex-col gap-6 relative">
+                      <div className="flex-none">
+                        <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">{activeProject.clientOverview}</p>
+                      </div>
+                      <div className="flex flex-wrap items-start content-start gap-2 flex-none">
+                        {activeProject.techStack.map((tech: string) => (
+                          <span key={tech} className="text-[8px] md:text-[9px] font-bold px-2 py-1 bg-white/5 text-white/50 border border-white/10 uppercase tracking-widest rounded-full">{tech}</span>
+                        ))}
+                      </div>
+                      
+                      {/* Gradient Mask for Scroll Integrity */}
+                      <div className="sticky bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black to-transparent pointer-events-none z-10" />
                     </div>
-                    <div className="flex flex-wrap items-start content-start gap-2 flex-none">
-                      {activeProject.techStack.map((tech: string) => (
-                        <span key={tech} className="text-[8px] md:text-[9px] font-bold px-2 py-1 bg-white/5 text-white/50 border border-white/10 uppercase tracking-widest rounded-full">{tech}</span>
-                      ))}
-                    </div>
-                    <div className="pt-6 border-t border-white/5 mt-auto flex-none">
+
+                    {/* C. Pie de Acción (Anclado) */}
+                    <div className="shrink-0 pt-4 border-t border-white/10 mt-auto">
                       <NextLink
                         href={`/collaborations/${activeProject.id}`}
                         className="inline-flex items-center justify-center gap-3 px-6 py-4 bg-gold-gradient rounded-sm shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all hover:scale-105 active:scale-95 group/btn w-full md:w-auto"
@@ -257,13 +295,14 @@ export function CollaborationsArchive() {
                   style={{ x }}
                   animate={controls}
                   drag="x"
-                  dragConstraints={{
-                    left: dragConstraint,
-                    right: 0
+                  onDrag={handleDragWrap}
+                  onDragStart={() => {
+                    controls.stop();
+                    setIsDragging(true);
                   }}
-                  dragElastic={0.1}
-                  onDragStart={() => setIsDragging(true)}
-                  onDragEnd={() => setIsDragging(false)}
+                  onDragEnd={() => {
+                    setIsDragging(false);
+                  }}
                 >
                   {carouselItems.map((project: Collaboration, idx: number) => (
                     <MotionDiv 
@@ -284,6 +323,13 @@ export function CollaborationsArchive() {
 
                       {/* Contenido: 350px en móvil, h-full en desktop */}
                       <div className="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative">
+                        {/* A. Tactical Badge (Golden) */}
+                        <div className="flex-none mb-4 md:mb-6">
+                          <span className="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]">
+                            {project.country}
+                          </span>
+                        </div>
+                        
                         {/* 1. Header Area: Título y Subtítulo (Rigid) */}
                         <div className="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8">
                           <h3 className="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4">
@@ -347,9 +393,9 @@ export function CollaborationsArchive() {
                           
                           <NextLink 
                             href={`/collaborations/${project.id}`}
-                            className="inline-flex items-center gap-2 px-4 py-2 md:px-12 md:py-6 bg-gold-gradient rounded-sm text-black font-black uppercase text-[10px] md:text-base tracking-[0.2em] shadow-[0_0_30px_rgba(245,158,11,0.3)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
+                            className="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[9px] md:text-[11px] tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
                           >
-                            <ChevronRight size={20} strokeWidth={3} /> VIEW_DOSSIER
+                            <ChevronRight size={16} strokeWidth={3} /> VIEW_DOSSIER
                           </NextLink>
                         </div>
                       </div>
