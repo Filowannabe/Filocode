@@ -1,0 +1,262 @@
+{
+  "metadata": {
+    "generatedAt": "2026-04-24T00:00:00.000Z",
+    "source": "Client-Side Collaborations",
+    "version": "3.0",
+    "totalEntries": 4
+  },
+  "collaborations": [
+    {
+      "id": "elephant-cpa",
+      "type": "collaboration",
+      "title": "Elephant CPA - Management SaaS Solution",
+      "company": "Elephant CPA",
+      "service": "SaaS Development & Security Implementation",
+      "country": "USA",
+      "engagementModel": "Managed Team & Retainer Partnership",
+      "budget": "$4,000-$5,000 per month (~$90,000 total)",
+      "duration": "Feb. 2022 - Completed",
+      "clientOverview": "ElephantCPA, a dynamic platform designed to streamline interactions between accountants and their clients. They had a Minimum Viable Product (MVP) in place but were eager to elevate their platform in terms of functionalities, stability, and cybersecurity. A cloud-based practice management software solution for small to medium size accounting firms across the United States, they needed to move from MVP to a scalable solution with enhanced security.",
+      "techStack": [
+        "React",
+        "TypeScript",
+        "NodeJS",
+        "MySQL",
+        "GCP Cloud Run",
+        "Containers",
+        "App Engine",
+        "Cloud Storage Buckets",
+        "Stripe",
+        "SendGrid",
+        "Zoho",
+        "GCP",
+        "Cybersecurity Endpoints",
+        "Figma",
+        "Jira",
+        "Slack",
+        "Microsoft Teams",
+        "Zoom"
+      ],
+      "servicesProvided": [
+        "UX & UI Design",
+        "Full Stack Development",
+        "Cloud Architecture Optimization",
+        "Cybersecurity Implementation",
+        "Custom Software Development",
+        "Security Implementation",
+        "Architecture Optimization",
+        "Agile Development"
+      ],
+      "results": [
+        "Implementation of 130+ user stories",
+        "80% reduction in Cloud costs",
+        "Enhanced cybersecurity and reduced exposure",
+        "Product that exceeded user expectations",
+        "Seamless experience for accountants and clients",
+        "Outstanding customer feedback",
+        "Quick issue resolution (firestorm management)",
+        "Bi-weekly agile delivery schedule",
+        "Three meetings per week for transparency",
+        "Advanced knowledge of software and business",
+        "Continuous improvement and scalability"
+      ],
+      "clientFeedback": [
+        {
+          "rating": 5,
+          "reviewer": "Christopher Massood, Co-Founder & CEO",
+          "quote": "The development team is transparent, and they're very honest with the work that they do."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What are the signs a dev shop is a 'feature factory' vs a strategic product development partner?",
+          "answer": "Feature factories take orders, say yes to everything, avoid asking questions, and focus only on output. Strategic partners challenge assumptions, suggest better workflows, prioritize based on impact, and bring product thinking—not just coding—to the table."
+        },
+        {
+          "question": "What's the realistic cost difference between building accounting software with a nearshore team vs a US-based team?",
+          "answer": "Nearshore Latin America teams typically cost $35–$65/hr for seniors vs $120–$180/hr in the US. A 7-month MVP might cost $180k–$300k nearshore versus $500k–$900k in the US for comparable quality."
+        },
+        {
+          "question": "Should I build custom accounting software or use existing platforms like Karbon?",
+          "answer": "If your workflow is standard, off-the-shelf is more cost-efficient. If your firm has unique processes, automation logic, or wants proprietary capabilities that drive differentiation, custom is the better long-term investment."
+        },
+        {
+          "question": "How much does it cost to build accounting practice management software?",
+          "answer": "Budgets typically range from $180k to $450k for an MVP, depending on complexity, integrations, compliance requirements, and whether you hire nearshore or US-based developers. Full-featured platforms frequently exceed $700k."
+        }
+      ],
+      "urls": {
+        "clientSite": "https://getelephantcpa.com/"
+      }
+    },
+    {
+      "id": "2moon-capital",
+      "type": "collaboration",
+      "title": "2Moon Capital - Algorithmic Trading Solution",
+      "company": "2Moon Capital",
+      "service": "Software Development & Interactive Brokers Integration",
+      "country": "USA",
+      "engagementModel": "Managed Team",
+      "clientOverview": "2Moon was looking for a reliable partner to develop a scalable product that encapsulates their trading strategies. As a trading company, 2Moon required a sophisticated solution to manage and execute trading strategies efficiently.",
+      "techStack": [
+        "Python",
+        "Flask",
+        "Docker",
+        "AWS Lambda",
+        "AWS SNS",
+        "AWS DynamoDB",
+        "AWS Step Functions",
+        "RDS",
+        "Serverless",
+        "AWS Glue",
+        "AWS SQS",
+        "AWS SES",
+        "AWS Cognito",
+        "NextJS",
+        "Django",
+        "AWS ECS",
+        "AWS ELB",
+        "AWS EC2",
+        "AWS S3",
+        "AWS Quicksight"
+      ],
+      "servicesProvided": [
+        "UX & UI Design",
+        "Full Stack Development",
+        "Serverless Architecture",
+        "Trading Bot Development",
+        "Interactive Brokers Integration"
+      ],
+      "results": [
+        "Event-driven serverless architecture for automation",
+        "Automated trading system powered by Joshua library",
+        "Multi-strategy and account management capability",
+        "Three paper trading environments + one real money environment",
+        "Effective risk management and optimized trading outcomes"
+      ],
+      "faq": [
+        {
+          "question": "What are signs a development company doesn't understand trading systems?",
+          "answer": "Red flags include vague answers about market data, promising fixed timelines for strategy performance, not mentioning risk controls, misusing backtesting vs live trading terminology, and lack of experience with broker APIs like IBKR or FIX."
+        },
+        {
+          "question": "How many iterations should I expect before a production-ready trading system?",
+          "answer": "Usually three to eight iterations: initial prototype, paper trading, real-time simulation, limited-capital live testing, and then full deployment with monitoring."
+        },
+        {
+          "question": "What's the cost to build an algorithmic trading platform?",
+          "answer": "A custom algorithmic trading platform typically ranges from $80K to $450K depending on complexity, order types, latency requirements, data integrations, and security needs."
+        }
+      ],
+      "urls": {
+        "clientAppStore": "https://play.google.com/store/apps/details?id=com.two_moon.two_moon_app&hl=es_CO"
+      }
+    },
+    {
+      "id": "canadian-orthodontic-partners",
+      "type": "collaboration",
+      "title": "Canadian Orthodontic Partners & Docbraces - Comprehensive Digital Solutions",
+      "company": "Canadian Orthodontic Partners",
+      "service": "Full Stack Development & CRM Integration for Orthodontics Network",
+      "country": "Canada",
+      "engagementModel": "Project-based & Ad-hoc Development",
+      "budget": "Total scope: $50,000 to $199,999 + ~$500 CAD",
+      "duration": "June 2020 - Ongoing",
+      "clientOverview": "Canadian Orthodontic Partners is a network of orthodontic clinics across Canada (including the Docbraces brand), representing over 50 practices. They needed software tools to bridge gaps between their consumer-facing website and CRM systems, as well as digital solutions to create contracts and present treatment options to patients.",
+      "techStack": [
+        "Figma",
+        "Web Application Development",
+        "Secure Payment Integration",
+        "Digital Contract Signing",
+        "HubSpot",
+        "Practice Management Software",
+        "Custom Integration",
+        "Database Bridging"
+      ],
+      "servicesProvided": [
+        "UX & UI Design",
+        "Full Stack Development",
+        "Web Application from Scratch",
+        "Security Implementation",
+        "CRM Integration",
+        "API Development",
+        "Database Integration",
+        "Payment Calculator Tool Enhancement"
+      ],
+      "results": [
+        "Increased visibility to multiple clinics simultaneously",
+        "Saved person-hours for clinic team members",
+        "Digital contract signing capability",
+        "Secure patient information collection",
+        "User-friendly interface that reduced errors",
+        "Staying within budget while including extra tasks",
+        "Bridged gaps between website and CRM system",
+        "Generated ~$2 million in revenue through payment calculator tool",
+        "Enhanced UX from data perspective",
+        "Improved patient communication capabilities",
+        "Fast response time and problem-solving approach"
+      ],
+      "clientFeedback": [
+        {
+          "rating": 5,
+          "reviewer": "Barb Heathcote, Manager of Dental Engagement",
+          "quote": "The development team's biggest strengths are their dedication and affordable fees."
+        },
+        {
+          "rating": 5,
+          "reviewer": "Paul Abrams, VP of Marketing",
+          "quote": "The development team is incredibly responsive. Their team is quick to reply and fantastic at tackling problems."
+        }
+      ],
+      "urls": {
+        "clientSite": "https://www.canadianorthodonticpartners.com/",
+        "docbracesSite": "https://www.docbraces.com/"
+      }
+    },
+    {
+      "id": "hello-leena",
+      "type": "collaboration",
+      "title": "Hello Leena",
+      "company": "Hello Leena",
+      "service": "Custom Software Development - Electronic Medical Record",
+      "country": "Canada",
+      "engagementModel": "Partnership",
+      "budget": "$50,000 to $199,999",
+      "duration": "Apr. 2023 - Completed",
+      "clientOverview": "Telehealth provider in the mental health space. Needed to build an end-to-end Electronic Medical Record (EMR) system with complex reporting and business management capabilities.",
+      "techStack": [
+        "Full Stack Development",
+        "Video/Audio Integration",
+        "Payment Processing",
+        "Complex Reporting System",
+        "Business Management Features"
+      ],
+      "servicesProvided": [
+        "EMR Development",
+        "Full Stack Engineering",
+        "Video/Audio Integration",
+        "Payment Capabilities",
+        "Complex Reporting",
+        "Business Management Functions"
+      ],
+      "results": [
+        "Delivered sprints successfully with completed deliverables",
+        "Complex reporting capabilities implemented",
+        "Business management functions operational",
+        "Efficient sprint delivery and thorough project management",
+        "High responsiveness to adjustments and needs",
+        "Embedded understanding of business impact"
+      ],
+      "clientFeedback": [
+        {
+          "rating": 5,
+          "reviewer": "Executive, Hello Leena",
+          "quote": "The team is highly responsive to any needs or adjustments."
+        }
+      ],
+      "urls": {
+        "clientSite": "https://www.helloleena.com/"
+      }
+    }
+  ]
+}

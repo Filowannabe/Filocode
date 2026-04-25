@@ -6,6 +6,7 @@ import { ProjectSection } from "@/components/hud/project-section";
 import { TopicsProvider } from "@/contexts/use-topics";
 import { HudPanel } from "@/components/hud/hud-panel";
 import { TerminalContact } from "@/components/hud/terminal-contact";
+import { CollaborationsArchive } from "@/components/hud/collaborations-archive";
 import { FileDown } from "lucide-react";
 import Image from "next/image";
 import avatarImg from "../../public/images/avatar.jpg";
@@ -178,7 +179,10 @@ export default function Home() {
           </HudPanel>
         </div>
 
-        {/* ROW 3: PROJECT ARSENAL (THE BIG WINDOW) */}
+        {/* ROW 3: COLLABORATIONS (NEW) */}
+        <CollaborationsArchive />
+
+        {/* ROW 4: PROJECT ARSENAL (THE BIG WINDOW) */}
         <HudPanel title="PROJECT_ARSENAL_STATION" className="w-full mt-4" delay={0.6} id="arsenal-station">
           <div className="p-8 md:p-16">
             <ProjectSection />

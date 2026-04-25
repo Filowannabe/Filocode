@@ -13,12 +13,14 @@ Bienvenido a la documentación oficial de **filocode.dev**. Este es un proyecto 
 
 ## 🗺️ Mapa de la Documentación
 
-- [[1 - Proyecto/Plan de Construccion - MVP|🏗️ Plan de Construcción MVP]] - **Fase 2 en progreso**.
+- [[1 - Proyecto/Plan de Construccion - MVP|🏗️ Plan de Construcción MVP]] - **Fase 3 consolidada**.
 - [[2 - Arquitectura/Stack Tecnologico|🛠️ Stack Tecnológico]] - ¿Qué herramientas usamos?
 - [[3 - Componentes/Boton|🎨 Librería de UI]] - Componentes disponibles (shadcn/ui).
+- [[3 - Componentes/HUD_Window_Architecture|🪟 Arquitectura HUD]] - Estándares de diseño táctico.
 - [[4 - Rutas y Logica/Rutas|🛣️ Rutas y Estructura]] - Mapa del App Router.
 - [[6 - Configuracion/GitHub_Pages_y_Actions|🚀 GitHub Pages & Actions]] - Configuración Multi-Environment (CI/CD).
 - [[1 - Proyecto/Roadmap|📅 Hoja de Ruta]] - Tareas pendientes y planes futuros.
+
 
 ## 🖼️ Vistas Técnicas (Canvas)
 - [[02-base-setup.canvas|📊 Setup Atmosférico Base]]

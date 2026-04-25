@@ -28,6 +28,20 @@ Cada panel es una pieza independiente de ingeniería visual:
       </div>
     </HudPanel>
     ```
+- **Mandato de Integridad Vertical (v38.0)**: Para evitar el "layout jumping" en composiciones Bento de alta densidad, los paneles maestros deben implementar alturas absolutas bloqueadas (`h-[...]`) en sus contenedores de contenido principales. El contenido interno debe gestionar su flujo mediante `overflow-y-auto` y scrollbars tácticos.
+- **Scrollbar Estándar "Amber-Trace" (v38.2)**: Quedan prohibidos los scrollbars nativos. Se debe usar la implementación `amber-scrollbar`:
+    - Thumb: Ámbar traslúcido (`0.4`).
+    - Width: `4px` estricto.
+    - Behavior: Track transparente.
+
+## 🎞️ Estándar de Proyección Visual "Deep Amber Overdrive" (v38.3)
+Queda prohibido el uso de imágenes crudas para assets externos. El tratamiento universal es:
+1. **Filtros Base**: `grayscale sepia-[.7] contrast-125 brightness-75`.
+2. **Overlay**: `bg-amber-600/50 mix-blend-multiply`.
+3. **Viñeta**: `shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]` para fundir bordes.
+4. **Interacción**: Escaneo lento (`y: -5%`) y escala sutil solo en hover.
+5. **Mobile-First**: Inversión de orden (`order-first`) para que la imagen lidere la visualización en dispositivos pequeños.
+
 
 ## 📐 Distribución de la Composición
 El layout se organiza en una jerarquía de importancia visual:

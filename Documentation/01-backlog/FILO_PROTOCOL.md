@@ -346,6 +346,9 @@ git commit -m "chore: version bump 0.3.0 (Issue #3 completado)"
 #### 18 de abril de 2026
 - **Tarea**: Issue #46 — UI Foundation: HUD Pro-Max Architecture. **Scope**: IMPLEMENTACIÓN. **Duración**: 120 min. **Notas**: Refactor masivo de layout hacia composición de ventanas flotantes, inyección de atmósfera cinematográfica (Sol Dorado, Snowfall) y glassmorphism de alta fidelidad. Resolución de basePath en Next.js.
 
+#### 24 de abril de 2026
+- **Tarea**: Refactor de Datos de Colaboraciones y Fidelidad Visual. **Scope**: GESTIÓN/IMPLEMENTACIÓN. **Duración**: 45 min. **Notas**: Unificación de registros JSON de Elephant CPA y Canadian Orthodontic Partners. Limpieza total de marca de agencia ("Leanware") y nombres de equipo. Corrección de fallo de renderizado en capturas de Omnicon mediante técnica de "Pseudo-FullPage" (redimensionamiento masivo de ventana).
+
 ---
 
 ## 🛠️ MEJORAS PRÁCTICAS DE OBSIDIAN CLI
