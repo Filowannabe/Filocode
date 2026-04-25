@@ -1,0 +1,386 @@
+{
+  "metadata": {
+    "generatedAt": "2026-04-25T00:00:00.000Z",
+    "source": "Client-Side Collaborations",
+    "version": "5.4",
+    "totalEntries": 6
+  },
+  "collaborations": [
+    {
+      "id": "omnicon",
+      "type": "collaboration",
+      "title": "Omnicon - Industrial Digital Transformation",
+      "company": "Omnicon",
+      "service": "Enterprise Management Platform & IIoT Digitalization",
+      "country": "Colombia",
+      "engagementModel": "Strategic Partnership",
+      "budget": "$2,500 - $3,500 USD per month (~$12,000 USD MVP total)",
+      "duration": "Aug. 2018 - Dec. 2018 (Completed ~4 Months)",
+      "clientOverview": "A global systems integrator for industrial automation. They required an internal management platform to optimize project execution and data management across engineering-heavy sectors like Oil & Gas and Pharmaceuticals.",
+      "techStack": [
+        "React",
+        "TypeScript",
+        "Internal Data Tools",
+        "Project Management APIs",
+        "Microsoft Teams Integration"
+      ],
+      "servicesProvided": [
+        "Project Management Platform Development",
+        "Digital Transformation Consulting",
+        "Internal Workflow Automation",
+        "MVP Prototyping & Validation",
+        "Strategic Process Value-Adding"
+      ],
+      "results": [
+        "Highly intuitive platform for complex industrial workflows",
+        "Successful transformation of manual tracking to digital visibility",
+        "Positive acclaim from internal engineering stakeholders",
+        "Standardized digital workflow across active global projects"
+      ],
+      "clientFeedback": [
+        {
+          "rating": 5,
+          "reviewer": "Diego Paz, Digital Transformation Lead",
+          "quote": "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How does digital transformation impact project management in engineering sectors?",
+          "answer": "It shifts the focus from manual tracking to real-time visibility. By automating resource allocation and progress reporting, engineering teams can focus on problem-solving rather than administrative overhead."
+        },
+        {
+          "question": "What are the common challenges when developing internal tools for industrial companies?",
+          "answer": "Industrial companies deal with massive data silos and legacy workflows. The challenge lies in creating a unified interface that translates complex shop-floor data into actionable business intelligence."
+        }
+      ],
+      "urls": {
+        "clientSite": "https://omnicon.co/"
+      }
+    },
+    {
+      "id": "elephant-cpa",
+      "type": "collaboration",
+      "title": "Elephant CPA - Management SaaS Solution",
+      "company": "Elephant CPA",
+      "service": "SaaS Development & Security Implementation",
+      "country": "USA",
+      "engagementModel": "Managed Team & Retainer Partnership",
+      "budget": "$4,500 - $5,500 USD per month (~$95,000 USD total)",
+      "duration": "Feb. 2022 - Aug. 2023 (Completed ~19 Months)",
+      "clientOverview": "ElephantCPA, a dynamic platform designed to streamline interactions between accountants and their clients. They had a Minimum Viable Product (MVP) in place but were eager to elevate their platform in terms of functionalities, stability, and cybersecurity. A cloud-based practice management software solution for small to medium size accounting firms across the United States, they needed to move from MVP to a scalable solution with enhanced security.",
+      "techStack": [
+        "React",
+        "TypeScript",
+        "NodeJS",
+        "MySQL",
+        "GCP Cloud Run",
+        "Docker",
+        "Google App Engine",
+        "GCP Cloud Storage",
+        "Stripe API",
+        "SendGrid",
+        "Zoho CRM",
+        "Google Cloud Platform"
+      ],
+      "servicesProvided": [
+        "UX & UI Design",
+        "Full Stack Development",
+        "Cloud Architecture Optimization",
+        "Cybersecurity Implementation",
+        "Custom Software Development",
+        "Infrastructure Security Audit",
+        "Agile Development Methodology"
+      ],
+      "results": [
+        "Implementation of 130+ user stories",
+        "80% reduction in Cloud costs",
+        "Enhanced cybersecurity and reduced exposure",
+        "Product that exceeded user expectations",
+        "Seamless experience for accountants and clients",
+        "Quick issue resolution (firestorm management)",
+        "Bi-weekly agile delivery schedule"
+      ],
+      "clientFeedback": [
+        {
+          "rating": 5,
+          "reviewer": "Christopher Massood, Co-Founder & CEO",
+          "quote": "The engineering team is transparent, and they're very honest with the work that they do."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What are the signs a dev shop is a 'feature factory' vs a strategic product development partner?",
+          "answer": "Feature factories take orders, say yes to everything, avoid asking questions, and focus only on output. Strategic partners challenge assumptions, suggest better workflows, prioritize based on impact, and bring product thinking—not just coding—to the table."
+        },
+        {
+          "question": "What's the realistic cost difference between building accounting software with a nearshore team vs a US-based team?",
+          "answer": "Nearshore Latin America teams typically cost $35–$65/hr for seniors vs $120–$180/hr in the US. A 7-month MVP might cost $180k–$300k nearshore versus $500k–$900k in the US for comparable quality."
+        },
+        {
+          "question": "How do I verify a dev shop’s claimed “senior full-stack developer” isn’t actually a mid-level with an inflated title?",
+          "answer": "Review their contributions to complex repos, ask deep architectural questions during technical interviews (e.g., 'How would you handle a distributed transaction across these three microservices?'), and verify if they actually own the technical decisions or just follow a ticket."
+        },
+        {
+          "question": "Should I build custom accounting software or use existing platforms like Karbon?",
+          "answer": "If your workflow is standard, off-the-shelf is more cost-efficient. If your firm has unique processes, automation logic, or wants proprietary capabilities that drive differentiation, custom is the better long-term investment."
+        },
+        {
+          "question": "What happens if the dev team misses deadlines or delivers poor-quality code?",
+          "answer": "A strategic partner offers warranties and has a clear escalation process. In our case, we implement bi-weekly demos to catch quality issues early and maintain a 'firestorm management' protocol for immediate resolution of critical blockers."
+        }
+      ],
+      "urls": {
+        "clientSite": "https://getelephantcpa.com/"
+      }
+    },
+    {
+      "id": "2moon-capital",
+      "type": "collaboration",
+      "title": "2Moon Capital - Algorithmic Trading Solution",
+      "company": "2Moon Capital",
+      "service": "Automated Trading System & IBKR Integration",
+      "country": "USA",
+      "engagementModel": "Managed Team",
+      "budget": "$3,500 - $4,500 USD per month (~$64,000 USD total)",
+      "duration": "Oct. 2023 - Jan. 2025 (Completed ~16 Months)",
+      "clientOverview": "2Moon required a sophisticated solution to manage and execute complex trading strategies efficiently. The project focused on creating an automated, reliable, and scalable trading system that could respond dynamically to market signals and manage multiple trading strategies and Interactive Brokers accounts effectively.",
+      "techStack": [
+        "Python",
+        "Flask",
+        "NextJS",
+        "Django",
+        "AWS Lambda",
+        "AWS SNS",
+        "AWS DynamoDB",
+        "AWS Step Functions",
+        "Amazon RDS",
+        "AWS Glue",
+        "AWS SQS",
+        "AWS SES",
+        "Amazon Cognito",
+        "AWS ECS",
+        "AWS S3",
+        "AWS Quicksight",
+        "Docker",
+        "Interactive Brokers API"
+      ],
+      "servicesProvided": [
+        "Event-Driven Serverless Architecture",
+        "Automated Trading Bot Development",
+        "Interactive Brokers Integration",
+        "TradingView & Postman Signal Integration",
+        "Multi-Account Management Logic",
+        "Multiple Production & Paper Trading Environments"
+      ],
+      "results": [
+        "Automated trading system powered by 'Joshua' specialized library",
+        "High-performance serverless architecture on AWS",
+        "Multi-strategy account management operational",
+        "Three paper trading + one real money environment",
+        "Effective risk management through automated closing conditions"
+      ],
+      "faq": [
+        {
+          "question": "What are signs a development company doesn't understand trading systems?",
+          "answer": "Red flags include vague answers about market data, promising fixed timelines for strategy performance, not mentioning risk controls, misusing backtesting vs live trading terminology, and lack of experience with broker APIs like IBKR or FIX."
+        },
+        {
+          "question": "What testing environment costs should I budget for paper trading?",
+          "answer": "While paper trading accounts are often free, the cloud infrastructure (AWS) and real-time market data feeds (e.g., Bloomberg, Refinitiv, or IBKR's paid tiers) can cost $200–$1,000+ monthly depending on data volume and latency needs."
+        },
+        {
+          "question": "How many iterations should I expect before a production-ready trading system?",
+          "answer": "Usually three to eight iterations: initial prototype, paper trading, real-time simulation, limited-capital live testing, and then full deployment with monitoring."
+        },
+        {
+          "question": "What happens to my trading algorithms IP – who owns the code?",
+          "answer": "In our model, the client owns 100% of the IP from day one. This is critical in trading because the business value lies in the proprietary logic of the algorithms, not just the execution platform."
+        },
+        {
+          "question": "How much does it cost to build an algorithmic trading platform?",
+          "answer": "A custom algorithmic trading platform typically ranges from $80K to $450K depending on complexity, order types, latency requirements, data integrations, and security needs."
+        }
+      ],
+      "urls": {
+        "clientAppStore": "https://play.google.com/store/apps/details?id=com.two_moon.two_moon_app&hl=es_CO"
+      }
+    },
+    {
+      "id": "canadian-orthodontic-partners",
+      "type": "collaboration",
+      "title": "Canadian Orthodontic Partners & Docbraces",
+      "company": "Canadian Orthodontic Partners",
+      "service": "Enterprise Web Application & CRM Integration",
+      "country": "Canada",
+      "engagementModel": "Project-based Development",
+      "budget": "$3,000 - $4,500 USD per month (~$205,000 USD total)",
+      "duration": "June 2020 - Dec. 2024 (Completed ~55 Months)",
+      "clientOverview": "A network of over 50 orthodontic clinics across Canada. They needed to bridge gaps between consumer-facing websites and CRM systems (HubSpot), and develop digital solutions for secure contract creation and treatment option presentations for patients.",
+      "techStack": [
+        "React",
+        "NextJS",
+        "TypeScript",
+        "HubSpot API",
+        "Figma",
+        "REST APIs",
+        "PostgreSQL",
+        "Loom"
+      ],
+      "servicesProvided": [
+        "UI/UX Discovery & Design",
+        "Full Stack Web Development",
+        "HubSpot CRM Integration",
+        "Secure Payment Gateway Integration",
+        "Digital Contract Signing Workflow",
+        "Payment Calculator Tool Enhancement",
+        "API & Database Bridging"
+      ],
+      "results": [
+        "Generated ~$2 million in revenue through payment calculator tool",
+        "Saved thousands of person-hours via digital contract signing",
+        "Increased visibility across 50+ clinics simultaneously",
+        "Secure collection of sensitive patient information",
+        "User-friendly transition from complex Excel to streamlined Web App"
+      ],
+      "clientFeedback": [
+        {
+          "rating": 5,
+          "reviewer": "Barb Heathcote, Manager of Dental Engagement",
+          "quote": "The engineering team's biggest strengths are their dedication and affordable fees."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What is the key to successfully bridging a website and a CRM like HubSpot?",
+          "answer": "The key is data integrity and real-time synchronization. We use custom API middleware to ensure that patient leads from the site map correctly to HubSpot properties, preventing data loss and enabling automated follow-ups."
+        },
+        {
+          "question": "How do you ensure security when handling patient contracts digitally?",
+          "answer": "We implement end-to-end encryption for document storage and use secure authenticated links for digital signatures, complying with healthcare data privacy standards (PIPEDA in Canada)."
+        },
+        {
+          "question": "What does a realistic timeline look like from contract signing to MVP launch?",
+          "answer": "For an enterprise tool like this, an MVP typically takes 12–16 weeks. This includes a discovery phase, UI/UX design, core development in 2-week sprints, and a robust testing phase with real clinic coordinators."
+        }
+      ],
+      "urls": {
+        "clientSite": "https://www.canadianorthodonticpartners.com/"
+      }
+    },
+    {
+      "id": "hello-leena",
+      "type": "collaboration",
+      "title": "Hello Leena - Telehealth EMR Platform",
+      "company": "Hello Leena",
+      "service": "EMR Platform Architecture & Telehealth Engineering",
+      "country": "Canada",
+      "engagementModel": "Managed Team Partnership",
+      "budget": "$5,000 - $6,500 USD per month (~$115,000 USD total)",
+      "duration": "Apr. 2023 - Nov. 2024 (Completed ~20 Months)",
+      "clientOverview": "A telehealth provider in the mental health space (BIPOC focused). The project involved building a complete, end-to-end Electronic Medical Record (EMR) system to manage patient data, telehealth sessions, and complex business reporting.",
+      "techStack": [
+        "React",
+        "TypeScript",
+        "Stripe API",
+        "HubSpot",
+        "Video/Audio Integration SDKs",
+        "ClickUp API",
+        "Relational Databases"
+      ],
+      "servicesProvided": [
+        "EMR System Architecture",
+        "Secure Telehealth Video/Audio Implementation",
+        "Operational Flow Optimization",
+        "Custom Business Management Modules",
+        "Complex Reporting Engine",
+        "Payment Processing Integration"
+      ],
+      "results": [
+        "Successful delivery of a production-ready EMR system",
+        "Automated reporting for business management",
+        "Seamless integration of secure payment and telehealth video",
+        "High-velocity sprint delivery monitored in ClickUp",
+        "High internal stakeholder acclaim for system organizational impact"
+      ],
+      "clientFeedback": [
+        {
+          "rating": 5,
+          "reviewer": "Executive, Healthcare Company",
+          "quote": "The engineering team is incredible in the way that they learn about your business, and do their best to deliver above and beyond."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Why build a custom EMR instead of using a standard healthcare SaaS?",
+          "answer": "Mental health clinics often have unique workflows for matching therapists to patients based on identity (e.g., BIPOC focused). A custom EMR allows for specific matching algorithms, proprietary reporting, and full control over the client experience."
+        },
+        {
+          "question": "How do you handle security for telehealth video sessions?",
+          "answer": "We use HIPAA-compliant video SDKs with peer-to-peer encryption, ensuring that sensitive therapy sessions are never recorded or stored on intermediate servers without explicit authorization."
+        },
+        {
+          "question": "Should I hire a full team or start with one developer for MVP validation?",
+          "answer": "For an EMR, you need a multi-disciplinary team (Frontend, Backend, Security, Design) from day one. Starting with one developer often leads to architectural shortcuts that become massive technical debt once you need to handle real patient data."
+        }
+      ],
+      "urls": {
+        "clientSite": "https://www.helloleena.com/"
+      }
+    },
+    {
+      "id": "fruto-salvaje",
+      "type": "collaboration",
+      "title": "Fruto Salvaje - E-Commerce Empire",
+      "company": "Fruto Salvaje",
+      "service": "Shopify Plus Architecture & Performance Optimization",
+      "country": "Colombia",
+      "engagementModel": "Scale-up Partnership",
+      "budget": "$3,200 - $4,500 USD per month (~$92,000 USD total)",
+      "duration": "Jan. 2023 - Dec. 2024 (Completed ~24 Months)",
+      "clientOverview": "A massive beauty and personal care brand scaling to international traffic. The platform requires high-conversion engineering, ritualistic content integration (Moon Phases), and global performance optimization.",
+      "techStack": [
+        "Shopify Plus",
+        "Liquid",
+        "JavaScript",
+        "Klaviyo",
+        "Judge.me",
+        "Payment Gateways",
+        "Wix Thunderbolt Integration"
+      ],
+      "servicesProvided": [
+        "E-Commerce Platform Architecture",
+        "Conversion Rate Optimization (CRO)",
+        "Internationalization & Localization",
+        "Performance Engineering",
+        "Automated Marketing Integration"
+      ],
+      "results": [
+        "Successful management of 190+ high-engagement reviews",
+        "Seamless integration of community rituals into shopping flow",
+        "Optimized global load times for high-traffic sessions",
+        "Unified brand identity across digital touchpoints"
+      ],
+      "clientFeedback": [
+        {
+          "rating": 5,
+          "reviewer": "Verified Customer",
+          "quote": "Excellent product, I love it! The site makes buying very easy."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What is the key to scaling a local beauty brand to a global Shopify store?",
+          "answer": "Performance and localization. Ensuring the site loads under 2 seconds globally while supporting multiple currencies and languages is critical for maintaining the premium feel."
+        },
+        {
+          "question": "How do you integrate unconventional features like 'Moon Phases' into e-commerce?",
+          "answer": "We treat ritualistic data as dynamic content entities, mapping these phases to specific product recommendations to drive cross-selling without disrupting the funnel."
+        }
+      ],
+      "urls": {
+        "clientSite": "https://frutosalvaje.com/"
+      }
+    }
+  ]
+}

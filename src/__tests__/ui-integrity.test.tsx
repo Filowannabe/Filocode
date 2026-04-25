@@ -51,7 +51,7 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
 
   it('debe contener el botón principal de exploración con el gradiente dorado y la animación shine', () => {
     render(<Home />);
-    const exploreBtn = screen.getByText(/EXPLORAR_PROYECTOS/i);
+    const exploreBtn = screen.getByText(/EXPLORAR_COLABORACIONES/i);
     const parentBtn = exploreBtn.closest('button');
     
     expect(parentBtn).toBeInTheDocument();
@@ -136,9 +136,9 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
   });
 
   describe('Button Design Integrity (Pattern Lock)', () => {
-    it('el botón EXPLORAR_PROYECTOS debe tener el gradiente dorado y la animación shine', () => {
+    it('el botón EXPLORAR_COLABORACIONES debe tener el gradiente dorado y la animación shine', () => {
       render(<Home />);
-      const btn = screen.getByText(/EXPLORAR_PROYECTOS/i).closest('button');
+      const btn = screen.getByText(/EXPLORAR_COLABORACIONES/i).closest('button');
       expect(btn).toHaveClass('shadow-[0_0_40px_rgba(245,158,11,0.4)]');
       const gradientLayer = btn?.querySelector('.bg-gold-gradient');
       expect(gradientLayer).toHaveClass('animate-gold-shine');
