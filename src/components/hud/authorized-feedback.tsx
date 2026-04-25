@@ -4,17 +4,17 @@ import { motion } from "framer-motion";
 import { Star } from "lucide-react";
 import collaborationsData from "@/data/collaborations.json";
 import { Collaboration } from "@/types/collaboration";
+import { HudPanel } from "./hud-panel";
 
 const MotionDiv = motion.div as any;
 
 /**
  * AuthorizedFeedback - Marquee táctico de reviews globales.
- * v1.0 - Sincronizado con estética Golden Sun.
+ * v2.0 - Sincronizado con Estándar Glassmorphism HUD (Mac Look n' Feel).
  */
 export function AuthorizedFeedback() {
   const { collaborations } = collaborationsData as any;
   
-  // Extraer todos los feedbacks válidos
   const allFeedbacks = collaborations
     .filter((c: Collaboration) => c.clientFeedback && c.clientFeedback.length > 0)
     .flatMap((c: Collaboration) => c.clientFeedback.map(f => ({
@@ -24,60 +24,64 @@ export function AuthorizedFeedback() {
     })));
 
   // Duplicar para loop infinito suave
-  const displayFeedbacks = [...allFeedbacks, ...allFeedbacks];
+  const displayFeedbacks = [...allFeedbacks, ...allFeedbacks, ...allFeedbacks];
 
   return (
-    <div className="w-full overflow-hidden py-12 border-y border-white/5 bg-white/[0.01] relative group">
-      {/* Ambient Background Label */}
-      <div className="absolute top-2 left-1/2 -translate-x-1/2 font-mono text-[8px] text-amber-500/20 uppercase tracking-[0.5em] pointer-events-none">
-        AUTHORIZED_FEEDBACK_STREAM // ENCRYPTED_CHANNEL
-      </div>
-
-      <MotionDiv 
-        className="flex gap-8 px-4"
-        animate={{ x: [0, -2000] }}
-        transition={{ 
-          duration: 60, 
-          repeat: Infinity, 
-          ease: "linear" 
-        }}
-        whileHover={{ animationPlayState: "paused" }}
-      >
-        {displayFeedbacks.map((feedback, idx) => (
-          <div 
-            key={`${feedback.projectId}-${idx}`}
-            className="flex-none w-[350px] md:w-[450px] p-6 bg-white/[0.02] border border-white/5 rounded-sm relative overflow-hidden"
-          >
-            {/* Tactical Accent */}
-            <div className="absolute top-0 left-0 w-[2px] h-full bg-amber-500/20" />
-            
-            <div className="flex justify-between items-start mb-4">
-              <div className="flex gap-0.5">
-                {[...Array(feedback.rating)].map((_, i) => (
-                  <Star key={i} size={12} className="fill-amber-500 text-amber-500 drop-shadow-[0_0_8px_rgba(245,158,11,0.5)]" />
-                ))}
-              </div>
-              <span className="font-mono text-[9px] text-amber-500/40 uppercase tracking-widest border border-amber-500/20 px-1.5 py-0.5 rounded-xs">
-                {feedback.company}
-              </span>
-            </div>
-
-            <blockquote className="text-sm md:text-base font-serif italic text-white/80 leading-relaxed mb-4 line-clamp-3">
-              "{feedback.quote}"
-            </blockquote>
-
-            <cite className="not-italic block">
-              <div className="font-mono text-[9px] text-amber-200 uppercase tracking-widest font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
-                {"//"} {feedback.reviewer}
-              </div>
-            </cite>
+    <div className="w-full max-w-[1800px] mx-auto px-4 md:px-0">
+      <HudPanel title="SYSTEM_VALIDATION // TERMINAL_REVIEWS" delay={0.7}>
+        <div className="w-full overflow-hidden py-16 relative group">
+          {/* High-Visibility Intelligence Label */}
+          <div className="absolute top-4 left-1/2 -translate-x-1/2 font-mono text-[10px] text-amber-200 uppercase tracking-[0.4em] font-black pointer-events-none z-20 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
+            AUTHORIZED_FEEDBACK_STREAM // ENCRYPTED_CHANNEL
           </div>
-        ))}
-      </MotionDiv>
-      
-      {/* Gradient Masks */}
-      <div className="absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-black to-transparent z-10 pointer-events-none" />
-      <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent z-10 pointer-events-none" />
+
+          <MotionDiv 
+            className="flex gap-8 px-8 mt-4"
+            animate={{ x: [0, -3000] }}
+            transition={{ 
+              duration: 80, 
+              repeat: Infinity, 
+              ease: "linear" 
+            }}
+            whileHover={{ animationPlayState: "paused" }}
+          >
+            {displayFeedbacks.map((feedback, idx) => (
+              <div 
+                key={`${feedback.projectId}-${idx}`}
+                className="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+              >
+                {/* Tactical Side Accent */}
+                <div className="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40" />
+                
+                <div className="flex justify-between items-start mb-6">
+                  <div className="flex gap-1">
+                    {[...Array(feedback.rating)].map((_, i) => (
+                      <Star key={i} size={14} className="fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]" />
+                    ))}
+                  </div>
+                  <span className="font-mono text-[10px] font-black text-amber-100 bg-amber-500/20 uppercase tracking-widest border border-amber-500/40 px-3 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]">
+                    {feedback.company}
+                  </span>
+                </div>
+
+                <blockquote className="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8">
+                  "{feedback.quote}"
+                </blockquote>
+
+                <cite className="not-italic block border-t border-white/5 pt-4">
+                  <div className="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]">
+                    {"//"} {feedback.reviewer}
+                  </div>
+                </cite>
+              </div>
+            ))}
+          </MotionDiv>
+          
+          {/* Internal Gradient Masks for Seamless Loop */}
+          <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-black/40 to-transparent z-10 pointer-events-none" />
+          <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-black/40 to-transparent z-10 pointer-events-none" />
+        </div>
+      </HudPanel>
     </div>
   );
 }

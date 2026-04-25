@@ -64,7 +64,7 @@ export default function Home() {
               
               <a 
                 href="mailto:filocode@protonmail.com"
-                className="font-mono text-[12px] font-black text-amber-100 hover:text-white border border-amber-500/40 hover:border-amber-500/80 px-10 py-5 transition-all uppercase tracking-[0.2em] bg-amber-500/10 rounded-md cursor-pointer text-center shadow-[0_0_20px_rgba(245,158,11,0.15)] hover:shadow-[0_0_30px_rgba(245,158,11,0.3)] drop-shadow-[0_0_10px_rgba(251,191,36,0.3)]"
+                className="font-mono text-[12px] font-black text-amber-200 border-2 border-amber-500/40 hover:border-amber-400 hover:text-white px-10 py-[18px] transition-all uppercase tracking-[0.25em] bg-white/[0.03] rounded-md cursor-pointer text-center shadow-[0_0_30px_rgba(245,158,11,0.1)] hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] drop-shadow-[0_0_10px_rgba(251,191,36,0.4)]"
               >
                 Contact_Protocol
               </a>
