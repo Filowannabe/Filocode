@@ -7,6 +7,7 @@ import { TopicsProvider } from "@/contexts/use-topics";
 import { HudPanel } from "@/components/hud/hud-panel";
 import { TerminalContact } from "@/components/hud/terminal-contact";
 import { CollaborationsArchive } from "@/components/hud/collaborations-archive";
+import { AuthorizedFeedback } from "@/components/hud/authorized-feedback";
 import { FileDown } from "lucide-react";
 import Image from "next/image";
 import avatarImg from "../../public/images/avatar.jpg";
@@ -56,14 +57,14 @@ export default function Home() {
                 className="relative group px-12 py-5 overflow-hidden rounded-md transition-all duration-500 active:scale-95 shadow-[0_0_40px_rgba(245,158,11,0.4)] hover:shadow-[0_0_60px_rgba(245,158,11,0.6)] cursor-pointer"
               >
                 <div className="absolute inset-0 bg-gold-gradient animate-gold-shine" />
-                <span className="relative font-mono text-[14px] font-black text-black uppercase tracking-[0.25em] flex items-center gap-3">
+                <span className="relative font-mono text-[14px] font-black text-black uppercase tracking-[0.25em] flex items-center gap-3 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
                   EXPLORAR_COLABORACIONES
                 </span>
               </button>
               
               <a 
                 href="mailto:filocode@protonmail.com"
-                className="font-mono text-[12px] font-bold text-white/40 hover:text-amber-400 border border-white/5 hover:border-amber-500/30 px-10 py-5 transition-all uppercase tracking-widest bg-white/[0.03] rounded-md cursor-pointer text-center"
+                className="font-mono text-[12px] font-black text-amber-100 hover:text-white border border-amber-500/40 hover:border-amber-500/80 px-10 py-5 transition-all uppercase tracking-[0.2em] bg-amber-500/10 rounded-md cursor-pointer text-center shadow-[0_0_20px_rgba(245,158,11,0.15)] hover:shadow-[0_0_30px_rgba(245,158,11,0.3)] drop-shadow-[0_0_10px_rgba(251,191,36,0.3)]"
               >
                 Contact_Protocol
               </a>
@@ -192,7 +193,8 @@ export default function Home() {
         </HudPanel>
 
         {/* FOOTER */}
-        <footer className="mt-20 border-t border-white/5 pt-12 pb-16">
+        <footer className="mt-20 border-t border-white/5 pt-12 pb-16 space-y-12">
+          <AuthorizedFeedback />
           <div className="flex justify-between items-center font-mono text-[12px] font-black tracking-[0.5em] text-amber-500 drop-shadow-[0_0_15px_rgba(245,158,11,0.6)] uppercase">
             <span>[ © 2026 // FILOCODE ]</span>
             <span className="text-green-500 drop-shadow-[0_0_10px_rgba(34,197,94,0.5)]">[ESTADO: OPERACIONAL_ESTABLE]</span>
