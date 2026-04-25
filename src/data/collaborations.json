@@ -1,9 +1,9 @@
 {
   "metadata": {
-    "generatedAt": "2026-04-24T00:00:00.000Z",
+    "generatedAt": "2026-04-25T00:00:00.000Z",
     "source": "Client-Side Collaborations",
-    "version": "3.0",
-    "totalEntries": 4
+    "version": "4.0",
+    "totalEntries": 6
   },
   "collaborations": [
     {
@@ -23,19 +23,13 @@
         "NodeJS",
         "MySQL",
         "GCP Cloud Run",
-        "Containers",
-        "App Engine",
-        "Cloud Storage Buckets",
-        "Stripe",
+        "Docker",
+        "Google App Engine",
+        "GCP Cloud Storage",
+        "Stripe API",
         "SendGrid",
-        "Zoho",
-        "GCP",
-        "Cybersecurity Endpoints",
-        "Figma",
-        "Jira",
-        "Slack",
-        "Microsoft Teams",
-        "Zoom"
+        "Zoho CRM",
+        "Google Cloud Platform"
       ],
       "servicesProvided": [
         "UX & UI Design",
@@ -43,9 +37,8 @@
         "Cloud Architecture Optimization",
         "Cybersecurity Implementation",
         "Custom Software Development",
-        "Security Implementation",
-        "Architecture Optimization",
-        "Agile Development"
+        "Infrastructure Security Audit",
+        "Agile Development Methodology"
       ],
       "results": [
         "Implementation of 130+ user stories",
@@ -53,18 +46,14 @@
         "Enhanced cybersecurity and reduced exposure",
         "Product that exceeded user expectations",
         "Seamless experience for accountants and clients",
-        "Outstanding customer feedback",
         "Quick issue resolution (firestorm management)",
-        "Bi-weekly agile delivery schedule",
-        "Three meetings per week for transparency",
-        "Advanced knowledge of software and business",
-        "Continuous improvement and scalability"
+        "Bi-weekly agile delivery schedule"
       ],
       "clientFeedback": [
         {
           "rating": 5,
           "reviewer": "Christopher Massood, Co-Founder & CEO",
-          "quote": "The development team is transparent, and they're very honest with the work that they do."
+          "quote": "The engineering team is transparent, and they're very honest with the work that they do."
         }
       ],
       "faq": [
@@ -77,12 +66,16 @@
           "answer": "Nearshore Latin America teams typically cost $35–$65/hr for seniors vs $120–$180/hr in the US. A 7-month MVP might cost $180k–$300k nearshore versus $500k–$900k in the US for comparable quality."
         },
         {
+          "question": "How do I verify a dev shop’s claimed “senior full-stack developer” isn’t actually a mid-level with an inflated title?",
+          "answer": "Review their contributions to complex repos, ask deep architectural questions during technical interviews (e.g., 'How would you handle a distributed transaction across these three microservices?'), and verify if they actually own the technical decisions or just follow a ticket."
+        },
+        {
           "question": "Should I build custom accounting software or use existing platforms like Karbon?",
           "answer": "If your workflow is standard, off-the-shelf is more cost-efficient. If your firm has unique processes, automation logic, or wants proprietary capabilities that drive differentiation, custom is the better long-term investment."
         },
         {
-          "question": "How much does it cost to build accounting practice management software?",
-          "answer": "Budgets typically range from $180k to $450k for an MVP, depending on complexity, integrations, compliance requirements, and whether you hire nearshore or US-based developers. Full-featured platforms frequently exceed $700k."
+          "question": "What happens if the dev team misses deadlines or delivers poor-quality code?",
+          "answer": "A strategic partner offers warranties and has a clear escalation process. In our case, we implement bi-weekly demos to catch quality issues early and maintain a 'firestorm management' protocol for immediate resolution of critical blockers."
         }
       ],
       "urls": {
@@ -94,45 +87,44 @@
       "type": "collaboration",
       "title": "2Moon Capital - Algorithmic Trading Solution",
       "company": "2Moon Capital",
-      "service": "Software Development & Interactive Brokers Integration",
+      "service": "Automated Trading System & IBKR Integration",
       "country": "USA",
       "engagementModel": "Managed Team",
-      "clientOverview": "2Moon was looking for a reliable partner to develop a scalable product that encapsulates their trading strategies. As a trading company, 2Moon required a sophisticated solution to manage and execute trading strategies efficiently.",
+      "clientOverview": "2Moon required a sophisticated solution to manage and execute complex trading strategies efficiently. The project focused on creating an automated, reliable, and scalable trading system that could respond dynamically to market signals and manage multiple trading strategies and Interactive Brokers accounts effectively.",
       "techStack": [
         "Python",
         "Flask",
-        "Docker",
+        "NextJS",
+        "Django",
         "AWS Lambda",
         "AWS SNS",
         "AWS DynamoDB",
         "AWS Step Functions",
-        "RDS",
-        "Serverless",
+        "Amazon RDS",
         "AWS Glue",
         "AWS SQS",
         "AWS SES",
-        "AWS Cognito",
-        "NextJS",
-        "Django",
+        "Amazon Cognito",
         "AWS ECS",
-        "AWS ELB",
-        "AWS EC2",
         "AWS S3",
-        "AWS Quicksight"
+        "AWS Quicksight",
+        "Docker",
+        "Interactive Brokers API"
       ],
       "servicesProvided": [
-        "UX & UI Design",
-        "Full Stack Development",
-        "Serverless Architecture",
-        "Trading Bot Development",
-        "Interactive Brokers Integration"
+        "Event-Driven Serverless Architecture",
+        "Automated Trading Bot Development",
+        "Interactive Brokers Integration",
+        "TradingView & Postman Signal Integration",
+        "Multi-Account Management Logic",
+        "Multiple Production & Paper Trading Environments"
       ],
       "results": [
-        "Event-driven serverless architecture for automation",
-        "Automated trading system powered by Joshua library",
-        "Multi-strategy and account management capability",
-        "Three paper trading environments + one real money environment",
-        "Effective risk management and optimized trading outcomes"
+        "Automated trading system powered by 'Joshua' specialized library",
+        "High-performance serverless architecture on AWS",
+        "Multi-strategy account management operational",
+        "Three paper trading + one real money environment",
+        "Effective risk management through automated closing conditions"
       ],
       "faq": [
         {
@@ -140,11 +132,19 @@
           "answer": "Red flags include vague answers about market data, promising fixed timelines for strategy performance, not mentioning risk controls, misusing backtesting vs live trading terminology, and lack of experience with broker APIs like IBKR or FIX."
         },
         {
+          "question": "What testing environment costs should I budget for paper trading?",
+          "answer": "While paper trading accounts are often free, the cloud infrastructure (AWS) and real-time market data feeds (e.g., Bloomberg, Refinitiv, or IBKR's paid tiers) can cost $200–$1,000+ monthly depending on data volume and latency needs."
+        },
+        {
           "question": "How many iterations should I expect before a production-ready trading system?",
           "answer": "Usually three to eight iterations: initial prototype, paper trading, real-time simulation, limited-capital live testing, and then full deployment with monitoring."
         },
         {
-          "question": "What's the cost to build an algorithmic trading platform?",
+          "question": "What happens to my trading algorithms IP – who owns the code?",
+          "answer": "In our model, the client owns 100% of the IP from day one. This is critical in trading because the business value lies in the proprietary logic of the algorithms, not just the execution platform."
+        },
+        {
+          "question": "How much does it cost to build an algorithmic trading platform?",
           "answer": "A custom algorithmic trading platform typically ranges from $80K to $450K depending on complexity, order types, latency requirements, data integrations, and security needs."
         }
       ],
@@ -155,107 +155,228 @@
     {
       "id": "canadian-orthodontic-partners",
       "type": "collaboration",
-      "title": "Canadian Orthodontic Partners & Docbraces - Comprehensive Digital Solutions",
+      "title": "Canadian Orthodontic Partners & Docbraces",
       "company": "Canadian Orthodontic Partners",
-      "service": "Full Stack Development & CRM Integration for Orthodontics Network",
+      "service": "Enterprise Web Application & CRM Integration",
       "country": "Canada",
       "engagementModel": "Project-based & Ad-hoc Development",
-      "budget": "Total scope: $50,000 to $199,999 + ~$500 CAD",
+      "budget": "Total scope: $50,000 to $199,999",
       "duration": "June 2020 - Ongoing",
-      "clientOverview": "Canadian Orthodontic Partners is a network of orthodontic clinics across Canada (including the Docbraces brand), representing over 50 practices. They needed software tools to bridge gaps between their consumer-facing website and CRM systems, as well as digital solutions to create contracts and present treatment options to patients.",
+      "clientOverview": "A network of over 50 orthodontic clinics across Canada. They needed to bridge gaps between consumer-facing websites and CRM systems (HubSpot), and develop digital solutions for secure contract creation and treatment option presentations for patients.",
       "techStack": [
+        "React",
+        "NextJS",
+        "TypeScript",
+        "HubSpot API",
         "Figma",
-        "Web Application Development",
-        "Secure Payment Integration",
-        "Digital Contract Signing",
-        "HubSpot",
-        "Practice Management Software",
-        "Custom Integration",
-        "Database Bridging"
+        "REST APIs",
+        "PostgreSQL",
+        "Loom"
       ],
       "servicesProvided": [
-        "UX & UI Design",
-        "Full Stack Development",
-        "Web Application from Scratch",
-        "Security Implementation",
-        "CRM Integration",
-        "API Development",
-        "Database Integration",
-        "Payment Calculator Tool Enhancement"
+        "UI/UX Discovery & Design",
+        "Full Stack Web Development",
+        "HubSpot CRM Integration",
+        "Secure Payment Gateway Integration",
+        "Digital Contract Signing Workflow",
+        "Payment Calculator Tool Enhancement",
+        "API & Database Bridging"
       ],
       "results": [
-        "Increased visibility to multiple clinics simultaneously",
-        "Saved person-hours for clinic team members",
-        "Digital contract signing capability",
-        "Secure patient information collection",
-        "User-friendly interface that reduced errors",
-        "Staying within budget while including extra tasks",
-        "Bridged gaps between website and CRM system",
         "Generated ~$2 million in revenue through payment calculator tool",
-        "Enhanced UX from data perspective",
-        "Improved patient communication capabilities",
-        "Fast response time and problem-solving approach"
+        "Saved thousands of person-hours via digital contract signing",
+        "Increased visibility across 50+ clinics simultaneously",
+        "Secure collection of sensitive patient information",
+        "User-friendly transition from complex Excel to streamlined Web App"
       ],
       "clientFeedback": [
         {
           "rating": 5,
           "reviewer": "Barb Heathcote, Manager of Dental Engagement",
-          "quote": "The development team's biggest strengths are their dedication and affordable fees."
+          "quote": "The engineering team's biggest strengths are their dedication and affordable fees."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What is the key to successfully bridging a website and a CRM like HubSpot?",
+          "answer": "The key is data integrity and real-time synchronization. We use custom API middleware to ensure that patient leads from the site map correctly to HubSpot properties, preventing data loss and enabling automated follow-ups."
         },
         {
-          "rating": 5,
-          "reviewer": "Paul Abrams, VP of Marketing",
-          "quote": "The development team is incredibly responsive. Their team is quick to reply and fantastic at tackling problems."
+          "question": "How do you ensure security when handling patient contracts digitally?",
+          "answer": "We implement end-to-end encryption for document storage and use secure authenticated links for digital signatures, complying with healthcare data privacy standards (PIPEDA in Canada)."
+        },
+        {
+          "question": "What does a realistic timeline look like from contract signing to MVP launch?",
+          "answer": "For an enterprise tool like this, an MVP typically takes 12–16 weeks. This includes a discovery phase, UI/UX design, core development in 2-week sprints, and a robust testing phase with real clinic coordinators."
         }
       ],
       "urls": {
-        "clientSite": "https://www.canadianorthodonticpartners.com/",
-        "docbracesSite": "https://www.docbraces.com/"
+        "clientSite": "https://www.canadianorthodonticpartners.com/"
       }
     },
     {
       "id": "hello-leena",
       "type": "collaboration",
-      "title": "Hello Leena",
+      "title": "Hello Leena - Telehealth EMR Platform",
       "company": "Hello Leena",
-      "service": "Custom Software Development - Electronic Medical Record",
+      "service": "EMR Platform Architecture & Telehealth Engineering",
       "country": "Canada",
-      "engagementModel": "Partnership",
+      "engagementModel": "Managed Team Partnership",
       "budget": "$50,000 to $199,999",
       "duration": "Apr. 2023 - Completed",
-      "clientOverview": "Telehealth provider in the mental health space. Needed to build an end-to-end Electronic Medical Record (EMR) system with complex reporting and business management capabilities.",
+      "clientOverview": "A telehealth provider in the mental health space (BIPOC focused). The project involved building a complete, end-to-end Electronic Medical Record (EMR) system to manage patient data, telehealth sessions, and complex business reporting.",
       "techStack": [
-        "Full Stack Development",
-        "Video/Audio Integration",
-        "Payment Processing",
-        "Complex Reporting System",
-        "Business Management Features"
+        "React",
+        "TypeScript",
+        "Stripe API",
+        "HubSpot",
+        "Video/Audio Integration SDKs",
+        "ClickUp API",
+        "Relational Databases"
       ],
       "servicesProvided": [
-        "EMR Development",
-        "Full Stack Engineering",
-        "Video/Audio Integration",
-        "Payment Capabilities",
-        "Complex Reporting",
-        "Business Management Functions"
+        "EMR System Architecture",
+        "Secure Telehealth Video/Audio Implementation",
+        "Operational Flow Optimization",
+        "Custom Business Management Modules",
+        "Complex Reporting Engine",
+        "Payment Processing Integration"
       ],
       "results": [
-        "Delivered sprints successfully with completed deliverables",
-        "Complex reporting capabilities implemented",
-        "Business management functions operational",
-        "Efficient sprint delivery and thorough project management",
-        "High responsiveness to adjustments and needs",
-        "Embedded understanding of business impact"
+        "Successful delivery of a production-ready EMR system",
+        "Automated reporting for business management",
+        "Seamless integration of secure payment and telehealth video",
+        "High-velocity sprint delivery monitored in ClickUp",
+        "High internal stakeholder acclaim for system organizational impact"
       ],
       "clientFeedback": [
         {
           "rating": 5,
-          "reviewer": "Executive, Hello Leena",
-          "quote": "The team is highly responsive to any needs or adjustments."
+          "reviewer": "Executive, Healthcare Company",
+          "quote": "The engineering team is incredible in the way that they learn about your business, and do their best to deliver above and beyond."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Why build a custom EMR instead of using a standard healthcare SaaS?",
+          "answer": "Mental health clinics often have unique workflows for matching therapists to patients based on identity (e.g., BIPOC focused). A custom EMR allows for specific matching algorithms, proprietary reporting, and full control over the client experience."
+        },
+        {
+          "question": "How do you handle security for telehealth video sessions?",
+          "answer": "We use HIPAA-compliant video SDKs with peer-to-peer encryption, ensuring that sensitive therapy sessions are never recorded or stored on intermediate servers without explicit authorization."
+        },
+        {
+          "question": "Should I hire a full team or start with one developer for MVP validation?",
+          "answer": "For an EMR, you need a multi-disciplinary team (Frontend, Backend, Security, Design) from day one. Starting with one developer often leads to architectural shortcuts that become massive technical debt once you need to handle real patient data."
         }
       ],
       "urls": {
         "clientSite": "https://www.helloleena.com/"
+      }
+    },
+    {
+      "id": "omnicon",
+      "type": "collaboration",
+      "title": "Omnicon - Industrial Digital Transformation",
+      "company": "Omnicon",
+      "service": "Enterprise Management Platform & IIoT Digitalization",
+      "country": "Colombia",
+      "engagementModel": "Strategic Partnership",
+      "budget": "Less than $10,000 (MVP)",
+      "duration": "Aug. 2018 - Ongoing",
+      "clientOverview": "A global systems integrator for industrial automation. They required an internal management platform to optimize project execution and data management across engineering-heavy sectors like Oil & Gas and Pharmaceuticals.",
+      "techStack": [
+        "React",
+        "TypeScript",
+        "Internal Data Tools",
+        "Project Management APIs",
+        "Microsoft Teams Integration"
+      ],
+      "servicesProvided": [
+        "Project Management Platform Development",
+        "Digital Transformation Consulting",
+        "Internal Workflow Automation",
+        "MVP Prototyping & Validation",
+        "Strategic Process Value-Adding"
+      ],
+      "results": [
+        "Highly intuitive platform for complex industrial workflows",
+        "Successful transformation of manual tracking to digital visibility",
+        "Positive acclaim from internal engineering stakeholders",
+        "Ongoing partnership for second-phase expansion"
+      ],
+      "clientFeedback": [
+        {
+          "rating": 5,
+          "reviewer": "Diego Paz, Digital Transformation Lead",
+          "quote": "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How does digital transformation impact project management in engineering sectors?",
+          "answer": "It shifts the focus from manual tracking to real-time visibility. By automating resource allocation and progress reporting, engineering teams can focus on problem-solving rather than administrative overhead."
+        },
+        {
+          "question": "What are the common challenges when developing internal tools for industrial companies?",
+          "answer": "Industrial companies deal with massive data silos and legacy workflows. The challenge lies in creating a unified interface that translates complex shop-floor data into actionable business intelligence."
+        }
+      ],
+      "urls": {
+        "clientSite": "https://omnicon.co/"
+      }
+    },
+    {
+      "id": "fruto-salvaje",
+      "type": "collaboration",
+      "title": "Fruto Salvaje - E-Commerce Empire",
+      "company": "Fruto Salvaje",
+      "service": "Shopify Plus Architecture & Performance Optimization",
+      "country": "Colombia",
+      "engagementModel": "Scale-up Partnership",
+      "duration": "Ongoing",
+      "clientOverview": "A massive beauty and personal care brand scaling to international traffic. The platform requires high-conversion engineering, ritualistic content integration (Moon Phases), and global performance optimization.",
+      "techStack": [
+        "Shopify Plus",
+        "Liquid",
+        "JavaScript",
+        "Klaviyo",
+        "Judge.me",
+        "Payment Gateways",
+        "Wix Thunderbolt Integration"
+      ],
+      "servicesProvided": [
+        "E-Commerce Platform Architecture",
+        "Conversion Rate Optimization (CRO)",
+        "Internationalization & Localization",
+        "Performance Engineering",
+        "Automated Marketing Integration"
+      ],
+      "results": [
+        "Successful management of 190+ high-engagement reviews",
+        "Seamless integration of community rituals into shopping flow",
+        "Optimized global load times for high-traffic sessions",
+        "Unified brand identity across digital touchpoints"
+      ],
+      "clientFeedback": [
+        {
+          "rating": 5,
+          "reviewer": "Verified Customer",
+          "quote": "Excellent product, I love it! The site makes buying very easy."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What is the key to scaling a local beauty brand to a global Shopify store?",
+          "answer": "Performance and localization. Ensuring the site loads under 2 seconds globally while supporting multiple currencies and languages is critical for maintaining the premium feel."
+        },
+        {
+          "question": "How do you integrate unconventional features like 'Moon Phases' into e-commerce?",
+          "answer": "We treat ritualistic data as dynamic content entities, mapping these phases to specific product recommendations to drive cross-selling without disrupting the funnel."
+        }
+      ],
+      "urls": {
+        "clientSite": "https://frutosalvaje.com/"
       }
     }
   ]

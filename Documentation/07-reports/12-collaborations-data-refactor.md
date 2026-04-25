@@ -5,13 +5,13 @@
 **Arquitecto**: Senior Engineering Assistant
 
 ## 🚨 El Desafío (Contexto)
-El proyecto requería una limpieza profunda de la marca de la agencia ("Leanware") para centrarse exclusivamente en la perspectiva del cliente, además de unificar testimonios dispersos en una estructura de datos resiliente. En paralelo, se detectó un fallo en la captura de la landing de Omnicon, resultando en imágenes en blanco debido a interferencias de scripts externos (chatbots y overlays).
+El proyecto requería una limpieza profunda de la marca de agencias de terceros para centrarse exclusivamente en la perspectiva del cliente, además de unificar testimonios dispersos en una estructura de datos resiliente. En paralelo, se detectó un fallo en la captura de la landing de Omnicon, resultando en imágenes en blanco debido a interferencias de scripts externos (chatbots y overlays).
 
 ## 🛠️ Acciones Realizadas
 
 ### 1. Consolidación de JSON (Zero Data Loss)
 - **Unificación**: Se fusionaron los registros de `Elephant CPA` y `Canadian Orthodontic Partners / Docbraces` en entradas únicas.
-- **Agency Scrubbing**: Se eliminaron todas las referencias a "Leanware", su CEO y equipo, reemplazándolas por "The development team".
+- **Agency Scrubbing**: Se eliminaron todas las referencias a marcas de terceros, su CEO y equipo, reemplazándolas por "The development team".
 - **Integridad**: Se mantuvieron íntegros todos los arrays de FAQ, resultados y stack tecnológico sin truncar caracteres.
 
 ### 2. Recuperación de Fidelidad Visual (Omnicon)

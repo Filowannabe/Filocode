@@ -60,11 +60,12 @@ Ubicado en `src/store/use-portfolio-store.ts`.
 Sincronización dinámica de 32 nodos de repositorios con filtrado HUD funcional.
 
 ### PASO 3.3: Refactor de Colaboraciones y Fidelidad Visual [x]
-- **Collaborations Hub (v38.3)**: Implementación de modo dual (Consola/Carousel) con altura bloqueada para integridad vertical absoluta.
-- **Mobile-First Rework**: Inversión de orden y rediseño de posters verticales para dispositivos pequeños.
-- **Amber-Trace Scroll**: Scrollbars tácticos personalizados integrados al HUD.
-- **Deep Amber Overdrive**: Estandarización de post-procesado para assets externos sincronizados.
-- **WebP Optimization**: Conversión masiva para rendimiento extremo.
+- **Collaborations Hub (v4.0)**: Sincronización total con la **Operación ARSENAL_SYMMETRY**.
+- **Data Symmetry**: Separación estricta entre `techStack` y `servicesProvided` para coherencia táctica.
+- **Interactive Marquee**: Implementación de drag horizontal con loop lineal recursivo y reinicio orgánico.
+- **Mobile-First Rework**: Inversión de orden y rediseño de posters para viewports pequeños.
+- **Agency Scrubbing**: Purga de marcas de terceros a favor de una identidad de ingeniería neutral.
+- **Nuevos Nodos**: Integración de **Omnicon** y **Fruto Salvaje** con capturas internacionalizadas.
 
 
 ---

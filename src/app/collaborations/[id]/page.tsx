@@ -122,7 +122,7 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
           
           {/* MAIN COLUMN (Left - 60%) */}
-          <div className="lg:col-span-7 flex flex-col gap-12">
+          <div className="lg:col-span-7 flex flex-col gap-12 self-start">
             
             <HudPanel title="CLIENT_OVERVIEW">
               <div className="p-6 md:p-12 space-y-16">
@@ -139,7 +139,7 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
                     <div className="h-[2px] w-12 bg-amber-500" />
                     <h2 className="font-mono text-sm font-black text-amber-500 uppercase tracking-widest">Tactical_Outcomes</h2>
                   </div>
-                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 items-start">
                     {project.results.map((result, idx) => (
                       <li key={idx} className="flex items-start gap-4 group">
                         <div className="mt-1.5 w-2 h-2 bg-amber-500/40 border border-amber-500 group-hover:scale-125 transition-transform shrink-0" />

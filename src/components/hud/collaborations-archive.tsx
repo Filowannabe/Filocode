@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import { motion, AnimatePresence, useAnimation, useMotionValue } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { HudPanel } from "./hud-panel";
@@ -17,13 +17,15 @@ const MotionButton = motion.button as any;
 
 /**
  * CollaborationsArchive - Visor Táctico de Colaboraciones.
- * v38.3 - UNIFIED FILTERS & DARK CAROUSEL.
- * Filtros sincronizados entre Consola y Carousel para máxima belleza visual.
+ * v4.0 - ARSENAL_SYMMETRY & INTERACTIVE MARQUEE.
  */
 export function CollaborationsArchive() {
   const { collaborations } = collaborationsData as any;
   const [viewMode, setViewMode] = useState<'console' | 'carousel'>('console');
   const [activeId, setActiveId] = useState<string>(collaborations[0]?.id);
+  const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [isDragging, setIsDragging] = useState(false);
+  const [dragConstraint, setDragConstraint] = useState(0);
   const activeProject = collaborations.find((c: any) => c.id === activeId);
 
   // Marquee Carousel Logic
@@ -31,32 +33,61 @@ export function CollaborationsArchive() {
   const x = useMotionValue(0);
   const [isHovered, setIsHovered] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
-  const [carouselWidth, setCarouselWidth] = useState(0);
-
+  const marqueeRef = useRef<() => Promise<void>>(() => Promise.resolve());
+  
   // Carousel Infinito: Duplicación para Marquee real
   const carouselItems = [...collaborations, ...collaborations];
 
   useEffect(() => {
     if (carouselRef.current) {
-      setCarouselWidth(carouselRef.current.scrollWidth - carouselRef.current.offsetWidth);
+      setDragConstraint(-(carouselRef.current.scrollWidth / 2));
     }
-  }, [viewMode, collaborations]);
+  }, [viewMode]);
+
+  // Lógica de Animación Orgánica (Recursiva vía Ref)
+  const startMarquee = useCallback(async () => {
+    if (!carouselRef.current) return;
+    
+    const totalWidth = carouselRef.current.scrollWidth;
+    const halfWidth = totalWidth / 2;
+    const currentX = x.get();
+    
+    // Sincronización de posición para loop infinito
+    if (currentX <= -halfWidth) {
+      x.set(0);
+    } else if (currentX > 0) {
+      x.set(-halfWidth);
+    }
+
+    const remainingDistance = halfWidth + x.get();
+    const speed = 50; // Pixeles por segundo
+    const duration = remainingDistance / speed;
+
+    await controls.start({
+      x: -halfWidth,
+      transition: {
+        duration: duration,
+        ease: "linear",
+      }
+    });
+
+    // Reset instantáneo al llegar al final
+    x.set(0);
+    marqueeRef.current(); // Llamada recursiva segura
+  }, [controls, x]);
+
+  // Actualizar ref para evitar error de declaración previa
+  useEffect(() => {
+    marqueeRef.current = startMarquee;
+  }, [startMarquee]);
 
   useEffect(() => {
-    if (viewMode === 'carousel' && !isHovered && carouselWidth > 0) {
-      controls.start({
-        x: [x.get(), -carouselWidth],
-        transition: {
-          ease: "linear",
-          duration: 30 * (1 - Math.abs(x.get() / carouselWidth)),
-          repeat: Infinity,
-          repeatType: "reverse"
-        }
-      });
+    if (viewMode === 'carousel' && !isHovered && !isDragging) {
+      startMarquee();
     } else {
       controls.stop();
     }
-  }, [viewMode, isHovered, carouselWidth, controls, x]);
+  }, [viewMode, isHovered, isDragging, controls, startMarquee]);
 
   return (
     <HudPanel title="COLLABORATIONS_HUB // INTEL_FEED" className="w-full overflow-hidden">
@@ -121,7 +152,7 @@ export function CollaborationsArchive() {
         </div>
 
         {/* CONTENT AREA - ALTURA RESPONSIVA (v38.2) */}
-        <div className="w-full min-h-[auto] lg:h-[800px]">
+        <div className="w-full min-h-[auto] lg:h-[900px]">
           <AnimatePresence mode="wait">
             {viewMode === 'console' ? (
               // === MODO CONSOLA ===
@@ -148,7 +179,6 @@ export function CollaborationsArchive() {
                         />
                       </MotionDiv>
                     </div>
-                    {/* Unified Image Filter: Same as Carousel (The beautiful one) */}
                     <div className="absolute inset-0 bg-amber-600/50 mix-blend-multiply shadow-[inset_0_0_100px_rgba(0,0,0,0.9)] pointer-events-none transition-opacity duration-1000 group-hover/img:opacity-80" />
                   </div>
                 </div>
@@ -222,40 +252,108 @@ export function CollaborationsArchive() {
                 onMouseLeave={() => setIsHovered(false)}
               >
                 <MotionDiv 
+                  ref={carouselRef}
                   className="flex gap-6 md:gap-12 py-8 w-max h-full"
-                  animate={{ x: ["0%", "-50%"] }}
-                  transition={{ ease: "linear", duration: 40, repeat: Infinity }}
-                  whileHover={{ transition: { duration: 0 } }} 
+                  style={{ x }}
+                  animate={controls}
+                  drag="x"
+                  dragConstraints={{
+                    left: dragConstraint,
+                    right: 0
+                  }}
+                  dragElastic={0.1}
+                  onDragStart={() => setIsDragging(true)}
+                  onDragEnd={() => setIsDragging(false)}
                 >
                   {carouselItems.map((project: Collaboration, idx: number) => (
-                    <div key={`${project.id}-${idx}`} className="min-w-[85vw] md:min-w-[70vw] lg:min-w-[900px] xl:min-w-[1100px] h-full relative rounded-3xl overflow-hidden border border-white/10 group/poster flex-shrink-0 bg-black shadow-2xl flex flex-col md:flex-row">
-                      {/* Visual Poster Side (Visible in mobile) */}
-                      <div className="w-full md:w-1/2 h-[250px] md:h-full relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10 shrink-0">
-                         <Image src={COLLABORATION_IMAGES[project.id]} alt={project.company} fill className="object-cover object-top grayscale sepia-[.7] contrast-125 brightness-75 group-hover/poster:scale-105 transition-all duration-[3s]" />
-                         <div className="absolute inset-0 bg-amber-600/50 mix-blend-multiply shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]" />
+                    <MotionDiv 
+                      key={`${project.id}-${idx}`}
+                      onViewportLeave={() => setExpandedId(null)}
+                      className="w-[85vw] md:w-[1100px] h-[600px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
+                    >
+                      {/* Imagen: Altura fija en móvil, 50% ancho en desktop */}
+                      <div className="h-[250px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10">
+                        <Image 
+                          src={COLLABORATION_IMAGES[project.id]} 
+                          alt={project.company} 
+                          fill 
+                          className="object-cover object-top grayscale sepia-[.7] contrast-125 brightness-75 group-hover/poster:scale-105 transition-all duration-[3s]" 
+                        />
+                        <div className="absolute inset-0 bg-amber-600/50 mix-blend-multiply shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]" />
                       </div>
-                      {/* Text Poster Side (No blur, Pure black background) */}
-                      <div className="w-full md:w-1/2 flex-grow md:h-full p-6 md:p-12 lg:p-16 flex flex-col justify-between relative z-10 overflow-y-auto scrollbar-none bg-black">
-                         <div className="flex justify-between items-start mb-auto">
-                            <span className="font-mono text-[8px] md:text-[10px] text-amber-500 font-bold tracking-widest border border-amber-500/20 px-3 py-1 bg-black rounded-sm">[ COMPLETED ]</span>
-                            <div className="w-2 h-2 bg-amber-500/40 rounded-full animate-pulse shadow-[0_0_10px_rgba(245,158,11,0.5)]" />
-                         </div>
-                         <div className="mt-4 md:mt-auto mb-6 md:mb-10">
-                            <h3 className="text-2xl md:text-5xl lg:text-6xl font-black text-white leading-tight tracking-tighter uppercase mb-2 md:mb-4">{project.company}</h3>
-                            <p className="text-xs md:text-xl text-amber-500/80 font-mono tracking-tight uppercase line-clamp-2">{project.title}</p>
-                         </div>
-                         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-6 pointer-events-auto">
-                            <div className="flex flex-wrap gap-2 max-w-xs hidden md:flex">
-                              {project.techStack.slice(0, 4).map((t: string) => (
-                                <span key={t} className="text-[8px] md:text-[9px] font-bold px-3 py-1.5 bg-white/5 border border-white/10 text-white/50 rounded-full uppercase tracking-widest">{t}</span>
-                              ))}
-                            </div>
-                            <NextLink href={`/collaborations/${project.id}`} className="inline-flex items-center gap-3 px-6 py-4 bg-gold-gradient rounded-sm text-black font-black uppercase text-[10px] tracking-[0.2em] shadow-[0_0_20px_rgba(245,158,11,0.3)] hover:scale-105 transition-all w-full md:w-auto">
-                              <ChevronRight size={16} strokeWidth={3} /> VIEW_DOSSIER
-                            </NextLink>
-                         </div>
+
+                      {/* Contenido: 350px en móvil, h-full en desktop */}
+                      <div className="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative">
+                        {/* 1. Header Area: Título y Subtítulo (Rigid) */}
+                        <div className="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8">
+                          <h3 className="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4">
+                            {project.company}
+                          </h3>
+                          <p className="font-mono text-amber-500 uppercase tracking-widest text-[10px] md:text-sm">
+                            {project.title}
+                          </p>
+                        </div>
+
+                        {/* 2. Content Area: Overview o Expanded Intel (Flexible) */}
+                        <div className="flex-1 overflow-hidden relative">
+                          <AnimatePresence mode="wait">
+                            {expandedId === project.id ? (
+                              <MotionDiv
+                                key="expanded-intel"
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: 480 }}
+                                exit={{ opacity: 0, height: 0 }}
+                                className="h-[120px] md:h-[480px] overflow-y-auto amber-scrollbar pr-2"
+                              >
+                                <p className="text-xs md:text-xl text-amber-500/70 leading-relaxed font-mono">
+                                  <span className="text-white/20 mr-2 md:block md:mb-4 md:text-xs tracking-[0.3em]">{"//_FULL_REPORT_INITIALIZED:"}</span>
+                                  {project.clientOverview}
+                                </p>
+                              </MotionDiv>
+                            ) : (
+                              <MotionDiv
+                                key="static-intel"
+                                initial={{ opacity: 0 }}
+                                animate={{ opacity: 1 }}
+                                exit={{ opacity: 0 }}
+                                className="flex flex-col gap-6 md:gap-12"
+                              >
+                                <p className="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-none font-light">
+                                  {project.clientOverview}
+                                </p>
+                                <div className="flex flex-wrap gap-1.5 md:gap-4">
+                                  {project.techStack.slice(0, 5).map((t: string) => (
+                                    <span key={t} className="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest">
+                                      {t}
+                                    </span>
+                                  ))}
+                                </div>
+                              </MotionDiv>
+                            )}
+                          </AnimatePresence>
+                        </div>
+
+                        {/* 3. Footer Area: Toggles y CTA (Rigid) */}
+                        <div className="flex-none h-[60px] md:h-[120px] flex items-center justify-between gap-4 pt-4 border-t border-white/5 mt-4 md:mt-8">
+                          <button
+                            onClick={(e) => {
+                              e.stopPropagation();
+                              setExpandedId(expandedId === project.id ? null : project.id);
+                            }}
+                            className="text-[9px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1 shrink-0"
+                          >
+                            {expandedId === project.id ? "[ - CLOSE_INTEL ]" : "[ + OPEN_INTEL ]"}
+                          </button>
+                          
+                          <NextLink 
+                            href={`/collaborations/${project.id}`}
+                            className="inline-flex items-center gap-2 px-4 py-2 md:px-12 md:py-6 bg-gold-gradient rounded-sm text-black font-black uppercase text-[10px] md:text-base tracking-[0.2em] shadow-[0_0_30px_rgba(245,158,11,0.3)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
+                          >
+                            <ChevronRight size={20} strokeWidth={3} /> VIEW_DOSSIER
+                          </NextLink>
+                        </div>
                       </div>
-                    </div>
+                    </MotionDiv>
                   ))}
                 </MotionDiv>
               </MotionDiv>
