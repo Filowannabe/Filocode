@@ -101,14 +101,14 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
             {/* 2. Project Identity */}
             <div className="space-y-6 md:space-y-8 w-full lg:flex-1">
               <div className="flex flex-wrap items-center gap-3 md:gap-4">
-                <span className="font-mono text-[10px] text-amber-500 font-bold tracking-widest bg-amber-500/10 px-2 py-0.5 rounded-sm uppercase">
+                <span className="font-mono text-[10px] text-amber-200 font-black tracking-widest bg-amber-500/20 px-3 py-1 rounded-sm uppercase border border-amber-500/30 drop-shadow-[0_0_10px_rgba(251,191,36,0.4)]">
                   [ {project.id.replace(/-/g, '_').toUpperCase()} ]
                 </span>
-                <div className="h-[1px] w-6 bg-white/10 shrink-0" />
+                <div className="h-[1px] w-6 bg-white/20 shrink-0" />
                 <span className="font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0">
                   {project.country}
                 </span>
-                <span className="font-mono text-[10px] text-amber-200 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)] bg-white/5 px-2 py-0.5 rounded-sm border border-white/10 uppercase tracking-widest">
+                <span className="font-mono text-[10px] text-amber-100 font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] bg-white/10 px-2 py-0.5 rounded-sm border border-white/20 uppercase tracking-widest">
                   STATUS: COMPLETED
                 </span>
               </div>
@@ -236,14 +236,14 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
             <HudPanel title="ARSENAL_COMPOSITION">
               <div className="p-6 md:p-10">
                 <div className="flex items-center justify-between mb-8">
-                  <h3 className="font-mono text-[10px] font-black text-white/70 uppercase tracking-[0.3em]">Core_Technologies</h3>
-                  <Terminal size={14} className="text-amber-500/40" />
+                  <h3 className="font-mono text-[10px] font-black text-amber-200 uppercase tracking-[0.3em] drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">Core_Technologies</h3>
+                  <Terminal size={14} className="text-amber-500/60" />
                 </div>
                 <div className="flex flex-wrap gap-2">
                   {project.techStack.map((tech) => (
                     <span 
                       key={tech} 
-                      className="px-3 py-1.5 bg-amber-500/5 text-amber-500/70 border border-amber-500/20 text-[9px] font-bold uppercase tracking-widest rounded-sm hover:bg-amber-500/10 hover:text-amber-500 transition-all cursor-default"
+                      className="px-3 py-1.5 bg-amber-500/10 text-amber-100 border border-amber-500/30 text-[9px] font-black uppercase tracking-widest rounded-sm hover:bg-amber-500/20 hover:text-white transition-all cursor-default shadow-[0_0_10px_rgba(245,158,11,0.1)]"
                     >
                       {tech}
                     </span>
@@ -257,9 +257,9 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
               <div className="p-6 md:p-10">
                 <ul className="space-y-3">
                   {project.servicesProvided.map((service) => (
-                    <li key={service} className="flex items-start gap-3 py-2 border-b border-white/5 last:border-0">
-                      <span className="text-amber-500/40 font-mono text-[10px] mt-0.5 shrink-0">{"//"}</span>
-                      <span className="text-[11px] text-white/50 uppercase tracking-widest">{service}</span>
+                    <li key={service} className="flex items-start gap-3 py-2 border-b border-white/10 last:border-0 group/service">
+                      <span className="text-amber-500/60 font-mono text-[10px] mt-0.5 shrink-0 group-hover/service:scale-110 transition-transform">{"//"}</span>
+                      <span className="text-[11px] text-white/80 font-bold uppercase tracking-widest group-hover:text-white transition-colors">{service}</span>
                     </li>
                   ))}
                 </ul>
@@ -274,10 +274,13 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
                     href={project.urls.clientSite} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="flex items-center justify-center gap-3 px-6 py-4 bg-amber-500/10 border border-amber-500/30 text-amber-500 hover:bg-amber-500 hover:text-black transition-all text-xs font-black uppercase tracking-widest rounded-sm group"
+                    className="relative group px-8 py-5 overflow-hidden rounded-md transition-all duration-500 active:scale-95 shadow-[0_0_40px_rgba(245,158,11,0.4)] hover:shadow-[0_0_60px_rgba(245,158,11,0.6)] cursor-pointer flex items-center justify-center w-full"
                   >
-                    <Globe size={16} className="group-hover:animate-pulse" />
-                    Live_Site_Access
+                    <div className="absolute inset-0 bg-gold-gradient animate-gold-shine" />
+                    <span className="relative font-mono text-[14px] font-black text-black uppercase tracking-[0.3em] flex items-center gap-3 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+                      <Globe size={18} strokeWidth={3} className="group-hover:animate-pulse" />
+                      Live_Site_Access
+                    </span>
                   </a>
                 </div>
               </HudPanel>
@@ -291,17 +294,17 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
             <div className="p-6 md:p-12 lg:p-16">
               <div className="max-w-4xl space-y-4 mx-auto">
                 {project.faq.map((item, idx) => (
-                  <details key={idx} className="group bg-white/[0.02] border border-white/5 rounded-sm overflow-hidden transition-all hover:bg-white/[0.04]">
-                    <summary className="p-6 cursor-pointer flex items-center justify-between list-none font-mono text-[10px] md:text-xs uppercase tracking-widest font-black text-white/60 group-open:text-amber-500">
+                  <details key={idx} className="group bg-white/[0.03] border border-white/10 rounded-sm overflow-hidden transition-all hover:bg-white/[0.05]">
+                    <summary className="p-6 cursor-pointer flex items-center justify-between list-none font-mono text-[11px] md:text-sm uppercase tracking-widest font-black text-white/90 group-open:text-amber-400 group-hover:text-white transition-colors">
                       <span className="flex items-start md:items-center gap-4 pr-4">
-                        <span className="text-amber-500/40 shrink-0">[{ (idx + 1).toString().padStart(2, '0') }]</span>
+                        <span className="text-amber-500 shrink-0 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">[{ (idx + 1).toString().padStart(2, '0') }]</span>
                         <span className="leading-tight">{item.question}</span>
                       </span>
-                      <div className="w-6 h-6 shrink-0 rounded-full border border-white/10 flex items-center justify-center group-open:rotate-180 transition-transform">
-                        <ChevronRight size={14} />
+                      <div className="w-6 h-6 shrink-0 rounded-full border border-white/20 flex items-center justify-center group-open:rotate-180 transition-transform group-hover:border-amber-500/50">
+                        <ChevronRight size={14} className="text-amber-500" />
                       </div>
                     </summary>
-                    <div className="px-6 pb-6 pt-0 text-white/50 font-light leading-relaxed border-t border-white/5 mt-4 pt-6 text-sm">
+                    <div className="px-6 pb-6 pt-0 text-white/80 font-light leading-relaxed border-t border-white/5 mt-4 pt-6 text-sm md:text-base bg-black/20">
                       {item.answer}
                     </div>
                   </details>

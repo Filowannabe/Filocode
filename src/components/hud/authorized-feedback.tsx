@@ -10,7 +10,7 @@ const MotionDiv = motion.div as any;
 
 /**
  * AuthorizedFeedback - Marquee táctico de reviews globales.
- * v2.0 - Sincronizado con Estándar Glassmorphism HUD (Mac Look n' Feel).
+ * v3.1 - Restaurado Estándar Mac Window para el Footer Base.
  */
 export function AuthorizedFeedback() {
   const { collaborations } = collaborationsData as any;
@@ -23,23 +23,23 @@ export function AuthorizedFeedback() {
       projectId: c.id
     })));
 
-  // Duplicar para loop infinito suave
+  // Triplicar para asegurar un loop infinito sin cortes visuales
   const displayFeedbacks = [...allFeedbacks, ...allFeedbacks, ...allFeedbacks];
 
   return (
-    <div className="w-full max-w-[1800px] mx-auto px-4 md:px-0">
-      <HudPanel title="SYSTEM_VALIDATION // TERMINAL_REVIEWS" delay={0.7}>
+    <div className="w-full">
+      <HudPanel title="SYSTEM_VALIDATION // GLOBAL_FEEDBACK_STREAM" delay={0.7}>
         <div className="w-full overflow-hidden py-16 relative group">
-          {/* High-Visibility Intelligence Label */}
+          {/* High-Visibility Intelligence Label - Mac Window Style */}
           <div className="absolute top-4 left-1/2 -translate-x-1/2 font-mono text-[10px] text-amber-200 uppercase tracking-[0.4em] font-black pointer-events-none z-20 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
             AUTHORIZED_FEEDBACK_STREAM // ENCRYPTED_CHANNEL
           </div>
 
           <MotionDiv 
-            className="flex gap-8 px-8 mt-4"
+            className="flex gap-8 px-8 mt-6"
             animate={{ x: [0, -3000] }}
             transition={{ 
-              duration: 80, 
+              duration: 90, 
               repeat: Infinity, 
               ease: "linear" 
             }}
@@ -77,7 +77,7 @@ export function AuthorizedFeedback() {
             ))}
           </MotionDiv>
           
-          {/* Internal Gradient Masks for Seamless Loop */}
+          {/* Internal Gradient Masks for Seamless Edge Transition */}
           <div className="absolute inset-y-0 left-0 w-40 bg-gradient-to-r from-black/40 to-transparent z-10 pointer-events-none" />
           <div className="absolute inset-y-0 right-0 w-40 bg-gradient-to-l from-black/40 to-transparent z-10 pointer-events-none" />
         </div>

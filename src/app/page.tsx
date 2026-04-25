@@ -192,10 +192,10 @@ export default function Home() {
           </div>
         </HudPanel>
 
-        {/* FOOTER */}
-        <footer className="mt-20 border-t border-white/5 pt-12 pb-16 space-y-12">
+        {/* TERMINAL FOOTER: Authorized Feedback Floor */}
+        <footer className="mt-12 space-y-12">
           <AuthorizedFeedback />
-          <div className="flex justify-between items-center font-mono text-[12px] font-black tracking-[0.5em] text-amber-500 drop-shadow-[0_0_15px_rgba(245,158,11,0.6)] uppercase">
+          <div className="flex justify-between items-center font-mono text-[12px] font-black tracking-[0.5em] text-amber-500 drop-shadow-[0_0_15px_rgba(245,158,11,0.6)] uppercase pb-16">
             <span>[ © 2026 // FILOCODE ]</span>
             <span className="text-green-500 drop-shadow-[0_0_10px_rgba(34,197,94,0.5)]">[ESTADO: OPERACIONAL_ESTABLE]</span>
           </div>
