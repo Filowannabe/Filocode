@@ -99,10 +99,10 @@ export default function Home() {
                       by Felipe Corredor Castro
                     </span>
                   </h2>
-                  <div className="font-mono text-[10px] text-amber-500/70 uppercase tracking-[0.2em] flex flex-col gap-2">
+                  <div className="font-mono text-[10px] text-amber-200 uppercase tracking-[0.2em] flex flex-col gap-2 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
                     <span>[XP: 05_YEARS]</span>
                     <span>[RANK: SENIOR]</span>
-                    <span className="text-green-500 animate-flicker">[SYSTEM: ONLINE]</span>
+                    <span className="text-green-400 animate-flicker">[SYSTEM: ONLINE]</span>
                   </div>
 
                   {/* DOSSIER DOWNLOAD BUTTON (v28 HUD) */}

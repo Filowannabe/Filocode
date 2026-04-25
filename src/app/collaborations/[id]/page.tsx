@@ -65,18 +65,10 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
                 <ArrowLeft size={12} className="group-hover/link:-translate-x-1 transition-transform" />
                 <span>RETURN_TO_BASE</span>
               </Link>
-              <div className="hidden lg:block h-3 w-[1px] bg-white/20 shrink-0" />
-              <div className="hidden lg:flex gap-4 min-w-0">
-                <span className="shrink-0 text-white/60">[ STATUS: COMPLETED ]</span>
-                <span className="truncate max-w-[150px] xl:max-w-none text-white/60">[ COUNTRY: {project.country} ]</span>
-                <span className="truncate max-w-[250px] xl:max-w-none text-white/60">[ MODEL: {project.engagementModel} ]</span>
-              </div>
             </div>
             
-            <div className="flex items-center gap-4 font-mono text-[9px] font-black tracking-[0.3em] text-white/50 uppercase shrink-0">
-              {project.budget && <span className="hidden xl:block">[ BUDGET: {project.budget} ]</span>}
-              {project.duration && <span className="hidden xl:block">[ DURATION: {project.duration} ]</span>}
-              <div className="w-8 h-[1px] bg-amber-500/40" />
+            <div className="flex items-center gap-4 font-mono text-[9px] font-black tracking-[0.3em] text-amber-200 uppercase shrink-0 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
+              <div className="w-8 h-[1px] bg-amber-500/50 shadow-[0_0_10px_rgba(245,158,11,0.5)]" />
             </div>
           </div>
         </div>
@@ -108,19 +100,62 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
 
             {/* 2. Project Identity */}
             <div className="space-y-6 md:space-y-8 w-full lg:flex-1">
-              <div className="flex items-center gap-3">
+              <div className="flex flex-wrap items-center gap-3 md:gap-4">
                 <span className="font-mono text-[10px] text-amber-500 font-bold tracking-widest bg-amber-500/10 px-2 py-0.5 rounded-sm uppercase">
                   [ {project.id.replace(/-/g, '_').toUpperCase()} ]
                 </span>
                 <div className="h-[1px] w-6 bg-white/10 shrink-0" />
-                <span className="font-mono text-[10px] text-white/40 uppercase tracking-widest">{project.country}</span>
+                <span className="font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0">
+                  {project.country}
+                </span>
+                <span className="font-mono text-[10px] text-amber-200 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)] bg-white/5 px-2 py-0.5 rounded-sm border border-white/10 uppercase tracking-widest">
+                  STATUS: COMPLETED
+                </span>
               </div>
-              <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter uppercase leading-[0.85] text-white">
-                {project.company}
-              </h1>
-              <p className="text-lg md:text-xl text-white/50 font-mono tracking-tight uppercase">
-                {project.title}
-              </p>
+              
+              <div className="space-y-4">
+                <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter uppercase leading-[0.85] text-white">
+                  {project.company}
+                </h1>
+                <p className="text-lg md:text-xl text-white/50 font-mono tracking-tight uppercase border-b border-white/10 pb-6">
+                  {project.title}
+                </p>
+              </div>
+
+              {/* Technical Specifications Grid (Upgraded Visibility) */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-8 pt-8">
+                <div className="space-y-2 group/spec">
+                  <div className="flex items-center gap-2">
+                    <div className="w-1 h-3 bg-amber-500/40 rounded-full" />
+                    <span className="font-mono text-[10px] text-amber-500 font-black uppercase tracking-[0.2em]">Engagement_Model</span>
+                  </div>
+                  <p className="text-[12px] md:text-sm font-black text-amber-200 uppercase tracking-wide drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">{project.engagementModel}</p>
+                </div>
+                
+                {project.budget && (
+                  <div className="space-y-2 group/spec">
+                    <div className="flex items-center gap-2">
+                      <div className="w-1 h-3 bg-amber-500/40 rounded-full" />
+                      <span className="font-mono text-[10px] text-amber-500 font-black uppercase tracking-[0.2em]">Budget_Allocation</span>
+                    </div>
+                    <div className="bg-amber-500/5 border border-amber-500/20 p-3 rounded-sm">
+                      <p className="text-[12px] md:text-sm font-black text-amber-200 uppercase tracking-wide drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
+                        {project.budget}
+                      </p>
+                    </div>
+                  </div>
+                )}
+                
+                {project.duration && (
+                  <div className="space-y-2 group/spec">
+                    <div className="flex items-center gap-2">
+                      <div className="w-1 h-3 bg-amber-500/40 rounded-full" />
+                      <span className="font-mono text-[10px] text-amber-500 font-black uppercase tracking-[0.2em]">Mission_Duration</span>
+                    </div>
+                    <p className="text-[12px] md:text-sm font-black text-amber-200 uppercase tracking-wide drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">{project.duration}</p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
         </HudPanel>
