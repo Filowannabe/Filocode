@@ -38,11 +38,11 @@ export function HudPanel({ children, className, delay = 0, title = "SYSTEM_PROCE
       )}
     >
       {/* WINDOW HEADER (Refined) */}
-      <div className="flex items-center justify-between px-4 py-2 bg-white/[0.03] border-b border-white/5">
-        <div className="font-mono text-[9px] font-black tracking-[0.3em] text-white/30 uppercase">
+      <div className="flex items-center justify-between px-4 py-2.5 bg-white/[0.03] border-b border-white/5">
+        <div className="font-mono text-[10px] md:text-[11px] font-black tracking-[0.25em] text-amber-200 uppercase drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]">
           {title}
         </div>
-        <div className="w-8 h-[1px] bg-amber-500/30" />
+        <div className="w-10 h-[1px] bg-amber-500/50 shadow-[0_0_10px_rgba(245,158,11,0.5)]" />
       </div>
 
       {/* TACTICAL LIGHT HIT */}

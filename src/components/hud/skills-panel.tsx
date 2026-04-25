@@ -37,7 +37,7 @@ export function SkillsPanel({ className }: SkillsPanelProps) {
       </div>
 
       <div className="space-y-4">
-        <h3 className="text-[10px] font-bold font-mono tracking-[0.3em] text-white/30 uppercase">
+        <h3 className="text-[10px] font-black font-mono tracking-[0.3em] text-amber-200 uppercase drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
           Sub_Modules
         </h3>
         <div className="flex flex-wrap gap-2">

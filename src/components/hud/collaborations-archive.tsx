@@ -30,7 +30,6 @@ export function CollaborationsArchive() {
   // Marquee Carousel Logic
   const controls = useAnimation();
   const x = useMotionValue(0);
-  const [isHovered, setIsHovered] = useState(false);
   const carouselRef = useRef<HTMLDivElement>(null);
   const marqueeRef = useRef<(() => Promise<void>) | null>(null);
   
@@ -144,8 +143,8 @@ export function CollaborationsArchive() {
         
         {/* HEADER & TOGGLE */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/10 pb-4">
-          <div className="font-mono text-[10px] text-amber-500/50 uppercase tracking-[0.3em] flex items-center gap-4">
-            <div className="w-8 h-[1px] bg-amber-500/50" />
+          <div className="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] flex items-center gap-4 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
+            <div className="w-8 h-[1px] bg-amber-500/50 shadow-[0_0_10px_rgba(245,158,11,0.5)]" />
             AUTHORIZED_COLLABORATIONS
           </div>
           
@@ -263,8 +262,13 @@ export function CollaborationsArchive() {
                           <span className="font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0">
                             {activeProject.country}
                           </span>
-                        </div>
-                        <h3 className="text-3xl md:text-5xl font-black text-white leading-none tracking-tighter uppercase mb-4">{activeProject.company}</h3>
+                          {activeProject.clientFeedback?.[0]?.rating && (
+                            <div className="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-0.5 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+                              <span className="text-[10px] font-black text-amber-500">{activeProject.clientFeedback[0].rating}.0</span>
+                              <span className="text-amber-500/80">★</span>
+                            </div>
+                          )}
+                        </div>                        <h3 className="text-3xl md:text-5xl font-black text-white leading-none tracking-tighter uppercase mb-4">{activeProject.company}</h3>
                         <p className="text-xs md:text-lg text-amber-500/60 font-mono tracking-tight uppercase leading-tight border-b border-white/5 pb-4">{activeProject.title}</p>
                       </div>
 
@@ -304,8 +308,6 @@ export function CollaborationsArchive() {
                 key="carousel-view"
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 className="relative w-full overflow-hidden h-full group/carousel cursor-grab active:cursor-grabbing"
-                onMouseEnter={() => setIsHovered(true)}
-                onMouseLeave={() => setIsHovered(false)}
               >
                 <MotionDiv 
                   ref={carouselRef}
@@ -342,10 +344,16 @@ export function CollaborationsArchive() {
                       {/* Contenido: 350px en móvil, h-full en desktop */}
                       <div className="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative">
                         {/* A. Tactical Badge (Golden) */}
-                        <div className="flex-none mb-4 md:mb-6">
+                        <div className="flex-none mb-4 md:mb-6 flex items-center gap-3">
                           <span className="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]">
                             {project.country}
                           </span>
+                          {project.clientFeedback?.[0]?.rating && (
+                            <div className="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)]">
+                              <span className="text-[10px] font-black text-amber-500">{project.clientFeedback[0].rating}.0</span>
+                              <span className="text-amber-500/80 text-[10px]">★</span>
+                            </div>
+                          )}
                         </div>
                         
                         {/* 1. Header Area: Título y Subtítulo (Rigid) */}

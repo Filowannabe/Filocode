@@ -16,9 +16,9 @@ import avatarImg from "../../public/images/avatar.jpg";
  * Arquitectura de Ventanas Flotantes de Alta Fidelidad (v28).
  */
 export default function Home() {
-  const scrollToProjects = () => {
+  const scrollToCollaborations = () => {
     if (typeof window !== 'undefined') {
-      const section = document.getElementById('arsenal-station');
+      const section = document.getElementById('collaborations-section');
       if (section) {
         const yOffset = -100; 
         const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
@@ -39,7 +39,7 @@ export default function Home() {
             <div className="space-y-6">
               <div className="flex items-center gap-4">
                 <div className="h-[2px] w-20 bg-amber-500 animate-pulse shadow-[0_0_20px_rgba(245,158,11,0.6)]" />
-                <span className="font-mono text-[12px] font-black tracking-[0.6em] text-amber-500/90 uppercase">
+                <span className="font-mono text-[12px] font-black tracking-[0.5em] text-amber-200 uppercase drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]">
                   System_Status: Operational
                 </span>
               </div>
@@ -52,12 +52,12 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-8 pt-8">
               <button 
-                onClick={scrollToProjects}
+                onClick={scrollToCollaborations}
                 className="relative group px-12 py-5 overflow-hidden rounded-md transition-all duration-500 active:scale-95 shadow-[0_0_40px_rgba(245,158,11,0.4)] hover:shadow-[0_0_60px_rgba(245,158,11,0.6)] cursor-pointer"
               >
                 <div className="absolute inset-0 bg-gold-gradient animate-gold-shine" />
                 <span className="relative font-mono text-[14px] font-black text-black uppercase tracking-[0.25em] flex items-center gap-3">
-                  EXPLORAR_PROYECTOS [0x26]
+                  EXPLORAR_COLABORACIONES
                 </span>
               </button>
               
@@ -170,7 +170,7 @@ export default function Home() {
             <div className="p-8">
               <StatsBar />
               <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-between">
-                  <div className="font-mono text-[10px] text-white/20 uppercase tracking-widest">
+                  <div className="font-mono text-[10px] text-amber-200 uppercase tracking-widest drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
                     DATA_STREAM_ACTIVE // 32_NODES_DETECTOR
                   </div>
                   <TerminalContact />
@@ -180,7 +180,9 @@ export default function Home() {
         </div>
 
         {/* ROW 3: COLLABORATIONS (NEW) */}
-        <CollaborationsArchive />
+        <div id="collaborations-section">
+          <CollaborationsArchive />
+        </div>
 
         {/* ROW 4: PROJECT ARSENAL (THE BIG WINDOW) */}
         <HudPanel title="PROJECT_ARSENAL_STATION" className="w-full mt-4" delay={0.6} id="arsenal-station">

@@ -60,23 +60,23 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
           <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.2)_50%)] bg-[length:100%_4px] pointer-events-none opacity-5" />
           
           <div className="relative z-10 flex items-center justify-between px-4 py-3 bg-white/[0.03]">
-            <div className="font-mono text-[9px] font-black tracking-[0.3em] text-white/30 uppercase flex items-center gap-4">
-              <Link href="/" className="hover:text-amber-400 transition-colors flex items-center gap-2 group/link text-amber-500/70">
+            <div className="font-mono text-[9px] font-black tracking-[0.3em] text-white/50 uppercase flex items-center gap-4">
+              <Link href="/" className="hover:text-amber-400 transition-colors flex items-center gap-2 group/link text-amber-200 drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]">
                 <ArrowLeft size={12} className="group-hover/link:-translate-x-1 transition-transform" />
                 <span>RETURN_TO_BASE</span>
               </Link>
-              <div className="hidden lg:block h-3 w-[1px] bg-white/10 shrink-0" />
+              <div className="hidden lg:block h-3 w-[1px] bg-white/20 shrink-0" />
               <div className="hidden lg:flex gap-4 min-w-0">
-                <span className="shrink-0">[ STATUS: COMPLETED ]</span>
-                <span className="truncate max-w-[150px] xl:max-w-none">[ COUNTRY: {project.country} ]</span>
-                <span className="truncate max-w-[250px] xl:max-w-none">[ MODEL: {project.engagementModel} ]</span>
+                <span className="shrink-0 text-white/60">[ STATUS: COMPLETED ]</span>
+                <span className="truncate max-w-[150px] xl:max-w-none text-white/60">[ COUNTRY: {project.country} ]</span>
+                <span className="truncate max-w-[250px] xl:max-w-none text-white/60">[ MODEL: {project.engagementModel} ]</span>
               </div>
             </div>
             
-            <div className="flex items-center gap-4 font-mono text-[9px] font-black tracking-[0.3em] text-white/30 uppercase shrink-0">
+            <div className="flex items-center gap-4 font-mono text-[9px] font-black tracking-[0.3em] text-white/50 uppercase shrink-0">
               {project.budget && <span className="hidden xl:block">[ BUDGET: {project.budget} ]</span>}
               {project.duration && <span className="hidden xl:block">[ DURATION: {project.duration} ]</span>}
-              <div className="w-8 h-[1px] bg-amber-500/30" />
+              <div className="w-8 h-[1px] bg-amber-500/40" />
             </div>
           </div>
         </div>
@@ -85,35 +85,42 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
       <div className="max-w-[1800px] mx-auto px-4 md:px-16 w-full space-y-12">
         {/* B. HERO PANEL (Impact & Atmosphere) */}
         <HudPanel title="INTELLIGENCE_REPORT // COLLABORATION" className="w-full">
-          <div className="p-6 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-12 items-center">
-            <div className="flex-1 space-y-8 w-full">
-              <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter uppercase leading-[0.85]">
+          <div className="p-6 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-12 lg:items-center">
+            
+            {/* 1. Visual Intelligence (Prominent in all breakpoints) */}
+            <div className="w-full relative h-[280px] sm:h-[400px] md:h-[450px] lg:h-[550px] lg:flex-1 rounded-3xl overflow-hidden border border-white/10 bg-black group shadow-2xl">
+              <div className="absolute inset-0 w-full h-full overflow-hidden">
+                <Image 
+                  src={COLLABORATION_IMAGES[project.id]} 
+                  alt={project.company} 
+                  fill 
+                  priority
+                  className="object-cover object-top grayscale sepia-[.7] contrast-125 brightness-75 transition-all duration-1000 ease-out group-hover:scale-105" 
+                />
+              </div>
+              
+              {/* Standardized Overlay Logic (Amber Filter 100% Dashboard Match) */}
+              <div className="absolute inset-0 bg-amber-600/50 mix-blend-multiply shadow-[inset_0_0_100px_rgba(0,0,0,0.9)] pointer-events-none transition-opacity duration-1000 group-hover:opacity-80" />
+              
+              {/* Vignette Edge (Subtle) */}
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0%,rgba(0,0,0,0.4)_100%)] pointer-events-none" />
+            </div>
+
+            {/* 2. Project Identity */}
+            <div className="space-y-6 md:space-y-8 w-full lg:flex-1">
+              <div className="flex items-center gap-3">
+                <span className="font-mono text-[10px] text-amber-500 font-bold tracking-widest bg-amber-500/10 px-2 py-0.5 rounded-sm uppercase">
+                  [ {project.id.replace(/-/g, '_').toUpperCase()} ]
+                </span>
+                <div className="h-[1px] w-6 bg-white/10 shrink-0" />
+                <span className="font-mono text-[10px] text-white/40 uppercase tracking-widest">{project.country}</span>
+              </div>
+              <h1 className="text-4xl md:text-6xl lg:text-7xl xl:text-8xl font-black tracking-tighter uppercase leading-[0.85] text-white">
                 {project.company}
               </h1>
-              <p className="text-lg md:text-xl text-white/40 font-mono tracking-tight uppercase">
+              <p className="text-lg md:text-xl text-white/50 font-mono tracking-tight uppercase">
                 {project.title}
               </p>
-            </div>
-            
-            <div className="flex-1 w-full relative h-[300px] md:h-[450px] rounded-sm overflow-hidden border border-white/10 bg-black group">
-              <Image 
-                src={COLLABORATION_IMAGES[project.id]} 
-                alt={project.company} 
-                fill 
-                className="object-cover object-top grayscale opacity-50 mix-blend-luminosity group-hover:grayscale-0 group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-1000 ease-out" 
-              />
-              {/* Amber Tint Mandate */}
-              <div className="absolute inset-0 bg-amber-500/20 mix-blend-color pointer-events-none group-hover:opacity-0 transition-opacity duration-1000" />
-              {/* Scanlines */}
-              <div className="absolute inset-0 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.2)_50%)] bg-[length:100%_4px] pointer-events-none opacity-30" />
-              {/* Vignette */}
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,transparent_0%,rgba(0,0,0,0.8)_100%)] pointer-events-none" />
-              
-              {/* RETICULE OVERLAY */}
-              <div className="absolute top-4 right-4 flex flex-col items-end gap-1 font-mono text-[9px] text-amber-500/60 pointer-events-none">
-                <span>SCAN_MODE: ACTIVE</span>
-                <span>RESOLUTION: 4K_RAW</span>
-              </div>
             </div>
           </div>
         </HudPanel>
@@ -128,7 +135,7 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
               <div className="p-6 md:p-12 space-y-16">
                 {/* Client Overview */}
                 <div className="space-y-6">
-                  <div className="text-base md:text-lg text-white/70 font-light leading-relaxed">
+                  <div className="text-base md:text-xl text-white/90 font-light leading-relaxed">
                     {project.clientOverview}
                   </div>
                 </div>
@@ -143,7 +150,7 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
                     {project.results.map((result, idx) => (
                       <li key={idx} className="flex items-start gap-4 group">
                         <div className="mt-1.5 w-2 h-2 bg-amber-500/40 border border-amber-500 group-hover:scale-125 transition-transform shrink-0" />
-                        <span className="text-white/60 font-mono text-xs leading-tight uppercase tracking-tight group-hover:text-white transition-colors">
+                        <span className="text-white/80 font-mono text-xs leading-tight uppercase tracking-tight group-hover:text-white transition-colors">
                           {result}
                         </span>
                       </li>
@@ -194,7 +201,7 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
             <HudPanel title="ARSENAL_COMPOSITION">
               <div className="p-6 md:p-10">
                 <div className="flex items-center justify-between mb-8">
-                  <h3 className="font-mono text-[10px] font-black text-white/30 uppercase tracking-[0.3em]">Core_Technologies</h3>
+                  <h3 className="font-mono text-[10px] font-black text-white/70 uppercase tracking-[0.3em]">Core_Technologies</h3>
                   <Terminal size={14} className="text-amber-500/40" />
                 </div>
                 <div className="flex flex-wrap gap-2">
