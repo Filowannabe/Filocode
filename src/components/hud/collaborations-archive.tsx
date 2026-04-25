@@ -189,23 +189,32 @@ export function CollaborationsArchive() {
               >
                 
                 {/* 1. VISOR DE IMAGEN (ORDER-FIRST EN MOBILE, col-span-7 EN DESKTOP) */}
-                <div className="order-first lg:order-last lg:col-span-7 flex flex-col h-[300px] md:h-[450px] lg:h-full group/img">
+                <div className="order-first lg:order-last lg:col-span-7 flex flex-col h-[300px] md:h-[450px] lg:h-full group/img relative">
                   <div className="relative flex-grow w-full h-full rounded-3xl overflow-hidden border border-white/10 bg-black shadow-2xl">
-                    <div className="absolute inset-0 w-full h-full overflow-hidden">
+                    <AnimatePresence mode="wait">
                       <MotionDiv 
-                        className="absolute inset-0"
-                        whileHover={{ y: "-5%", scale: 1.05 }}
-                        transition={{ duration: 15, ease: "linear" }}
+                        key={activeProject.id}
+                        initial={{ opacity: 0, scale: 1.1, filter: "blur(10px)" }}
+                        animate={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
+                        exit={{ opacity: 0, scale: 0.9, filter: "blur(10px)" }}
+                        transition={{ duration: 0.5, ease: "easeOut" }}
+                        className="absolute inset-0 w-full h-full overflow-hidden"
                       >
-                        <Image
-                          src={COLLABORATION_IMAGES[activeProject.id]}
-                          alt={activeProject.company}
-                          fill
-                          className="object-cover object-top grayscale sepia-[.7] contrast-125 brightness-75 transition-all duration-1000"
-                        />
+                        <MotionDiv 
+                          className="absolute inset-0"
+                          whileHover={{ y: "-5%", scale: 1.05 }}
+                          transition={{ duration: 15, ease: "linear" }}
+                        >
+                          <Image
+                            src={COLLABORATION_IMAGES[activeProject.id]}
+                            alt={activeProject.company}
+                            fill
+                            className="object-cover object-top grayscale sepia-[.7] contrast-125 brightness-75 transition-all duration-1000"
+                          />
+                        </MotionDiv>
+                        <div className="absolute inset-0 bg-amber-600/50 mix-blend-multiply shadow-[inset_0_0_100px_rgba(0,0,0,0.9)] pointer-events-none transition-opacity duration-1000 group-hover/img:opacity-80" />
                       </MotionDiv>
-                    </div>
-                    <div className="absolute inset-0 bg-amber-600/50 mix-blend-multiply shadow-[inset_0_0_100px_rgba(0,0,0,0.9)] pointer-events-none transition-opacity duration-1000 group-hover/img:opacity-80" />
+                    </AnimatePresence>
                   </div>
                 </div>
 
@@ -217,7 +226,7 @@ export function CollaborationsArchive() {
                         key={project.id}
                         onClick={() => setActiveId(project.id)}
                         className={cn(
-                          "relative flex flex-col items-start p-3 md:p-4 transition-all duration-500 text-left min-w-[200px] lg:min-w-0 rounded-sm overflow-hidden",
+                          "relative flex flex-col items-start p-3 md:p-4 transition-all duration-500 text-left min-w-[200px] lg:min-w-0 rounded-sm overflow-hidden cursor-pointer",
                           activeId === project.id 
                             ? "bg-amber-500/10 border-l-2 border-amber-500" 
                             : "bg-white/[0.02] border-l-2 border-transparent hover:bg-white/[0.05] hover:border-white/20"
@@ -235,48 +244,57 @@ export function CollaborationsArchive() {
                     ))}
                   </div>
 
-                  <div className="flex flex-col pt-6 border-t border-white/10 flex-grow overflow-hidden">
-                    {/* A. Cabecera de Inteligencia (Fija) */}
-                    <div className="flex flex-col flex-none mb-6">
-                      <div className="flex items-center gap-3 mb-4">
-                        <span className="font-mono text-[9px] md:text-[10px] text-amber-500 font-bold tracking-widest bg-amber-500/10 px-2 py-0.5 rounded-sm">
-                          [ COMPLETED ]
-                        </span>
-                        <div className="h-[1px] w-6 bg-white/10 shrink-0" />
-                        <span className="font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0">
-                          {activeProject.country}
-                        </span>
+                  <AnimatePresence mode="wait">
+                    <MotionDiv 
+                      key={`content-${activeProject.id}`}
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: 20 }}
+                      transition={{ duration: 0.4, ease: "circOut" }}
+                      className="flex flex-col pt-6 border-t border-white/10 flex-grow overflow-hidden"
+                    >
+                      {/* A. Cabecera de Inteligencia (Fija) */}
+                      <div className="flex flex-col flex-none mb-6">
+                        <div className="flex items-center gap-3 mb-4">
+                          <span className="font-mono text-[9px] md:text-[10px] text-amber-500 font-bold tracking-widest bg-amber-500/10 px-2 py-0.5 rounded-sm">
+                            [ COMPLETED ]
+                          </span>
+                          <div className="h-[1px] w-6 bg-white/10 shrink-0" />
+                          <span className="font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0">
+                            {activeProject.country}
+                          </span>
+                        </div>
+                        <h3 className="text-3xl md:text-5xl font-black text-white leading-none tracking-tighter uppercase mb-4">{activeProject.company}</h3>
+                        <p className="text-xs md:text-lg text-amber-500/60 font-mono tracking-tight uppercase leading-tight border-b border-white/5 pb-4">{activeProject.title}</p>
                       </div>
-                      <h3 className="text-3xl md:text-5xl font-black text-white leading-none tracking-tighter uppercase mb-4">{activeProject.company}</h3>
-                      <p className="text-xs md:text-lg text-amber-500/60 font-mono tracking-tight uppercase leading-tight border-b border-white/5 pb-4">{activeProject.title}</p>
-                    </div>
 
-                    {/* B. Cuerpo de Inteligencia (Scrollable) */}
-                    <div className="flex-grow overflow-y-auto amber-scrollbar pr-2 pb-4 flex flex-col gap-6 relative">
-                      <div className="flex-none">
-                        <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">{activeProject.clientOverview}</p>
+                      {/* B. Cuerpo de Inteligencia (Scrollable) */}
+                      <div className="flex-grow overflow-y-auto amber-scrollbar pr-2 pb-4 flex flex-col gap-6 relative">
+                        <div className="flex-none">
+                          <p className="text-sm md:text-base text-white/60 font-light leading-relaxed">{activeProject.clientOverview}</p>
+                        </div>
+                        <div className="flex flex-wrap items-start content-start gap-2 flex-none">
+                          {activeProject.techStack.map((tech: string) => (
+                            <span key={tech} className="text-[8px] md:text-[9px] font-bold px-2 py-1 bg-white/5 text-white/50 border border-white/10 uppercase tracking-widest rounded-full">{tech}</span>
+                          ))}
+                        </div>
+                        
+                        {/* Gradient Mask for Scroll Integrity */}
+                        <div className="sticky bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black to-transparent pointer-events-none z-10" />
                       </div>
-                      <div className="flex flex-wrap items-start content-start gap-2 flex-none">
-                        {activeProject.techStack.map((tech: string) => (
-                          <span key={tech} className="text-[8px] md:text-[9px] font-bold px-2 py-1 bg-white/5 text-white/50 border border-white/10 uppercase tracking-widest rounded-full">{tech}</span>
-                        ))}
-                      </div>
-                      
-                      {/* Gradient Mask for Scroll Integrity */}
-                      <div className="sticky bottom-0 left-0 right-0 h-8 bg-gradient-to-t from-black to-transparent pointer-events-none z-10" />
-                    </div>
 
-                    {/* C. Pie de Acción (Anclado) */}
-                    <div className="shrink-0 pt-4 border-t border-white/10 mt-auto">
-                      <NextLink
-                        href={`/collaborations/${activeProject.id}`}
-                        className="inline-flex items-center justify-center gap-3 px-6 py-4 bg-gold-gradient rounded-sm shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all hover:scale-105 active:scale-95 group/btn w-full md:w-auto"
-                      >
-                        <ChevronRight size={18} strokeWidth={3} className="text-black group-hover:translate-x-1 transition-transform" />
-                        <span className="font-mono text-[10px] md:text-xs font-black text-black uppercase tracking-[0.2em]">Access Secure Dossier</span>
-                      </NextLink>
-                    </div>
-                  </div>
+                      {/* C. Pie de Acción (Anclado) */}
+                      <div className="shrink-0 pt-4 border-t border-white/10 mt-auto">
+                        <NextLink
+                          href={`/collaborations/${activeProject.id}`}
+                          className="inline-flex items-center justify-center gap-3 px-6 py-4 bg-gold-gradient rounded-sm shadow-[0_0_25px_rgba(245,158,11,0.25)] transition-all hover:scale-105 active:scale-95 group/btn w-full md:w-auto"
+                        >
+                          <ChevronRight size={18} strokeWidth={3} className="text-black group-hover:translate-x-1 transition-transform" />
+                          <span className="font-mono text-[10px] md:text-xs font-black text-black uppercase tracking-[0.2em]">Access Secure Dossier</span>
+                        </NextLink>
+                      </div>
+                    </MotionDiv>
+                  </AnimatePresence>
                 </div>
 
               </MotionDiv>
