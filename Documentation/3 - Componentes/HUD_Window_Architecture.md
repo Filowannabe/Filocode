@@ -28,6 +28,42 @@ Cada panel es una pieza independiente de ingeniería visual:
       </div>
     </HudPanel>
     ```
+- **Mandato de Integridad Vertical (v38.0)**: Para evitar el "layout jumping" en composiciones Bento de alta densidad, los paneles maestros deben implementar alturas absolutas bloqueadas (`h-[...]`) en sus contenedores de contenido principales. El contenido interno debe gestionar su flujo mediante `overflow-y-auto` y scrollbars tácticos.
+- **Scrollbar Estándar "Amber-Trace" (v38.2)**: Quedan prohibidos los scrollbars nativos. Se debe usar la implementación `amber-scrollbar`:
+    - Thumb: Ámbar traslúcido (`0.4`).
+    - Width: `4px` estricto.
+    - Behavior: Track transparente.
+
+## 🎠 Estándar de Carousel Marquee Interactivo (v4.0)
+Para garantizar una experiencia inmersiva y fluida:
+1. **Dimensiones Rígidas**:
+   - **Desktop**: 1100x900px (Landscape Poster).
+   - **Mobile**: 85vw x 600px (Portrait).
+2. **Estructura de 3 Niveles (Bloque de Texto)**:
+   - **Header (180px)**: Bloqueado para títulos masivos (`6xl`), con `leading-[0.9]` para evitar cortes.
+   - **Content (480px)**: Área para el acordeón táctico (`expandedId`).
+   - **Footer (120px)**: Anclado para botones de gran formato.
+3. **Interactividad**:
+   - Soporte obligatorio de `drag="x"`.
+   - Loop lineal infinito (duplicación de items).
+   - Reinicio orgánico de animación mediante cálculo de velocidad constante (50px/s).
+4. **Auto-Mantenimiento**: Uso de `onViewportLeave` para cerrar acordeones cuando la tarjeta sale de la visual del usuario.
+
+## 🛡️ Estándar de Simetría de Datos (Arsenal Symmetry)
+Queda prohibida la mezcla de categorías en los paneles de información:
+- **ARSENAL_COMPOSITION**: Reservado exclusivamente para herramientas técnicas (Frameworks, Lenguajes, Bases de Datos).
+- **DEPLOYMENT_SERVICES**: Reservado para maniobras de ingeniería y capacidades estratégicas.
+- **Agency Scrubbing**: La narrativa debe ser siempre neutral y centrada en el equipo técnico, eliminando nombres de terceros.
+
+
+## 🎞️ Estándar de Proyección Visual "Deep Amber Overdrive" (v38.3)
+Queda prohibido el uso de imágenes crudas para assets externos. El tratamiento universal es:
+1. **Filtros Base**: `grayscale sepia-[.7] contrast-125 brightness-75`.
+2. **Overlay**: `bg-amber-600/50 mix-blend-multiply`.
+3. **Viñeta**: `shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]` para fundir bordes.
+4. **Interacción**: Escaneo lento (`y: -5%`) y escala sutil solo en hover.
+5. **Mobile-First**: Inversión de orden (`order-first`) para que la imagen lidere la visualización en dispositivos pequeños.
+
 
 ## 📐 Distribución de la Composición
 El layout se organiza en una jerarquía de importancia visual:

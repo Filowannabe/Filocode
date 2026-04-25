@@ -23,7 +23,7 @@ export function ProjectGallery({ initialRepos, searchQuery = '' }: ProjectGaller
   const [currentPage, setCurrentPage] = useState(1);
   const [isPaginating, setIsPaginating] = useState(false);
   const galleryRef = useRef<HTMLDivElement>(null);
-  const itemsPerPage = 6;
+  const itemsPerPage = 3;
   
   const totalPages = Math.ceil(initialRepos.length / itemsPerPage);
   

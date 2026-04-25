@@ -6,6 +6,8 @@ import { ProjectSection } from "@/components/hud/project-section";
 import { TopicsProvider } from "@/contexts/use-topics";
 import { HudPanel } from "@/components/hud/hud-panel";
 import { TerminalContact } from "@/components/hud/terminal-contact";
+import { CollaborationsArchive } from "@/components/hud/collaborations-archive";
+import { AuthorizedFeedback } from "@/components/hud/authorized-feedback";
 import { FileDown } from "lucide-react";
 import Image from "next/image";
 import avatarImg from "../../public/images/avatar.jpg";
@@ -15,9 +17,9 @@ import avatarImg from "../../public/images/avatar.jpg";
  * Arquitectura de Ventanas Flotantes de Alta Fidelidad (v28).
  */
 export default function Home() {
-  const scrollToProjects = () => {
+  const scrollToCollaborations = () => {
     if (typeof window !== 'undefined') {
-      const section = document.getElementById('arsenal-station');
+      const section = document.getElementById('collaborations-section');
       if (section) {
         const yOffset = -100; 
         const y = section.getBoundingClientRect().top + window.pageYOffset + yOffset;
@@ -38,7 +40,7 @@ export default function Home() {
             <div className="space-y-6">
               <div className="flex items-center gap-4">
                 <div className="h-[2px] w-20 bg-amber-500 animate-pulse shadow-[0_0_20px_rgba(245,158,11,0.6)]" />
-                <span className="font-mono text-[12px] font-black tracking-[0.6em] text-amber-500/90 uppercase">
+                <span className="font-mono text-[12px] font-black tracking-[0.5em] text-amber-200 uppercase drop-shadow-[0_0_8px_rgba(251,191,36,0.6)]">
                   System_Status: Operational
                 </span>
               </div>
@@ -51,18 +53,18 @@ export default function Home() {
 
             <div className="flex flex-wrap gap-8 pt-8">
               <button 
-                onClick={scrollToProjects}
+                onClick={scrollToCollaborations}
                 className="relative group px-12 py-5 overflow-hidden rounded-md transition-all duration-500 active:scale-95 shadow-[0_0_40px_rgba(245,158,11,0.4)] hover:shadow-[0_0_60px_rgba(245,158,11,0.6)] cursor-pointer"
               >
                 <div className="absolute inset-0 bg-gold-gradient animate-gold-shine" />
-                <span className="relative font-mono text-[14px] font-black text-black uppercase tracking-[0.25em] flex items-center gap-3">
-                  EXPLORAR_PROYECTOS [0x26]
+                <span className="relative font-mono text-[14px] font-black text-black uppercase tracking-[0.25em] flex items-center gap-3 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
+                  EXPLORAR_COLABORACIONES
                 </span>
               </button>
               
               <a 
                 href="mailto:filocode@protonmail.com"
-                className="font-mono text-[12px] font-bold text-white/40 hover:text-amber-400 border border-white/5 hover:border-amber-500/30 px-10 py-5 transition-all uppercase tracking-widest bg-white/[0.03] rounded-md cursor-pointer text-center"
+                className="font-mono text-[12px] font-black text-amber-200 border-2 border-amber-500/40 hover:border-amber-400 hover:text-white px-10 py-[18px] transition-all uppercase tracking-[0.25em] bg-white/[0.03] rounded-md cursor-pointer text-center shadow-[0_0_30px_rgba(245,158,11,0.1)] hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] drop-shadow-[0_0_10px_rgba(251,191,36,0.4)]"
               >
                 Contact_Protocol
               </a>
@@ -98,10 +100,10 @@ export default function Home() {
                       by Felipe Corredor Castro
                     </span>
                   </h2>
-                  <div className="font-mono text-[10px] text-amber-500/70 uppercase tracking-[0.2em] flex flex-col gap-2">
+                  <div className="font-mono text-[10px] text-amber-200 uppercase tracking-[0.2em] flex flex-col gap-2 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
                     <span>[XP: 05_YEARS]</span>
                     <span>[RANK: SENIOR]</span>
-                    <span className="text-green-500 animate-flicker">[SYSTEM: ONLINE]</span>
+                    <span className="text-green-400 animate-flicker">[SYSTEM: ONLINE]</span>
                   </div>
 
                   {/* DOSSIER DOWNLOAD BUTTON (v28 HUD) */}
@@ -169,7 +171,7 @@ export default function Home() {
             <div className="p-8">
               <StatsBar />
               <div className="mt-8 pt-8 border-t border-white/5 flex items-center justify-between">
-                  <div className="font-mono text-[10px] text-white/20 uppercase tracking-widest">
+                  <div className="font-mono text-[10px] text-amber-200 uppercase tracking-widest drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
                     DATA_STREAM_ACTIVE // 32_NODES_DETECTOR
                   </div>
                   <TerminalContact />
@@ -178,16 +180,22 @@ export default function Home() {
           </HudPanel>
         </div>
 
-        {/* ROW 3: PROJECT ARSENAL (THE BIG WINDOW) */}
+        {/* ROW 3: COLLABORATIONS (NEW) */}
+        <div id="collaborations-section">
+          <CollaborationsArchive />
+        </div>
+
+        {/* ROW 4: PROJECT ARSENAL (THE BIG WINDOW) */}
         <HudPanel title="PROJECT_ARSENAL_STATION" className="w-full mt-4" delay={0.6} id="arsenal-station">
           <div className="p-8 md:p-16">
             <ProjectSection />
           </div>
         </HudPanel>
 
-        {/* FOOTER */}
-        <footer className="mt-20 border-t border-white/5 pt-12 pb-16">
-          <div className="flex justify-between items-center font-mono text-[12px] font-black tracking-[0.5em] text-amber-500 drop-shadow-[0_0_15px_rgba(245,158,11,0.6)] uppercase">
+        {/* TERMINAL FOOTER: Authorized Feedback Floor */}
+        <footer className="mt-12 space-y-12">
+          <AuthorizedFeedback />
+          <div className="flex justify-between items-center font-mono text-[12px] font-black tracking-[0.5em] text-amber-500 drop-shadow-[0_0_15px_rgba(245,158,11,0.6)] uppercase pb-16">
             <span>[ © 2026 // FILOCODE ]</span>
             <span className="text-green-500 drop-shadow-[0_0_10px_rgba(34,197,94,0.5)]">[ESTADO: OPERACIONAL_ESTABLE]</span>
           </div>

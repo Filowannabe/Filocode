@@ -1,4 +1,4 @@
-# 🛡️ FILO PROTOCOL v2.9 — Protocolo de Autorización y Gestión Estructural
+# 🛡️ FILO PROTOCOL v3.0 — Protocolo de Autorización y Gestión Estructural
 
 > [!CAUTION]
 > ## 🚨 PRIMARY RULE: TRUNK ISOLATION MANDATE
@@ -11,7 +11,7 @@
 **Vigencia:** INDEFINIDA  
 **Autor:** Senior Engineering Assistant  
 **Estado:** ACTIVO Y VIGENTE  
-**Actualización**: INTEGRADO: Infraestructura Yarn 4 + Turbopack + **MANDATO CONTEXT7 MCP v2.6** + **GIT FLOW v2.5** + **REGLA DE AISLAMIENTO ABSOLUTO v2.7** + **REGLA DE DEUDA CERO v2.8** + **REGLA DE LAYOUT INTEGRITY v2.9** + **REGLA DE DATA RESILIENCE v2.9** + **Simplificación de Arquitectura de Ramas v2.9** + **Version Bump 0.3.1**
+**Actualización**: INTEGRADO: Infraestructura Yarn 4 + Turbopack + **MANDATO CONTEXT7 MCP v2.6** + **GIT FLOW v2.5** + **REGLA DE AISLAMIENTO ABSOLUTO v2.7** + **REGLA DE DEUDA CERO v2.8** + **REGLA DE LAYOUT INTEGRITY v2.9** + **REGLA DE DATA RESILIENCE v2.9** + **GESTIÓN DE IDENTIDAD v3.0** + **Simplificación de Arquitectura de Ramas v2.9** + **Version Bump 0.3.1**
 
 ---
 
@@ -87,6 +87,23 @@ const MotionButton = motion.button as any;
 1. **Gestión de Puertos**: Al liberar el puerto 3000 o limpiar procesos de Node, el asistente tiene **PROHIBIDO** usar comandos de "matanza masiva" (`taskkill /F /IM node.exe`).
 2. **Método Quirúrgico**: Se debe identificar el PID específico que ocupa el puerto (`Get-NetTCPConnection`) y detener **únicamente** ese proceso para no matar el proceso del propio Gemini.
 3. **Resiliencia**: Si el comando de matanza falla, el asistente debe informar al usuario en lugar de intentar acciones de fuerza bruta que comprometan la sesión.
+
+---
+
+## 🛡️ GESTIÓN DE IDENTIDAD Y CREDENCIALES (v3.0)
+
+**"Las variables de entorno no deben secuestrar la identidad del ingeniero"**
+
+### El Problema: Credential Shadowing
+El GitHub CLI (`gh`) prioriza variables de entorno (`GITHUB_TOKEN`, `GH_TOKEN`) sobre el Keyring del sistema. Un token limitado en el entorno puede causar errores `403 Forbidden` incluso si el usuario está logueado correctamente.
+
+### Solución Obligatoria
+Ante fallos de permisos inexplicables en comandos `gh`, el asistente debe ejecutar la limpieza de entorno en la misma sesión:
+```powershell
+# Patrón de limpieza y ejecución
+$env:GITHUB_TOKEN=$null; $env:GH_TOKEN=$null; <comando_gh>
+```
+Esto fuerza al CLI a buscar credenciales en el **Windows Credential Manager (Keyring)**, que contiene el token con los permisos correctos.
 
 ---
 
@@ -346,6 +363,15 @@ git commit -m "chore: version bump 0.3.0 (Issue #3 completado)"
 #### 18 de abril de 2026
 - **Tarea**: Issue #46 — UI Foundation: HUD Pro-Max Architecture. **Scope**: IMPLEMENTACIÓN. **Duración**: 120 min. **Notas**: Refactor masivo de layout hacia composición de ventanas flotantes, inyección de atmósfera cinematográfica (Sol Dorado, Snowfall) y glassmorphism de alta fidelidad. Resolución de basePath en Next.js.
 
+#### 24 de abril de 2026
+- **Tarea**: Refactor de Datos de Colaboraciones y Fidelidad Visual. **Scope**: GESTIÓN/IMPLEMENTACIÓN. **Duración**: 45 min. **Notas**: Unificación de registros JSON de Elephant CPA y Canadian Orthodontic Partners. Limpieza total de marca de agencia de terceros y nombres de equipo. Corrección de fallo de renderizado en capturas de Omnicon mediante técnica de "Pseudo-FullPage" (redimensionamiento masivo de ventana).
+
+- 25 de abril de 2026
+  - **Tarea**: Operación ARSENAL_SYMMETRY (v4.0). **Scope**: IMPLEMENTACIÓN. **Duración**: 120 min. **Notas**: Refactor total del carrusel interactivo (drag + loop infinito). Implementación del estándar de simetría de datos (Arsenal vs Deployment) en todos los nodos. Sincronización de **Fruto Salvaje** con captura Premium (hidratación + traducción). Estabilización de linter (DEBT_ZERO) resolviendo accesos a refs en render y recursividad de hooks.
+  - **Tarea**: Gestión de Identidad y Blindaje de Protocolo (v3.0). **Scope**: GESTIÓN. **Duración**: 10 min. **Notas**: Documentación de la solución a Credential Shadowing en Engram y Protocolo.
+  - **Tarea**: Optimización de UX y Layout Integrity (v3.1). **Scope**: IMPLEMENTACIÓN. **Duración**: 120 min. **Notas**: Implementación de "Pie de Anclaje Táctico" (Sticky Bottom CTA) en modo consola. Escalado de Golden Badges de país para alta visibilidad. Reingeniería del carrusel interactivo (v5.1) integrando `drag` nativo con `InfiniteWrap` reactivo, animación perpetua auto-slider y reordenamiento de controles con vista Carousel por defecto. Saneamiento total de linter y JSX.
+  - **Tarea**: Sincronización de Inteligencia y Estética Golden Sun (v9.1). **Scope**: GESTIÓN/IMPLEMENTACIÓN. **Duración**: 120 min. **Notas**: Auditoría matemática total de presupuestos y duraciones (Completed ~X Months). Relocalización de metadata táctica hacia el bloque HERO. Implementación de "Base Mac" en el footer: ventana HudPanel para feedback global con glassmorphism de alta fidelidad. Upgrade de iluminación a estándar "Golden Sun" en todo el portal. Paginación de arsenal limitada a 3 repositorios. Saneamiento total de linter DEBT_ZERO.
+
 ---
 
 ## 🛠️ MEJORAS PRÁCTICAS DE OBSIDIAN CLI
@@ -360,4 +386,4 @@ git commit -m "chore: version bump 0.3.0 (Issue #3 completado)"
 
 ## ✅ CONFIRMACIÓN DE ENTENDIMIENTO
 
-El asistente confirma el cumplimiento absoluto de la **PRIMARY RULE** y el protocolo v2.8.
+El asistente confirma el cumplimiento absoluto de la **PRIMARY RULE** y el protocolo v3.0.
