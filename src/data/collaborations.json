@@ -7,6 +7,58 @@
   },
   "collaborations": [
     {
+      "id": "omnicon",
+      "type": "collaboration",
+      "title": "Omnicon - Industrial Digital Transformation",
+      "company": "Omnicon",
+      "service": "Enterprise Management Platform & IIoT Digitalization",
+      "country": "Colombia",
+      "engagementModel": "Strategic Partnership",
+      "budget": "Less than $10,000 (MVP)",
+      "duration": "Aug. 2018 - Ongoing",
+      "clientOverview": "A global systems integrator for industrial automation. They required an internal management platform to optimize project execution and data management across engineering-heavy sectors like Oil & Gas and Pharmaceuticals.",
+      "techStack": [
+        "React",
+        "TypeScript",
+        "Internal Data Tools",
+        "Project Management APIs",
+        "Microsoft Teams Integration"
+      ],
+      "servicesProvided": [
+        "Project Management Platform Development",
+        "Digital Transformation Consulting",
+        "Internal Workflow Automation",
+        "MVP Prototyping & Validation",
+        "Strategic Process Value-Adding"
+      ],
+      "results": [
+        "Highly intuitive platform for complex industrial workflows",
+        "Successful transformation of manual tracking to digital visibility",
+        "Positive acclaim from internal engineering stakeholders",
+        "Ongoing partnership for second-phase expansion"
+      ],
+      "clientFeedback": [
+        {
+          "rating": 5,
+          "reviewer": "Diego Paz, Digital Transformation Lead",
+          "quote": "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
+        }
+      ],
+      "faq": [
+        {
+          "question": "How does digital transformation impact project management in engineering sectors?",
+          "answer": "It shifts the focus from manual tracking to real-time visibility. By automating resource allocation and progress reporting, engineering teams can focus on problem-solving rather than administrative overhead."
+        },
+        {
+          "question": "What are the common challenges when developing internal tools for industrial companies?",
+          "answer": "Industrial companies deal with massive data silos and legacy workflows. The challenge lies in creating a unified interface that translates complex shop-floor data into actionable business intelligence."
+        }
+      ],
+      "urls": {
+        "clientSite": "https://omnicon.co/"
+      }
+    },
+    {
       "id": "elephant-cpa",
       "type": "collaboration",
       "title": "Elephant CPA - Management SaaS Solution",
@@ -272,58 +324,6 @@
       ],
       "urls": {
         "clientSite": "https://www.helloleena.com/"
-      }
-    },
-    {
-      "id": "omnicon",
-      "type": "collaboration",
-      "title": "Omnicon - Industrial Digital Transformation",
-      "company": "Omnicon",
-      "service": "Enterprise Management Platform & IIoT Digitalization",
-      "country": "Colombia",
-      "engagementModel": "Strategic Partnership",
-      "budget": "Less than $10,000 (MVP)",
-      "duration": "Aug. 2018 - Ongoing",
-      "clientOverview": "A global systems integrator for industrial automation. They required an internal management platform to optimize project execution and data management across engineering-heavy sectors like Oil & Gas and Pharmaceuticals.",
-      "techStack": [
-        "React",
-        "TypeScript",
-        "Internal Data Tools",
-        "Project Management APIs",
-        "Microsoft Teams Integration"
-      ],
-      "servicesProvided": [
-        "Project Management Platform Development",
-        "Digital Transformation Consulting",
-        "Internal Workflow Automation",
-        "MVP Prototyping & Validation",
-        "Strategic Process Value-Adding"
-      ],
-      "results": [
-        "Highly intuitive platform for complex industrial workflows",
-        "Successful transformation of manual tracking to digital visibility",
-        "Positive acclaim from internal engineering stakeholders",
-        "Ongoing partnership for second-phase expansion"
-      ],
-      "clientFeedback": [
-        {
-          "rating": 5,
-          "reviewer": "Diego Paz, Digital Transformation Lead",
-          "quote": "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
-        }
-      ],
-      "faq": [
-        {
-          "question": "How does digital transformation impact project management in engineering sectors?",
-          "answer": "It shifts the focus from manual tracking to real-time visibility. By automating resource allocation and progress reporting, engineering teams can focus on problem-solving rather than administrative overhead."
-        },
-        {
-          "question": "What are the common challenges when developing internal tools for industrial companies?",
-          "answer": "Industrial companies deal with massive data silos and legacy workflows. The challenge lies in creating a unified interface that translates complex shop-floor data into actionable business intelligence."
-        }
-      ],
-      "urls": {
-        "clientSite": "https://omnicon.co/"
       }
     },
     {
