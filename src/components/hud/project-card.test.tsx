@@ -19,14 +19,24 @@ vi.mock('framer-motion', () => {
     // Elementos motion específicos pueden necesitar treatment diferente
     return React.createElement('div', { className, style, ...filteredProps }, children);
   });
+  MotionComponent.displayName = 'MockMotionComponent';
+
+  const AnimatePresence = React.forwardRef(({ children }: any) => React.createElement('div', null, children));
+  AnimatePresence.displayName = 'MockAnimatePresence';
+
+  const Layout = React.forwardRef(({ children }: any) => React.createElement('div', null, children));
+  Layout.displayName = 'MockLayout';
+
+  const Value = React.forwardRef(({ value, children }: any) => React.createElement('div', { key: value }, children));
+  Value.displayName = 'MockValue';
 
   const mockMotion = {
     div: MotionComponent,
     span: MotionComponent,
     button: MotionComponent,
     component: MotionComponent,
-    AnimatePresence: React.forwardRef(({ children }: any) => React.createElement('div', null, children)),
-    Layout: React.forwardRef(({ children }: any) => React.createElement('div', null, children)),
+    AnimatePresence,
+    Layout,
   };
   
   return {
@@ -34,7 +44,6 @@ vi.mock('framer-motion', () => {
     motion: mockMotion,
     useMotionValue: vi.fn(() => ({ set: vi.fn(), get: vi.fn() })),
     useSpring: vi.fn((val) => val),
-    Value: vi.fn(({ value, children }: any) => React.createElement('div', { key: value }, children)),
   };
 });
 
