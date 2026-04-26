@@ -221,6 +221,58 @@ import en from '../../public/locales/en.json';
 - [ ] Formateo de fecha/número por locale (Intl.DateTimeFormat)
 - [ ] Plurales y gramática avanzada (i18next pattern)
 
+### 6. **Patrones de Animación (HUD Pro-Max)**
+
+#### Patrón: requestAnimationFrame con Función Interna
+
+**Problema:** ESLint detecta recursión en `useCallback` como anti-pattern:
+```typescript
+// ❌ WRONG — ESLint Error
+const startAnimation = useCallback(async (isRecursive = false) => {
+  if (condition) {
+    setTimeout(() => startAnimation(true), 50); // Error de orden
+  }
+}, [deps]);
+```
+
+**Solución:** Patrón RAF con función interna:
+```typescript
+// ✅ ESLINT-COMPLIANT
+const startMobileMarquee = useCallback(() => {
+  let animationFrameId: number;
+  
+  // Función interna para evitar "use before define"
+  const loop = () => {
+    if (!ref.current || viewMode !== 'console' || isTest) {
+      cancelAnimationFrame(animationFrameId);
+      return;
+    }
+    
+    // Lógica de animación
+    const currentX = mobileX.get();
+    if (currentX <= -halfWidth) {
+      mobileX.set(0);
+    } else {
+      // ...
+    }
+    
+    // Recursión segura usando nombre de función interna
+    animationFrameId = requestAnimationFrame(loop);
+  };
+
+  animationFrameId = requestAnimationFrame(loop);
+  return () => cancelAnimationFrame(animationFrameId);
+}, [deps]);
+```
+
+**Ventajas:**
+- Rendimiento óptimo sincronizado con refresh rate
+- ESLint-compliant (sin error de orden)
+- Cleanup seguro con `cancelAnimationFrame`
+- React 19 ready
+
+**Documentación:** Ver [`animation-rfc-pattern.md`](./animation-rfc-pattern.md)
+
 ## Referencias
 
 - [MDN: Internationalization API](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Internationlization)
