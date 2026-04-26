@@ -243,6 +243,13 @@
         "Secure collection of sensitive patient information",
         "User-friendly transition from complex Excel to streamlined Web App"
       ],
+      "clientFeedback": [
+        {
+          "rating": 5,
+          "reviewer": "Barb Heathcote, Manager of Dental Engagement",
+          "quote": "The engineering team's biggest strengths are their dedication and affordable fees."
+        }
+      ],
       "faq": [
         {
           "question": "What is the key to successfully bridging a website and a CRM like HubSpot?",
@@ -295,6 +302,13 @@
         "Seamless integration of secure payment and telehealth video",
         "High-velocity sprint delivery monitored in ClickUp",
         "High internal stakeholder acclaim for system organizational impact"
+      ],
+      "clientFeedback": [
+        {
+          "rating": 5,
+          "reviewer": "Executive, Healthcare Company",
+          "quote": "The engineering team is incredible in the way that they learn about your business, and do their best to deliver above and beyond."
+        }
       ],
       "faq": [
         {
