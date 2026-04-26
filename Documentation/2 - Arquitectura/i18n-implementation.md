@@ -223,7 +223,46 @@ import en from '../../public/locales/en.json';
 
 ### 6. **Patrones de Animación (HUD Pro-Max)**
 
-#### Patrón: requestAnimationFrame con Función Interna
+#### Patrón: Función Auto-llamable con setTimeout (ESLint-Compliant)
+
+**Problema:** ESLint detecta recursión en `useCallback` como anti-pattern:
+```typescript
+// ❌ WRONG — ESLint Error
+const startAnimation = useCallback(async (isRecursive = false) => {
+  if (condition) {
+    setTimeout(() => startAnimation(true), 50); // Error de orden
+  }
+}, [deps]);
+```
+
+**Solución:** Patrón de función auto-llamable:
+```typescript
+// ✅ ESLINT-COMPLIANT
+const startMobileMarquee = useCallback(() => {
+  let animationTimeoutId: ReturnType<typeof setTimeout> | undefined;
+  
+  // Función auto-llamable para evitar "use before define"
+  const self = async () => {
+    if (!ref.current || viewMode !== 'console' || isTest) return;
+    
+    // Lógica de animación...
+    
+    // Función auto-llamable, NO recursión en useCallback
+    animationTimeoutId = setTimeout(self, 50);
+  };
+
+  animationTimeoutId = setTimeout(self, 50);
+  return () => clearTimeout(animationTimeoutId);
+}, [deps]);
+```
+
+**Ventajas:**
+- ESLint-compliant (sin error de orden)
+- Cleanup seguro con `clearTimeout`
+- React 19 ready
+- Mantiene arquitectura original de animación
+
+**Documentación:** Ver [`animation-rfc-pattern.md`](./animation-rfc-pattern.md)
 
 **Problema:** ESLint detecta recursión en `useCallback` como anti-pattern:
 ```typescript

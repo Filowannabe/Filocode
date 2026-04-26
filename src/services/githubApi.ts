@@ -83,6 +83,8 @@ export async function deepScanRepository(
   const topics = new Set<string>(repo.topics || []);
   try {
     const repoParts = repo.full_name.split('/');
+    
+    // 1. Obtener languages
     const languagesUrl = `https://api.github.com/repos/${repoParts[0]}/${repoParts[1]}/languages`;
     const languagesRes = await fetchFn(languagesUrl, {
       headers: { 'Accept': 'application/vnd.github+json' }
@@ -95,6 +97,27 @@ export async function deepScanRepository(
           if (l === 'c#' || l === 'csharp') topics.add('csharp');
           else if (TECH_ALLOW_LIST.has(l)) topics.add(l);
         });
+      }
+    }
+    
+    // 2. Obtener package.json y enriquecer topics
+    const packageJsonUrl = `https://api.github.com/repos/${repoParts[0]}/${repoParts[1]}/contents/package.json`;
+    const packageJsonRes = await fetchFn(packageJsonUrl, {
+      headers: { 'Accept': 'application/vnd.github+json' }
+    });
+    if (packageJsonRes.ok) {
+      const packageJsonContent = await packageJsonRes.json();
+      if (packageJsonContent && packageJsonContent.content) {
+        try {
+          const packageJson = JSON.parse(atob(packageJsonContent.content));
+          if (packageJson.dependencies) {
+            Object.keys(packageJson.dependencies).forEach(dep => {
+              if (TECH_ALLOW_LIST.has(dep.toLowerCase())) {
+                topics.add(dep.toLowerCase());
+              }
+            });
+          }
+        } catch { /* package.json inválido */ }
       }
     }
   } catch { /* ... */ }

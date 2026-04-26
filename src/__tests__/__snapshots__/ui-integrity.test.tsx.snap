@@ -137,7 +137,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                 >
                   FILOCODE
                   <span
-                    class="block sm:inline-block sm:ml-4 text-[8px] sm:text-[10px] font-normal tracking-normal text-white/20 not-italic align-middle mt-1 sm:mt-0"
+                    class="block sm:inline-block sm:ml-4 text-[8px] sm:text-[10px] font-normal tracking-normal text-amber-200 not-italic align-middle mt-1 sm:mt-0 drop-shadow-[0_0_6px_rgba(251,191,36,0.5)]"
                   >
                     by Felipe Corredor Castro
                   </span>
@@ -146,7 +146,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.2em] flex flex-col gap-2 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]"
                 >
                   <span>
-                    [XP: 05_YEARS]
+                    [XP: 5 YEARS]
                   </span>
                   <span>
                     [RANK: SENIOR]
@@ -388,7 +388,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   <div
                     class="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse"
                   />
-                  Core_Matrix
+                  Core Matrix
                 </h3>
                 <div
                   class="grid grid-cols-2 gap-3"
@@ -425,7 +425,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                 <h3
                   class="text-[10px] font-black font-mono tracking-[0.3em] text-amber-200 uppercase drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]"
                 >
-                  Sub_Modules
+                  Modules
                 </h3>
                 <div
                   class="flex flex-wrap gap-2"
@@ -508,7 +508,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   <span
                     class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
                   >
-                    AÑOS EXP
+                    YEARS EXP
                   </span>
                 </div>
               </div>
@@ -526,7 +526,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   <span
                     class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
                   >
-                    PROYECTOS
+                    PROJECTS
                   </span>
                 </div>
               </div>
@@ -544,7 +544,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   <span
                     class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
                   >
-                    HRS MENTORÍA
+                    MENTORING HOURS
                   </span>
                 </div>
               </div>
@@ -615,43 +615,6 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
         <div
           class="relative z-10 h-full w-full"
         >
-          <div
-            class="absolute bottom-4 right-4 z-20"
-          >
-            <div
-              class="hidden xl:flex"
-            >
-              <div
-                class="inline-flex items-center gap-3 text-sm font-mono font-bold uppercase"
-              >
-                <button
-                  aria-current="true"
-                  class="
-            px-3 py-1.5 rounded-sm border-2 transition-all duration-200
-            border-emerald-500 text-emerald-500 bg-emerald-500/10 shadow-[0_0_15px_rgba(16,185,129,0.3)]
-          "
-                >
-                  ES
-                </button>
-                <span
-                  class="
-            text-xs font-bold uppercase tracking-wider
-            text-slate-500
-          "
-                >
-                  |
-                </span>
-                <button
-                  class="
-            px-3 py-1.5 rounded-sm border-2 transition-all duration-200
-            border-slate-700 text-slate-500 hover:border-slate-500 hover:text-slate-300
-          "
-                >
-                  EN
-                </button>
-              </div>
-            </div>
-          </div>
           <style>
             
         .amber-scrollbar::-webkit-scrollbar {
@@ -675,7 +638,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
       
           </style>
           <div
-            class="p-4 md:p-8 lg:p-12 flex flex-col gap-8 md:gap-12"
+            class="p-4 md:p-8 lg:p-12 lg:pb-6 flex flex-col gap-8 md:gap-10"
           >
             <div
               class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/10 pb-4"
@@ -1262,20 +1225,6 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                         >
                           Canada
                         </span>
-                        <div
-                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)] shrink-0"
-                        >
-                          <span
-                            class="text-[10px] font-black text-amber-500"
-                          >
-                            5.0
-                          </span>
-                          <span
-                            class="text-amber-500/80 text-[10px]"
-                          >
-                            ★
-                          </span>
-                        </div>
                       </div>
                       <div
                         class="flex-none h-[100px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-2 md:mb-8 py-2 md:py-4"
@@ -1413,20 +1362,6 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                         >
                           Canada
                         </span>
-                        <div
-                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)] shrink-0"
-                        >
-                          <span
-                            class="text-[10px] font-black text-amber-500"
-                          >
-                            5.0
-                          </span>
-                          <span
-                            class="text-amber-500/80 text-[10px]"
-                          >
-                            ★
-                          </span>
-                        </div>
                       </div>
                       <div
                         class="flex-none h-[100px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-2 md:mb-8 py-2 md:py-4"
@@ -1775,13 +1710,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                 whilehover="[object Object]"
               >
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -1878,13 +1813,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Omnicon
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -1894,13 +1833,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -1997,13 +1936,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Elephant CPA
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "The engineering team is transparent, and they're very honest with the work that they do."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "The engineering team is transparent, and they're very honest with the work that they do."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -2013,251 +1956,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
-                  >
-                    <div
-                      class="flex gap-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-mono text-[10px] font-black text-amber-100 bg-amber-500/20 uppercase tracking-widest border border-amber-500/40 px-3 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]"
-                    >
-                      Canadian Orthodontic Partners
-                    </span>
-                  </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
-                  >
-                    "The engineering team's biggest strengths are their dedication and affordable fees."
-                  </blockquote>
-                  <cite
-                    class="not-italic block border-t border-white/5 pt-4"
-                  >
-                    <div
-                      class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
-                    >
-                      // Barb Heathcote, Manager of Dental Engagement
-                    </div>
-                  </cite>
-                </div>
-                <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
-                >
-                  <div
-                    class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
-                  />
-                  <div
-                    class="flex justify-between items-start mb-6"
-                  >
-                    <div
-                      class="flex gap-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-mono text-[10px] font-black text-amber-100 bg-amber-500/20 uppercase tracking-widest border border-amber-500/40 px-3 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]"
-                    >
-                      Hello Leena
-                    </span>
-                  </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
-                  >
-                    "The engineering team is incredible in the way that they learn about your business, and do their best to deliver above and beyond."
-                  </blockquote>
-                  <cite
-                    class="not-italic block border-t border-white/5 pt-4"
-                  >
-                    <div
-                      class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
-                    >
-                      // Executive, Healthcare Company
-                    </div>
-                  </cite>
-                </div>
-                <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
-                >
-                  <div
-                    class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
-                  />
-                  <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -2354,13 +2059,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Fruto Salvaje
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "Excellent product, I love it! The site makes buying very easy."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "Excellent product, I love it! The site makes buying very easy."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -2370,13 +2079,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -2473,13 +2182,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Omnicon
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -2489,13 +2202,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -2592,13 +2305,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Elephant CPA
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "The engineering team is transparent, and they're very honest with the work that they do."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "The engineering team is transparent, and they're very honest with the work that they do."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -2608,251 +2325,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
-                  >
-                    <div
-                      class="flex gap-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-mono text-[10px] font-black text-amber-100 bg-amber-500/20 uppercase tracking-widest border border-amber-500/40 px-3 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]"
-                    >
-                      Canadian Orthodontic Partners
-                    </span>
-                  </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
-                  >
-                    "The engineering team's biggest strengths are their dedication and affordable fees."
-                  </blockquote>
-                  <cite
-                    class="not-italic block border-t border-white/5 pt-4"
-                  >
-                    <div
-                      class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
-                    >
-                      // Barb Heathcote, Manager of Dental Engagement
-                    </div>
-                  </cite>
-                </div>
-                <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
-                >
-                  <div
-                    class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
-                  />
-                  <div
-                    class="flex justify-between items-start mb-6"
-                  >
-                    <div
-                      class="flex gap-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-mono text-[10px] font-black text-amber-100 bg-amber-500/20 uppercase tracking-widest border border-amber-500/40 px-3 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]"
-                    >
-                      Hello Leena
-                    </span>
-                  </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
-                  >
-                    "The engineering team is incredible in the way that they learn about your business, and do their best to deliver above and beyond."
-                  </blockquote>
-                  <cite
-                    class="not-italic block border-t border-white/5 pt-4"
-                  >
-                    <div
-                      class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
-                    >
-                      // Executive, Healthcare Company
-                    </div>
-                  </cite>
-                </div>
-                <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
-                >
-                  <div
-                    class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
-                  />
-                  <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -2949,13 +2428,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Fruto Salvaje
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "Excellent product, I love it! The site makes buying very easy."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "Excellent product, I love it! The site makes buying very easy."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -2965,13 +2448,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -3068,13 +2551,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Omnicon
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -3084,13 +2571,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -3187,13 +2674,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Elephant CPA
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "The engineering team is transparent, and they're very honest with the work that they do."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "The engineering team is transparent, and they're very honest with the work that they do."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -3203,251 +2694,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
-                  >
-                    <div
-                      class="flex gap-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-mono text-[10px] font-black text-amber-100 bg-amber-500/20 uppercase tracking-widest border border-amber-500/40 px-3 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]"
-                    >
-                      Canadian Orthodontic Partners
-                    </span>
-                  </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
-                  >
-                    "The engineering team's biggest strengths are their dedication and affordable fees."
-                  </blockquote>
-                  <cite
-                    class="not-italic block border-t border-white/5 pt-4"
-                  >
-                    <div
-                      class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
-                    >
-                      // Barb Heathcote, Manager of Dental Engagement
-                    </div>
-                  </cite>
-                </div>
-                <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
-                >
-                  <div
-                    class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
-                  />
-                  <div
-                    class="flex justify-between items-start mb-6"
-                  >
-                    <div
-                      class="flex gap-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-mono text-[10px] font-black text-amber-100 bg-amber-500/20 uppercase tracking-widest border border-amber-500/40 px-3 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]"
-                    >
-                      Hello Leena
-                    </span>
-                  </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
-                  >
-                    "The engineering team is incredible in the way that they learn about your business, and do their best to deliver above and beyond."
-                  </blockquote>
-                  <cite
-                    class="not-italic block border-t border-white/5 pt-4"
-                  >
-                    <div
-                      class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
-                    >
-                      // Executive, Healthcare Company
-                    </div>
-                  </cite>
-                </div>
-                <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
-                >
-                  <div
-                    class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
-                  />
-                  <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -3544,13 +2797,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Fruto Salvaje
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "Excellent product, I love it! The site makes buying very easy."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "Excellent product, I love it! The site makes buying very easy."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
