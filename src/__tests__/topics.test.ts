@@ -52,7 +52,9 @@ describe('Topics Utility - Lógica de Arsenal v2.0', () => {
     });
 
     it('debe combinar Búsqueda (AND) con Topics (OR)', () => {
-      const filtered = filterRepos(mockRepos, ['java', 'node'], 'Mixed');
+      // Repo #3 tiene topics: ['java'] y description: 'Mixed legacy app'
+      // Búsqueda AND: debe tener topic 'java' Y description con 'Mixed'
+      const filtered = filterRepos(mockRepos, ['java'], 'Mixed');
       expect(filtered).toHaveLength(1);
       expect(filtered[0].id).toBe(3);
     });

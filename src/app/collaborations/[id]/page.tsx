@@ -7,6 +7,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { COLLABORATION_IMAGES } from "@/data/collaborationImages";
 import { HudPanel } from "@/components/hud/hud-panel";
+import { createT } from "@/lib/i18n";
 
 /**
  * generateStaticParams - Mandato GH Pages (Fase 3)
@@ -23,17 +24,30 @@ interface PageProps {
   params: Promise<{ id: string }>;
 }
 
-export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+/**
+ * generateMetadata - Helper para metadata con i18n
+ * Server Component Factory Pattern
+ */
+async function generateCollaborationMetadata({ params }: PageProps): Promise<Metadata> {
   const { id } = await params;
   const { collaborations } = collaborationsData as any;
   const project = collaborations.find((c: any) => c.id === id);
 
-  if (!project) return { title: "Project Not Found" };
+  if (!project) return { title: "Proyecto No Encontrado" };
+
+  // Factory para Server Components - carga diccionario global
+  const t = createT("es-CO");
+
+  const translatedTitle = t("collaborations.intelligence_report");
 
   return {
-    title: `${project.company} // Tactical Dossier`,
-    description: project.clientOverview,
+    title: `${project.company} // ${translatedTitle}`,
+    description: t(`projects.${id}.clientOverview`),
   };
+}
+
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+  return generateCollaborationMetadata({ params });
 }
 
 /**
@@ -46,6 +60,9 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
   const project = collaborations.find((c: any) => c.id === id) as Collaboration;
 
   if (!project) notFound();
+
+  // Factory para Server Components - carga diccionario global
+  const t = createT("es-CO");
 
   return (
     <main className="min-h-screen text-white selection:bg-amber-500 selection:text-black relative z-10 flex flex-col gap-12 pb-20 pt-24">
@@ -63,11 +80,11 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
             <div className="font-mono text-[9px] font-black tracking-[0.3em] text-white/50 uppercase flex items-center gap-4">
               <Link href="/" className="hover:text-amber-400 transition-colors flex items-center gap-2 group/link text-amber-200 drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]">
                 <ArrowLeft size={12} className="group-hover/link:-translate-x-1 transition-transform" />
-                <span>RETURN_TO_BASE</span>
+                <span>{t("collaborations.return_to_base")}</span>
               </Link>
             </div>
             
-            <div className="flex items-center gap-4 font-mono text-[9px] font-black tracking-[0.3em] text-amber-200 uppercase shrink-0 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
+            <div className="flex items-center gap-4 font-mono text-[9px] font-black tracking-[0.3em] text-amber-200 uppercase shrink-0 drop-shadow-[0_0_8px_rgba(245,158,11,0.3)]">
               <div className="w-8 h-[1px] bg-amber-500/50 shadow-[0_0_10px_rgba(245,158,11,0.5)]" />
             </div>
           </div>
@@ -76,7 +93,7 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
 
       <div className="max-w-[1800px] mx-auto px-4 md:px-16 w-full space-y-12">
         {/* B. HERO PANEL (Impact & Atmosphere) */}
-        <HudPanel title="INTELLIGENCE_REPORT // COLLABORATION" className="w-full">
+        <HudPanel title={t("collaborations.intelligence_report")} className="w-full">
           <div className="p-6 md:p-12 lg:p-16 flex flex-col lg:flex-row gap-12 lg:items-center">
             
             {/* 1. Visual Intelligence (Prominent in all breakpoints) */}
@@ -109,7 +126,7 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
                   {project.country}
                 </span>
                 <span className="font-mono text-[10px] text-amber-100 font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.5)] bg-white/10 px-2 py-0.5 rounded-sm border border-white/20 uppercase tracking-widest">
-                  STATUS: COMPLETED
+                  {t("hud.completed")}
                 </span>
               </div>
               
@@ -118,7 +135,7 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
                   {project.company}
                 </h1>
                 <p className="text-lg md:text-xl text-white/50 font-mono tracking-tight uppercase border-b border-white/10 pb-6">
-                  {project.title}
+                  {t(`projects.${project.id}.title`)}
                 </p>
               </div>
 
@@ -127,20 +144,20 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
                 <div className="space-y-2 group/spec">
                   <div className="flex items-center gap-2">
                     <div className="w-1 h-3 bg-amber-500/40 rounded-full" />
-                    <span className="font-mono text-[10px] text-amber-500 font-black uppercase tracking-[0.2em]">Engagement_Model</span>
+                    <span className="font-mono text-[10px] text-amber-500 font-black uppercase tracking-[0.2em]">{t("collaborations.engagement_model")}</span>
                   </div>
-                  <p className="text-[12px] md:text-sm font-black text-amber-200 uppercase tracking-wide drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">{project.engagementModel}</p>
+                  <p className="text-[12px] md:text-sm font-black text-amber-200 uppercase tracking-wide drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">{t(`projects.${project.id}.engagementModel`)}</p>
                 </div>
                 
                 {project.budget && (
                   <div className="space-y-2 group/spec">
                     <div className="flex items-center gap-2">
                       <div className="w-1 h-3 bg-amber-500/40 rounded-full" />
-                      <span className="font-mono text-[10px] text-amber-500 font-black uppercase tracking-[0.2em]">Budget_Allocation</span>
+                      <span className="font-mono text-[10px] text-amber-500 font-black uppercase tracking-[0.2em]">{t("collaborations.budget_allocation")}</span>
                     </div>
                     <div className="bg-amber-500/5 border border-amber-500/20 p-3 rounded-sm">
                       <p className="text-[12px] md:text-sm font-black text-amber-200 uppercase tracking-wide drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
-                        {project.budget}
+                        {t(`projects.${project.id}.budget`)}
                       </p>
                     </div>
                   </div>
@@ -150,7 +167,7 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
                   <div className="space-y-2 group/spec">
                     <div className="flex items-center gap-2">
                       <div className="w-1 h-3 bg-amber-500/40 rounded-full" />
-                      <span className="font-mono text-[10px] text-amber-500 font-black uppercase tracking-[0.2em]">Mission_Duration</span>
+                      <span className="font-mono text-[10px] text-amber-500 font-black uppercase tracking-[0.2em]">{t("collaborations.mission_duration")}</span>
                     </div>
                     <p className="text-[12px] md:text-sm font-black text-amber-200 uppercase tracking-wide drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">{project.duration}</p>
                   </div>
@@ -166,12 +183,12 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
           {/* MAIN COLUMN (Left - 60%) */}
           <div className="lg:col-span-7 flex flex-col gap-12 self-start">
             
-            <HudPanel title="CLIENT_OVERVIEW">
+            <HudPanel title={t("collaborations.client_overview")}>
               <div className="p-6 md:p-12 space-y-16">
                 {/* Client Overview */}
                 <div className="space-y-6">
                   <div className="text-base md:text-xl text-white/90 font-light leading-relaxed">
-                    {project.clientOverview}
+                    {t(`projects.${project.id}.clientOverview`)}
                   </div>
                 </div>
 
@@ -179,14 +196,14 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
                 <div className="space-y-8">
                   <div className="flex items-center gap-4">
                     <div className="h-[2px] w-12 bg-amber-500" />
-                    <h2 className="font-mono text-sm font-black text-amber-500 uppercase tracking-widest">Tactical_Outcomes</h2>
+                    <h2 className="font-mono text-sm font-black text-amber-500 uppercase tracking-widest">{t("collaborations.tactical_outcomes")}</h2>
                   </div>
                   <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6 items-start">
-                    {project.results.map((result, idx) => (
+                    {project.results.map((_, idx) => (
                       <li key={idx} className="flex items-start gap-4 group">
                         <div className="mt-1.5 w-2 h-2 bg-amber-500/40 border border-amber-500 group-hover:scale-125 transition-transform shrink-0" />
                         <span className="text-white/80 font-mono text-xs leading-tight uppercase tracking-tight group-hover:text-white transition-colors">
-                          {result}
+                          {t(`projects.${project.id}.results.${idx}`)}
                         </span>
                       </li>
                     ))}
@@ -198,7 +215,7 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
                   <div className="space-y-8">
                     <div className="flex items-center gap-4">
                       <div className="h-[2px] w-12 bg-amber-500" />
-                      <h2 className="font-mono text-sm font-black text-amber-500 uppercase tracking-widest">Authorized_Feedback</h2>
+                      <h2 className="font-mono text-sm font-black text-amber-500 uppercase tracking-widest">{t("hud.authorized_feedback")}</h2>
                     </div>
                     <div className="space-y-6">
                       {project.clientFeedback.map((feedback, idx) => (
@@ -213,11 +230,11 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
                             ))}
                           </div>
                           <blockquote className="text-lg md:text-xl font-serif italic text-white/80 leading-relaxed mb-6">
-                            "{feedback.quote}"
+                            "{t(`projects.${project.id}.clientFeedback.${idx}.quote`)}"
                           </blockquote>
                           <cite className="not-italic">
                             <div className="font-mono text-[10px] text-amber-500 uppercase tracking-widest font-black">
-                              {"//"} {feedback.reviewer}
+                              {"//"} {t(`projects.${project.id}.clientFeedback.${idx}.reviewer`)}
                             </div>
                           </cite>
                         </div>
@@ -233,10 +250,10 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
           <div className="lg:col-span-5 flex flex-col gap-12">
             
             {/* Tech Stack */}
-            <HudPanel title="ARSENAL_COMPOSITION">
+            <HudPanel title={t("collaborations.core_technologies")}>
               <div className="p-6 md:p-10">
                 <div className="flex items-center justify-between mb-8">
-                  <h3 className="font-mono text-[10px] font-black text-amber-200 uppercase tracking-[0.3em] drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">Core_Technologies</h3>
+                  <h3 className="font-mono text-[10px] font-black text-amber-200 uppercase tracking-[0.3em] drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">{t("collaborations.core_technologies")}</h3>
                   <Terminal size={14} className="text-amber-500/60" />
                 </div>
                 <div className="flex flex-wrap gap-2">
@@ -253,13 +270,13 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
             </HudPanel>
 
             {/* Services Provided */}
-            <HudPanel title="DEPLOYMENT_SERVICES">
+            <HudPanel title={t("collaborations.deployment_services")}>
               <div className="p-6 md:p-10">
                 <ul className="space-y-3">
-                  {project.servicesProvided.map((service) => (
-                    <li key={service} className="flex items-start gap-3 py-2 border-b border-white/10 last:border-0 group/service">
+                  {project.servicesProvided.map((_, idx) => (
+                    <li key={idx} className="flex items-start gap-3 py-2 border-b border-white/10 last:border-0 group/service">
                       <span className="text-amber-500/60 font-mono text-[10px] mt-0.5 shrink-0 group-hover/service:scale-110 transition-transform">{"//"}</span>
-                      <span className="text-[11px] text-white/80 font-bold uppercase tracking-widest group-hover:text-white transition-colors">{service}</span>
+                      <span className="text-[11px] text-white/80 font-bold uppercase tracking-widest group-hover:text-white transition-colors">{t(`projects.${project.id}.servicesProvided.${idx}`)}</span>
                     </li>
                   ))}
                 </ul>
@@ -268,7 +285,7 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
 
             {/* External Links */}
             {project.urls.clientSite && (
-              <HudPanel title="EXTERNAL_VERIFICATION">
+              <HudPanel title={t("collaborations.external_verification")}>
                 <div className="p-6 md:p-10">
                   <a 
                     href={project.urls.clientSite} 
@@ -279,7 +296,7 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
                     <div className="absolute inset-0 bg-gold-gradient animate-gold-shine" />
                     <span className="relative font-mono text-[14px] font-black text-black uppercase tracking-[0.3em] flex items-center gap-3 drop-shadow-[0_1px_2px_rgba(0,0,0,0.5)]">
                       <Globe size={18} strokeWidth={3} className="group-hover:animate-pulse" />
-                      Live_Site_Access
+                      {t("collaborations.live_site_access")}
                     </span>
                   </a>
                 </div>
@@ -290,22 +307,22 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
 
         {/* D. FAQ MODULE (Accordion de Seguridad) */}
         {project.faq && project.faq.length > 0 && (
-          <HudPanel title="QUERY_SECURITY_FAQ" className="w-full">
+          <HudPanel title={t("collaborations.query_security_faq")} className="w-full">
             <div className="p-6 md:p-12 lg:p-16">
               <div className="max-w-4xl space-y-4 mx-auto">
-                {project.faq.map((item, idx) => (
+                {project.faq.map((_, idx) => (
                   <details key={idx} className="group bg-white/[0.03] border border-white/10 rounded-sm overflow-hidden transition-all hover:bg-white/[0.05]">
                     <summary className="p-6 cursor-pointer flex items-center justify-between list-none font-mono text-[11px] md:text-sm uppercase tracking-widest font-black text-white/90 group-open:text-amber-400 group-hover:text-white transition-colors">
                       <span className="flex items-start md:items-center gap-4 pr-4">
                         <span className="text-amber-500 shrink-0 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">[{ (idx + 1).toString().padStart(2, '0') }]</span>
-                        <span className="leading-tight">{item.question}</span>
+                        <span className="leading-tight">{t(`projects.${project.id}.faq.${idx}.question`)}</span>
                       </span>
                       <div className="w-6 h-6 shrink-0 rounded-full border border-white/20 flex items-center justify-center group-open:rotate-180 transition-transform group-hover:border-amber-500/50">
                         <ChevronRight size={14} className="text-amber-500" />
                       </div>
                     </summary>
                     <div className="px-6 pb-6 pt-0 text-white/80 font-light leading-relaxed border-t border-white/5 mt-4 pt-6 text-sm md:text-base bg-black/20">
-                      {item.answer}
+                      {t(`projects.${project.id}.faq.${idx}.answer`)}
                     </div>
                   </details>
                 ))}
@@ -313,16 +330,16 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
             </div>
           </HudPanel>
         )}
-
-        {/* FOOTER DOSSIER */}
-        <footer className="py-12 flex flex-col md:flex-row justify-between items-center gap-8 opacity-40 hover:opacity-100 transition-all duration-700">
+        
+       <footer className="py-12 flex flex-col md:flex-row justify-between items-center gap-8 opacity-40 hover:opacity-100 transition-all duration-700">
           <div className="font-mono text-[10px] uppercase tracking-widest text-amber-500">
-            End_Of_Dossier // Hash: {project.id.replace(/-/g, '').substring(0, 6).toUpperCase()}
+            {t("hud.end_of_dossier")} {"//"} Hash: {project.id.replace(/-/g, '').substring(0, 6).toUpperCase()}
           </div>
+          
           <div className="flex gap-4 md:gap-8 font-mono text-[9px] uppercase tracking-tighter flex-wrap justify-center">
-            <span>Verified_By: filocode_agent</span>
-            <span>Auth_Level: 05_SENIOR</span>
-            <span>Date: 4/24/2026</span>
+            <span className="text-amber-200 drop-shadow-[0_0_6px_rgba(251,191,36,0.5)]">{t("hud.verified_by")}filocode_agent</span>
+            <span>{t("hud.auth_level")}05_SENIOR</span>
+            <span>{t("hud.date")}4/24/2026</span>
           </div>
         </footer>
       </div>

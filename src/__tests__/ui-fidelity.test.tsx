@@ -64,7 +64,7 @@ describe('UI Fidelity Guard - HUD Layer', () => {
 
     it('debe renderizar los tags como Pills Premium redondeadas', () => {
       render(<ProjectCard repo={mockRepo} />);
-      const tag = screen.getByText('react');
+      const tag = screen.getByText('React'); // formatTechName('react') devuelve 'React'
       expect(tag.className).toContain('rounded-full');
       expect(tag.className).toContain('bg-(--color-primary)/5');
     });

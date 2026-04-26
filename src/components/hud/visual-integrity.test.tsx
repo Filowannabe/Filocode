@@ -39,7 +39,7 @@ describe('Integridad Visual y Estructural - HUD Layer', () => {
     expect(content?.className).toContain('rounded-[15px]');
 
     // Validar estilo de los tags (Pills Premium) - Soporta ambas nomenclaturas de TW4
-    const tag = screen.getByText('react');
+    const tag = screen.getByText('React'); // formatTechName('react') devuelve 'React'
     expect(tag.className).toContain('rounded-full');
     expect(tag.className).toMatch(/bg-\(--color-primary\)\/5/);
   });

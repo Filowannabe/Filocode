@@ -4,6 +4,7 @@ import { useState, useCallback } from 'react';
 import { fetchRepositoriosGitHub } from '@/services/githubApi';
 import { GitHubRepository, FetchState } from '@/types/repositorio';
 import { formatPaginationProgress } from '@/utils/pagination';
+import { useTranslations } from '@/lib/i18n-client';
 
 interface RepoFetcherProps {
   initialLimit?: number;
@@ -20,6 +21,7 @@ interface AuditLogEntry {
  * v10: Cero warnings de Tailwind 4 y tipos React 19.
  */
 export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
+  const t = useTranslations();
   const [isScanning, setIsScanning] = useState(false);
   const [progress, setProgress] = useState(0);
   const [repos, setRepos] = useState<GitHubRepository[]>([]);
@@ -113,13 +115,12 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
 
   return (
     <div className="bg-black/90 border border-primary p-6 rounded-lg relative overflow-hidden font-mono shadow-[0_0_30px_rgba(251,191,36,0.05)]">
-      {/* Corregido: bg-size-[100%_4px] en lugar de bg-[length:...] */}
       <div className="absolute inset-0 pointer-events-none bg-[linear-gradient(transparent_50%,rgba(0,0,0,0.5)_50%)] bg-size-[100%_4px] opacity-10" />
       
       <div className="relative z-10">
         <div className="flex justify-between items-center mb-6 border-b border-white/10 pb-2">
           <h2 className="text-primary text-xl tracking-[0.4em] uppercase">
-            {">"} advanced_fetch_module_v3.1
+            {">"} {t("fetch.module_v31")}
           </h2>
           <div className="flex items-center gap-4">
             <label className="flex items-center gap-2 cursor-pointer group">
@@ -130,7 +131,7 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
                 className="w-3 h-3 accent-primary bg-black border-white/20"
               />
               <span className="text-[9px] text-white/40 group-hover:text-primary uppercase tracking-tighter transition-colors">
-                [ infinity_mode ]
+                {t("fetch.infinity_mode")}
               </span>
             </label>
           </div>
@@ -143,14 +144,14 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
                 onClick={() => startScan(false)}
                 className="bg-primary text-black px-8 py-4 uppercase tracking-[0.2em] font-bold hover:bg-white transition-all shadow-[0_0_20px_rgba(251,191,36,0.2)]"
               >
-                iniciar_secuencia_escaneo
+                {t("fetch.start_scan")}
               </button>
               {hasSavedState && (
                 <button
                   onClick={() => startScan(true)}
                   className="bg-white/5 border border-white/20 text-white px-8 py-4 uppercase tracking-[0.2em] hover:bg-white/10 transition-all"
                 >
-                  reanudar_protocolo
+                  {t("fetch.resume_protocol")}
                 </button>
               )}
             </div>
@@ -160,7 +161,7 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
             <div className="border border-white/10 p-6 bg-black/60 backdrop-blur-xl rounded">
               <div className="flex justify-between items-end mb-3">
                 <div className="text-[10px] text-primary uppercase tracking-[0.3em] animate-pulse">
-                  ejecutando_mapeo_de_nodos...
+                  {t("fetch.scanning_nodes")}
                 </div>
                 <div className="text-sm font-bold text-white">{progress}%</div>
               </div>
@@ -185,13 +186,13 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
               <div className="flex justify-between items-center">
                 <div className="text-green-500 text-[10px] uppercase tracking-[0.3em] flex items-center gap-2">
                   <span className="w-2 h-2 rounded-full bg-green-500 shadow-[0_0_8px_rgb(34,197,94)]" />
-                  database_synchronized: {repos.length} entries
+                  {t("fetch.synchronized", { count: repos.length })}
                 </div>
                 <button 
                   onClick={() => { localStorage.removeItem('github-api-state'); setRepos([]); setProgress(0); }}
                   className="text-[8px] text-white/30 hover:text-red-500 uppercase transition-colors"
                 >
-                  [ purge_memory ]
+                  {t("fetch.purge_memory")}
                 </button>
               </div>
 
@@ -215,7 +216,6 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
                             <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="hover:underline">{repo.name}</a>
                           </td>
                           <td className="p-3 text-center">{repo.stargazers_count}</td>
-                          {/* Corregido: max-w-37.5 en lugar de [150px] */}
                           <td className="p-3 text-blue-400/40 text-[9px] truncate max-w-37.5">{repo.clone_url}</td>
                           <td className="p-3 text-white/20 italic">{repo.topics.slice(0, 2).join(' · ')}</td>
                         </tr>
@@ -232,12 +232,11 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
                     onClick={() => handleExport(format as 'json' | 'csv' | 'excel')}
                     className="bg-white/5 border border-white/10 py-3 text-[9px] uppercase tracking-[0.4em] hover:bg-primary hover:text-black transition-all"
                   >
-                    download_{format}
+                    {t(`fetch.download_${format}`)}
                   </button>
                 ))}
               </div>
 
-              {/* Nuevos campos: created_at, updated_at, homepage (opcional) */}
               <div className="text-[9px] text-white/30 uppercase tracking-[0.2em] border-t border-white/5 mt-6 pt-2">
                 metadata_enrichment: {repos.length} repos
               </div>
@@ -246,7 +245,7 @@ export function RepoFetcher({ initialLimit = 100 }: RepoFetcherProps) {
 
           {!isScanning && repos.length === 0 && (
             <div className="text-white/10 text-[8px] uppercase tracking-[0.5em] flex items-center justify-center p-12 border border-dashed border-white/5 rounded">
-              waiting_for_protocol_authorization_init...
+              {t("fetch.waiting")}
             </div>
           )}
         </div>

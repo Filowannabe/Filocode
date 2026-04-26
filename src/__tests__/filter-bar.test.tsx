@@ -28,7 +28,7 @@ describe('FilterBar Component - ESCUDO DE REGRESIÓN v4.2', () => {
 
   const defaultProps = {
     searchQuery: "",
-    availableTopics: ['react', 'csharp', 'java', 'javascript'],
+    availableTopics: ['react', 'C#', 'java', 'javascript'],
     activeTopics: [],
     onTopicToggle: mockOnTopicToggle,
     onSearchChange: mockOnSearchChange,

@@ -15,7 +15,7 @@
       "country": "Colombia",
       "engagementModel": "Strategic Partnership",
       "budget": "$2,500 - $3,500 USD per month (~$12,000 USD MVP total)",
-      "duration": "Aug. 2018 - Dec. 2018 (Completed ~4 Months)",
+      "duration": "Aug. 2018 - Dec. 2018",
       "clientOverview": "A global systems integrator for industrial automation. They required an internal management platform to optimize project execution and data management across engineering-heavy sectors like Oil & Gas and Pharmaceuticals.",
       "techStack": [
         "React",
@@ -67,7 +67,7 @@
       "country": "USA",
       "engagementModel": "Managed Team & Retainer Partnership",
       "budget": "$4,500 - $5,500 USD per month (~$95,000 USD total)",
-      "duration": "Feb. 2022 - Aug. 2023 (Completed ~19 Months)",
+      "duration": "Feb. 2022 - Aug. 2023",
       "clientOverview": "ElephantCPA, a dynamic platform designed to streamline interactions between accountants and their clients. They had a Minimum Viable Product (MVP) in place but were eager to elevate their platform in terms of functionalities, stability, and cybersecurity. A cloud-based practice management software solution for small to medium size accounting firms across the United States, they needed to move from MVP to a scalable solution with enhanced security.",
       "techStack": [
         "React",
@@ -90,7 +90,7 @@
         "Cybersecurity Implementation",
         "Custom Software Development",
         "Infrastructure Security Audit",
-        "Agile Development Methodology"
+        "Metodología de Desarrollo Ágil"
       ],
       "results": [
         "Implementation of 130+ user stories",
@@ -143,7 +143,7 @@
       "country": "USA",
       "engagementModel": "Managed Team",
       "budget": "$3,500 - $4,500 USD per month (~$64,000 USD total)",
-      "duration": "Oct. 2023 - Jan. 2025 (Completed ~16 Months)",
+      "duration": "Oct. 2023 - Jan. 2025",
       "clientOverview": "2Moon required a sophisticated solution to manage and execute complex trading strategies efficiently. The project focused on creating an automated, reliable, and scalable trading system that could respond dynamically to market signals and manage multiple trading strategies and Interactive Brokers accounts effectively.",
       "techStack": [
         "Python",
@@ -183,7 +183,7 @@
       "faq": [
         {
           "question": "What are signs a development company doesn't understand trading systems?",
-          "answer": "Red flags include vague answers about market data, promising fixed timelines for strategy performance, not mentioning risk controls, misusing backtesting vs live trading terminology, and lack of experience with broker APIs like IBKR or FIX."
+          "answer": "Red flags include vague answers about market data, promising fixed timelines for strategy performance, not mentioning risk controls, misusing backtesting vs live trading terminology, and lack of experience with broker APIs like IBKR o FIX."
         },
         {
           "question": "What testing environment costs should I budget for paper trading?",
@@ -215,7 +215,7 @@
       "country": "Canada",
       "engagementModel": "Project-based Development",
       "budget": "$3,000 - $4,500 USD per month (~$205,000 USD total)",
-      "duration": "June 2020 - Dec. 2024 (Completed ~55 Months)",
+      "duration": "June 2020 - Dec. 2024",
       "clientOverview": "A network of over 50 orthodontic clinics across Canada. They needed to bridge gaps between consumer-facing websites and CRM systems (HubSpot), and develop digital solutions for secure contract creation and treatment option presentations for patients.",
       "techStack": [
         "React",
@@ -277,7 +277,7 @@
       "country": "Canada",
       "engagementModel": "Managed Team Partnership",
       "budget": "$5,000 - $6,500 USD per month (~$115,000 USD total)",
-      "duration": "Apr. 2023 - Nov. 2024 (Completed ~20 Months)",
+      "duration": "Apr. 2023 - Nov. 2024",
       "clientOverview": "A telehealth provider in the mental health space (BIPOC focused). The project involved building a complete, end-to-end Electronic Medical Record (EMR) system to manage patient data, telehealth sessions, and complex business reporting.",
       "techStack": [
         "React",
@@ -337,7 +337,7 @@
       "country": "Colombia",
       "engagementModel": "Scale-up Partnership",
       "budget": "$3,200 - $4,500 USD per month (~$92,000 USD total)",
-      "duration": "Jan. 2023 - Dec. 2024 (Completed ~24 Months)",
+      "duration": "Jan. 2023 - Dec. 2024",
       "clientOverview": "A massive beauty and personal care brand scaling to international traffic. The platform requires high-conversion engineering, ritualistic content integration (Moon Phases), and global performance optimization.",
       "techStack": [
         "Shopify Plus",
