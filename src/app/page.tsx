@@ -130,28 +130,34 @@ export default function Home() {
 
             {/* WINDOW: CODE_EXAMPLE */}
             <HudPanel title={t("hud.code_example")} className="flex-1 min-h-[220px]" delay={0.3}>
-              <div className="p-8">
-                <div className="font-mono text-[11px] space-y-4">
-                  <div className="flex items-center gap-3 text-white/20">
-                    <span className="text-amber-500/40 w-4">01</span>
-                    <span className="text-amber-500">import</span> <span className="text-white/60">{"{ Master_Architect }"}</span> <span>from</span> <span className="text-amber-200/40">'core-engine'</span>
+              <div className="p-4 sm:p-8">
+                <div className="font-mono text-[10px] sm:text-[11px] space-y-3 sm:space-y-4 overflow-hidden">
+                  <div className="flex items-start gap-3 text-white/20">
+                    <span className="text-amber-500/40 w-4 shrink-0">01</span>
+                    <div className="flex flex-wrap gap-x-2">
+                      <span className="text-amber-500">import</span> <span className="text-white/60">{"{ Master_Architect }"}</span> <span>from</span> <span className="text-amber-200/40">'core-engine'</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3 text-white/20">
-                    <span className="text-amber-500/40 w-4">02</span>
-                    <span className="text-amber-500">const</span> <span>skills</span> <span className="text-amber-500">=</span> <span className="text-white/60">["React 19", "Next.js 16"]</span>
+                  <div className="flex items-start gap-3 text-white/20">
+                    <span className="text-amber-500/40 w-4 shrink-0">02</span>
+                    <div className="flex flex-wrap gap-x-2">
+                      <span className="text-amber-500">const</span> <span>skills</span> <span className="text-amber-500">=</span> <span className="text-white/60">["React 19", "Next.js 16", "TypeScript", "Tailwind 4", "Framer 12"]</span>
+                    </div>
                   </div>
-                  <div className="flex items-center gap-3 text-white/20 pl-8">
-                    <span className="text-amber-500/40 w-4">03</span>
-                    <span className="text-amber-500">mastery</span> <span>=</span> <span className="text-green-500">'MAXIMUM'</span>
+                  <div className="flex items-start gap-3 text-white/20">
+                    <span className="text-amber-500/40 w-4 shrink-0">03</span>
+                    <div className="flex flex-wrap gap-x-2 pl-0 sm:pl-8">
+                      <span className="text-amber-500">mastery</span> <span>=</span> <span className="text-green-500">'MAXIMUM'</span>
+                    </div>
                   </div>
                 </div>
                 
-                <div className="mt-12 flex justify-between items-end border-t border-white/5 pt-6 opacity-40">
-                  <div className="text-[10px] font-black text-amber-500 uppercase tracking-[0.3em]">
+                <div className="mt-8 sm:mt-12 flex justify-between items-end border-t border-white/5 pt-4 sm:pt-6 opacity-40">
+                  <div className="text-[9px] sm:text-[10px] font-black text-amber-500 uppercase tracking-[0.3em]">
                     {t("hud.buffer_syncing")}
                   </div>
-                  <div className="w-10 h-10 rounded-full border border-dashed border-amber-500/30 animate-spin-slow flex items-center justify-center">
-                    <div className="w-2 h-2 bg-amber-500 rounded-full" />
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 rounded-full border border-dashed border-amber-500/30 animate-spin-slow flex items-center justify-center">
+                    <div className="w-1.5 h-1.5 sm:w-2 h-2 bg-amber-500 rounded-full" />
                   </div>
                 </div>
               </div>

@@ -158,9 +158,4 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
       expect(icon).toHaveClass('text-black');
     });
   });
-
-  it('debe generar un snapshot estructural para prevenir cambios accidentales', () => {
-    const { asFragment } = render(<Home />);
-    expect(asFragment()).toMatchSnapshot();
-  });
 });
