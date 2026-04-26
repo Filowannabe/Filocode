@@ -1,59 +1,75 @@
+/**
+ * topics.ts - Utilidades centralizadas para gestión de tecnologías y filtrado.
+ * v6.4 - Reparación de firma de función para compatibilidad con use-topics.tsx
+ */
 import { GitHubRepository } from '@/types/repositorio';
 
 /**
- * Normaliza un topic para uso interno (estándar GitHub Topics)
- * - Convierte a minúsculas
- * - Elimina puntos
- * - Reemplaza espacios con guiones
- * - Elimina caracteres especiales no alfanuméricos
+ * Formatea nombres de tecnologías para visualización HUD.
+ */
+export function formatTechName(tech: string): string {
+  if (!tech) return '';
+  const t = tech.toLowerCase().trim();
+  
+  if (t === 'c#' || t === 'csharp' || t === 'dotnet') return 'C#';
+  if (t === 'javascript') return 'JavaScript';
+  if (t === 'typescript') return 'TypeScript';
+  if (t === 'nextjs' || t === 'next') return 'Next.js';
+  if (t === 'spring-boot') return 'Spring Boot';
+  if (t === 'github-actions') return 'GH Actions';
+  if (t === 'postgresql') return 'PostgreSQL';
+  if (t === 'php') return 'PHP';
+  if (t === 'sql') return 'SQL';
+  if (t === 'html') return 'HTML5';
+  if (t === 'css') return 'CSS3';
+  
+  return tech.charAt(0).toUpperCase() + tech.slice(1);
+}
+
+/**
+ * Normaliza un tópico para comparaciones internas.
  */
 export function normalizeTopic(topic: string): string {
-  return topic
-    .toLowerCase()
-    .replace(/\./g, '')
-    .replace(/\s+/g, '-')
-    .replace(/[^a-z0-9-]/g, '');
+  const t = topic.toLowerCase().trim();
+  if (t === 'c#' || t === 'csharp') return 'csharp';
+  return t;
 }
 
 /**
- * Extrae todos los topics únicos de un array de repositorios
- * Retorna un array ordenado alfabéticamente para consistencia
+ * Extrae todos los tópicos únicos de una lista de repositorios.
  */
 export function getUniqueTopics(repos: GitHubRepository[]): string[] {
-  const allTopics = repos.flatMap(repo => repo.topics || []);
-  const normalizedTopics = allTopics.map(normalizeTopic);
-  const topicSet = new Set<string>(normalizedTopics);
-  
-  return Array.from(topicSet).filter(Boolean).sort();
+  const topicsSet = new Set<string>();
+  repos.forEach(repo => {
+    repo.topics.forEach(topic => {
+      topicsSet.add(normalizeTopic(topic));
+    });
+  });
+  return Array.from(topicsSet).sort();
 }
 
 /**
- * Filtra repositorios por topics (lógica OR) y búsqueda por texto
- * - Topics: Si tiene al menos uno de los seleccionados (OR)
- * - Búsqueda: Si el texto está contenido en nombre o descripción
+ * Filtra repositorios basados en búsqueda y tópicos activos.
+ * Firma ajustada para compatibilidad: (repos, activeTopics, searchQuery)
  */
 export function filterRepos(
   repos: GitHubRepository[],
-  selectedTopics: string[],
-  searchQuery: string = ''
+  activeTopics: string[] = [],
+  searchQuery: string = ""
 ): GitHubRepository[] {
-  const normalizedQuery = searchQuery.toLowerCase().trim();
-  const normalizedSelectedTopics = selectedTopics.map(normalizeTopic);
-
   return repos.filter(repo => {
-    // 1. Filtro por Búsqueda (Texto)
-    const matchesSearch = normalizedQuery === '' || 
-      repo.name.toLowerCase().includes(normalizedQuery) || 
-      (repo.description && repo.description.toLowerCase().includes(normalizedQuery));
+    // 1. Filtro por tópicos (debe contener todos los tópicos activos)
+    const normalizedRepoTopics = repo.topics.map(normalizeTopic);
+    const matchesTopics = activeTopics.length === 0 || 
+      activeTopics.every(active => normalizedRepoTopics.includes(normalizeTopic(active)));
 
-    if (!matchesSearch) return false;
+    if (!matchesTopics) return false;
 
-    // 2. Filtro por Topics (Lógica OR)
-    if (normalizedSelectedTopics.length === 0) return true;
+    // 2. Filtro por búsqueda (nombre o descripción)
+    const query = searchQuery.toLowerCase().trim();
+    if (!query) return true;
 
-    const repoTopics = (repo.topics || []).map(normalizeTopic);
-    return normalizedSelectedTopics.some(topic => 
-      repoTopics.includes(topic)
-    );
+    return repo.name.toLowerCase().includes(query) ||
+      (repo.description && repo.description.toLowerCase().includes(query));
   });
 }

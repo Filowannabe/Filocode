@@ -8,6 +8,7 @@ import { FilterBar } from '@/components/hud/filter-bar';
 import { GitHubRepository } from '@/types/repositorio';
 import { TopicsProvider } from '@/contexts/use-topics';
 import { GallerySkeleton } from '@/components/hud/project-skeleton';
+import { useTranslations } from '@/lib/i18n-client';
 
 /**
  * ProjectSection - Orquestador de arsenal.
@@ -39,6 +40,7 @@ export function ProjectSection() {
 }
 
 function ProjectSectionContent({ initialReposCount }: { initialReposCount: number }) {
+  const t = useTranslations();
   const { 
     availableTopics, 
     activeTopics, 
@@ -53,12 +55,10 @@ function ProjectSectionContent({ initialReposCount }: { initialReposCount: numbe
     <div className="relative">
       <div className="flex flex-col gap-3 border-b border-white/10 pb-6 mb-8">
         <h2 className="text-3xl md:text-4xl font-bold tracking-tighter text-white">
-          Open Source <span className="text-primary">Arsenal</span>
+          {t("arsenal.title_open_source")} <span className="text-primary">{t("arsenal.title_arsenal")}</span>
         </h2>
         <p className="text-white/60 text-sm md:text-base leading-relaxed max-w-3xl">
-          Mi compromiso con la comunidad tecnológica y la ingeniería de software. Aquí puedes auditar la arquitectura, 
-          calidad de código e impacto (estrellas y visualizaciones) de mis <strong>{initialReposCount}</strong> proyectos, 
-          sincronizados dinámicamente con GitHub.
+          {t("arsenal.description", { count: initialReposCount })}
         </p>
       </div>
       

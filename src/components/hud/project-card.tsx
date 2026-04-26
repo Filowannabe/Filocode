@@ -6,7 +6,8 @@ import { motion } from "framer-motion";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { LinkPreview } from "@/components/hud/link-preview";
-// Timeline eliminado - integrado como badge simple directamente
+import { useTranslations } from "@/lib/i18n-client";
+import { formatTechName } from "@/utils/topics";
 
 const MotionDiv = motion.div as any;
 const MotionSpan = motion.span as any;
@@ -19,10 +20,11 @@ interface ProjectCardProps {
 }
 
 /**
- * ProjectCard PRO-MAX v29 (Highlight Ready)
- * RESOLUCIÓN FINAL: Se añade motor de resaltado de texto para búsquedas.
+ * ProjectCard PRO-MAX v29.1
+ * Consistencia Absoluta de Identidad Técnica.
  */
 export function ProjectCard({ repo, delay = 0, searchQuery = '' }: ProjectCardProps) {
+  const t = useTranslations();
   const [isCopied, setIsCopied] = useState(false);
 
   const handleClone = (e: React.MouseEvent) => {
@@ -66,7 +68,6 @@ export function ProjectCard({ repo, delay = 0, searchQuery = '' }: ProjectCardPr
         "hover:shadow-[0_20px_50px_rgba(0,0,0,0.5),0_0_30px_rgba(245,158,11,0.1)]"
       )}
     >
-      {/* ... (borde animado y glow interior iguales) ... */}
       <div
         className="absolute -inset-[100%] z-0 w-[300%] h-[300%] origin-center opacity-40 group-hover:opacity-100 transition-opacity duration-500 animate-spin-slow"
         style={{
@@ -89,7 +90,7 @@ export function ProjectCard({ repo, delay = 0, searchQuery = '' }: ProjectCardPr
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center justify-center w-10 h-10 rounded-full bg-white/5 text-(--color-primary)/70 hover:bg-(--color-primary) hover:text-black transition-all duration-300 shadow-sm shrink-0 border border-white/5 hover:border-transparent"
-              title="Ver en GitHub"
+              title={t("arsenal.view_on_github")}
             >
               <ExternalLink size={18} strokeWidth={2} />
             </a>
@@ -100,10 +101,9 @@ export function ProjectCard({ repo, delay = 0, searchQuery = '' }: ProjectCardPr
               {highlightText(repo.name, searchQuery)}
             </h3>
             <p className="text-sm text-white/50 leading-relaxed font-light line-clamp-3 font-mono">
-              {highlightText(repo.description || "Explora la arquitectura técnica y el código fuente de este nodo directamente en GitHub.", searchQuery)}
+              {highlightText(repo.description || t("arsenal.default_description"), searchQuery)}
             </p>
           </div>
-          {/* ... resto del componente igual ... */}
 
           <div className="flex flex-wrap gap-2 mb-6">
              {repo.topics.slice(0, 3).map((topic, i) => (
@@ -114,12 +114,11 @@ export function ProjectCard({ repo, delay = 0, searchQuery = '' }: ProjectCardPr
                  transition={{ delay: delay + 0.2 + (i * 0.1) }}
                  className="text-[10px] font-bold px-3 py-1 bg-(--color-primary)/5 text-(--color-primary) border border-(--color-primary)/20 uppercase tracking-widest rounded-full"
                >
-                 {topic}
+                 {formatTechName(topic)}
                </MotionSpan>
              ))}
            </div>
 
-           {/* Metadatos del Sistema: Fechas y Enlaces */}
             <div className="mt-6 pt-4">
               {repo.created_at && (
                 <motion.div
@@ -127,10 +126,8 @@ export function ProjectCard({ repo, delay = 0, searchQuery = '' }: ProjectCardPr
                   animate={{ opacity: 1, x: 0 }}
                   className="flex items-center gap-2 mb-2"
                 >
-                  {/* Nodo ámbar simple - sin líneas */}
-                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-[var(--color-primary)]" />
+                  <div className="flex-shrink-0 w-2 h-2 rounded-full bg-(--color-primary)" />
                   
-                  {/* Texto con fecha completa para claridad */}
                   <span className="text-[10px] text-white/40 font-mono uppercase">
                     [ {new Date(repo.created_at).toLocaleString("es-ES", { month: "short", day: "2-digit", year: "numeric" })} ]
                   </span>
@@ -145,14 +142,12 @@ export function ProjectCard({ repo, delay = 0, searchQuery = '' }: ProjectCardPr
 
            <div className="flex items-center justify-between pt-5 border-t border-white/10 group-hover:border-(--color-primary)/30 transition-colors duration-500">
             <div className="flex items-center gap-5">
-              {/* Star Icon con Wiggle CSS - SIN MOTION PARA EVITAR CONGELAMIENTO */}
               <div className="flex items-center gap-1.5 text-xs font-bold text-white/60 font-mono">
                 <div className="animate-wiggle">
                   <Star size={16} className="text-amber-500/70" />
                 </div>
                 <span>{repo.stargazers_count}</span>
               </div>
-              {/* Eye Icon con Pulse CSS - SIN MOTION PARA EVITAR CONGELAMIENTO */}
               <div className="flex items-center gap-1.5 text-xs font-bold text-white/60 font-mono">
                 <div className="animate-soft-pulse">
                   <Eye size={16} className="text-cyan-500/70" />
@@ -171,7 +166,7 @@ export function ProjectCard({ repo, delay = 0, searchQuery = '' }: ProjectCardPr
                   ? "bg-green-500/20 text-green-400 border-green-500/50 shadow-[0_0_15px_rgba(34,197,94,0.3)]" 
                   : "bg-black text-(--color-primary) border-(--color-primary)/20 hover:bg-(--color-primary) hover:text-black"
               )}
-              title={isCopied ? "URL copiada" : "Copiar URL (git clone)"}
+              title={isCopied ? "URL copiada" : t("arsenal.copy_url")}
             >
               {isCopied ? <Check size={16} /> : <Copy size={16} />}
             </MotionButton>
