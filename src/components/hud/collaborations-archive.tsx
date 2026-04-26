@@ -34,173 +34,113 @@ export function CollaborationsArchive() {
   const controls = useAnimation();
   const x = useMotionValue(0);
   const carouselRef = useRef<HTMLDivElement>(null);
-  const marqueeRef = useRef<(() => void) | null>(null);
 
   // Selector Móvil Marquee Logic
   const mobileX = useMotionValue(0);
   const mobileControls = useAnimation();
   const mobileSelectorRef = useRef<HTMLDivElement>(null);
 
- // Carousel Infinito: Duplicación para Marquee real
-   const isTest = typeof process !== 'undefined' && process.env.NODE_ENV === 'test';
-   const carouselItems = isTest ? collaborations : [...collaborations, ...collaborations];
+  // Carousel Infinito: Duplicación para Marquee real
+  const isTest = typeof process !== 'undefined' && process.env.NODE_ENV === 'test';
+  const carouselItems = isTest ? collaborations : [...collaborations, ...collaborations];
 
- // Animación Automática Selector Móvil — Patrón RAF con Función Interna (ESLint-compliant)
-    const startMobileMarquee = useCallback(() => {
-      let animationFrameId: number;
+  // Wrap de Drag Infinito (Carousel)
+  const handleDragWrap = useCallback(() => {
+    if (!carouselRef.current || isTest) return;
+    const halfWidth = carouselRef.current.scrollWidth / 2;
+    const currentX = x.get();
+    if (currentX <= -halfWidth) x.set(currentX + halfWidth);
+    else if (currentX > 0) x.set(currentX - halfWidth);
+  }, [x, isTest]);
+
+  // Wrap de Drag Infinito (Selector Móvil)
+  const handleMobileDragWrap = useCallback(() => {
+    if (!mobileSelectorRef.current || isTest) return;
+    const halfWidth = mobileSelectorRef.current.scrollWidth / 2;
+    const currentX = mobileX.get();
+    if (currentX <= -halfWidth) mobileX.set(currentX + halfWidth);
+    else if (currentX > 0) mobileX.set(currentX - halfWidth);
+  }, [mobileX, isTest]);
+
+  // Animación Automática Selector Móvil — Patrón ESLint-compliant (función auto-llamable)
+  const startMobileMarquee = useCallback(() => {
+    let animationTimeoutId: ReturnType<typeof setTimeout> | undefined;
+    
+    // Función auto-llamable para evitar error ESLint "use before define"
+    const self = async () => {
+      if (!mobileSelectorRef.current || viewMode !== 'console' || isTest) return;
+      const halfWidth = mobileSelectorRef.current.scrollWidth / 2;
+      if (halfWidth <= 0) return;
+
+      const currentX = mobileX.get();
+      if (currentX <= -halfWidth) mobileX.set(0);
       
-      // Función interna para evitar "use before define" en ESLint
-      const loop = () => {
-        if (!mobileSelectorRef.current || viewMode !== 'console' || isTest) {
-          cancelAnimationFrame(animationFrameId);
-          return;
-        }
-        
-        const halfWidth = mobileSelectorRef.current.scrollWidth / 2;
-        if (halfWidth <= 0) {
-          cancelAnimationFrame(animationFrameId);
-          return;
-        }
+      const remainingDistance = halfWidth + mobileX.get();
+      const duration = remainingDistance / 25; // Velocidad ajustada
 
-        const currentX = mobileX.get();
-        if (currentX <= -halfWidth) {
-          mobileX.set(0);
-        } else {
-          const remainingDistance = halfWidth + mobileX.get();
-          const duration = remainingDistance / 25; // Velocidad ajustada
-          
-          mobileControls.start({
-            x: -halfWidth,
-            transition: { duration, ease: "linear" }
-          });
-        }
-        
-        animationFrameId = requestAnimationFrame(loop);
-      };
-
-      animationFrameId = requestAnimationFrame(loop);
-      return () => cancelAnimationFrame(animationFrameId);
-    }, [mobileControls, mobileX, viewMode, isTest]);
-
-// Lógica de Animación Orgánica (Carousel) — Patrón RAF con Función Interna
-    const startMarquee = useCallback(() => {
-      let animationFrameId: number;
-      
-      // Función interna para evitar "use before define" en ESLint
-      const loop = () => {
-        if (!carouselRef.current || viewMode !== 'carousel' || isTest) {
-          cancelAnimationFrame(animationFrameId);
-          return;
-        }
-        
-        const halfWidth = carouselRef.current.scrollWidth / 2;
-        if (halfWidth <= 0) {
-          cancelAnimationFrame(animationFrameId);
-          return;
-        }
-        
-        const currentX = x.get();
-        if (currentX <= -halfWidth) {
-          x.set(0);
-        } else if (currentX > 0) {
-          x.set(-halfWidth);
-        } else {
-          const remainingDistance = halfWidth + x.get();
-          const speed = 35;
-          const duration = remainingDistance / speed;
-          
-          controls.start({
-            x: -halfWidth,
-            transition: { duration, ease: "linear" }
-          });
-        }
-        
-        if (viewMode === 'carousel') {
-          x.set(0);
-          if (marqueeRef.current) marqueeRef.current();
-        }
-        
-        animationFrameId = requestAnimationFrame(loop);
-      };
-
-      animationFrameId = requestAnimationFrame(loop);
-      return () => cancelAnimationFrame(animationFrameId);
-    }, [controls, x, viewMode, isTest]);
-
-  useEffect(() => {
-    // Ejecutar el loop
-    let animationFrameId: number;
-    const loop = () => {
-      if (!carouselRef.current || viewMode !== 'carousel' || isTest) {
-        cancelAnimationFrame(animationFrameId);
-        return;
-      }
-      
-      const halfWidth = carouselRef.current.scrollWidth / 2;
-      if (halfWidth <= 0) {
-        cancelAnimationFrame(animationFrameId);
-        return;
-      }
-      
-      const currentX = x.get();
-      if (currentX <= -halfWidth) {
-        x.set(0);
-      } else if (currentX > 0) {
-        x.set(-halfWidth);
-      } else {
-        const remainingDistance = halfWidth + x.get();
-        const speed = 35;
-        const duration = remainingDistance / speed;
-        
-        controls.start({
+      try {
+        await mobileControls.start({
           x: -halfWidth,
           transition: { duration, ease: "linear" }
         });
-      }
-      
-      if (viewMode === 'carousel') {
-        x.set(0);
-        if (marqueeRef.current) marqueeRef.current();
-      }
-      
-      animationFrameId = requestAnimationFrame(loop);
+        if (viewMode === 'console') {
+          mobileX.set(0);
+          // Función auto-llamable, NO recursión en useCallback
+          animationTimeoutId = setTimeout(self, 50);
+        }
+      } catch { /* Interrupción segura */ }
     };
-    animationFrameId = requestAnimationFrame(loop);
+
+    animationTimeoutId = setTimeout(self, 50);
+    return () => clearTimeout(animationTimeoutId);
+  }, [mobileControls, mobileX, viewMode, isTest]);
+
+  // Lógica de Animación Orgánica (Carousel) — Patrón ESLint-compliant
+  const startMarquee = useCallback(async () => {
+    let animationTimeoutId: ReturnType<typeof setTimeout> | undefined;
     
-    // Cleanup
-    return () => cancelAnimationFrame(animationFrameId);
+    // Función auto-llamable para evitar error ESLint "use before define"
+    const self = async () => {
+      if (!carouselRef.current || viewMode !== 'carousel' || isTest) return;
+      const halfWidth = carouselRef.current.scrollWidth / 2;
+      if (halfWidth <= 0) {
+        return;
+      }
+      const currentX = x.get();
+      if (currentX <= -halfWidth) x.set(0);
+      else if (currentX > 0) x.set(-halfWidth);
+      const remainingDistance = halfWidth + x.get();
+      const speed = 35;
+      const duration = remainingDistance / speed;
+      try {
+        await controls.start({
+          x: -halfWidth,
+          transition: { duration, ease: "linear" }
+        });
+        if (viewMode === 'carousel') {
+          x.set(0);
+          // Función auto-llamable, NO recursión en useCallback
+          animationTimeoutId = setTimeout(self, 50);
+        }
+      } catch { /* Interrupción */ }
+    };
+
+    animationTimeoutId = setTimeout(self, 50);
+    return () => clearTimeout(animationTimeoutId);
   }, [controls, x, viewMode, isTest]);
 
-   useEffect(() => {
-      if (viewMode === 'carousel' && !isTest) {
-        if (!isDragging) startMarquee();
-      } else if (viewMode === 'console' && !isTest) {
-        if (!isMobileDragging) startMobileMarquee();
-      } else {
-        x.set(0);
-        mobileX.set(0);
-        controls.stop();
-        mobileControls.stop();
-      }
-    }, [viewMode, isDragging, isMobileDragging, startMarquee, startMobileMarquee, x, mobileX, controls, mobileControls, isTest]);
-
-  // Wrap de Drag Infinito (Selector Móvil)
-   const handleMobileDragWrap = useCallback(() => {
-     if (!mobileSelectorRef.current || isTest) return;
-     const halfWidth = mobileSelectorRef.current.scrollWidth / 2;
-     const currentX = mobileX.get();
-     if (currentX <= -halfWidth) mobileX.set(currentX + halfWidth);
-     else if (currentX > 0) mobileX.set(currentX - halfWidth);
-   }, [mobileX, isTest]);
-
-  // Wrap de Drag Infinito (Carousel)
-   const handleDragWrap = useCallback(() => {
-     if (!carouselRef.current || isTest) return;
-     const halfWidth = carouselRef.current.scrollWidth / 2;
-     const currentX = x.get();
-     if (currentX <= -halfWidth) x.set(currentX + halfWidth);
-     else if (currentX > 0) x.set(currentX - halfWidth);
-   }, [x, isTest]);
+  useEffect(() => {
+    if (viewMode === 'carousel' && !isTest) {
+      if (!isDragging) startMarquee();
+    } else if (viewMode === 'console' && !isTest) {
+      if (!isMobileDragging) startMobileMarquee();
+    } else {
+      x.set(0);
+      mobileX.set(0);
+      controls.stop();
+      mobileControls.stop();
+    }
+  }, [viewMode, isDragging, isMobileDragging, startMarquee, startMobileMarquee, x, mobileX, controls, mobileControls, isTest]);
 
   return (
     <HudPanel title={t("hud.collaborations_hub_intel_feed")} className="w-full overflow-hidden">
