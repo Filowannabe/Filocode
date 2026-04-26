@@ -41,19 +41,21 @@ describe('useTopics Hook - MULTI SELECT & SEARCH', () => {
     expect(result.current.filteredRepos).toHaveLength(3);
   });
 
-  it('debe permitir seleccionar múltiples topics (OR logic)', async () => {
+  it('debe permitir seleccionar múltiples topics (AND logic)', async () => {
     const { result } = renderHook(() => useTopics(), { wrapper });
     
     await act(async () => {
       result.current.toggleTopic('frontend');
     });
+    // Solo Alpha tiene 'frontend'
     expect(result.current.filteredRepos).toHaveLength(1);
 
     await act(async () => {
       result.current.toggleTopic('backend');
     });
-    // Alpha (frontend) + Beta (backend) = 2 repos
-    expect(result.current.filteredRepos).toHaveLength(2);
+    // Alpha (frontend) AND Beta (backend) = 0 repos (ninguno tiene ambos)
+    // La lógica es AND: debe tener TODOS los topics seleccionados
+    expect(result.current.filteredRepos).toHaveLength(0);
   });
 
   it('debe filtrar por búsqueda de texto tras debounce', async () => {

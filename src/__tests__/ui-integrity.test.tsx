@@ -60,20 +60,22 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
   });
 
   it('debe mostrar el Avatar verificado con los metadatos correctos', () => {
-    render(<Home />);
-    expect(screen.getByText('FILOCODE')).toBeInTheDocument();
-    expect(screen.getByText(/by Felipe Corredor Castro/)).toBeInTheDocument();
-    expect(screen.getByText('VERIFIED')).toBeInTheDocument();
-    expect(screen.getByText(/\[XP: 05_YEARS\]/i)).toBeInTheDocument();
-    expect(screen.getByText(/\[RANK: SENIOR\]/i)).toBeInTheDocument();
-    
-    // Validar el botón de descarga del dossier
-    const downloadBtn = screen.getByText(/DOWNLOAD_DOSSIER/i);
-    expect(downloadBtn).toBeInTheDocument();
-    const link = downloadBtn.closest('a');
-    expect(link).toHaveAttribute('href', 'documents/Felipe_Castro_CV_2025.pdf');
-    expect(link).toHaveAttribute('download', 'Felipe_Castro_CV_2025.pdf');
-  });
+      render(<Home />);
+      expect(screen.getByText('FILOCODE')).toBeInTheDocument();
+      expect(screen.getByText(/by Felipe Corredor Castro/i)).toBeInTheDocument();
+      expect(screen.getByText('VERIFIED')).toBeInTheDocument();
+      // La traducción usa "XP: 5 YEARS" sin corchetes (texto dividido en múltiples elementos)
+      expect(screen.getByText(/XP: 5 YEARS/i)).toBeInTheDocument();
+      // La traducción usa "RANK: SENIOR" sin corchetes adicionales
+      expect(screen.getByText(/RANK: SENIOR/i)).toBeInTheDocument();
+      
+      // Validar el botón de descarga del dossier
+      const downloadBtn = screen.getByText(/DOWNLOAD_DOSSIER/i);
+      expect(downloadBtn).toBeInTheDocument();
+      const link = downloadBtn.closest('a');
+      expect(link).toHaveAttribute('href', 'documents/Felipe_Castro_CV_2025.pdf');
+      expect(link).toHaveAttribute('download', 'Felipe_Castro_CV_2025.pdf');
+    });
 
   it('debe mostrar el widget CODE_EXAMPLE con el estado de sincronización', () => {
     render(<Home />);

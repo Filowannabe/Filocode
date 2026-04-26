@@ -1,24 +1,27 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { useTranslations } from "@/lib/i18n-client";
 
 interface StatsBarProps {
   className?: string;
   delay?: number;
 }
 
-const STATS = [
-  { label: "AÑOS EXP", value: "5+" },
-  { label: "PROYECTOS", value: "12" },
-  { label: "HRS MENTORÍA", value: "200+" },
-  { label: "COMMITS", value: "1.2k" },
-];
-
 /**
  * StatsBar - Fila de métricas.
  * Corregido para Tailwind 4: 'primary' shorthand.
  */
 export function StatsBar({ className }: StatsBarProps) {
+  const t = useTranslations();
+
+  const STATS = [
+    { label: t("hud.stats_exp"), value: "5+" },
+    { label: t("hud.stats_projects"), value: "12" },
+    { label: t("hud.stats_mentoring"), value: "200+" },
+    { label: t("hud.stats_commits"), value: "1.2k" },
+  ];
+
   return (
     <div className={cn("grid grid-cols-2 md:grid-cols-4 gap-6", className)}>
       {STATS.map((stat) => (

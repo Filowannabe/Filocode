@@ -9,6 +9,7 @@ export interface GitHubRepository {
   html_url: string;
   clone_url: string;
   topics: string[];
+  language?: string | null;
   created_at?: string; // ISO 8601 - Issue #3 (opcional, GitHub API)
   updated_at?: string; // ISO 8601 - Issue #3 (opcional, GitHub API)
   homepage?: string; // URL de despliegue - Issue #3

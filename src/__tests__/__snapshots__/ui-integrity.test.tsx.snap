@@ -137,7 +137,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                 >
                   FILOCODE
                   <span
-                    class="block sm:inline-block sm:ml-4 text-[8px] sm:text-[10px] font-normal tracking-normal text-white/20 not-italic align-middle mt-1 sm:mt-0"
+                    class="block sm:inline-block sm:ml-4 text-[8px] sm:text-[10px] font-normal tracking-normal text-amber-200 not-italic align-middle mt-1 sm:mt-0 drop-shadow-[0_0_6px_rgba(251,191,36,0.5)]"
                   >
                     by Felipe Corredor Castro
                   </span>
@@ -146,7 +146,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.2em] flex flex-col gap-2 drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]"
                 >
                   <span>
-                    [XP: 05_YEARS]
+                    [XP: 5 YEARS]
                   </span>
                   <span>
                     [RANK: SENIOR]
@@ -254,7 +254,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   <span
                     class="text-white/60"
                   >
-                    { Architect }
+                    { Master_Architect }
                   </span>
                    
                   <span>
@@ -358,7 +358,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
           <div
             class="font-mono text-[10px] md:text-[11px] font-black tracking-[0.25em] text-amber-200 uppercase drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
           >
-            SKILL TREE
+            SKILL_TREE
           </div>
           <div
             class="w-10 h-[1px] bg-amber-500/50 shadow-[0_0_10px_rgba(245,158,11,0.5)]"
@@ -388,7 +388,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   <div
                     class="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse"
                   />
-                  Core_Matrix
+                  Core Matrix
                 </h3>
                 <div
                   class="grid grid-cols-2 gap-3"
@@ -425,7 +425,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                 <h3
                   class="text-[10px] font-black font-mono tracking-[0.3em] text-amber-200 uppercase drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]"
                 >
-                  Sub_Modules
+                  Modules
                 </h3>
                 <div
                   class="flex flex-wrap gap-2"
@@ -508,7 +508,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   <span
                     class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
                   >
-                    AÑOS EXP
+                    YEARS EXP
                   </span>
                 </div>
               </div>
@@ -526,7 +526,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   <span
                     class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
                   >
-                    PROYECTOS
+                    PROJECTS
                   </span>
                 </div>
               </div>
@@ -544,7 +544,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   <span
                     class="text-[9px] font-black font-mono tracking-[0.2em] text-white/30 uppercase mt-1"
                   >
-                    HRS MENTORÍA
+                    MENTORING HOURS
                   </span>
                 </div>
               </div>
@@ -638,7 +638,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
       
           </style>
           <div
-            class="p-4 md:p-8 lg:p-12 flex flex-col gap-8 md:gap-12"
+            class="p-4 md:p-8 lg:p-12 lg:pb-6 flex flex-col gap-8 md:gap-10"
           >
             <div
               class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 border-b border-white/10 pb-4"
@@ -652,7 +652,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                 AUTHORIZED_COLLABORATIONS
               </div>
               <div
-                class="flex bg-black/50 border border-white/10 rounded-sm p-1 backdrop-blur-md self-end md:self-auto"
+                class="flex bg-black/50 border border-white/10 rounded-sm p-1 backdrop-blur-md self-end md:self-auto shrink-0"
               >
                 <button
                   class="relative flex items-center gap-2 px-4 py-2 font-mono text-[10px] font-black uppercase tracking-widest z-10 transition-colors duration-300 text-black"
@@ -740,7 +740,7 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
               </div>
             </div>
             <div
-              class="w-full min-h-[auto] lg:h-[900px]"
+              class="w-full min-h-[600px] lg:h-[900px]"
             >
               <div
                 animate="[object Object]"
@@ -751,13 +751,12 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                 <div
                   animate="[object Object]"
                   class="flex gap-6 md:gap-12 py-8 w-max h-full"
-                  drag="x"
                 >
                   <div
-                    class="w-[85vw] md:w-[1100px] h-[600px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
+                    class="w-[85vw] md:w-[1100px] h-[820px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
                   >
                     <div
-                      class="h-[250px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
+                      class="h-[280px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
                     >
                       <img
                         alt="Omnicon"
@@ -769,18 +768,26 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       />
                     </div>
                     <div
-                      class="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative"
+                      class="flex flex-col p-6 md:p-12 flex-grow w-full md:w-1/2 bg-black relative"
                     >
                       <div
-                        class="flex-none mb-4 md:mb-6 flex items-center gap-3"
+                        class="flex-none mb-4 md:mb-6 flex items-center gap-3 flex-wrap"
                       >
                         <span
-                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]"
+                          class="font-mono text-[9px] md:text-[10px] text-amber-500 font-bold tracking-widest bg-amber-500/10 px-2 py-0.5 rounded-sm shrink-0"
+                        >
+                          [ COMPLETED ]
+                        </span>
+                        <div
+                          class="h-[1px] w-6 bg-white/20 shrink-0"
+                        />
+                        <span
+                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0"
                         >
                           Colombia
                         </span>
                         <div
-                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)]"
+                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)] shrink-0"
                         >
                           <span
                             class="text-[10px] font-black text-amber-500"
@@ -795,58 +802,67 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                         </div>
                       </div>
                       <div
-                        class="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8"
+                        class="flex-none h-[100px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-2 md:mb-8 py-2 md:py-4"
                       >
                         <h3
-                          class="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4"
+                          class="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-1 md:mb-4"
                         >
                           Omnicon
                         </h3>
-                        <p
-                          class="font-mono text-amber-500 uppercase tracking-widest text-[10px] md:text-sm"
+                        <div
+                          class="flex items-center gap-3"
                         >
-                          Omnicon - Industrial Digital Transformation
-                        </p>
+                          <p
+                            class="font-mono text-amber-500 uppercase tracking-widest text-[9px] md:text-sm"
+                          >
+                            Project Management Platform Development
+                          </p>
+                          <span
+                            class="text-[8px] md:text-[10px] text-white/40 font-mono border-l border-white/10 pl-3"
+                          >
+                            Aug. 2018 - Dec. 2018
+                          </span>
+                        </div>
                       </div>
                       <div
-                        class="flex-1 overflow-hidden relative"
+                        class="flex-1 relative overflow-hidden"
                       >
                         <div
                           animate="[object Object]"
-                          class="flex flex-col gap-6 md:gap-12"
+                          class="flex flex-col gap-4 md:gap-12"
                           exit="[object Object]"
                           initial="[object Object]"
                         >
                           <p
-                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-none font-light"
+                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-6 lg:line-clamp-none font-light"
                           >
                             A global systems integrator for industrial automation. They required an internal management platform to optimize project execution and data management across engineering-heavy sectors like Oil & Gas and Pharmaceuticals.
                           </p>
                           <div
-                            class="flex flex-wrap gap-1.5 md:gap-4"
+                            class="flex flex-wrap gap-2 md:gap-4 pb-4"
                           >
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               React
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               TypeScript
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               Internal Data Tools
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               Project Management APIs
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               Microsoft Teams Integration
                             </span>
@@ -854,15 +870,15 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                         </div>
                       </div>
                       <div
-                        class="flex-none h-[60px] md:h-[120px] flex items-center justify-between gap-4 pt-4 border-t border-white/5 mt-4 md:mt-8"
+                        class="flex-none min-h-[80px] md:min-h-[120px] flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/5 mt-auto"
                       >
                         <button
-                          class="text-[9px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1 shrink-0"
+                          class="text-[10px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-[0.2em] flex items-center gap-1 shrink-0"
                         >
                           [ + OPEN_INTEL ]
                         </button>
                         <a
-                          class="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[9px] md:text-[11px] tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
+                          class="inline-flex items-center gap-2 px-6 py-4 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[10px] md:text-[11px] tracking-[0.1em] sm:tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all w-full sm:w-auto justify-center"
                           href="/collaborations/omnicon"
                         >
                           <svg
@@ -888,10 +904,10 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                     </div>
                   </div>
                   <div
-                    class="w-[85vw] md:w-[1100px] h-[600px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
+                    class="w-[85vw] md:w-[1100px] h-[820px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
                   >
                     <div
-                      class="h-[250px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
+                      class="h-[280px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
                     >
                       <img
                         alt="Elephant CPA"
@@ -903,18 +919,26 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       />
                     </div>
                     <div
-                      class="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative"
+                      class="flex flex-col p-6 md:p-12 flex-grow w-full md:w-1/2 bg-black relative"
                     >
                       <div
-                        class="flex-none mb-4 md:mb-6 flex items-center gap-3"
+                        class="flex-none mb-4 md:mb-6 flex items-center gap-3 flex-wrap"
                       >
                         <span
-                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]"
+                          class="font-mono text-[9px] md:text-[10px] text-amber-500 font-bold tracking-widest bg-amber-500/10 px-2 py-0.5 rounded-sm shrink-0"
+                        >
+                          [ COMPLETED ]
+                        </span>
+                        <div
+                          class="h-[1px] w-6 bg-white/20 shrink-0"
+                        />
+                        <span
+                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0"
                         >
                           USA
                         </span>
                         <div
-                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)]"
+                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)] shrink-0"
                         >
                           <span
                             class="text-[10px] font-black text-amber-500"
@@ -929,58 +953,67 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                         </div>
                       </div>
                       <div
-                        class="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8"
+                        class="flex-none h-[100px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-2 md:mb-8 py-2 md:py-4"
                       >
                         <h3
-                          class="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4"
+                          class="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-1 md:mb-4"
                         >
                           Elephant CPA
                         </h3>
-                        <p
-                          class="font-mono text-amber-500 uppercase tracking-widest text-[10px] md:text-sm"
+                        <div
+                          class="flex items-center gap-3"
                         >
-                          Elephant CPA - Management SaaS Solution
-                        </p>
+                          <p
+                            class="font-mono text-amber-500 uppercase tracking-widest text-[9px] md:text-sm"
+                          >
+                            Elephant CPA - Management SaaS Solution
+                          </p>
+                          <span
+                            class="text-[8px] md:text-[10px] text-white/40 font-mono border-l border-white/10 pl-3"
+                          >
+                            Feb. 2022 - Aug. 2023
+                          </span>
+                        </div>
                       </div>
                       <div
-                        class="flex-1 overflow-hidden relative"
+                        class="flex-1 relative overflow-hidden"
                       >
                         <div
                           animate="[object Object]"
-                          class="flex flex-col gap-6 md:gap-12"
+                          class="flex flex-col gap-4 md:gap-12"
                           exit="[object Object]"
                           initial="[object Object]"
                         >
                           <p
-                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-none font-light"
+                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-6 lg:line-clamp-none font-light"
                           >
                             ElephantCPA, a dynamic platform designed to streamline interactions between accountants and their clients. They had a Minimum Viable Product (MVP) in place but were eager to elevate their platform in terms of functionalities, stability, and cybersecurity. A cloud-based practice management software solution for small to medium size accounting firms across the United States, they needed to move from MVP to a scalable solution with enhanced security.
                           </p>
                           <div
-                            class="flex flex-wrap gap-1.5 md:gap-4"
+                            class="flex flex-wrap gap-2 md:gap-4 pb-4"
                           >
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               React
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               TypeScript
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               NodeJS
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               MySQL
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               GCP Cloud Run
                             </span>
@@ -988,15 +1021,15 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                         </div>
                       </div>
                       <div
-                        class="flex-none h-[60px] md:h-[120px] flex items-center justify-between gap-4 pt-4 border-t border-white/5 mt-4 md:mt-8"
+                        class="flex-none min-h-[80px] md:min-h-[120px] flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/5 mt-auto"
                       >
                         <button
-                          class="text-[9px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1 shrink-0"
+                          class="text-[10px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-[0.2em] flex items-center gap-1 shrink-0"
                         >
                           [ + OPEN_INTEL ]
                         </button>
                         <a
-                          class="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[9px] md:text-[11px] tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
+                          class="inline-flex items-center gap-2 px-6 py-4 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[10px] md:text-[11px] tracking-[0.1em] sm:tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all w-full sm:w-auto justify-center"
                           href="/collaborations/elephant-cpa"
                         >
                           <svg
@@ -1022,10 +1055,10 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                     </div>
                   </div>
                   <div
-                    class="w-[85vw] md:w-[1100px] h-[600px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
+                    class="w-[85vw] md:w-[1100px] h-[820px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
                   >
                     <div
-                      class="h-[250px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
+                      class="h-[280px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
                     >
                       <img
                         alt="2Moon Capital"
@@ -1037,70 +1070,87 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       />
                     </div>
                     <div
-                      class="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative"
+                      class="flex flex-col p-6 md:p-12 flex-grow w-full md:w-1/2 bg-black relative"
                     >
                       <div
-                        class="flex-none mb-4 md:mb-6 flex items-center gap-3"
+                        class="flex-none mb-4 md:mb-6 flex items-center gap-3 flex-wrap"
                       >
                         <span
-                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]"
+                          class="font-mono text-[9px] md:text-[10px] text-amber-500 font-bold tracking-widest bg-amber-500/10 px-2 py-0.5 rounded-sm shrink-0"
+                        >
+                          [ COMPLETED ]
+                        </span>
+                        <div
+                          class="h-[1px] w-6 bg-white/20 shrink-0"
+                        />
+                        <span
+                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0"
                         >
                           USA
                         </span>
                       </div>
                       <div
-                        class="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8"
+                        class="flex-none h-[100px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-2 md:mb-8 py-2 md:py-4"
                       >
                         <h3
-                          class="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4"
+                          class="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-1 md:mb-4"
                         >
                           2Moon Capital
                         </h3>
-                        <p
-                          class="font-mono text-amber-500 uppercase tracking-widest text-[10px] md:text-sm"
+                        <div
+                          class="flex items-center gap-3"
                         >
-                          2Moon Capital - Algorithmic Trading Solution
-                        </p>
+                          <p
+                            class="font-mono text-amber-500 uppercase tracking-widest text-[9px] md:text-sm"
+                          >
+                            2Moon Capital - Algorithmic Trading Solution
+                          </p>
+                          <span
+                            class="text-[8px] md:text-[10px] text-white/40 font-mono border-l border-white/10 pl-3"
+                          >
+                            Oct. 2023 - Jan. 2025
+                          </span>
+                        </div>
                       </div>
                       <div
-                        class="flex-1 overflow-hidden relative"
+                        class="flex-1 relative overflow-hidden"
                       >
                         <div
                           animate="[object Object]"
-                          class="flex flex-col gap-6 md:gap-12"
+                          class="flex flex-col gap-4 md:gap-12"
                           exit="[object Object]"
                           initial="[object Object]"
                         >
                           <p
-                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-none font-light"
+                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-6 lg:line-clamp-none font-light"
                           >
                             2Moon required a sophisticated solution to manage and execute complex trading strategies efficiently. The project focused on creating an automated, reliable, and scalable trading system that could respond dynamically to market signals and manage multiple trading strategies and Interactive Brokers accounts effectively.
                           </p>
                           <div
-                            class="flex flex-wrap gap-1.5 md:gap-4"
+                            class="flex flex-wrap gap-2 md:gap-4 pb-4"
                           >
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               Python
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               Flask
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               NextJS
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               Django
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               AWS Lambda
                             </span>
@@ -1108,15 +1158,15 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                         </div>
                       </div>
                       <div
-                        class="flex-none h-[60px] md:h-[120px] flex items-center justify-between gap-4 pt-4 border-t border-white/5 mt-4 md:mt-8"
+                        class="flex-none min-h-[80px] md:min-h-[120px] flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/5 mt-auto"
                       >
                         <button
-                          class="text-[9px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1 shrink-0"
+                          class="text-[10px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-[0.2em] flex items-center gap-1 shrink-0"
                         >
                           [ + OPEN_INTEL ]
                         </button>
                         <a
-                          class="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[9px] md:text-[11px] tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
+                          class="inline-flex items-center gap-2 px-6 py-4 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[10px] md:text-[11px] tracking-[0.1em] sm:tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all w-full sm:w-auto justify-center"
                           href="/collaborations/2moon-capital"
                         >
                           <svg
@@ -1142,10 +1192,10 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                     </div>
                   </div>
                   <div
-                    class="w-[85vw] md:w-[1100px] h-[600px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
+                    class="w-[85vw] md:w-[1100px] h-[820px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
                   >
                     <div
-                      class="h-[250px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
+                      class="h-[280px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
                     >
                       <img
                         alt="Canadian Orthodontic Partners"
@@ -1157,84 +1207,87 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       />
                     </div>
                     <div
-                      class="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative"
+                      class="flex flex-col p-6 md:p-12 flex-grow w-full md:w-1/2 bg-black relative"
                     >
                       <div
-                        class="flex-none mb-4 md:mb-6 flex items-center gap-3"
+                        class="flex-none mb-4 md:mb-6 flex items-center gap-3 flex-wrap"
                       >
                         <span
-                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]"
+                          class="font-mono text-[9px] md:text-[10px] text-amber-500 font-bold tracking-widest bg-amber-500/10 px-2 py-0.5 rounded-sm shrink-0"
+                        >
+                          [ COMPLETED ]
+                        </span>
+                        <div
+                          class="h-[1px] w-6 bg-white/20 shrink-0"
+                        />
+                        <span
+                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0"
                         >
                           Canada
                         </span>
-                        <div
-                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)]"
+                      </div>
+                      <div
+                        class="flex-none h-[100px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-2 md:mb-8 py-2 md:py-4"
+                      >
+                        <h3
+                          class="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-1 md:mb-4"
                         >
-                          <span
-                            class="text-[10px] font-black text-amber-500"
+                          Canadian Orthodontic Partners
+                        </h3>
+                        <div
+                          class="flex items-center gap-3"
+                        >
+                          <p
+                            class="font-mono text-amber-500 uppercase tracking-widest text-[9px] md:text-sm"
                           >
-                            5.0
-                          </span>
+                            Canadian Orthodontic Partners & Docbraces
+                          </p>
                           <span
-                            class="text-amber-500/80 text-[10px]"
+                            class="text-[8px] md:text-[10px] text-white/40 font-mono border-l border-white/10 pl-3"
                           >
-                            ★
+                            June 2020 - Dec. 2024
                           </span>
                         </div>
                       </div>
                       <div
-                        class="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8"
-                      >
-                        <h3
-                          class="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4"
-                        >
-                          Canadian Orthodontic Partners
-                        </h3>
-                        <p
-                          class="font-mono text-amber-500 uppercase tracking-widest text-[10px] md:text-sm"
-                        >
-                          Canadian Orthodontic Partners & Docbraces
-                        </p>
-                      </div>
-                      <div
-                        class="flex-1 overflow-hidden relative"
+                        class="flex-1 relative overflow-hidden"
                       >
                         <div
                           animate="[object Object]"
-                          class="flex flex-col gap-6 md:gap-12"
+                          class="flex flex-col gap-4 md:gap-12"
                           exit="[object Object]"
                           initial="[object Object]"
                         >
                           <p
-                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-none font-light"
+                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-6 lg:line-clamp-none font-light"
                           >
                             A network of over 50 orthodontic clinics across Canada. They needed to bridge gaps between consumer-facing websites and CRM systems (HubSpot), and develop digital solutions for secure contract creation and treatment option presentations for patients.
                           </p>
                           <div
-                            class="flex flex-wrap gap-1.5 md:gap-4"
+                            class="flex flex-wrap gap-2 md:gap-4 pb-4"
                           >
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               React
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               NextJS
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               TypeScript
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               HubSpot API
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               Figma
                             </span>
@@ -1242,15 +1295,15 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                         </div>
                       </div>
                       <div
-                        class="flex-none h-[60px] md:h-[120px] flex items-center justify-between gap-4 pt-4 border-t border-white/5 mt-4 md:mt-8"
+                        class="flex-none min-h-[80px] md:min-h-[120px] flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/5 mt-auto"
                       >
                         <button
-                          class="text-[9px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1 shrink-0"
+                          class="text-[10px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-[0.2em] flex items-center gap-1 shrink-0"
                         >
                           [ + OPEN_INTEL ]
                         </button>
                         <a
-                          class="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[9px] md:text-[11px] tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
+                          class="inline-flex items-center gap-2 px-6 py-4 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[10px] md:text-[11px] tracking-[0.1em] sm:tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all w-full sm:w-auto justify-center"
                           href="/collaborations/canadian-orthodontic-partners"
                         >
                           <svg
@@ -1276,10 +1329,10 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                     </div>
                   </div>
                   <div
-                    class="w-[85vw] md:w-[1100px] h-[600px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
+                    class="w-[85vw] md:w-[1100px] h-[820px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
                   >
                     <div
-                      class="h-[250px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
+                      class="h-[280px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
                     >
                       <img
                         alt="Hello Leena"
@@ -1291,84 +1344,87 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       />
                     </div>
                     <div
-                      class="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative"
+                      class="flex flex-col p-6 md:p-12 flex-grow w-full md:w-1/2 bg-black relative"
                     >
                       <div
-                        class="flex-none mb-4 md:mb-6 flex items-center gap-3"
+                        class="flex-none mb-4 md:mb-6 flex items-center gap-3 flex-wrap"
                       >
                         <span
-                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]"
+                          class="font-mono text-[9px] md:text-[10px] text-amber-500 font-bold tracking-widest bg-amber-500/10 px-2 py-0.5 rounded-sm shrink-0"
+                        >
+                          [ COMPLETED ]
+                        </span>
+                        <div
+                          class="h-[1px] w-6 bg-white/20 shrink-0"
+                        />
+                        <span
+                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0"
                         >
                           Canada
                         </span>
-                        <div
-                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)]"
+                      </div>
+                      <div
+                        class="flex-none h-[100px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-2 md:mb-8 py-2 md:py-4"
+                      >
+                        <h3
+                          class="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-1 md:mb-4"
                         >
-                          <span
-                            class="text-[10px] font-black text-amber-500"
+                          Hello Leena
+                        </h3>
+                        <div
+                          class="flex items-center gap-3"
+                        >
+                          <p
+                            class="font-mono text-amber-500 uppercase tracking-widest text-[9px] md:text-sm"
                           >
-                            5.0
-                          </span>
+                            Hello Leena - Telehealth EMR Platform
+                          </p>
                           <span
-                            class="text-amber-500/80 text-[10px]"
+                            class="text-[8px] md:text-[10px] text-white/40 font-mono border-l border-white/10 pl-3"
                           >
-                            ★
+                            Apr. 2023 - Nov. 2024
                           </span>
                         </div>
                       </div>
                       <div
-                        class="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8"
-                      >
-                        <h3
-                          class="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4"
-                        >
-                          Hello Leena
-                        </h3>
-                        <p
-                          class="font-mono text-amber-500 uppercase tracking-widest text-[10px] md:text-sm"
-                        >
-                          Hello Leena - Telehealth EMR Platform
-                        </p>
-                      </div>
-                      <div
-                        class="flex-1 overflow-hidden relative"
+                        class="flex-1 relative overflow-hidden"
                       >
                         <div
                           animate="[object Object]"
-                          class="flex flex-col gap-6 md:gap-12"
+                          class="flex flex-col gap-4 md:gap-12"
                           exit="[object Object]"
                           initial="[object Object]"
                         >
                           <p
-                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-none font-light"
+                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-6 lg:line-clamp-none font-light"
                           >
                             A telehealth provider in the mental health space (BIPOC focused). The project involved building a complete, end-to-end Electronic Medical Record (EMR) system to manage patient data, telehealth sessions, and complex business reporting.
                           </p>
                           <div
-                            class="flex flex-wrap gap-1.5 md:gap-4"
+                            class="flex flex-wrap gap-2 md:gap-4 pb-4"
                           >
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               React
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               TypeScript
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               Stripe API
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               HubSpot
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               Video/Audio Integration SDKs
                             </span>
@@ -1376,15 +1432,15 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                         </div>
                       </div>
                       <div
-                        class="flex-none h-[60px] md:h-[120px] flex items-center justify-between gap-4 pt-4 border-t border-white/5 mt-4 md:mt-8"
+                        class="flex-none min-h-[80px] md:min-h-[120px] flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/5 mt-auto"
                       >
                         <button
-                          class="text-[9px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1 shrink-0"
+                          class="text-[10px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-[0.2em] flex items-center gap-1 shrink-0"
                         >
                           [ + OPEN_INTEL ]
                         </button>
                         <a
-                          class="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[9px] md:text-[11px] tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
+                          class="inline-flex items-center gap-2 px-6 py-4 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[10px] md:text-[11px] tracking-[0.1em] sm:tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all w-full sm:w-auto justify-center"
                           href="/collaborations/hello-leena"
                         >
                           <svg
@@ -1410,10 +1466,10 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                     </div>
                   </div>
                   <div
-                    class="w-[85vw] md:w-[1100px] h-[600px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
+                    class="w-[85vw] md:w-[1100px] h-[820px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
                   >
                     <div
-                      class="h-[250px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
+                      class="h-[280px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
                     >
                       <img
                         alt="Fruto Salvaje"
@@ -1425,18 +1481,26 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       />
                     </div>
                     <div
-                      class="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative"
+                      class="flex flex-col p-6 md:p-12 flex-grow w-full md:w-1/2 bg-black relative"
                     >
                       <div
-                        class="flex-none mb-4 md:mb-6 flex items-center gap-3"
+                        class="flex-none mb-4 md:mb-6 flex items-center gap-3 flex-wrap"
                       >
                         <span
-                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]"
+                          class="font-mono text-[9px] md:text-[10px] text-amber-500 font-bold tracking-widest bg-amber-500/10 px-2 py-0.5 rounded-sm shrink-0"
+                        >
+                          [ COMPLETED ]
+                        </span>
+                        <div
+                          class="h-[1px] w-6 bg-white/20 shrink-0"
+                        />
+                        <span
+                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)] shrink-0"
                         >
                           Colombia
                         </span>
                         <div
-                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)]"
+                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)] shrink-0"
                         >
                           <span
                             class="text-[10px] font-black text-amber-500"
@@ -1451,58 +1515,67 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                         </div>
                       </div>
                       <div
-                        class="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8"
+                        class="flex-none h-[100px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-2 md:mb-8 py-2 md:py-4"
                       >
                         <h3
-                          class="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4"
+                          class="text-xl sm:text-2xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-1 md:mb-4"
                         >
                           Fruto Salvaje
                         </h3>
-                        <p
-                          class="font-mono text-amber-500 uppercase tracking-widest text-[10px] md:text-sm"
+                        <div
+                          class="flex items-center gap-3"
                         >
-                          Fruto Salvaje - E-Commerce Empire
-                        </p>
+                          <p
+                            class="font-mono text-amber-500 uppercase tracking-widest text-[9px] md:text-sm"
+                          >
+                            Fruto Salvaje - E-Commerce Empire
+                          </p>
+                          <span
+                            class="text-[8px] md:text-[10px] text-white/40 font-mono border-l border-white/10 pl-3"
+                          >
+                            Jan. 2023 - Dec. 2024
+                          </span>
+                        </div>
                       </div>
                       <div
-                        class="flex-1 overflow-hidden relative"
+                        class="flex-1 relative overflow-hidden"
                       >
                         <div
                           animate="[object Object]"
-                          class="flex flex-col gap-6 md:gap-12"
+                          class="flex flex-col gap-4 md:gap-12"
                           exit="[object Object]"
                           initial="[object Object]"
                         >
                           <p
-                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-none font-light"
+                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-6 lg:line-clamp-none font-light"
                           >
                             A massive beauty and personal care brand scaling to international traffic. The platform requires high-conversion engineering, ritualistic content integration (Moon Phases), and global performance optimization.
                           </p>
                           <div
-                            class="flex flex-wrap gap-1.5 md:gap-4"
+                            class="flex flex-wrap gap-2 md:gap-4 pb-4"
                           >
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               Shopify Plus
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               Liquid
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               JavaScript
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               Klaviyo
                             </span>
                             <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
+                              class="text-[8px] sm:text-[9px] md:text-[11px] font-bold px-2.5 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/40 rounded-full uppercase tracking-widest whitespace-nowrap transition-all hover:bg-white/10 hover:text-white/70"
                             >
                               Judge.me
                             </span>
@@ -1510,805 +1583,15 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                         </div>
                       </div>
                       <div
-                        class="flex-none h-[60px] md:h-[120px] flex items-center justify-between gap-4 pt-4 border-t border-white/5 mt-4 md:mt-8"
+                        class="flex-none min-h-[80px] md:min-h-[120px] flex flex-col sm:flex-row items-center justify-between gap-4 pt-4 border-t border-white/5 mt-auto"
                       >
                         <button
-                          class="text-[9px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1 shrink-0"
+                          class="text-[10px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-[0.2em] flex items-center gap-1 shrink-0"
                         >
                           [ + OPEN_INTEL ]
                         </button>
                         <a
-                          class="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[9px] md:text-[11px] tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
-                          href="/collaborations/fruto-salvaje"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="lucide lucide-chevron-right"
-                            fill="none"
-                            height="16"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="3"
-                            viewBox="0 0 24 24"
-                            width="16"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m9 18 6-6-6-6"
-                            />
-                          </svg>
-                           VIEW_DOSSIER
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="w-[85vw] md:w-[1100px] h-[600px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
-                  >
-                    <div
-                      class="h-[250px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
-                    >
-                      <img
-                        alt="Omnicon"
-                        class="object-cover object-top grayscale sepia-[.7] contrast-125 brightness-75 group-hover/poster:scale-105 transition-all duration-[3s]"
-                        src="/public/images/collaborations/omnicon-landing.webp"
-                      />
-                      <div
-                        class="absolute inset-0 bg-amber-600/50 mix-blend-multiply shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]"
-                      />
-                    </div>
-                    <div
-                      class="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative"
-                    >
-                      <div
-                        class="flex-none mb-4 md:mb-6 flex items-center gap-3"
-                      >
-                        <span
-                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]"
-                        >
-                          Colombia
-                        </span>
-                        <div
-                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)]"
-                        >
-                          <span
-                            class="text-[10px] font-black text-amber-500"
-                          >
-                            5.0
-                          </span>
-                          <span
-                            class="text-amber-500/80 text-[10px]"
-                          >
-                            ★
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        class="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8"
-                      >
-                        <h3
-                          class="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4"
-                        >
-                          Omnicon
-                        </h3>
-                        <p
-                          class="font-mono text-amber-500 uppercase tracking-widest text-[10px] md:text-sm"
-                        >
-                          Omnicon - Industrial Digital Transformation
-                        </p>
-                      </div>
-                      <div
-                        class="flex-1 overflow-hidden relative"
-                      >
-                        <div
-                          animate="[object Object]"
-                          class="flex flex-col gap-6 md:gap-12"
-                          exit="[object Object]"
-                          initial="[object Object]"
-                        >
-                          <p
-                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-none font-light"
-                          >
-                            A global systems integrator for industrial automation. They required an internal management platform to optimize project execution and data management across engineering-heavy sectors like Oil & Gas and Pharmaceuticals.
-                          </p>
-                          <div
-                            class="flex flex-wrap gap-1.5 md:gap-4"
-                          >
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              React
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              TypeScript
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              Internal Data Tools
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              Project Management APIs
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              Microsoft Teams Integration
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="flex-none h-[60px] md:h-[120px] flex items-center justify-between gap-4 pt-4 border-t border-white/5 mt-4 md:mt-8"
-                      >
-                        <button
-                          class="text-[9px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1 shrink-0"
-                        >
-                          [ + OPEN_INTEL ]
-                        </button>
-                        <a
-                          class="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[9px] md:text-[11px] tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
-                          href="/collaborations/omnicon"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="lucide lucide-chevron-right"
-                            fill="none"
-                            height="16"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="3"
-                            viewBox="0 0 24 24"
-                            width="16"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m9 18 6-6-6-6"
-                            />
-                          </svg>
-                           VIEW_DOSSIER
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="w-[85vw] md:w-[1100px] h-[600px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
-                  >
-                    <div
-                      class="h-[250px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
-                    >
-                      <img
-                        alt="Elephant CPA"
-                        class="object-cover object-top grayscale sepia-[.7] contrast-125 brightness-75 group-hover/poster:scale-105 transition-all duration-[3s]"
-                        src="/public/images/collaborations/elephant-cpa-landing.webp"
-                      />
-                      <div
-                        class="absolute inset-0 bg-amber-600/50 mix-blend-multiply shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]"
-                      />
-                    </div>
-                    <div
-                      class="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative"
-                    >
-                      <div
-                        class="flex-none mb-4 md:mb-6 flex items-center gap-3"
-                      >
-                        <span
-                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]"
-                        >
-                          USA
-                        </span>
-                        <div
-                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)]"
-                        >
-                          <span
-                            class="text-[10px] font-black text-amber-500"
-                          >
-                            5.0
-                          </span>
-                          <span
-                            class="text-amber-500/80 text-[10px]"
-                          >
-                            ★
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        class="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8"
-                      >
-                        <h3
-                          class="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4"
-                        >
-                          Elephant CPA
-                        </h3>
-                        <p
-                          class="font-mono text-amber-500 uppercase tracking-widest text-[10px] md:text-sm"
-                        >
-                          Elephant CPA - Management SaaS Solution
-                        </p>
-                      </div>
-                      <div
-                        class="flex-1 overflow-hidden relative"
-                      >
-                        <div
-                          animate="[object Object]"
-                          class="flex flex-col gap-6 md:gap-12"
-                          exit="[object Object]"
-                          initial="[object Object]"
-                        >
-                          <p
-                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-none font-light"
-                          >
-                            ElephantCPA, a dynamic platform designed to streamline interactions between accountants and their clients. They had a Minimum Viable Product (MVP) in place but were eager to elevate their platform in terms of functionalities, stability, and cybersecurity. A cloud-based practice management software solution for small to medium size accounting firms across the United States, they needed to move from MVP to a scalable solution with enhanced security.
-                          </p>
-                          <div
-                            class="flex flex-wrap gap-1.5 md:gap-4"
-                          >
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              React
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              TypeScript
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              NodeJS
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              MySQL
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              GCP Cloud Run
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="flex-none h-[60px] md:h-[120px] flex items-center justify-between gap-4 pt-4 border-t border-white/5 mt-4 md:mt-8"
-                      >
-                        <button
-                          class="text-[9px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1 shrink-0"
-                        >
-                          [ + OPEN_INTEL ]
-                        </button>
-                        <a
-                          class="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[9px] md:text-[11px] tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
-                          href="/collaborations/elephant-cpa"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="lucide lucide-chevron-right"
-                            fill="none"
-                            height="16"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="3"
-                            viewBox="0 0 24 24"
-                            width="16"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m9 18 6-6-6-6"
-                            />
-                          </svg>
-                           VIEW_DOSSIER
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="w-[85vw] md:w-[1100px] h-[600px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
-                  >
-                    <div
-                      class="h-[250px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
-                    >
-                      <img
-                        alt="2Moon Capital"
-                        class="object-cover object-top grayscale sepia-[.7] contrast-125 brightness-75 group-hover/poster:scale-105 transition-all duration-[3s]"
-                        src="/public/images/collaborations/two-moon-play-store.webp"
-                      />
-                      <div
-                        class="absolute inset-0 bg-amber-600/50 mix-blend-multiply shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]"
-                      />
-                    </div>
-                    <div
-                      class="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative"
-                    >
-                      <div
-                        class="flex-none mb-4 md:mb-6 flex items-center gap-3"
-                      >
-                        <span
-                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]"
-                        >
-                          USA
-                        </span>
-                      </div>
-                      <div
-                        class="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8"
-                      >
-                        <h3
-                          class="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4"
-                        >
-                          2Moon Capital
-                        </h3>
-                        <p
-                          class="font-mono text-amber-500 uppercase tracking-widest text-[10px] md:text-sm"
-                        >
-                          2Moon Capital - Algorithmic Trading Solution
-                        </p>
-                      </div>
-                      <div
-                        class="flex-1 overflow-hidden relative"
-                      >
-                        <div
-                          animate="[object Object]"
-                          class="flex flex-col gap-6 md:gap-12"
-                          exit="[object Object]"
-                          initial="[object Object]"
-                        >
-                          <p
-                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-none font-light"
-                          >
-                            2Moon required a sophisticated solution to manage and execute complex trading strategies efficiently. The project focused on creating an automated, reliable, and scalable trading system that could respond dynamically to market signals and manage multiple trading strategies and Interactive Brokers accounts effectively.
-                          </p>
-                          <div
-                            class="flex flex-wrap gap-1.5 md:gap-4"
-                          >
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              Python
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              Flask
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              NextJS
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              Django
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              AWS Lambda
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="flex-none h-[60px] md:h-[120px] flex items-center justify-between gap-4 pt-4 border-t border-white/5 mt-4 md:mt-8"
-                      >
-                        <button
-                          class="text-[9px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1 shrink-0"
-                        >
-                          [ + OPEN_INTEL ]
-                        </button>
-                        <a
-                          class="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[9px] md:text-[11px] tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
-                          href="/collaborations/2moon-capital"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="lucide lucide-chevron-right"
-                            fill="none"
-                            height="16"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="3"
-                            viewBox="0 0 24 24"
-                            width="16"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m9 18 6-6-6-6"
-                            />
-                          </svg>
-                           VIEW_DOSSIER
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="w-[85vw] md:w-[1100px] h-[600px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
-                  >
-                    <div
-                      class="h-[250px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
-                    >
-                      <img
-                        alt="Canadian Orthodontic Partners"
-                        class="object-cover object-top grayscale sepia-[.7] contrast-125 brightness-75 group-hover/poster:scale-105 transition-all duration-[3s]"
-                        src="/public/images/collaborations/canadian-orthodontic-partners-landing.webp"
-                      />
-                      <div
-                        class="absolute inset-0 bg-amber-600/50 mix-blend-multiply shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]"
-                      />
-                    </div>
-                    <div
-                      class="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative"
-                    >
-                      <div
-                        class="flex-none mb-4 md:mb-6 flex items-center gap-3"
-                      >
-                        <span
-                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]"
-                        >
-                          Canada
-                        </span>
-                        <div
-                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)]"
-                        >
-                          <span
-                            class="text-[10px] font-black text-amber-500"
-                          >
-                            5.0
-                          </span>
-                          <span
-                            class="text-amber-500/80 text-[10px]"
-                          >
-                            ★
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        class="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8"
-                      >
-                        <h3
-                          class="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4"
-                        >
-                          Canadian Orthodontic Partners
-                        </h3>
-                        <p
-                          class="font-mono text-amber-500 uppercase tracking-widest text-[10px] md:text-sm"
-                        >
-                          Canadian Orthodontic Partners & Docbraces
-                        </p>
-                      </div>
-                      <div
-                        class="flex-1 overflow-hidden relative"
-                      >
-                        <div
-                          animate="[object Object]"
-                          class="flex flex-col gap-6 md:gap-12"
-                          exit="[object Object]"
-                          initial="[object Object]"
-                        >
-                          <p
-                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-none font-light"
-                          >
-                            A network of over 50 orthodontic clinics across Canada. They needed to bridge gaps between consumer-facing websites and CRM systems (HubSpot), and develop digital solutions for secure contract creation and treatment option presentations for patients.
-                          </p>
-                          <div
-                            class="flex flex-wrap gap-1.5 md:gap-4"
-                          >
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              React
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              NextJS
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              TypeScript
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              HubSpot API
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              Figma
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="flex-none h-[60px] md:h-[120px] flex items-center justify-between gap-4 pt-4 border-t border-white/5 mt-4 md:mt-8"
-                      >
-                        <button
-                          class="text-[9px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1 shrink-0"
-                        >
-                          [ + OPEN_INTEL ]
-                        </button>
-                        <a
-                          class="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[9px] md:text-[11px] tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
-                          href="/collaborations/canadian-orthodontic-partners"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="lucide lucide-chevron-right"
-                            fill="none"
-                            height="16"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="3"
-                            viewBox="0 0 24 24"
-                            width="16"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m9 18 6-6-6-6"
-                            />
-                          </svg>
-                           VIEW_DOSSIER
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="w-[85vw] md:w-[1100px] h-[600px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
-                  >
-                    <div
-                      class="h-[250px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
-                    >
-                      <img
-                        alt="Hello Leena"
-                        class="object-cover object-top grayscale sepia-[.7] contrast-125 brightness-75 group-hover/poster:scale-105 transition-all duration-[3s]"
-                        src="/public/images/collaborations/helloleena-landing.webp"
-                      />
-                      <div
-                        class="absolute inset-0 bg-amber-600/50 mix-blend-multiply shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]"
-                      />
-                    </div>
-                    <div
-                      class="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative"
-                    >
-                      <div
-                        class="flex-none mb-4 md:mb-6 flex items-center gap-3"
-                      >
-                        <span
-                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]"
-                        >
-                          Canada
-                        </span>
-                        <div
-                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)]"
-                        >
-                          <span
-                            class="text-[10px] font-black text-amber-500"
-                          >
-                            5.0
-                          </span>
-                          <span
-                            class="text-amber-500/80 text-[10px]"
-                          >
-                            ★
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        class="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8"
-                      >
-                        <h3
-                          class="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4"
-                        >
-                          Hello Leena
-                        </h3>
-                        <p
-                          class="font-mono text-amber-500 uppercase tracking-widest text-[10px] md:text-sm"
-                        >
-                          Hello Leena - Telehealth EMR Platform
-                        </p>
-                      </div>
-                      <div
-                        class="flex-1 overflow-hidden relative"
-                      >
-                        <div
-                          animate="[object Object]"
-                          class="flex flex-col gap-6 md:gap-12"
-                          exit="[object Object]"
-                          initial="[object Object]"
-                        >
-                          <p
-                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-none font-light"
-                          >
-                            A telehealth provider in the mental health space (BIPOC focused). The project involved building a complete, end-to-end Electronic Medical Record (EMR) system to manage patient data, telehealth sessions, and complex business reporting.
-                          </p>
-                          <div
-                            class="flex flex-wrap gap-1.5 md:gap-4"
-                          >
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              React
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              TypeScript
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              Stripe API
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              HubSpot
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              Video/Audio Integration SDKs
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="flex-none h-[60px] md:h-[120px] flex items-center justify-between gap-4 pt-4 border-t border-white/5 mt-4 md:mt-8"
-                      >
-                        <button
-                          class="text-[9px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1 shrink-0"
-                        >
-                          [ + OPEN_INTEL ]
-                        </button>
-                        <a
-                          class="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[9px] md:text-[11px] tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
-                          href="/collaborations/hello-leena"
-                        >
-                          <svg
-                            aria-hidden="true"
-                            class="lucide lucide-chevron-right"
-                            fill="none"
-                            height="16"
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="3"
-                            viewBox="0 0 24 24"
-                            width="16"
-                            xmlns="http://www.w3.org/2000/svg"
-                          >
-                            <path
-                              d="m9 18 6-6-6-6"
-                            />
-                          </svg>
-                           VIEW_DOSSIER
-                        </a>
-                      </div>
-                    </div>
-                  </div>
-                  <div
-                    class="w-[85vw] md:w-[1100px] h-[600px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
-                  >
-                    <div
-                      class="h-[250px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10"
-                    >
-                      <img
-                        alt="Fruto Salvaje"
-                        class="object-cover object-top grayscale sepia-[.7] contrast-125 brightness-75 group-hover/poster:scale-105 transition-all duration-[3s]"
-                        src="/public/images/collaborations/fruto-salvaje-landing.webp"
-                      />
-                      <div
-                        class="absolute inset-0 bg-amber-600/50 mix-blend-multiply shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]"
-                      />
-                    </div>
-                    <div
-                      class="flex flex-col p-6 md:p-12 h-[350px] md:h-full w-full md:w-1/2 bg-black relative"
-                    >
-                      <div
-                        class="flex-none mb-4 md:mb-6 flex items-center gap-3"
-                      >
-                        <span
-                          class="inline-block font-mono text-[10px] md:text-[11px] font-black text-black bg-amber-500 px-3 py-1 rounded-sm uppercase tracking-widest shadow-[0_0_20px_rgba(245,158,11,0.4)]"
-                        >
-                          Colombia
-                        </span>
-                        <div
-                          class="flex items-center gap-1 bg-white/5 border border-amber-500/20 px-2 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.1)]"
-                        >
-                          <span
-                            class="text-[10px] font-black text-amber-500"
-                          >
-                            5.0
-                          </span>
-                          <span
-                            class="text-amber-500/80 text-[10px]"
-                          >
-                            ★
-                          </span>
-                        </div>
-                      </div>
-                      <div
-                        class="flex-none h-[80px] md:h-[180px] flex flex-col justify-center border-b border-white/5 mb-4 md:mb-8"
-                      >
-                        <h3
-                          class="text-xl md:text-4xl lg:text-5xl xl:text-6xl font-black uppercase text-white leading-[0.9] tracking-tighter mb-2 md:mb-4"
-                        >
-                          Fruto Salvaje
-                        </h3>
-                        <p
-                          class="font-mono text-amber-500 uppercase tracking-widest text-[10px] md:text-sm"
-                        >
-                          Fruto Salvaje - E-Commerce Empire
-                        </p>
-                      </div>
-                      <div
-                        class="flex-1 overflow-hidden relative"
-                      >
-                        <div
-                          animate="[object Object]"
-                          class="flex flex-col gap-6 md:gap-12"
-                          exit="[object Object]"
-                          initial="[object Object]"
-                        >
-                          <p
-                            class="text-xs md:text-lg text-white/40 leading-relaxed line-clamp-4 md:line-clamp-none font-light"
-                          >
-                            A massive beauty and personal care brand scaling to international traffic. The platform requires high-conversion engineering, ritualistic content integration (Moon Phases), and global performance optimization.
-                          </p>
-                          <div
-                            class="flex flex-wrap gap-1.5 md:gap-4"
-                          >
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              Shopify Plus
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              Liquid
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              JavaScript
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              Klaviyo
-                            </span>
-                            <span
-                              class="text-[7px] md:text-[11px] font-bold px-2 py-1 md:px-4 md:py-2 bg-white/5 border border-white/10 text-white/30 rounded-full uppercase tracking-widest"
-                            >
-                              Judge.me
-                            </span>
-                          </div>
-                        </div>
-                      </div>
-                      <div
-                        class="flex-none h-[60px] md:h-[120px] flex items-center justify-between gap-4 pt-4 border-t border-white/5 mt-4 md:mt-8"
-                      >
-                        <button
-                          class="text-[9px] md:text-xs font-mono font-bold text-amber-500/60 hover:text-amber-500 transition-colors uppercase tracking-widest flex items-center gap-1 shrink-0"
-                        >
-                          [ + OPEN_INTEL ]
-                        </button>
-                        <a
-                          class="inline-flex items-center gap-2 px-5 py-3 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[9px] md:text-[11px] tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all flex-grow md:flex-none justify-center"
+                          class="inline-flex items-center gap-2 px-6 py-4 md:px-7 md:py-3.5 bg-gold-gradient rounded-sm text-black font-bold uppercase text-[10px] md:text-[11px] tracking-[0.1em] sm:tracking-[0.3em] shadow-[0_0_20px_rgba(245,158,11,0.2)] hover:scale-105 transition-all w-full sm:w-auto justify-center"
                           href="/collaborations/fruto-salvaje"
                         >
                           <svg
@@ -2427,13 +1710,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                 whilehover="[object Object]"
               >
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -2530,13 +1813,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Omnicon
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -2546,13 +1833,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -2649,13 +1936,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Elephant CPA
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "The engineering team is transparent, and they're very honest with the work that they do."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "The engineering team is transparent, and they're very honest with the work that they do."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -2665,251 +1956,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
-                  >
-                    <div
-                      class="flex gap-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-mono text-[10px] font-black text-amber-100 bg-amber-500/20 uppercase tracking-widest border border-amber-500/40 px-3 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]"
-                    >
-                      Canadian Orthodontic Partners
-                    </span>
-                  </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
-                  >
-                    "The engineering team's biggest strengths are their dedication and affordable fees."
-                  </blockquote>
-                  <cite
-                    class="not-italic block border-t border-white/5 pt-4"
-                  >
-                    <div
-                      class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
-                    >
-                      // Barb Heathcote, Manager of Dental Engagement
-                    </div>
-                  </cite>
-                </div>
-                <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
-                >
-                  <div
-                    class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
-                  />
-                  <div
-                    class="flex justify-between items-start mb-6"
-                  >
-                    <div
-                      class="flex gap-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-mono text-[10px] font-black text-amber-100 bg-amber-500/20 uppercase tracking-widest border border-amber-500/40 px-3 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]"
-                    >
-                      Hello Leena
-                    </span>
-                  </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
-                  >
-                    "The engineering team is incredible in the way that they learn about your business, and do their best to deliver above and beyond."
-                  </blockquote>
-                  <cite
-                    class="not-italic block border-t border-white/5 pt-4"
-                  >
-                    <div
-                      class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
-                    >
-                      // Executive, Healthcare Company
-                    </div>
-                  </cite>
-                </div>
-                <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
-                >
-                  <div
-                    class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
-                  />
-                  <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -3006,13 +2059,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Fruto Salvaje
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "Excellent product, I love it! The site makes buying very easy."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "Excellent product, I love it! The site makes buying very easy."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -3022,13 +2079,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -3125,13 +2182,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Omnicon
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -3141,13 +2202,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -3244,13 +2305,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Elephant CPA
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "The engineering team is transparent, and they're very honest with the work that they do."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "The engineering team is transparent, and they're very honest with the work that they do."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -3260,251 +2325,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
-                  >
-                    <div
-                      class="flex gap-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-mono text-[10px] font-black text-amber-100 bg-amber-500/20 uppercase tracking-widest border border-amber-500/40 px-3 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]"
-                    >
-                      Canadian Orthodontic Partners
-                    </span>
-                  </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
-                  >
-                    "The engineering team's biggest strengths are their dedication and affordable fees."
-                  </blockquote>
-                  <cite
-                    class="not-italic block border-t border-white/5 pt-4"
-                  >
-                    <div
-                      class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
-                    >
-                      // Barb Heathcote, Manager of Dental Engagement
-                    </div>
-                  </cite>
-                </div>
-                <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
-                >
-                  <div
-                    class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
-                  />
-                  <div
-                    class="flex justify-between items-start mb-6"
-                  >
-                    <div
-                      class="flex gap-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-mono text-[10px] font-black text-amber-100 bg-amber-500/20 uppercase tracking-widest border border-amber-500/40 px-3 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]"
-                    >
-                      Hello Leena
-                    </span>
-                  </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
-                  >
-                    "The engineering team is incredible in the way that they learn about your business, and do their best to deliver above and beyond."
-                  </blockquote>
-                  <cite
-                    class="not-italic block border-t border-white/5 pt-4"
-                  >
-                    <div
-                      class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
-                    >
-                      // Executive, Healthcare Company
-                    </div>
-                  </cite>
-                </div>
-                <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
-                >
-                  <div
-                    class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
-                  />
-                  <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -3601,13 +2428,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Fruto Salvaje
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "Excellent product, I love it! The site makes buying very easy."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "Excellent product, I love it! The site makes buying very easy."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -3617,13 +2448,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -3720,13 +2551,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Omnicon
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -3736,13 +2571,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -3839,13 +2674,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Elephant CPA
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "The engineering team is transparent, and they're very honest with the work that they do."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "The engineering team is transparent, and they're very honest with the work that they do."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
@@ -3855,251 +2694,13 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                   </cite>
                 </div>
                 <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                  class="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
                 >
                   <div
                     class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
                   />
                   <div
-                    class="flex justify-between items-start mb-6"
-                  >
-                    <div
-                      class="flex gap-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-mono text-[10px] font-black text-amber-100 bg-amber-500/20 uppercase tracking-widest border border-amber-500/40 px-3 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]"
-                    >
-                      Canadian Orthodontic Partners
-                    </span>
-                  </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
-                  >
-                    "The engineering team's biggest strengths are their dedication and affordable fees."
-                  </blockquote>
-                  <cite
-                    class="not-italic block border-t border-white/5 pt-4"
-                  >
-                    <div
-                      class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
-                    >
-                      // Barb Heathcote, Manager of Dental Engagement
-                    </div>
-                  </cite>
-                </div>
-                <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
-                >
-                  <div
-                    class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
-                  />
-                  <div
-                    class="flex justify-between items-start mb-6"
-                  >
-                    <div
-                      class="flex gap-1"
-                    >
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                      <svg
-                        aria-hidden="true"
-                        class="lucide lucide-star fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]"
-                        fill="none"
-                        height="14"
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        viewBox="0 0 24 24"
-                        width="14"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M11.525 2.295a.53.53 0 0 1 .95 0l2.31 4.679a2.123 2.123 0 0 0 1.595 1.16l5.166.756a.53.53 0 0 1 .294.904l-3.736 3.638a2.123 2.123 0 0 0-.611 1.878l.882 5.14a.53.53 0 0 1-.771.56l-4.618-2.428a2.122 2.122 0 0 0-1.973 0L6.396 21.01a.53.53 0 0 1-.77-.56l.881-5.139a2.122 2.122 0 0 0-.611-1.879L2.16 9.795a.53.53 0 0 1 .294-.906l5.165-.755a2.122 2.122 0 0 0 1.597-1.16z"
-                        />
-                      </svg>
-                    </div>
-                    <span
-                      class="font-mono text-[10px] font-black text-amber-100 bg-amber-500/20 uppercase tracking-widest border border-amber-500/40 px-3 py-1 rounded-sm shadow-[0_0_15px_rgba(245,158,11,0.3)]"
-                    >
-                      Hello Leena
-                    </span>
-                  </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
-                  >
-                    "The engineering team is incredible in the way that they learn about your business, and do their best to deliver above and beyond."
-                  </blockquote>
-                  <cite
-                    class="not-italic block border-t border-white/5 pt-4"
-                  >
-                    <div
-                      class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"
-                    >
-                      // Executive, Healthcare Company
-                    </div>
-                  </cite>
-                </div>
-                <div
-                  class="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
-                >
-                  <div
-                    class="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40"
-                  />
-                  <div
-                    class="flex justify-between items-start mb-6"
+                    class="flex justify-between items-start mb-6 flex-none"
                   >
                     <div
                       class="flex gap-1"
@@ -4196,13 +2797,17 @@ exports[`UI Integrity Mandate - HUD Pro-Max (v28) > debe generar un snapshot est
                       Fruto Salvaje
                     </span>
                   </div>
-                  <blockquote
-                    class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                  <div
+                    class="flex-grow"
                   >
-                    "Excellent product, I love it! The site makes buying very easy."
-                  </blockquote>
+                    <blockquote
+                      class="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8"
+                    >
+                      "Excellent product, I love it! The site makes buying very easy."
+                    </blockquote>
+                  </div>
                   <cite
-                    class="not-italic block border-t border-white/5 pt-4"
+                    class="not-italic block border-t border-white/5 pt-4 mt-auto"
                   >
                     <div
                       class="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]"

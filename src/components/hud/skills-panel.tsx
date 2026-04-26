@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import { useTranslations } from "@/lib/i18n-client";
 
 interface SkillsPanelProps {
   className?: string;
@@ -15,12 +16,14 @@ const OTHER_SKILLS = ["Next.js", "Docker", "PostgreSQL", "React", "TailwindCSS"]
  * v10: primary shorthand, grow, cero arbitrary vars.
  */
 export function SkillsPanel({ className }: SkillsPanelProps) {
+  const t = useTranslations();
+
   return (
     <div className={cn("flex flex-col gap-6", className)}>
       <div className="space-y-4">
         <h3 className="text-[11px] font-black font-mono tracking-[0.4em] text-amber-500 uppercase flex items-center gap-2">
           <div className="w-1.5 h-1.5 bg-amber-500 rounded-full animate-pulse" />
-          Core_Matrix
+          {t("hud.skills_core")}
         </h3>
         
         <div className="grid grid-cols-2 gap-3">
@@ -30,7 +33,7 @@ export function SkillsPanel({ className }: SkillsPanelProps) {
               className="border border-amber-500/30 bg-amber-500/5 px-4 py-3 text-[10px] font-black font-mono text-amber-500 uppercase tracking-widest flex items-center justify-between group cursor-default hover:bg-amber-500/10 transition-all"
             >
               <span>{skill}</span>
-              <span className="text-[8px] opacity-30">[ACTIVE]</span>
+              <span className="text-[8px] opacity-30">{t("hud.skills_active")}</span>
             </div>
           ))}
         </div>
@@ -38,7 +41,7 @@ export function SkillsPanel({ className }: SkillsPanelProps) {
 
       <div className="space-y-4">
         <h3 className="text-[10px] font-black font-mono tracking-[0.3em] text-amber-200 uppercase drop-shadow-[0_0_8px_rgba(251,191,36,0.3)]">
-          Sub_Modules
+          {t("hud.skills_sub")}
         </h3>
         <div className="flex flex-wrap gap-2">
           {OTHER_SKILLS.map((skill) => (

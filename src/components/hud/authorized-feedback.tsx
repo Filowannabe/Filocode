@@ -5,6 +5,7 @@ import { Star } from "lucide-react";
 import collaborationsData from "@/data/collaborations.json";
 import { Collaboration } from "@/types/collaboration";
 import { HudPanel } from "./hud-panel";
+import { useTranslations } from "@/lib/i18n-client";
 
 const MotionDiv = motion.div as any;
 
@@ -13,14 +14,16 @@ const MotionDiv = motion.div as any;
  * v3.1 - Restaurado Estándar Mac Window para el Footer Base.
  */
 export function AuthorizedFeedback() {
+  const t = useTranslations();
   const { collaborations } = collaborationsData as any;
   
   const allFeedbacks = collaborations
     .filter((c: Collaboration) => c.clientFeedback && c.clientFeedback.length > 0)
-    .flatMap((c: Collaboration) => (c.clientFeedback || []).map(f => ({
+    .flatMap((c: Collaboration) => (c.clientFeedback || []).map((f: any, idx: number) => ({
       ...f,
       company: c.company,
-      projectId: c.id
+      projectId: c.id,
+      feedbackIndex: idx
     })));
 
   // Triplicar para asegurar un loop infinito sin cortes visuales
@@ -28,11 +31,11 @@ export function AuthorizedFeedback() {
 
   return (
     <div className="w-full">
-      <HudPanel title="SYSTEM_VALIDATION // GLOBAL_FEEDBACK_STREAM" delay={0.7}>
+      <HudPanel title={t("hud.validation_stream")} delay={0.7}>
         <div className="w-full overflow-hidden py-16 relative group">
           {/* High-Visibility Intelligence Label - Mac Window Style */}
           <div className="absolute top-4 left-1/2 -translate-x-1/2 font-mono text-[10px] text-amber-200 uppercase tracking-[0.4em] font-black pointer-events-none z-20 drop-shadow-[0_0_8px_rgba(251,191,36,0.5)]">
-            AUTHORIZED_FEEDBACK_STREAM // ENCRYPTED_CHANNEL
+            {t("hud.feedback_channel")}
           </div>
 
           <MotionDiv 
@@ -47,13 +50,13 @@ export function AuthorizedFeedback() {
           >
             {displayFeedbacks.map((feedback, idx) => (
               <div 
-                key={`${feedback.projectId}-${idx}`}
-                className="flex-none w-[350px] md:w-[500px] p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
+                key={`${feedback.projectId}-${feedback.feedbackIndex}-${idx}`}
+                className="flex-none w-[350px] md:w-[500px] flex flex-col p-8 bg-white/[0.03] border border-white/10 rounded-xl relative overflow-hidden backdrop-blur-md shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]"
               >
                 {/* Tactical Side Accent */}
                 <div className="absolute top-0 left-0 w-[3px] h-full bg-amber-500/40" />
-                
-                <div className="flex justify-between items-start mb-6">
+
+                <div className="flex justify-between items-start mb-6 flex-none">
                   <div className="flex gap-1">
                     {[...Array(feedback.rating)].map((_, i) => (
                       <Star key={i} size={14} className="fill-amber-500 text-amber-500 drop-shadow-[0_0_10px_rgba(245,158,11,0.6)]" />
@@ -64,13 +67,15 @@ export function AuthorizedFeedback() {
                   </span>
                 </div>
 
-                <blockquote className="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8">
-                  "{feedback.quote}"
-                </blockquote>
+                <div className="flex-grow">
+                  <blockquote className="text-base md:text-xl font-serif italic text-white/90 leading-relaxed mb-8">
+                    "{t(`projects.${feedback.projectId}.clientFeedback.${feedback.feedbackIndex}.quote`)}"
+                  </blockquote>
+                </div>
 
-                <cite className="not-italic block border-t border-white/5 pt-4">
+                <cite className="not-italic block border-t border-white/5 pt-4 mt-auto">
                   <div className="font-mono text-[10px] text-amber-200 uppercase tracking-[0.3em] font-black drop-shadow-[0_0_8px_rgba(251,191,36,0.4)]">
-                    {"//"} {feedback.reviewer}
+                    {"//"} {t(`projects.${feedback.projectId}.clientFeedback.${feedback.feedbackIndex}.reviewer`)}
                   </div>
                 </cite>
               </div>

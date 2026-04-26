@@ -4,33 +4,23 @@ import React, { useState, useMemo, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Search, X, Command, Terminal, FileCode2 } from 'lucide-react';
 import * as Si from 'react-icons/si';
-// import * as Di from 'react-icons/di'; // No usado en este archivo
 import { cn } from '@/lib/utils';
+import { useTranslations } from '@/lib/i18n-client';
+import { formatTechName } from '@/utils/topics';
 
 const MotionDiv = motion.div as any;
 const MotionButton = motion.button as any;
 
 /**
  * GetDisplayName - Formateo de Nombres Oficiales
+ * C# Total Restoration v6.2
  */
 function getDisplayName(tech: string): string {
-  const t = tech.toLowerCase();
-  if (t === 'csharp') return 'C#';
-  if (t === 'javascript') return 'JavaScript';
-  if (t === 'typescript') return 'TypeScript';
-  if (t === 'nextjs' || t === 'next') return 'Next.js';
-  if (t === 'spring-boot') return 'Spring Boot';
-  if (t === 'github-actions') return 'GH Actions';
-  if (t === 'postgresql') return 'PostgreSQL';
-  if (t === 'php') return 'PHP';
-  if (t === 'sql') return 'SQL';
-  if (t === 'html') return 'HTML5';
-  if (t === 'css') return 'CSS3';
-  return tech.charAt(0).toUpperCase() + tech.slice(1);
+  return formatTechName(tech);
 }
 
 /**
- * TechIcon v5.1 - Motor de Glifos Oficiales con Glow Ámbar
+ * TechIcon v5.3 - Motor de Glifos con Detección Blindada
  */
 function TechIcon({ tech, isActive }: { tech: string; isActive: boolean }) {
   const t = tech.toLowerCase().trim();
@@ -50,7 +40,8 @@ function TechIcon({ tech, isActive }: { tech: string; isActive: boolean }) {
       if (t === 'css') return <Si.SiCss />;
       if (t === 'html') return <Si.SiHtml5 />;
       if (t === 'markdown') return <Si.SiMarkdown />;
-      if (t === 'csharp' || t === 'dotnet' || t === 'c#') return <Si.SiDotnet />;
+      // C# / .NET Protocol
+      if (t === 'c#' || t === 'csharp' || t === 'dotnet' || tech === 'C#') return <Si.SiDotnet />;
       if (t === 'springboot' || t === 'spring-boot') return <Si.SiSpringboot />;
       if (t === 'postgresql' || t === 'sql') return <Si.SiPostgresql />;
       if (t === 'unity') return <Si.SiUnity />;
@@ -66,7 +57,7 @@ function TechIcon({ tech, isActive }: { tech: string; isActive: boolean }) {
   return (
     <div className={cn(
       "w-4 h-4 flex items-center justify-center shrink-0 transition-all duration-300",
-      isActive ? "text-black" : "text-primary drop-shadow-[0_0_5px_rgba(251,191,36,0.6)]"
+      isActive ? "text-black" : "text-amber-500 drop-shadow-[0_0_5px_rgba(245,158,11,0.6)]"
     )}>
       {getIcon()}
     </div>
@@ -82,7 +73,7 @@ interface FilterBarProps {
   onClear: () => void;
   filteredCount: number;
   totalCount: number;
-  _test_forceShowSuggestions?: boolean; // Prop exclusiva para tests
+  _test_forceShowSuggestions?: boolean; 
 }
 
 export function FilterBar({
@@ -96,15 +87,10 @@ export function FilterBar({
   totalCount,
   _test_forceShowSuggestions = false
 }: FilterBarProps) {
+  const t = useTranslations();
   const [showSuggestions, setShowSuggestions] = useState(_test_forceShowSuggestions);
   const [selectedIndex, setSelectedIndex] = useState(-1);
   const isAnyFilterActive = activeTopics.length > 0 || searchQuery.length > 0;
-
-  // Sincronizar prop de test si cambia - useEffect dependiente (no llama a setState para evitar cascadas)
-  useEffect(() => {
-    // Este efecto solo se ejecuta cuando showSuggestions cambia, no llama a setState
-    // El padre debe manejar la prop _test_forceShowSuggestions
-  }, [showSuggestions]);
 
   const suggestions = useMemo(() => {
     if (!searchQuery.trim() || searchQuery.length < 2) return [];
@@ -116,17 +102,14 @@ export function FilterBar({
       .slice(0, 5);
   }, [searchQuery, availableTopics, activeTopics]);
 
-  // 02. Manejo de cierre al hacer clic fuera
    useEffect(() => {
-     const handleClickOutside = (_event: MouseEvent) => {
-       // Eliminada: closure con ref que fallaba en export mode
+     const handleClickOutside = () => {
        setShowSuggestions(false);
      };
      document.addEventListener('mousedown', handleClickOutside);
      return () => document.removeEventListener('mousedown', handleClickOutside);
    }, []);
 
-  // 03. Navegación por teclado
   const handleKeyDown = (e: React.KeyboardEvent) => {
     if (!showSuggestions || suggestions.length === 0) return;
     if (e.key === 'ArrowDown') {
@@ -154,12 +137,12 @@ export function FilterBar({
 
   return (
     <div className="flex flex-col gap-6 w-full">
-      
+
       {/* 01. MAIN COMMAND BAR */}
       <div className="relative w-full border border-white/10 rounded-lg bg-[#050505] shadow-2xl min-h-[56px] md:h-14 overflow-visible">
         <div className="flex flex-col md:flex-row items-stretch h-full">
           <div className="flex-1 flex items-center px-8 gap-5 border-b md:border-b-0 md:border-r border-white/10 group-focus-within:bg-white/[0.02] transition-all relative">
-            <Search size={18} strokeWidth={2.5} className="text-primary/40 shrink-0" />
+            <Search size={18} strokeWidth={2.5} className="text-amber-500/40 shrink-0" />
             <input
               id="command-search"
               name="search"
@@ -172,9 +155,9 @@ export function FilterBar({
                 setShowSuggestions(true);
                 setSelectedIndex(-1);
               }}
-              placeholder="BUSCAR PROYECTO O TECNOLOGÍA..."
+              placeholder={t("arsenal.search_placeholder")}
               className={cn(
-                "flex-1 h-full bg-transparent text-[11px] font-mono font-bold uppercase tracking-[0.25em] outline-none",
+                "flex-1 h-full bg-transparent text-[11px] font-mono font-bold uppercase tracking-[0.25em] outline-none",   
                 "placeholder:text-white/15 focus:text-white transition-all w-full min-w-0"
               )}
             />
@@ -198,9 +181,9 @@ export function FilterBar({
 
           <div className="flex items-center justify-center md:justify-end px-8 py-4 md:py-0 bg-white/[0.01] shrink-0 min-w-[180px]">
             <div className="flex items-center gap-3 font-mono">
-              <span className="text-[10px] font-black text-white/20 uppercase tracking-[0.2em]">Resultados:</span>
+              <span className="text-[10px] font-black text-white/20 uppercase tracking-[0.2em]">{t("arsenal.results_label")}</span>
               <div className="flex items-baseline gap-1.5">
-                <span className="text-lg font-bold text-primary tabular-nums tracking-tighter">
+                <span className="text-lg font-bold text-amber-500 tabular-nums tracking-tighter">
                   {filteredCount.toString().padStart(2, '0')}
                 </span>
                 <span className="text-[10px] text-white/20 font-bold">/ {totalCount.toString().padStart(2, '0')}</span>
@@ -216,11 +199,11 @@ export function FilterBar({
               initial={{ opacity: 0, y: -10 } as any}
               animate={{ opacity: 1, y: 0 } as any}
               exit={{ opacity: 0, y: -10 } as any}
-              className="absolute top-full left-0 w-full md:w-auto md:min-w-[400px] mt-2 z-[100] bg-[#0A0A0A] border border-primary/20 rounded-md shadow-[0_30px_60px_rgba(0,0,0,0.9)] overflow-hidden backdrop-blur-2xl"
+              className="absolute top-full left-0 w-full md:w-auto md:min-w-[400px] mt-2 z-[100] bg-[#0A0A0A] border border-amber-500/20 rounded-md shadow-[0_30px_60px_rgba(0,0,0,0.9)] overflow-hidden backdrop-blur-2xl"
             >
-              <div className="bg-primary/5 px-4 py-2 border-b border-primary/10 flex items-center gap-2">
-                <Command size={12} className="text-primary/50" />
-                <span className="text-[9px] font-black text-primary/40 uppercase tracking-[0.2em]">Sugerencias_Filtro</span>
+              <div className="bg-amber-500/5 px-4 py-2 border-b border-amber-500/10 flex items-center gap-2">
+                <Command size={12} className="text-amber-500/50" />
+                <span className="text-[9px] font-black text-amber-500/40 uppercase tracking-[0.2em]">{t("arsenal.filter_suggestions")}</span>
               </div>
               <div className="py-1">
                 {suggestions.map((suggestion, index) => (
@@ -230,14 +213,14 @@ export function FilterBar({
                     onMouseEnter={() => setSelectedIndex(index)}
                     className={cn(
                       "w-full px-8 py-3 text-left text-[10px] font-mono font-bold uppercase tracking-widest transition-all flex items-center justify-between group",
-                      index === selectedIndex ? "bg-primary text-black" : "text-white/40 hover:bg-white/5"
+                      index === selectedIndex ? "bg-amber-500 text-black" : "text-white/40 hover:bg-white/5"
                     )}
                   >
                     <div className="flex items-center gap-3">
                       <TechIcon tech={suggestion} isActive={index === selectedIndex} />
                       {getDisplayName(suggestion)}
                     </div>
-                    <span className="text-[8px] opacity-0 group-hover:opacity-100 text-primary/30">[ ACTIVAR ]</span>
+                    <span className="text-[8px] opacity-0 group-hover:opacity-100 text-amber-500/30">{t("arsenal.activate")}</span>
                   </button>
                 ))}
               </div>
@@ -249,9 +232,9 @@ export function FilterBar({
       {/* 02. TAGS PANEL */}
       <div className="flex flex-col gap-4 px-2 md:px-4">
         <div className="flex items-center justify-between px-1">
-          <div className="flex items-center gap-3 text-[10px] font-black text-white/20 uppercase tracking-[0.3em]">
-            <Terminal size={12} className="text-primary" />
-            <span>Filtros_Disponibles</span>
+          <div className="flex items-center gap-3 text-[10px] font-black text-white/20 uppercase tracking-[0.3em]">        
+            <Terminal size={12} className="text-amber-500" />
+            <span>{t("arsenal.available_filters")}</span>
           </div>
           <AnimatePresence>
             {isAnyFilterActive && (
@@ -263,7 +246,7 @@ export function FilterBar({
                 className="text-[9px] font-black text-red-500/50 hover:text-red-400 uppercase tracking-widest flex items-center gap-2 group transition-all cursor-pointer"
               >
                 <X size={10} strokeWidth={3} className="group-hover:rotate-90 transition-transform" />
-                <span>LIMPIAR_TODO</span>
+                <span>{t("arsenal.clear_all")}</span>
               </MotionButton>
             )}
           </AnimatePresence>
@@ -287,7 +270,7 @@ export function FilterBar({
                   className={cn(
                     "h-10 px-4 rounded-sm text-[10px] font-mono font-bold transition-all duration-300 border flex items-center gap-2 uppercase tracking-widest cursor-pointer",
                     isActive
-                      ? "bg-primary text-black border-primary shadow-[0_5px_15px_rgba(251,191,36,0.3)]"
+                      ? "bg-amber-500 text-black border-amber-500 shadow-[0_5px_15px_rgba(245,158,11,0.3)]"
                       : "bg-white/[0.02] text-white/30 border-white/5 hover:border-white/20"
                   )}
                 >
