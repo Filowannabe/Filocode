@@ -4,18 +4,29 @@ import { render, screen } from '@testing-library/react';
 import { ProjectCard } from './project-card';
 
 vi.mock('framer-motion', () => {
-  const MotionComponent = ({ children, className, ...props }: any) => {
-    // Pasar todas las props y clases para que los tests las vean
-    return React.createElement('div', { className, ...props }, children);
-  };
+  // Mock que filtra props de animación no soportadas por JSDOM
+  const MotionComponent = React.forwardRef<any, any>(({ children, className, style, ...props }: any) => {
+    // Filtrar props que causan warnings en JSDOM (framer-motion props)
+    const filteredProps: any = {};
+    
+    // Copiar solo props válidas para elementos DOM
+    Object.keys(props).forEach(key => {
+      if (!['whileHover', 'whileTap', 'whileInView', 'initial', 'animate', 'transition', 'exit', 'layout', 'layoutId', 'layoutProps', 'custom', 'viewport', 'drag', 'dragElastic', 'dragMomentum', 'onDrag', 'onDragStart', 'onDragEnd', 'onDragUpdate', 'onLayout', 'style'].includes(key)) {
+        filteredProps[key] = props[key];
+      }
+    });
+    
+    // Elementos motion específicos pueden necesitar treatment diferente
+    return React.createElement('div', { className, style, ...filteredProps }, children);
+  });
 
   const mockMotion = {
     div: MotionComponent,
     span: MotionComponent,
     button: MotionComponent,
     component: MotionComponent,
-    AnimatePresence: vi.fn(({ children }) => children),
-    Layout: vi.fn(({ children }) => children),
+    AnimatePresence: React.forwardRef(({ children }: any) => React.createElement('div', null, children)),
+    Layout: React.forwardRef(({ children }: any) => React.createElement('div', null, children)),
   };
   
   return {
@@ -23,6 +34,7 @@ vi.mock('framer-motion', () => {
     motion: mockMotion,
     useMotionValue: vi.fn(() => ({ set: vi.fn(), get: vi.fn() })),
     useSpring: vi.fn((val) => val),
+    Value: vi.fn(({ value, children }: any) => React.createElement('div', { key: value }, children)),
   };
 });
 
@@ -41,17 +53,21 @@ describe('ProjectCard Component - HUD', () => {
   };
 
   it('debe renderizar los topics correctamente en el diseño premium', () => {
-    render(<ProjectCard repo={mockRepo} />);
+      render(<ProjectCard repo={mockRepo} />);
 
-    // Validar que los textos de los topics están presentes
-    expect(screen.getByText('react')).toBeInTheDocument();
-    expect(screen.getByText('typescript')).toBeInTheDocument();
-    expect(screen.getByText('nextjs')).toBeInTheDocument();
-    
-    // Validar que tienen la clase de Pills redondeadas
-    const tags = screen.getAllByText(/react|typescript|nextjs/);
-    tags.forEach(tag => {
-      expect(tag.className).toContain('rounded-full');
+      // Validar que los textos de los topics están presentes (formatTechName capitaliza)
+      expect(screen.getByText('React')).toBeInTheDocument(); // formatTechName('react') → 'React'
+      expect(screen.getByText('TypeScript')).toBeInTheDocument(); // formatTechName('typescript') → 'TypeScript'
+      expect(screen.getByText('Next.js')).toBeInTheDocument(); // formatTechName('nextjs') → 'Next.js'
+      
+      // Validar que cada topic tiene su propio elemento tag con clase rounded-full
+      // Buscamos por el texto y verificamos que el elemento contenedor tenga la clase
+      const reactTag = screen.getByText('React');
+      const tsTag = screen.getByText('TypeScript');
+      const nextTag = screen.getByText('Next.js');
+      
+      expect(reactTag.className).toContain('rounded-full');
+      expect(tsTag.className).toContain('rounded-full');
+      expect(nextTag.className).toContain('rounded-full');
     });
-  });
 });

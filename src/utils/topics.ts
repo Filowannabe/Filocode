@@ -28,11 +28,20 @@ export function formatTechName(tech: string): string {
 
 /**
  * Normaliza un tópico para comparaciones internas.
+ * Elimina puntos, espacios y normaliza a minúsculas para consistencia.
+ * Patrón: Mapeo explícito para casos especiales (C#, C++) + normalización genérica.
  */
 export function normalizeTopic(topic: string): string {
   const t = topic.toLowerCase().trim();
+  
+  // Caso especial: C# → csharp
   if (t === 'c#' || t === 'csharp') return 'csharp';
-  return t;
+  
+  // Caso especial: Next.js → nextjs (elimina puntos)
+  if (t === 'next.js' || t === 'next') return 'nextjs';
+  
+  // Normalización genérica: elimina puntos y espacios
+  return t.replace(/[. ]+/g, '');
 }
 
 /**
