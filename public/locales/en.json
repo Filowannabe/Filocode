@@ -3,55 +3,55 @@
     "status": "System_Status: Operational",
     "avatar": "AVATAR",
     "verified": "VERIFIED",
-    "by": "by Felipe Corredor Castro",
+    "by": "BY FELIPE CORREDOR CASTRO // Senior Architect",
     "xp": "XP: 5 YEARS",
     "rank": "RANK: SENIOR",
     "system_online": "SYSTEM: ONLINE",
     "download_dossier": "DOWNLOAD_DOSSIER [PDF]",
     "code_example": "CODE_EXAMPLE",
-    "buffer_syncing": "BUFFER_SYNCING...",
+    "buffer_syncing": "INITIALIZING_PROTOCOLS...",
     "skill_tree": "SKILL_TREE",
     "github_telemetry": "GITHUB_TELEMETRY",
-    "data_stream": "DATA_STREAM_ACTIVE // 32_NODES_DETECTOR",
-    "authorized_feedback": "Authorized_Feedback",
+    "data_stream": "MONITORING_32_NODES // ACTIVE_STREAM",
+    "authorized_feedback": "AUTHORIZED_FEEDBACK",
     "copyright": "© 2026 // FILOCODE",
-    "state_operational": "ESTADO: OPERACIONAL_ESTABLE",
+    "state_operational": "STATUS: OPERATIONAL_STABLE",
     "completed": "[ COMPLETED ]",
     "close_intel": "[ - CLOSE_INTEL ]",
     "open_intel": "[ + OPEN_INTEL ]",
-    "end_of_dossier": "End_Of_Dossier",
-    "validation_stream": "SYSTEM_VALIDATION // GLOBAL_FEEDBACK_STREAM",
-    "feedback_channel": "AUTHORIZED_FEEDBACK_STREAM // ENCRYPTED_CHANNEL",
+    "end_of_dossier": "END_OF_REPORT",
+    "validation_stream": "GLOBAL_VALIDATION_STREAM",
+    "feedback_channel": "ENCRYPTED_CHANNEL // FEEDBACK",
     "stats_exp": "YEARS EXP",
     "stats_projects": "PROJECTS",
     "stats_mentoring": "MENTORING HOURS",
     "stats_commits": "COMMITS",
-    "skills_core": "Core Matrix",
+    "skills_core": "Skills Matrix",
     "skills_active": "[ACTIVE]",
     "skills_sub": "Modules",
-    "verified_by": "Verified_By: ",
-    "auth_level": "Auth_Level: ",
-    "date": "Date: ",
+    "verified_by": "VERIFIED_BY: ",
+    "auth_level": "AUTH_LEVEL: ",
+    "date": "DATE: ",
     "PAGE_03": "PAGE_03",
-    "collaborations_hub_intel_feed": "COLLABORATIONS_HUB // INTEL_FEED",
+    "collaborations_hub_intel_feed": "AUTHORIZED_COLLABORATIONS // INTEL_FEED",
     "authorized_collaborations": "AUTHORIZED_COLLABORATIONS"
   },
   "hero": {
-    "title_architecture": "ARQUITECTURA Y",
-    "title_development": "DESARROLLO",
-    "title_software": "DE SOFTWARE",
-    "title_senior": "SENIOR",
-    "explore_collaborations": "EXPLORAR_COLABORACIONES",
+    "title_architecture": "ARCHITECTURE &",
+    "title_development": "DEVELOPMENT",
+    "title_software": "SENIOR SOFTWARE",
+    "title_senior": "ENGINEER",
+    "explore_collaborations": "EXPLORE_COLLABORATIONS",
     "contact_protocol": "Contact_Protocol"
   },
   "arsenal": {
     "station_title": "PROJECT_ARSENAL_STATION",
-    "title_open_source": "Open Source",
-    "title_arsenal": "Arsenal",
+    "title_open_source": "Open",
+    "title_arsenal": "Source",
     "description": "My commitment to the tech community and software engineering. Here you can audit the architecture, code quality, and impact (stars and views) of my {count} projects, dynamically synced with GitHub.",
-    "search_placeholder": "BUSCAR PROYECTO O TECNOLOGÍA...",
+    "search_placeholder": "SEARCH PROJECT OR TECHNOLOGY...",
     "results_label": "Results:",
-    "filter_suggestions": "Sugerencias_Filtro",
+    "filter_suggestions": "Filter_Suggestions",
     "available_filters": "Available_Filters",
     "clear_all": "CLEAR_ALL",
     "view_on_github": "View on GitHub",
@@ -64,13 +64,13 @@
     "activate": "[ ACTIVATE ]"
   },
   "fetch": {
-    "module_v31": "ADVANCED_FETCH_MODULE_V3.1",
+    "module_v31": "ADVANCED_SEARCH_MODULE_V3.1",
     "infinity_mode": "[ infinity_mode ]",
-    "start_scan": "INICIAR_SECUENCIA_ESCANEO",
+    "start_scan": "START_SCAN_SEQUENCE",
     "resume_protocol": "RESUME_PROTOCOL",
     "scanning": "EXECUTING_NODE_MAPPING...",
     "synchronized": "DATABASE_SYNCHRONIZED: {count} ENTRIES",
-    "purge_memory": "[ purge_memory ]",
+    "purge_memory": "[ purge_cache ]",
     "download_json": "download_json",
     "download_csv": "download_csv",
     "download_excel": "download_excel",
@@ -78,30 +78,30 @@
     "scanning_nodes": "executing_node_mapping..."
   },
   "collaborations": {
-    "hub_intel_feed": "COLLABORATIONS_HUB // INTEL_FEED",
+    "hub_intel_feed": "AUTHORIZED_COLLABORATIONS // INTEL_FEED",
     "authorized": "AUTHORIZED_COLLABORATIONS",
-    "view_dossier": "VIEW_DOSSIER",
-    "access_secure_dossier": "Access Secure Dossier",
+    "view_dossier": "VIEW_REPORT",
+    "access_secure_dossier": "VIEW_REPORT",
     "return_to_base": "RETURN_TO_BASE",
-    "engagement_model": "Engagement_Model",
-    "budget_allocation": "Budget_Allocation",
-    "mission_duration": "Mission_Duration",
-    "tactical_outcomes": "Tactical_Outcomes",
-    "core_technologies": "Core_Technologies",
+    "engagement_model": "ENGAGEMENT_MODEL",
+    "budget_allocation": "BUDGET_ALLOCATION",
+    "mission_duration": "PROJECT_DURATION",
+    "tactical_outcomes": "KEY_OUTCOMES",
+    "core_technologies": "CORE_TECHNOLOGIES",
     "deployment_services": "DEPLOYMENT_SERVICES",
     "external_verification": "EXTERNAL_VERIFICATION",
     "query_security_faq": "QUERY_SECURITY_FAQ",
-    "intelligence_report": "INTELLIGENCE_REPORT // COLLABORATION",
-    "full_report_initialized": "//_FULL_REPORT_INITIALIZED:",
-    "client_overview": "Client_Overview",
-    "live_site_access": "Live_Site_Access"
+    "intelligence_report": "TECHNICAL_DOSSIER // COLLABORATION",
+    "full_report_initialized": "//_FULL_DOSSIER_INITIALIZED:",
+    "client_overview": "CLIENT_SYNOPSIS",
+    "live_site_access": "LIVE_SITE_ACCESS"
   },
   "projects": {
     "omnicon": {
-      "title": "Project Management Platform Development",
+      "title": "Omnicon - Industrial Digital Transformation",
       "engagementModel": "Strategic Partnership",
       "budget": "$2,500 - $3,500 USD per month (~$12,000 USD MVP total)",
-      "clientOverview": "A global systems integrator for industrial automation. They required an internal management platform to optimize project execution and data management across engineering-heavy sectors like Oil & Gas and Pharmaceuticals.",
+      "clientOverview": "Global Systems Integrator for industrial automation. They required an internal management platform to optimize project execution and data handling in heavy engineering sectors such as Oil, Gas, and Pharmaceutical.",
       "servicesProvided": [
         "Project Management Platform Development",
         "Digital Transformation Consulting",
@@ -111,14 +111,14 @@
       ],
       "results": [
         "Highly intuitive platform for complex industrial workflows",
-        "Successful transformation of manual tracking to digital visibility",
-        "Positive acclaim from internal engineering stakeholders",
+        "Successful transformation from manual tracking to digital visibility",
+        "Positive reception from internal engineering stakeholders",
         "Standardized digital workflow across active global projects"
       ],
       "clientFeedback": [
         {
           "reviewer": "Diego Paz, Digital Transformation Lead",
-          "quote": "When we talk with the tech lead, he shows us that he understands what we need and adds value to our process."
+          "quote": "When we talk with the tech lead, he demonstrates that he understands what we need and adds value to our process."
         }
       ],
       "faq": [
@@ -128,15 +128,15 @@
         },
         {
           "question": "What are the common challenges when developing internal tools for industrial companies?",
-          "answer": "Industrial companies deal with massive data silos and legacy workflows. The challenge lies in creating a unified interface that translates complex shop-floor data into actionable business intelligence."
+          "answer": "Industrial companies handle massive data silos and legacy workflows. The challenge lies in creating a unified interface that translates complex shop-floor data into actionable business intelligence."
         }
       ]
     },
     "elephant-cpa": {
-      "title": "Elephant CPA - Management SaaS Solution",
-      "engagementModel": "Managed Team & Retainer Partnership",
-      "budget": "$4,000 - $6,000 USD per month (Long-term retainer)",
-      "clientOverview": "ElephantCPA, a dynamic platform designed to streamline interactions between accountants and their clients. They had a Minimum Viable Product (MVP) in place but were eager to elevate their platform in terms of functionalities, stability, and cybersecurity. A cloud-based practice management software solution for small to medium size accounting firms across the United States, they needed to move from MVP to a scalable solution with enhanced security.",
+      "title": "Elephant CPA - SaaS Management Solution",
+      "engagementModel": "Team Management & Continuous Support",
+      "budget": "$4,500 - $5,500 USD per month (~$95,000 USD total)",
+      "clientOverview": "ElephantCPA, a dynamic platform designed to streamline interactions between accountants and their clients. They had a Minimum Viable Product (MVP) but sought to elevate their platform in terms of functionality, stability, and cybersecurity. A cloud-based practice management software solution for small to medium-sized accounting firms in the United States, they needed to move from an MVP to a scalable solution with enhanced security.",
       "servicesProvided": [
         "UX & UI Design",
         "Full Stack Development",
@@ -147,31 +147,47 @@
         "Agile Development Methodology"
       ],
       "results": [
-        "Implementation of 130+ user stories",
-        "80% reduction in Cloud costs",
+        "Implementation of over 130 user stories",
+        "80% reduction in cloud costs",
         "Enhanced cybersecurity and reduced exposure",
         "Product that exceeded user expectations",
         "Seamless experience for accountants and clients",
-        "Quick issue resolution (firestorm management)",
+        "Rapid problem resolution (crisis management)",
         "Bi-weekly agile delivery schedule"
       ],
       "clientFeedback": [
         {
           "reviewer": "Christopher Massood, Co-Founder & CEO",
-          "quote": "The engineering team is transparent, and they're very honest with the work that they do."
+          "quote": "The engineering team is transparent and they are very honest with the work they perform."
         }
       ],
       "faq": [
         {
-          "question": "What are the signs a dev shop is a 'feature factory' vs a strategic product development partner?",
-          "answer": "Feature factories take orders, say yes to everything, avoid asking questions, and focus only on output. Strategic partners challenge assumptions, suggest better workflows, prioritize based on impact, and bring product thinking—not just coding—to the table."
+          "question": "What are the signs that a development house is a 'feature factory' vs. a strategic product development partner?",
+          "answer": "Feature factories take orders, say yes to everything, avoid asking questions, and focus only on output volume. Strategic partners question assumptions, suggest better workflows, prioritize based on impact, and contribute product thinking, not just coding."
+        },
+        {
+          "question": "What is the real cost difference between building accounting software with a nearshore team vs. a US-based team?",
+          "answer": "Nearshore teams in Latin America typically cost between $35 and $65 USD/hour for senior profiles, compared to $120-$180 USD/hour in the US. A 7-month MVP could cost between $180k and $300k USD nearshore vs. $500k-$900k USD in the US for comparable quality."
+        },
+        {
+          "question": "How do I verify if a 'senior full-stack developer' is not actually a mid-level with an inflated title?",
+          "answer": "We review their contributions in complex repositories, ask deep architectural questions during technical interviews, and verify if they truly make technical decisions or simply follow tickets."
+        },
+        {
+          "question": "Should I build custom accounting software or use existing platforms like Karbon?",
+          "answer": "If your workflow is standard, commercial solutions are more cost-effective. If your firm has unique processes, proprietary automation logic, or seeks differentiating capabilities, custom-built is the best long-term investment."
+        },
+        {
+          "question": "What happens if the development team fails on deadlines or delivers poor quality code?",
+          "answer": "A strategic partner offers guarantees and clear escalation processes. In our case, we implement bi-weekly demos to detect issues early and maintain a 'crisis management' protocol for immediate resolution."
         }
       ]
     },
     "2moon-capital": {
       "title": "2Moon Capital - Algorithmic Trading Solution",
-      "engagementModel": "Managed Team",
-      "budget": "$3,000 - $4,500 USD per month (Active development)",
+      "engagementModel": "Dedicated Development Cell",
+      "budget": "$3,500 - $4,500 USD per month (~$64,000 USD total)",
       "clientOverview": "2Moon required a sophisticated solution to manage and execute complex trading strategies efficiently. The project focused on creating an automated, reliable, and scalable trading system that could respond dynamically to market signals and manage multiple trading strategies and Interactive Brokers accounts effectively.",
       "servicesProvided": [
         "Event-Driven Serverless Architecture",
@@ -182,26 +198,42 @@
         "Multiple Production & Paper Trading Environments"
       ],
       "results": [
-        "Automated trading system powered by 'Joshua' specialized library",
+        "Automated trading system powered by the specialized 'Joshua' library",
         "High-performance serverless architecture on AWS",
-        "Multi-strategy account management operational",
-        "Three paper trading + one real money environment",
+        "Operational multi-strategy account management",
+        "Three paper trading environments + one real money environment",
         "Effective risk management through automated closing conditions"
       ],
       "faq": [
         {
-          "question": "What are signs a development company doesn't understand trading systems?",
-          "answer": "Red flags include vague answers about market data, promising fixed timelines for strategy performance, not mentioning risk controls, misusing backtesting vs live trading terminology, and lack of experience with broker APIs like IBKR or FIX."
+          "question": "What are the signs that a development company doesn't understand trading systems?",
+          "answer": "Red flags include vague answers about market data, promises of fixed timelines for strategy performance, failure to mention risk controls, misuse of backtesting vs. live trading terminology, and lack of experience with broker APIs like IBKR or FIX."
+        },
+        {
+          "question": "What testing environment costs should I budget for simulated trading?",
+          "answer": "While simulated trading accounts are often free, cloud infrastructure (AWS) and real-time market data sources can cost between $200 and $1,000 USD monthly depending on data volume."
+        },
+        {
+          "question": "How many iterations should I expect before having a production-ready trading system?",
+          "answer": "Usually three to eight iterations: initial prototype, paper trading, real-time simulation, limited capital testing, and then full deployment with monitoring."
+        },
+        {
+          "question": "What happens to the intellectual property of my trading algorithms?",
+          "answer": "In our model, the client owns 100% of the intellectual property from day one. The business value resides in the proprietary logic of the algorithms, not just the execution platform."
+        },
+        {
+          "question": "How much does it cost to build an algorithmic trading platform?",
+          "answer": "A custom trading platform typically ranges between $80k and $450k USD depending on complexity, order types, latency requirements, data integrations, and security needs."
         }
       ]
     },
     "canadian-orthodontic-partners": {
       "title": "Canadian Orthodontic Partners & Docbraces",
-      "engagementModel": "Project-based Development",
-      "budget": "$15,000 - $25,000 USD (Fixed scope contracts)",
+      "engagementModel": "Turnkey Development",
+      "budget": "$3,000 - $4,500 USD per month (~$205,000 USD total)",
       "clientOverview": "A network of over 50 orthodontic clinics across Canada. They needed to bridge gaps between consumer-facing websites and CRM systems (HubSpot), and develop digital solutions for secure contract creation and treatment option presentations for patients.",
       "servicesProvided": [
-        "UI/UX Discovery & Design",
+        "Discovery & UI/UX Design",
         "Full Stack Web Development",
         "HubSpot CRM Integration",
         "Secure Payment Gateway Integration",
@@ -210,33 +242,41 @@
         "API & Database Bridging"
       ],
       "results": [
-        "Generated ~$2 million in revenue through payment calculator tool",
-        "Saved thousands of person-hours via digital contract signing",
-        "Increased visibility across 50+ clinics simultaneously",
+        "Generated approximately $2 million in revenue through the payment calculator tool",
+        "Saved thousands of person-hours through digital contract signing",
+        "Increased visibility across more than 50 clinics simultaneously",
         "Secure collection of sensitive patient information",
-        "User-friendly transition from complex Excel to streamlined Web App"
+        "User-friendly transition from complex Excel to optimized Web App"
       ],
       "clientFeedback": [
         {
-          "reviewer": "Barb Heathcote, Manager of Dental Engagement",
-          "quote": "The engineering team's biggest strengths are their dedication and affordable fees."
+          "reviewer": "Barb Heathcote, Dental Relations Manager",
+          "quote": "The engineering team's greatest strengths are their dedication and affordable rates."
         }
       ],
       "faq": [
         {
-          "question": "What is the key to successfully bridging a website and a CRM like HubSpot?",
-          "answer": "The key is data integrity and real-time synchronization. We use custom API middleware to ensure that patient leads from the site map correctly to HubSpot properties, preventing data loss and enabling automated follow-ups."
+          "question": "What is the key to successfully connecting a website and a CRM like HubSpot?",
+          "answer": "The key is data integrity and real-time synchronization. We use custom API middleware to ensure that patient leads from the site map correctly to HubSpot properties, preventing data loss and allowing automated follow-ups."
+        },
+        {
+          "question": "How do you ensure security when handling patient contracts digitally?",
+          "answer": "We implement end-to-end encryption for document storage and use secure authenticated links for digital signatures, complying with health privacy standards (PIPEDA in Canada)."
+        },
+        {
+          "question": "What is the real timeline from contract signing to MVP launch?",
+          "answer": "For an enterprise tool like this, an MVP typically takes 12 to 16 weeks. This includes discovery phases, UI/UX design, development in 2-week sprints, and a robust testing phase with real clinic coordinators."
         }
       ]
     },
     "hello-leena": {
-      "title": "Hello Leena - Telehealth EMR Platform",
-      "engagementModel": "Managed Team Partnership",
-      "budget": "$3,500 - $5,000 USD per month (Operational scaling)",
-      "clientOverview": "A telehealth provider in the mental health space (BIPOC focused). The project involved building a complete, end-to-end Electronic Medical Record (EMR) system to manage patient data, telehealth sessions, and complex business reporting.",
+      "title": "Hello Leena - Telemedicine EMR Platform",
+      "engagementModel": "Dedicated Tech Partner",
+      "budget": "$5,000 - $6,500 USD per month (~$115,000 USD total)",
+      "clientOverview": "A telemedicine provider in the mental health space (BIPOC focused). The project involved building a complete end-to-end Electronic Medical Record (EMR) system to manage patient data, telemedicine sessions, and complex business reporting.",
       "servicesProvided": [
         "EMR System Architecture",
-        "Secure Telehealth Video/Audio Implementation",
+        "Secure Video/Audio Implementation for Telemedicine",
         "Operational Flow Optimization",
         "Custom Business Management Modules",
         "Complex Reporting Engine",
@@ -245,39 +285,63 @@
       "results": [
         "Successful delivery of a production-ready EMR system",
         "Automated reporting for business management",
-        "Seamless integration of secure payment and telehealth video",
+        "Seamless integration of secure payments and telemedicine video",
         "High-velocity sprint delivery monitored in ClickUp",
-        "High internal stakeholder acclaim for system organizational impact"
+        "Great acclaim from internal stakeholders for the organizational impact of the system"
       ],
       "clientFeedback": [
         {
-          "reviewer": "Executive, Healthcare Company",
-          "quote": "The engineering team is incredible in the way that they learn about your business, and do their best to deliver above and beyond."
+          "reviewer": "Executive, Health Company",
+          "quote": "The engineering team is incredible for the way they learn about your business and do everything possible to deliver beyond expectations."
+        }
+      ],
+      "faq": [
+        {
+          "question": "Why build a custom EMR instead of using a standard health SaaS?",
+          "answer": "Mental health clinics often have unique flows for matching therapists with patients based on their identity (BIPOC). A custom EMR allows for specific matching algorithms, proprietary reports, and total control over the client experience."
+        },
+        {
+          "question": "How do you handle security for telemedicine video sessions?",
+          "answer": "We use HIPAA-compliant video SDKs with end-to-end encryption, ensuring that therapy sessions are never recorded or stored on intermediate servers without explicit authorization."
+        },
+        {
+          "question": "Should I hire a full team or start with a single developer for MVP validation?",
+          "answer": "For an EMR, you need a multidisciplinary team (Frontend, Backend, Security, Design) from day one. Starting with a single developer often leads to architectural shortcuts that turn into massive technical debt when handling real patient data."
         }
       ]
     },
     "fruto-salvaje": {
       "title": "Fruto Salvaje - E-Commerce Empire",
-      "engagementModel": "Scale-up Partnership",
-      "budget": "$2,000 - $3,500 USD per month (Optimization & maintenance)",
+      "engagementModel": "Strategic Growth Partner",
+      "budget": "$3,200 - $4,500 USD per month (~$92,000 USD total)",
       "clientOverview": "A massive beauty and personal care brand scaling to international traffic. The platform requires high-conversion engineering, ritualistic content integration (Moon Phases), and global performance optimization.",
       "servicesProvided": [
         "E-Commerce Platform Architecture",
         "Conversion Rate Optimization (CRO)",
-        "Internationalization & Localization",
+        "Internationalization and Localization",
         "Performance Engineering",
         "Automated Marketing Integration"
       ],
       "results": [
-        "Successful management of 190+ high-engagement reviews",
-        "Seamless integration of community rituals into shopping flow",
+        "Successful management of over 190 high-engagement reviews",
+        "Seamless integration of community rituals into the purchase flow",
         "Optimized global load times for high-traffic sessions",
-        "Unified brand identity across digital touchpoints"
+        "Unified brand identity across all digital touchpoints"
       ],
       "clientFeedback": [
         {
           "reviewer": "Verified Customer",
-          "quote": "Excellent product, I love it! The site makes buying very easy."
+          "quote": "Excellent product, I love it! The site makes shopping very easy."
+        }
+      ],
+      "faq": [
+        {
+          "question": "What is the key to scaling a local beauty brand to a global Shopify store?",
+          "answer": "Performance and localization. Ensuring the site loads in less than 2 seconds globally while supporting multiple currencies and languages is critical to maintaining the premium feel."
+        },
+        {
+          "question": "How do you integrate unconventional features like 'Moon Phases' into e-commerce?",
+          "answer": "We treat ritualistic data as dynamic content entities, mapping these phases to specific product recommendations to drive cross-selling without interrupting the funnel."
         }
       ]
     }
@@ -289,15 +353,15 @@
     "feedback": "FEEDBACK"
   },
   "viewModes": {
-    "carousel": "Carousel",
-    "console": "Console"
+    "carousel": "CAROUSEL",
+    "console": "CONSOLE"
   },
   "listItems": {
     "collaboration": "COLLABORATION"
   },
   "actions": {
-    "access_secure_dossier": "Access Secure Dossier",
-    "view_dossier": "VIEW_DOSSIER"
+    "access_secure_dossier": "VIEW_REPORT",
+    "view_dossier": "VIEW_REPORT"
   },
   "labels": {
     "_full_report_initialized": "//_FULL_REPORT_INITIALIZED:"

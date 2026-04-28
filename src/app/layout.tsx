@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description: "Portafolio técnico HUD Brutalista.",
     url: "/",
     siteName: "Filocode",
-    locale: "es_CO",
+    locale: "en_US",
     type: "website",
   },
 };
@@ -41,7 +41,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" className="dark">
+    <html lang="en" className="dark">
       <body
         className={`${geistSans.variable} ${geistMono.variable} relative min-h-screen overflow-x-hidden bg-[#000000] text-white antialiased`}
       >

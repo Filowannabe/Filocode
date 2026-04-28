@@ -46,7 +46,7 @@ describe('FilterBar Component - ESCUDO DE REGRESIÓN v4.2', () => {
    */
   it('debe garantizar la presencia del Command Bar y el buscador', () => {
     render(<FilterBar {...defaultProps} />);
-    const input = screen.getByPlaceholderText(/BUSCAR PROYECTO/i);
+    const input = screen.getByPlaceholderText(/SEARCH PROJECT/i);
     expect(input).toBeInTheDocument();
   });
 
@@ -56,7 +56,7 @@ describe('FilterBar Component - ESCUDO DE REGRESIÓN v4.2', () => {
   it('debe mostrar el dropdown de sugerencias cuando se fuerza su visibilidad', async () => {
     render(<FilterBar {...defaultProps} searchQuery="ja" _test_forceShowSuggestions={true} />);
     
-    expect(screen.getByText(/Sugerencias_Filtro/i)).toBeInTheDocument();
+    expect(screen.getByText(/Filter_Suggestions/i)).toBeInTheDocument();
     
     // Usamos getAllByText y verificamos que al menos uno contenga el texto (desambiguación manual)
     const javaElements = screen.getAllByText(/Java/i);
@@ -67,7 +67,7 @@ describe('FilterBar Component - ESCUDO DE REGRESIÓN v4.2', () => {
     const user = userEvent.setup();
     render(<FilterBar {...defaultProps} searchQuery="ja" _test_forceShowSuggestions={true} />);
     
-    const input = screen.getByPlaceholderText(/BUSCAR PROYECTO/i);
+    const input = screen.getByPlaceholderText(/SEARCH PROJECT/i);
     await user.click(input); // Asegurar foco activo
 
     // Navegar: ArrowDown (selecciona la primera sugerencia, que es java) -> Enter

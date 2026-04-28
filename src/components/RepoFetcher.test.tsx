@@ -44,12 +44,12 @@ describe('RepoFetcher Component - Component Testing', () => {
 
   test('Muestra botón de "Iniciar Escaneo" al renderizar', () => {
     render(<RepoFetcher initialLimit={10} />);
-    expect(screen.getByRole('button', { name: /iniciar_secuencia_escaneo/i })).toBeInTheDocument();
+    expect(screen.getByRole('button', { name: /START_SCAN_SEQUENCE/i })).toBeInTheDocument();
   });
 
   test('Muestra estado de escaneo al hacer click', async () => {
     render(<RepoFetcher initialLimit={5} />);
-    const startButton = screen.getByRole('button', { name: /iniciar_secuencia_escaneo/i });
+    const startButton = screen.getByRole('button', { name: /START_SCAN_SEQUENCE/i });
     
     await act(async () => {
       startButton.click();

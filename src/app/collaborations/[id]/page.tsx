@@ -36,7 +36,7 @@ async function generateCollaborationMetadata({ params }: PageProps): Promise<Met
   if (!project) return { title: "Proyecto No Encontrado" };
 
   // Factory para Server Components - carga diccionario global
-  const t = createT("es-CO");
+  const t = createT();
 
   const translatedTitle = t("collaborations.intelligence_report");
 
@@ -62,7 +62,7 @@ export default async function CollaborationDetailPage({ params }: PageProps) {
   if (!project) notFound();
 
   // Factory para Server Components - carga diccionario global
-  const t = createT("es-CO");
+  const t = createT();
 
   return (
     <main className="min-h-screen text-white selection:bg-amber-500 selection:text-black relative z-10 flex flex-col gap-12 pb-20 pt-24">

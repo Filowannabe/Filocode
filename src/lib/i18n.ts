@@ -16,13 +16,13 @@ const DICTIONARIES: Record<string, any> = {
 /**
  * Factory para Server Components
  * 
- * @param locale - Código de idioma (por defecto: "es-CO")
+ * @param locale - Código de idioma (por defecto: "en")
  * @returns Función t() sync para el idioma especificado
  */
-export function createT(locale: string = "es-CO") {
+export function createT(locale: string = "en") {
   // MANDATO DE TESTS: Si estamos en modo test, forzamos inglés para no romper tests originales
   const targetLocale = process.env.NODE_ENV === 'test' ? 'en' : locale;
-  const dict = DICTIONARIES[targetLocale] || DICTIONARIES['es-CO'];
+  const dict = DICTIONARIES[targetLocale] || DICTIONARIES['en'];
 
   return (key: string, params?: Record<string, string | number>): string => {
     // Buscar en el objeto anidado (ej: "hud.status")
@@ -51,6 +51,6 @@ export function createT(locale: string = "es-CO") {
 /**
  * Versión async para compatibilidad si es necesario
  */
-export async function createTAsync(locale: string = "es-CO") {
+export async function createTAsync(locale: string = "en") {
   return createT(locale);
 }

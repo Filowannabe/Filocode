@@ -39,19 +39,19 @@ vi.mock('@/components/hud/terminal-contact', () => ({
 describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
   it('debe renderizar el título arquitectónico principal con la tipografía y gradientes correctos', () => {
     render(<Home />);
-    expect(screen.getByText(/ARQUITECTURA Y/i)).toBeInTheDocument();
-    expect(screen.getByText(/DESARROLLO/i)).toHaveClass('text-transparent', 'bg-clip-text');
-    expect(screen.getByText(/DE SOFTWARE/i)).toBeInTheDocument();
+    expect(screen.getByText(/ARCHITECTURE &/i)).toBeInTheDocument();
+    expect(screen.getByText(/DEVELOPMENT/i)).toHaveClass('text-transparent', 'bg-clip-text');
+    expect(screen.getByText(/SENIOR SOFTWARE/i)).toBeInTheDocument();
     
-    // Buscar el SENIOR del título específicamente
-    const seniors = screen.getAllByText(/SENIOR/i);
-    const titleSenior = seniors.find(el => el.className.includes('text-white/10'));
-    expect(titleSenior).toBeInTheDocument();
+    // Buscar el ENGINEER del título específicamente
+    const engineers = screen.getAllByText(/ENGINEER/i);
+    const titleEngineer = engineers.find(el => el.className.includes('text-white/10'));
+    expect(titleEngineer).toBeInTheDocument();
   });
 
   it('debe contener el botón principal de exploración con el gradiente dorado y la animación shine', () => {
     render(<Home />);
-    const exploreBtn = screen.getByText(/EXPLORAR_COLABORACIONES/i);
+    const exploreBtn = screen.getByText(/EXPLORE_COLLABORATIONS/i);
     const parentBtn = exploreBtn.closest('button');
     
     expect(parentBtn).toBeInTheDocument();
@@ -80,8 +80,8 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
   it('debe mostrar el widget CODE_EXAMPLE con el estado de sincronización', () => {
     render(<Home />);
     expect(screen.getByText('CODE_EXAMPLE')).toBeInTheDocument();
-    expect(screen.getByText(/Architect/i)).toBeInTheDocument();
-    expect(screen.getByText(/BUFFER_SYNCING/i)).toBeInTheDocument();
+    expect(screen.getAllByText(/Architect/i).length).toBeGreaterThan(0);
+    expect(screen.getByText(/INITIALIZING_PROTOCOLS/i)).toBeInTheDocument();
   });
 
   it('debe mantener la distribución de ventanas flotantes sin los iconos de Macbook (Dots)', () => {
@@ -93,7 +93,7 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
 
   it('debe tener el footer con el estado operacional estable en verde', () => {
     render(<Home />);
-    const footerStatus = screen.getByText(/\[ESTADO: OPERACIONAL_ESTABLE\]/i);
+    const footerStatus = screen.getByText(/\[STATUS: OPERATIONAL_STABLE\]/i);
     expect(footerStatus).toHaveClass('text-green-500');
   });
 
@@ -138,9 +138,9 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
   });
 
   describe('Button Design Integrity (Pattern Lock)', () => {
-    it('el botón EXPLORAR_COLABORACIONES debe tener el gradiente dorado y la animación shine', () => {
+    it('el botón EXPLORE_COLLABORATIONS debe tener el gradiente dorado y la animación shine', () => {
       render(<Home />);
-      const btn = screen.getByText(/EXPLORAR_COLABORACIONES/i).closest('button');
+      const btn = screen.getByText(/EXPLORE_COLLABORATIONS/i).closest('button');
       expect(btn).toHaveClass('shadow-[0_0_40px_rgba(245,158,11,0.4)]');
       const gradientLayer = btn?.querySelector('.bg-gold-gradient');
       expect(gradientLayer).toHaveClass('animate-gold-shine');
