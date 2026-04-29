@@ -175,7 +175,6 @@ export default function Home() {
         {/* SECTION: SKILLS & TELEMETRY (GRID SYNC v5.8) */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
           <section className="lg:col-span-5 scroll-mt-32">
-            {/* Brilla si se selecciona Skills O Telemetry (porque están pegados en desktop) */}
             <HudPanel id="skills" activeId="telemetry" title={t("hud.skill_tree")} delay={0.4}>
               <div className="p-8">
                 <SkillsPanel />
@@ -184,7 +183,6 @@ export default function Home() {
           </section>
 
           <section className="lg:col-span-7 scroll-mt-32">
-            {/* Brilla si se selecciona Telemetry O Skills */}
             <HudPanel id="telemetry" activeId="skills" title={t("hud.github_telemetry")} delay={0.5}>
               <div className="p-8">
                 <StatsBar />

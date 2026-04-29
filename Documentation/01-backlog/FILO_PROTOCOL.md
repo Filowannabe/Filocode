@@ -376,6 +376,29 @@ git commit -m "chore: version bump 0.3.0 (Issue #3 completado)"
   - **Tarea**: Optimización de UX y Layout Integrity (v3.1). **Scope**: IMPLEMENTACIÓN. **Duración**: 120 min. **Notas**: Implementación de "Pie de Anclaje Táctico" (Sticky Bottom CTA) en modo consola. Escalado de Golden Badges de país para alta visibilidad. Reingeniería del carrusel interactivo (v5.1) integrando `drag` nativo con `InfiniteWrap` reactivo, animación perpetua auto-slider y reordenamiento de controles con vista Carousel por defecto. Saneamiento total de linter y JSX.
   - **Tarea**: Sincronización de Inteligencia y Estética Golden Sun (v9.1). **Scope**: GESTIÓN/IMPLEMENTACIÓN. **Duración**: 120 min. **Notas**: Auditoría matemática total de presupuestos y duraciones (Completed ~X Months). Relocalización de metadata táctica hacia el bloque HERO. Implementación de "Base Mac" en el footer: ventana HudPanel para feedback global con glassmorphism de alta fidelidad. Upgrade de iluminación a estándar "Golden Sun" en todo el portal. Paginación de arsenal limitada a 3 repositorios. Saneamiento total de linter DEBT_ZERO.
 
+#### 28 de abril de 2026
+- **Tarea**: Operación HIGH_FIDELITY_NAVIGATION (v6.6). **Scope**: IMPLEMENTACIÓN. **Duración**: 240 min. **Notas**: Implementación del motor de navegación "Point-of-Focus" (35% viewport) orquestado vía Zustand. Sincronización de brillo global en HudPanels con lógica de herencia para ventanas secundarias. Restauración del sistema i18n bilingüe (ES/EN) con switcher minimalista y bloqueo de parpadeo (Sync Hook). Unificación del ADN visual de imágenes HUD y recalibración de Marquee con soporte de drag híbrido. Estabilización total de linter y tests (DEBT_ZERO).
+
+---
+
+## 🛡️ DESCUBRIMIENTOS DE ALTA GAMA (28/04/2026)
+
+### 1. Detección por Contención Focal
+**Problema**: El `IntersectionObserver` y la lógica de "elemento más cercano" fallan en HUDs con secciones muy altas o side-by-side, activando categorías incorrectas.
+**Solución**: Algoritmo de **Contención Física**. Se define una "Línea de Escaneo" (35% superior del viewport). El sistema activa una sección únicamente si la línea focal se encuentra DENTRO de los límites del elemento (`rect.top <= focal && rect.bottom >= focal`).
+
+### 2. Sincronización de Brillo Maestro-Esclavo
+**Problema**: La iluminación local de ventanas basada en scroll genera parpadeos y desincronización con el Navbar.
+**Solución**: **Gobernanza por Red**. El Navbar es el controlador maestro que escribe el `activeSection` en el store central. Los `HudPanel` son esclavos que brillan únicamente cuando el store les indica que su ID (o el de su padre) está activo.
+
+### 3. I18n Síncrono (Next.js Static Export)
+**Problema**: Los hooks asíncronos (`useEffect` + `fetch`) para cargar diccionarios causan parpadeos de idioma durante la hidratación en GitHub Pages.
+**Solución**: **Importación Estática Memoizada**. Los diccionarios se importan como objetos JSON estáticos y se resuelven síncronamente en el hook, garantizando una traducción instantánea sin estados "stale".
+
+### 4. Coordinación Marquee-Drag Híbrido
+**Problema**: El motor de Marquee automático lucha contra el evento de Drag, causando saltos visuales (jitter).
+**Solución**: Suspensión síncrona de animación (`controls.stop()`) al detectar el drag e inyección de inercia manual mediante `MotionValue` con wrapping físico (triplicado de contenido) para un scroll infinito perpetuo.
+
 ---
 
 ## 🛠️ MEJORAS PRÁCTICAS DE OBSIDIAN CLI
