@@ -1,4 +1,16 @@
 {
+  "IDENTITY": "IDENTIDAD",
+  "SKILLS": "HABILIDADES",
+  "TELEMETRY": "TELEMETRÍA",
+  "COLLABORATIONS": "COLABORACIONES",
+  "OPEN_SOURCE": "CÓDIGO_ABIERTO",
+  "FEEDBACK": "TESTIMONIOS",
+  "INTEL_REPORT": "REPORTE_INTEL",
+  "SYNOPSIS": "SINOPSIS",
+  "TECH_SPECS": "ESPECIFICACIONES",
+  "SECURITY_FAQ": "SEGURIDAD_FAQ",
+  "TOP_PROTOCOL": "TOP_PROTOCOL",
+  "RETURN_TO_BASE": "REGRESAR_A_BASE",
   "hud": {
     "status": "Estado_Sistema: Operacional",
     "avatar": "AVATAR",
@@ -12,7 +24,7 @@
     "buffer_syncing": "INICIALIZANDO_PROTOCOLOS...",
     "skill_tree": "ARBOL_DE_HABILIDADES",
     "github_telemetry": "TELEMETRIA_GITHUB",
-    "data_stream": "MONITOR_32_NODOS // FLUJO_ACTIVO",
+    "data_stream": "MONITOR_32_NODES // FLUJO_ACTIVO",
     "authorized_feedback": "TESTIMONIO_AUTORIZADO",
     "copyright": "© 2026 // FILOCODE",
     "state_operational": "ESTADO: OPERACIONAL_ESTABLE",
@@ -45,7 +57,7 @@
     "contact_protocol": "Protocolo_Contacto"
   },
   "arsenal": {
-    "station_title": "ESTACION_PROYECTOS_ARSENAL",
+    "station_title": "ESTACION_PROYECTOS_TECNICOS",
     "title_open_source": "Código",
     "title_arsenal": "Source",
     "description": "Auditoría técnica de arquitectura y código fuente de {count} proyectos open source, sincronizados dinámicamente vía GitHub API.",
@@ -94,7 +106,11 @@
     "intelligence_report": "EXPEDIENTE_TECNICO // COLABORACION",
     "full_report_initialized": "//_EXPEDIENTE_COMPLETO_INICIALIZADO:",
     "client_overview": "SINOPSIS_CLIENTE",
-    "live_site_access": "ACCESO_SITIO_ACTIVO"
+    "live_site_access": "ACCESO_SITIO_ACTIVO",
+    "nav_intel": "REPORTE_INTEL",
+    "nav_synopsis": "SINOPSIS",
+    "nav_specs": "ESPECIFICACIONES",
+    "nav_security": "SEGURIDAD_FAQ"
   },
   "projects": {
     "omnicon": {
@@ -348,7 +364,7 @@
   },
   "nav": {
     "synopsis": "SINOPSIS",
-    "arsenal": "ARSENAL",
+    "arsenal": "CÓDIGO_ABIERTO",
     "deployment": "DESPLIEGUE",
     "feedback": "TESTIMONIOS"
   },

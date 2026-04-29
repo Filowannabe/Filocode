@@ -5,8 +5,6 @@ describe('i18n Logic - Global Standard & Tone Audit', () => {
   
   it('debe tener "en" como idioma por defecto (Default Governance)', () => {
     const t = createT(); // Sin parámetros debe ser 'en'
-    // Comprobar un string que sea diferente en ES y EN
-    // ES: "ARQUITECTURA Y" | EN: "ARCHITECTURE &"
     expect(t('hero.title_architecture')).toBe('ARCHITECTURE &');
   });
 
@@ -29,8 +27,7 @@ describe('i18n Logic - Global Standard & Tone Audit', () => {
   });
 
   it('debe mantener el fallback a "en" ante un locale no soportado', () => {
-    // @ts-ignore - forzando locale inexistente
-    const t = createT('fr-FR');
+    const t = createT('fr-FR' as any);
     expect(t('hero.title_architecture')).toBe('ARCHITECTURE &');
   });
 

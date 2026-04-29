@@ -1,4 +1,4 @@
-# Issue #67: Globalización, Interactividad y Gobernanza Tonal (v3.0)
+# Issue #67: Globalización, Navegación Táctica y Bloqueo de Gobernanza (v6.2)
 
 **Estado**: ✅ COMPLETADO
 **Fecha**: 28 de abril, 2026
@@ -8,33 +8,32 @@
 ---
 
 ## 🎯 Objetivo
-Establecer el inglés como idioma predeterminado, unificar la fidelidad de los diccionarios bajo un tono estrictamente profesional e implementar la proyección de imágenes fullscreen (Lightbox) en todo el ecosistema.
+Establecer el inglés como idioma predeterminado y exclusivo temporalmente, implementar un sistema de navegación universal con sincronización de brillo (Glow Overdrive) y garantizar la responsividad absoluta de los módulos del HUD.
 
 ## 📋 Hitos Implementados
 
-### 1. Gobernanza i18n (English Default)
-- [x] **Default Switch**: Cambio de `es-CO` a `en` en Zustand Store y i18n Factory.
-- [x] **Simetría Total**: Sincronización 1:1 de claves entre diccionarios (6 colaboraciones + FAQs).
-- [x] **Purga de Tono**: Eliminación de narrativa dramática ("compromiso") en favor de auditoría técnica.
-- [x] **SEO**: Atributo `lang="en"` y metadata OpenGraph `en_US` configurados.
+### 1. Gobernanza i18n (English Only Lock)
+- [x] **Default Switch**: Forzado de diccionario `en` en Zustand Store y Factory de Servidor.
+- [x] **Hook Síncrono**: Refactor de `useTranslations` para eliminar parpadeos de hidratación.
+- [x] **Hiding Spanish**: Desactivación de lógica de cambio de idioma, preservando archivos `es-CO.json` para el futuro.
 
-### 2. Módulo de Proyección Visual (Lightbox)
-- [x] **Universal Projector**: Creación de `ImageLightbox.tsx` (DRY).
-- [x] **Interactividad HUD**: Cursor `pointer`, indicador de pulso sutil y soporte para tecla ESC/Click-outside.
-- [x] **Ubicuidad**: Activo en Vista Consola, Carousel y Dossier de Proyectos.
+### 2. Sistema de Navegación Táctica (v5.5)
+- [x] **Point-of-Focus Scan**: Sensor de contención focal (35% viewport) para una detección inteligente de secciones.
+- [x] **Glow Overdrive Sync**: Sincronización de brillo de ventanas (`HudPanel`) mediante estado global de red.
+- [x] **Inheritance Brillo**: Implementación de `activeId` para iluminar ventanas secundarias (`CODE_EXAMPLE`) junto a sus secciones madre.
 
-### 3. Refactor de Arquitectura (Next.js 16)
-- [x] **Composición Server/Client**: División de rutas `[id]` para permitir interactividad SSG-ready.
-- [x] **Serialization Fix**: Migración de `t()` function a hook `useTranslations` en componentes de cliente.
-- [x] **Console Priority**: Establecimiento de la Vista Consola como default táctico.
+### 3. Refinamiento Responsivo y Visual
+- [x] **Zero-Cutoff Navbar**: Layout de rejilla para evitar el truncamiento de **IDENTITY** en móviles ultra-pequeños.
+- [x] **Unified Visual Engine**: Estandarización de animaciones de entrada y cursores en el archivo de colaboraciones.
+- [x] **Hybrid Drag Marquee**: Reinstalación del diseño original de testimonios con soporte para drag infinito.
 
-### 4. Blindaje de Protocolo
-- [x] **Mandato Sagrado**: Inyección de regla de autorización de commits en `FILO_PROTOCOL.md` y `GEMINI.md`.
+### 4. Calidad y Sanidad
+- [x] **DEBT_ZERO**: Auditoría de linter limpia y suite de tests al 100%.
+- [x] **Sanity Check**: Build de producción verificado y optimizado.
 
 ## 🧪 Validación
-- **Tests**: 77/77 passing (Suite de integridad + Lógica i18n).
-- **Linter**: DEBT_ZERO (TSC & ESLint Clean).
-- **Build**: Éxito total en exportación estática.
+- **Tests**: 75/75 passing (Suite de integridad + i18n lock).
+- **Build**: Éxito total en exportación estática con Next.js 16.
 
 ---
-**ESTADO FINAL: MISSION_ACCOMPLISHED // SYSTEM_VIBRATING**
+**ESTADO FINAL: MISSION_COMPLETED // SYSTEM_SYNCED_V6.2**

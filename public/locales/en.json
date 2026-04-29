@@ -1,4 +1,16 @@
 {
+  "IDENTITY": "IDENTITY",
+  "SKILLS": "SKILLS",
+  "TELEMETRY": "TELEMETRY",
+  "COLLABORATIONS": "COLLABORATIONS",
+  "OPEN_SOURCE": "OPEN_SOURCE",
+  "FEEDBACK": "FEEDBACK",
+  "INTEL_REPORT": "INTEL_REPORT",
+  "SYNOPSIS": "SYNOPSIS",
+  "TECH_SPECS": "TECH_SPECS",
+  "SECURITY_FAQ": "SECURITY_FAQ",
+  "TOP_PROTOCOL": "TOP_PROTOCOL",
+  "RETURN_TO_BASE": "RETURN_TO_BASE",
   "hud": {
     "status": "System_Status: Operational",
     "avatar": "AVATAR",
@@ -12,7 +24,7 @@
     "buffer_syncing": "INITIALIZING_PROTOCOLS...",
     "skill_tree": "SKILL_TREE",
     "github_telemetry": "GITHUB_TELEMETRY",
-    "data_stream": "MONITORING_32_NODES // ACTIVE_STREAM",
+    "data_stream": "MONITOR_32_NODES // ACTIVE_STREAM",
     "authorized_feedback": "AUTHORIZED_FEEDBACK",
     "copyright": "© 2026 // FILOCODE",
     "state_operational": "STATUS: OPERATIONAL_STABLE",
@@ -45,7 +57,7 @@
     "contact_protocol": "Contact_Protocol"
   },
   "arsenal": {
-    "station_title": "PROJECT_ARSENAL_STATION",
+    "station_title": "TECHNICAL_PROJECTS_STATION",
     "title_open_source": "Open",
     "title_arsenal": "Source",
     "description": "Technical audit of architecture and source code for {count} open source projects, dynamically synchronized via GitHub API.",
@@ -245,7 +257,7 @@
         "Generated approximately $2 million in revenue through the payment calculator tool",
         "Saved thousands of person-hours through digital contract signing",
         "Increased visibility across more than 50 clinics simultaneously",
-        "Secure collection of sensitive patient information",
+        "Recolection segura de información sensible de pacientes",
         "User-friendly transition from complex Excel to optimized Web App"
       ],
       "clientFeedback": [
@@ -348,7 +360,7 @@
   },
   "nav": {
     "synopsis": "SYNOPSIS",
-    "arsenal": "ARSENAL",
+    "arsenal": "OPEN_SOURCE",
     "deployment": "DEPLOYMENT",
     "feedback": "FEEDBACK"
   },
