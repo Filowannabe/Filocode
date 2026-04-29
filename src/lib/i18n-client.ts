@@ -1,15 +1,14 @@
 /**
  * i18n Client Hook - Para Client Components
  * 
- * IMPORTANTE: Este archivo usa hooks de React y SOLO debe ser usado en Client Components.
+ * v5.0: Sincronización Inmediata y Reactiva.
+ * Garantiza que el cambio de idioma sea instantáneo y reactivo.
  */
 
-import { useState, useEffect } from "react";
+import { useMemo } from "react";
 import { useI18nStore } from "@/store/use-i18n-store";
 import esCO from '../../public/locales/es-CO.json';
 import en from '../../public/locales/en.json';
-
-type TranslationDictionary = Record<string, any>;
 
 const STATIC_DICTIONARIES: Record<string, any> = {
   'es-CO': esCO,
@@ -18,33 +17,19 @@ const STATIC_DICTIONARIES: Record<string, any> = {
 
 /**
  * Hook para Client Components
+ * Reacciona al cambio de locale en el store global.
  */
 export function useTranslations(): (key: string, params?: Record<string, string | number>) => string {
   const locale = useI18nStore((state) => state.locale);
   
-  // MANDATO DE TESTS: Para que los tests existentes pasen sin ser modificados,
-  // debemos devolver los valores en INGLÉS durante los tests si el componente lo espera.
-  // Sin embargo, el default de la app es es-CO.
-  const initialDict = process.env.NODE_ENV === 'test' ? en : (STATIC_DICTIONARIES[locale] || esCO);
-  const [translations, setTranslations] = useState<TranslationDictionary>(initialDict);
-
-  useEffect(() => {
-    // En tests forzamos inglés para no romper snapshots históricos
-    if (process.env.NODE_ENV === 'test') {
-       Promise.resolve().then(() => setTranslations(en));
-       return;
-    }
-
-    loadDictionary(locale).then((dict) => {
-      if (Object.keys(dict).length > 0) {
-        setTranslations(dict);
-      }
-    });
+  // Resolución síncrona del diccionario para evitar parpadeos de idioma
+  const dict = useMemo(() => {
+    return STATIC_DICTIONARIES[locale] || STATIC_DICTIONARIES['en'];
   }, [locale]);
 
   return (key: string, params?: Record<string, string | number>): string => {
     const keys = key.split('.');
-    let value: any = translations;
+    let value: any = dict;
     
     for (const k of keys) {
       if (value && typeof value === 'object' && k in value) {
@@ -55,35 +40,16 @@ export function useTranslations(): (key: string, params?: Record<string, string 
       }
     }
 
-    // Fallback al key si no se encuentra
     if (value === undefined) return key;
     
-    if (params && typeof value === "string") {
+    let result = typeof value === 'string' ? value : key;
+
+    if (params && typeof result === "string") {
       Object.entries(params).forEach(([paramKey, paramValue]) => {
-        value = value.replace(`{${paramKey}}`, String(paramValue));
+        result = result.replace(`{${paramKey}}`, String(paramValue));
       });
     }
     
-    return typeof value === 'string' ? value : key;
+    return result;
   };
-}
-
-/**
- * Carga el diccionario desde el API endpoint
- */
-async function loadDictionary(locale: string): Promise<TranslationDictionary> {
-  try {
-    // Usamos el API route para cargar diccionarios en desarrollo
-    const response = await fetch(`/api/locales/${locale}`);
-    if (!response.ok) {
-      throw new Error(`Failed to load ${locale}`);
-    }
-    return response.json();
-  } catch (error) {
-    // Silencioso en producción/tests si falla el fetch
-    if (process.env.NODE_ENV !== 'test') {
-      console.error(`Error loading dictionary for ${locale}:`, error);
-    }
-    return STATIC_DICTIONARIES[locale] || {};
-  }
 }

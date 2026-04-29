@@ -30,7 +30,7 @@ type I18nActions = I18nState;
 export const useI18nStore = create<I18nState & I18nActions>()(
   persist(
     (set) => ({
-      locale: 'es-CO',
+      locale: 'en',
       setLocale: (locale: Locale) => set({ locale }),
     }),
     {

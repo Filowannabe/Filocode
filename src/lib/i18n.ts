@@ -1,8 +1,7 @@
 /**
  * i18n Helper - Puro para Next.js App Router (Server Components)
  * 
- * IMPORTANTE: Para compatibilidad con 'output: export', importamos los JSON directamente.
- * Esto asegura que los textos estén disponibles en tiempo de build para SSG.
+ * v6.0: Restauración de Multilenguaje (Server Components)
  */
 
 import esCO from '../../public/locales/es-CO.json';
@@ -16,16 +15,13 @@ const DICTIONARIES: Record<string, any> = {
 /**
  * Factory para Server Components
  * 
- * @param locale - Código de idioma (por defecto: "es-CO")
+ * @param locale - Código de idioma (por defecto: "en")
  * @returns Función t() sync para el idioma especificado
  */
-export function createT(locale: string = "es-CO") {
-  // MANDATO DE TESTS: Si estamos en modo test, forzamos inglés para no romper tests originales
-  const targetLocale = process.env.NODE_ENV === 'test' ? 'en' : locale;
-  const dict = DICTIONARIES[targetLocale] || DICTIONARIES['es-CO'];
+export function createT(locale: string = "en") {
+  const dict = DICTIONARIES[locale] || DICTIONARIES['en'];
 
   return (key: string, params?: Record<string, string | number>): string => {
-    // Buscar en el objeto anidado (ej: "hud.status")
     const keys = key.split('.');
     let value: any = dict;
     
@@ -49,8 +45,8 @@ export function createT(locale: string = "es-CO") {
 }
 
 /**
- * Versión async para compatibilidad si es necesario
+ * Versión async para compatibilidad
  */
-export async function createTAsync(locale: string = "es-CO") {
+export async function createTAsync(locale: string = "en") {
   return createT(locale);
 }

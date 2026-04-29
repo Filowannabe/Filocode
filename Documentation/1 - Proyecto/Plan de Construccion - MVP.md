@@ -67,6 +67,22 @@ Sincronización dinámica de 32 nodos de repositorios con filtrado HUD funcional
 - **Agency Scrubbing**: Purga de marcas de terceros a favor de una identidad de ingeniería neutral.
 - **Nuevos Nodos**: Integración de **Omnicon** y **Fruto Salvaje** con capturas internacionalizadas.
 
+---
+
+## 🌎 FASE 4: Globalización e Interactividad Crítica [COMPLETA]
+
+### PASO 4.1: Mandato de Inglés Predeterminado (v3.0) [x]
+- **Default Governance**: El inglés es ahora el idioma raíz (`en`).
+- **Simetría Total**: Sincronización del 100% de diccionarios (ES-CO vs EN).
+- **Purga de Tono**: Eliminación de narrativa dramática en favor de un lenguaje laboral de auditoría técnica.
+
+### PASO 4.2: Módulo de Proyección Visual (Lightbox) [x]
+- **Universal Projector**: Creación de `ImageLightbox.tsx` para visualización fullscreen.
+- **Ubicuidad**: Trigger activo en Vista Consola, Carousel y Dossier de Proyecto.
+- **Natural UX**: Soporte para tecla ESC, click-outside e indicador de pulso sutil para Mobile.
+
+### PASO 4.3: Refactor de Composición Next.js 16 [x]
+- **Server/Client Splitting**: División de rutas dinámicas en orquestadores de servidor y contenido interactivo de cliente para mantener compatibilidad con SSG.
 
 ---
 
@@ -74,6 +90,7 @@ Sincronización dinámica de 32 nodos de repositorios con filtrado HUD funcional
 1. **Static Assets Pages**: Es imperativo usar **Static Imports** para imágenes para que Next.js resuelva el `basePath` en GitHub Pages automáticamente.
 2. **Motion IntrinsicAttributes**: Usar siempre el patrón de **Casting Absoluto** (`motion.div as any`) para evitar silencios administrativos del linter en React 19.
 3. **Contrast Integrity**: El sistema debe mantener negro absoluto (#000000) y evitar contaminaciones azules para resaltar el ámbar técnico.
+4. **i18n Serialization**: No se pueden pasar funciones (ej: `t()`) de Server a Client Components; usar el hook `useTranslations` en el cliente.
 
 ---
 ## 🔗 Referencias Relacionadas
