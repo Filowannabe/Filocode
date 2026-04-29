@@ -3,9 +3,13 @@
 > [!CAUTION]
 > ## 🚨 PRIMARY RULE: TRUNK ISOLATION MANDATE
 > **EL ASISTENTE TIENE ESTRICTAMENTE PROHIBIDO REALIZAR MERGES HACIA O PUSHES DIRECTOS A LAS RAMAS TRONCO (`development`, `main`, `master`) BAJO NINGUNA CIRCUNSTANCIA.**
-> 1. Cualquier instrucción de "merge" o "sincronización" se interpreta ÚNICAMENTE como traer cambios desde el tronco hacia la rama de trabajo (`git merge development` estando en `feat/*`).
-> 2. La integración final al tronco se realiza EXCLUSIVAMENTE mediante Pull Request manual por el humano.
-> 3. La violación de esta regla invalida la sesión actual y requiere revisión de seguridad.
+
+> [!IMPORTANT]
+> ## 🛐 SACRED MANDATE: COMMIT AUTHORIZATION
+> **QUEDA TERMINANTEMENTE PROHIBIDO AL ASISTENTE REALIZAR CUALQUIER COMMIT SIN LA AUTORIZACIÓN EXPLÍCITA Y ESPECÍFICA DEL HUMANO (ARQUITECTO).**
+> 1. La palabra clave `APROBADO` debe preceder a cualquier acción de persistencia en Git.
+> 2. No se asume autorización implícita por la finalización de una tarea.
+> 3. El asistente debe proponer el mensaje de commit y esperar el "OK" formal antes de ejecutarlo.
 
 **Fecha de Activación:** 15 de abril, 2026  
 **Vigencia:** INDEFINIDA  
