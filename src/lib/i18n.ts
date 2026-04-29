@@ -20,8 +20,11 @@ const DICTIONARIES: Record<string, any> = {
  * @returns Función t() sync para el idioma especificado
  */
 export function createT(locale: string = "en") {
-  // MANDATO DE TESTS: Si estamos en modo test, forzamos inglés para no romper tests originales
-  const targetLocale = process.env.NODE_ENV === 'test' ? 'en' : locale;
+  // MANDATO DE TESTS: Si estamos en modo test y NO se pasó un locale explícito, forzamos inglés.
+  // Si se pasa un locale (ej: 'es-CO'), respetamos la intención del test.
+  const isTest = process.env.NODE_ENV === 'test';
+  const targetLocale = (isTest && locale === "en") ? 'en' : locale;
+  
   const dict = DICTIONARIES[targetLocale] || DICTIONARIES['en'];
 
   return (key: string, params?: Record<string, string | number>): string => {

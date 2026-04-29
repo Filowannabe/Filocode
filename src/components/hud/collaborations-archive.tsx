@@ -11,6 +11,7 @@ import { COLLABORATION_IMAGES } from "@/data/collaborationImages";
 import { ChevronRight, LayoutGrid, GalleryHorizontalEnd } from "lucide-react";
 import NextLink from "next/link";
 import Image from "next/image";
+import { ImageLightbox, ExpandIndicator } from "./image-lightbox";
 
 // Mandato React 19: Casting Absoluto
 const MotionDiv = motion.div as any;
@@ -23,12 +24,23 @@ const MotionButton = motion.button as any;
 export function CollaborationsArchive() {
   const t = useTranslations();
   const { collaborations } = collaborationsData as any;
-  const [viewMode, setViewMode] = useState<'console' | 'carousel'>('carousel');
+  const [viewMode, setViewMode] = useState<'console' | 'carousel'>('console');
   const [activeId, setActiveId] = useState<string>(collaborations[0]?.id);
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [isDragging, setIsDragging] = useState(false);
   const [isMobileDragging, setIsMobileDragging] = useState(false);
+  
+  // Estado para Lightbox
+  const [lightboxOpen, setLightboxOpen] = useState(false);
+  const [lightboxImage, setLightboxImage] = useState<any>(null);
+
   const activeProject = collaborations.find((c: any) => c.id === activeId);
+
+  // Abrir imagen específica
+  const handleOpenLightbox = (id: string) => {
+    setLightboxImage(COLLABORATION_IMAGES[id]);
+    setLightboxOpen(true);
+  };
 
   // Marquee Carousel Logic
   const controls = useAnimation();
@@ -212,8 +224,12 @@ export function CollaborationsArchive() {
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 h-full"
               >
-                <div className="order-first lg:order-last lg:col-span-7 flex flex-col h-[300px] md:h-[450px] lg:h-full group/img relative">
+                <div 
+                  className="order-first lg:order-last lg:col-span-7 flex flex-col h-[300px] md:h-[450px] lg:h-full group/img relative cursor-pointer"
+                  onClick={() => handleOpenLightbox(activeProject.id)}
+                >
                   <div className="relative flex-grow w-full h-full rounded-3xl overflow-hidden border border-white/10 bg-black shadow-2xl">
+                    <ExpandIndicator />
                     <AnimatePresence mode="wait">
                       <MotionDiv 
                         key={activeProject.id}
@@ -396,7 +412,11 @@ export function CollaborationsArchive() {
                       onViewportLeave={() => setExpandedId(null)}
                       className="w-[85vw] md:w-[1100px] h-[820px] md:h-full flex-shrink-0 flex flex-col md:flex-row bg-[#050505] rounded-xl overflow-hidden border border-white/10 group/poster shadow-2xl relative"
                     >
-                      <div className="h-[280px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10">
+                      <div 
+                        className="h-[280px] md:h-full w-full md:w-1/2 shrink-0 relative overflow-hidden border-b md:border-b-0 md:border-r border-white/10 cursor-zoom-in"
+                        onClick={() => handleOpenLightbox(project.id)}
+                      >
+                        <ExpandIndicator />
                         <Image 
                           src={COLLABORATION_IMAGES[project.id]} 
                           alt={project.company} 
@@ -502,6 +522,14 @@ export function CollaborationsArchive() {
           </AnimatePresence>
         </div>
       </div>
+
+      {/* MODAL DE IMAGEN FULLSCREEN */}
+      <ImageLightbox 
+        isOpen={lightboxOpen} 
+        onClose={() => setLightboxOpen(false)} 
+        src={lightboxImage} 
+        alt="Collaboration Preview" 
+      />
     </HudPanel>
   );
 }

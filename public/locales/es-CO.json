@@ -47,8 +47,8 @@
   "arsenal": {
     "station_title": "ESTACION_PROYECTOS_ARSENAL",
     "title_open_source": "Código",
-    "title_arsenal": "Abierto",
-    "description": "Mi compromiso con la comunidad tecnológica y la ingeniería de software. Aquí puedes auditar la arquitectura, calidad de código e impacto (estrellas y visualizaciones) de mis {count} proyectos, sincronizados dinámicamente con GitHub.",
+    "title_arsenal": "Source",
+    "description": "Auditoría técnica de arquitectura y código fuente de {count} proyectos open source, sincronizados dinámicamente vía GitHub API.",
     "search_placeholder": "BUSCAR PROYECTO O TECNOLOGÍA...",
     "results_label": "Resultados:",
     "filter_suggestions": "Filtros_Sugeridos",

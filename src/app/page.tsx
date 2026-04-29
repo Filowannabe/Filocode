@@ -97,9 +97,9 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="space-y-3 text-center sm:text-left w-full">
-                  <h2 className="text-3xl sm:text-4xl font-black tracking-tighter uppercase italic leading-none text-white/90">
+                  <h2 className="text-xl md:text-2xl font-black tracking-tighter uppercase leading-none flex flex-col sm:flex-row items-center sm:items-baseline justify-center sm:justify-start gap-y-1 sm:gap-y-0">
                     FILOCODE
-                    <span className="block sm:inline-block sm:ml-4 text-[8px] sm:text-[10px] font-normal tracking-normal text-amber-200 not-italic align-middle mt-1 sm:mt-0 drop-shadow-[0_0_6px_rgba(251,191,36,0.5)]">
+                    <span className="sm:ml-4 text-[8px] sm:text-[10px] font-normal tracking-normal text-amber-200 not-italic align-middle drop-shadow-[0_0_6px_rgba(251,191,36,0.5)]">
                       {t("hud.by")}
                     </span>
                   </h2>

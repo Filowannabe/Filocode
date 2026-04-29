@@ -48,7 +48,7 @@
     "station_title": "PROJECT_ARSENAL_STATION",
     "title_open_source": "Open",
     "title_arsenal": "Source",
-    "description": "My commitment to the tech community and software engineering. Here you can audit the architecture, code quality, and impact (stars and views) of my {count} projects, dynamically synced with GitHub.",
+    "description": "Technical audit of architecture and source code for {count} open source projects, dynamically synchronized via GitHub API.",
     "search_placeholder": "SEARCH PROJECT OR TECHNOLOGY...",
     "results_label": "Results:",
     "filter_suggestions": "Filter_Suggestions",

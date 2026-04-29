@@ -33,6 +33,7 @@ Cada panel es una pieza independiente de ingeniería visual:
     - Thumb: Ámbar traslúcido (`0.4`).
     - Width: `4px` estricto.
     - Behavior: Track transparente.
+- **Default View Mandate (v3.0)**: La vista **CONSOLE** es ahora el punto de entrada predeterminado del sistema para maximizar la visibilidad de datos técnicos desde el primer contacto.
 
 ## 🎠 Estándar de Carousel Marquee Interactivo (v4.0)
 Para garantizar una experiencia inmersiva y fluida:
@@ -63,6 +64,15 @@ Queda prohibido el uso de imágenes crudas para assets externos. El tratamiento 
 3. **Viñeta**: `shadow-[inset_0_0_100px_rgba(0,0,0,0.9)]` para fundir bordes.
 4. **Interacción**: Escaneo lento (`y: -5%`) y escala sutil solo en hover.
 5. **Mobile-First**: Inversión de orden (`order-first`) para que la imagen lidere la visualización en dispositivos pequeños.
+
+
+## 🔍 Módulo de Proyección Fullscreen (Lightbox v1.0)
+Para permitir una auditoría visual detallada sin romper el contexto del dashboard:
+1.  **Componente**: `ImageLightbox.tsx`.
+2.  **Activación**: Click en cualquier imagen con indicador de expansión (`Maximize2`).
+3.  **Visual**: Fondo `black/95` con `backdrop-blur-xl`.
+4.  **UX**: Soporte para tecla **ESC** y cierre por click-outside. El cursor debe ser `pointer` en los disparadores y `zoom-out` en el fondo expandido.
+5.  **Visibilidad Mobile**: El indicador de expansión debe tener una animación de pulso sutil y opacidad variable para garantizar su descubrimiento.
 
 
 ## 📐 Distribución de la Composición

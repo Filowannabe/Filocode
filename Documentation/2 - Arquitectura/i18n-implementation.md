@@ -105,27 +105,46 @@ GET /api/locales/en     →  { ...dictionary }
 
 ### 5. **Patrones de Traducción**
 
-#### Patrón 1: Server Component (Recomendado)
+#### Patrón 1: Server Component (Orquestador)
 
 ```typescript
 import { createT } from '@/lib/i18n';
 
 // Factory function
-const t = createT(); // default: es-CO
+const t = createT(); // default: en (v3.0)
 
 // Uso
-const status = t('hud.status'); // "Estado: OPERACIONAL_ESTABLE"
-const greeting = t('hud.status', { param: 'value' }); // "Estado: OPERACIONAL_ESTABLE value"
+const status = t('hud.status'); // "System_Status: Operational"
 ```
 
-#### Patrón 2: Client Component
+#### Patrón 2: Client Component (Recomendado para Interactividad)
 
 ```typescript
-import { useI18nStore } from '@/store/use-i18n-store';
+import { useTranslations } from '@/lib/i18n-client';
 
-const locale = useI18nStore((state) => state.locale);
-const setLocale = useI18nStore((state) => state.setLocale);
+export function MyComponent() {
+  const t = useTranslations();
+  return <div>{t('hud.status')}</div>;
+}
 ```
+
+### 6. **Refactor de Composición Server/Client (SSG Ready)**
+
+Debido a que `generateStaticParams` solo es válido en Server Components y el estado reactivo (ej: Lightbox) requiere Client Components, se aplica el patrón de **Composición**:
+
+1.  **Page.tsx (Server)**: Maneja metadatos, parámetros estáticos y carga de datos.
+2.  **Content.tsx (Client)**: Recibe el objeto de datos y maneja la interactividad.
+
+**IMPORTANTE**: No pasar la función `t` por props (Error de Serialización). El componente de cliente debe invocar su propio hook `useTranslations`.
+
+---
+
+## 🌎 Gobernanza Internacional (v3.0)
+
+- **Default Locale**: `en`.
+- **Fallback**: `en`.
+- **Simetría**: 1:1 entre `en.json` y `es-CO.json`.
+- **Tono**: Profesional / Laboral (Purgado de dramatismos).
 
 ## Estructura de Diccionarios
 
