@@ -77,7 +77,7 @@ export function ProjectGallery({ initialRepos, searchQuery = '' }: ProjectGaller
   };
 
   return (
-    <div ref={galleryRef} className="relative flex flex-col min-h-[600px]" id="repos-section">
+    <div ref={galleryRef} className="relative flex flex-col min-h-[600px] [content-visibility:auto] [contain-intrinsic-size:600px]" id="repos-section">
 
       <div className="relative flex-grow">
         <AnimatePresence mode="wait" initial={false}>

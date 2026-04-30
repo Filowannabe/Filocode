@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { useNavStore } from "@/store/use-nav-store";
@@ -17,13 +18,20 @@ interface HudPanelProps {
 
 /**
  * HudPanel - Primitiva de interfaz HUD.
- * v5.7: Header Anti-Colisión y Brillo por Herencia.
+ * v7.0: Atomic Selector Shielding & React.memo.
  */
-export function HudPanel({ children, className, delay = 0, title = "SYSTEM_PROCESS", id, activeId }: HudPanelProps) {
-  const activeSection = useNavStore((state) => state.activeSection);
-  
-  // El panel brilla si su ID propio es el activo O si su activeId asociado es el activo
-  const isActive = (id && id === activeSection) || (activeId && activeId === activeSection);
+export const HudPanel = memo(function HudPanel({ 
+  children, 
+  className, 
+  delay = 0, 
+  title = "SYSTEM_PROCESS", 
+  id, 
+  activeId 
+}: HudPanelProps) {
+  // P3: Atomic Selector - Solo re-renderiza si isActive cambia de valor
+  const isActive = useNavStore((state) => 
+    (id && state.activeSection === id) || (activeId && state.activeSection === activeId)
+  );
 
   return (
     <MotionDiv
@@ -79,9 +87,9 @@ export function HudPanel({ children, className, delay = 0, title = "SYSTEM_PROCE
       {/* SCANLINE EFFECT */}
       <div className="absolute inset-0 top-8 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] pointer-events-none opacity-5" />
 
-      <div className="relative z-10 h-full w-full">
+      <div className="relative z-10 flex-grow w-full flex flex-col min-h-0">
         {children}
       </div>
     </MotionDiv>
   );
-}
+});
