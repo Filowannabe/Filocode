@@ -9,6 +9,7 @@ import avatarImg from "../../public/images/avatar.jpg";
 import { useTranslations } from "@/lib/i18n-client";
 import { TacticalNavbar } from "@/components/hud/tactical-navbar";
 import { GlowLine } from "@/components/ui/glow-line";
+import { useState } from "react";
 
 // P1: Dynamic Injection (Performance Overdrive v7.0)
 const StatsBar = dynamic(() => import("@/components/hud/stats-bar").then(mod => mod.StatsBar), { ssr: false });
@@ -17,6 +18,7 @@ const ProjectSection = dynamic(() => import("@/components/hud/project-section").
 const CollaborationsArchive = dynamic(() => import("@/components/hud/collaborations-archive").then(mod => mod.CollaborationsArchive), { ssr: false });
 const AuthorizedFeedback = dynamic(() => import("@/components/hud/authorized-feedback").then(mod => mod.AuthorizedFeedback), { ssr: false });
 const TerminalContact = dynamic(() => import("@/components/hud/terminal-contact").then(mod => mod.TerminalContact), { ssr: false });
+const ContactModal = dynamic(() => import("@/components/hud/contact-modal").then(mod => mod.ContactModal), { ssr: false });
 
 /**
  * Home Page - Client Component.
@@ -24,6 +26,7 @@ const TerminalContact = dynamic(() => import("@/components/hud/terminal-contact"
  */
 export default function Home() {
   const t = useTranslations();
+  const [isContactOpen, setIsContactOpen] = useState(false);
 
   const homeNavItems = [
     { id: "identity", label: t("IDENTITY"), icon: User },
@@ -79,16 +82,17 @@ export default function Home() {
                   </span>
                 </button>
                 
-                <a 
-                  href="mailto:filocode@protonmail.com"
+                <button 
+                  onClick={() => setIsContactOpen(true)}
                   className="font-mono text-[10px] sm:text-[12px] font-black text-amber-200 border-2 border-amber-500/40 hover:border-amber-400 hover:text-white px-8 sm:px-10 py-4 sm:py-[18px] transition-all uppercase tracking-[0.25em] bg-white/[0.03] rounded-md cursor-pointer text-center shadow-[0_0_30px_rgba(245,158,11,0.1)] hover:shadow-[0_0_40px_rgba(245,158,11,0.2)] drop-shadow-[0_0_10px_rgba(251,191,36,0.4)]"
                 >
                   {t("hero.contact_protocol")}
-                </a>
+                </button>
               </div>
             </div>
 
             <div className="xl:col-span-4 flex flex-col gap-8">
+              <ContactModal isOpen={isContactOpen} onClose={() => setIsContactOpen(false)} />
               <HudPanel id="identity" title={t("hud.avatar")} delay={0.2}>
                 <div className="p-6 sm:p-10 flex flex-col items-center sm:items-start gap-6 sm:gap-10">
                   <div className="flex flex-col sm:flex-row items-center gap-6 sm:gap-10 w-full">

@@ -376,6 +376,19 @@
     "view_dossier": "VIEW_REPORT"
   },
   "labels": {
-    "_full_report_initialized": "//_FULL_REPORT_INITIALIZED:"
+    "_full_report_initialized": "//_FULL_REPORT_INITIALIZED:",
+    "contact": "Contact",
+    "name": "Name",
+    "email": "Email",
+    "message": "Message",
+    "placeholder_name": "Your name",
+    "placeholder_email": "your@email.com",
+    "placeholder_message": "How can I help you?",
+    "send_message": "Send Message",
+    "sending": "Sending...",
+    "success_message": "Message sent successfully",
+    "error_required_name": "Name is required",
+    "error_invalid_email": "Invalid email",
+    "error_min_message": "Message must be descriptive"
   }
 }

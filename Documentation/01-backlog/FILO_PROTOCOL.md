@@ -81,6 +81,8 @@ const MotionButton = motion.button as any;
 ### 4. Integridad Estructural (No Mutilar)
 **PROHIBIDO:** Mover lógica de producción a archivos de tests o romper el árbol de importaciones durante "limpiezas". Cada archivo debe ser comprobado tras un refactor.
 **REGLA DE ESTABILIDAD TURBO:** En entornos Windows con Next.js 16 (Turbo), si un paquete de `node_modules` (ej: `tw-animate-css`) causa un pánico de compilación al ser importado en CSS, se debe copiar el archivo a `src/styles/` y cargarlo localmente para garantizar la resolución física de la ruta.
+**MANDATO DE INMUTABILIDAD DE LAYOUT (v2.9.1):** Los formularios HUD deben usar contenedores de error con **altura fija reservada** (ej: `h-5 relative`). Queda prohibido el renderizado condicional que desplace elementos del DOM.
+**MANDATO DE GEOMETRÍA TÁCTICA (v2.9.1):** Se establece **`rounded-sm`** como el redondeado universal para componentes estructurales. Queda prohibido el uso de curvas superiores a 4px en paneles maestros.
 
 ---
 

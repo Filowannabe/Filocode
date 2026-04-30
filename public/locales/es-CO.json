@@ -380,6 +380,19 @@
     "view_dossier": "VER_REPORTE"
   },
   "labels": {
-    "_full_report_initialized": "//_EXPEDIENTE_COMPLETO_INICIALIZADO:"
+    "_full_report_initialized": "//_EXPEDIENTE_COMPLETO_INICIALIZADO:",
+    "contact": "Contacto",
+    "name": "Nombre",
+    "email": "Correo",
+    "message": "Mensaje",
+    "placeholder_name": "Tu nombre",
+    "placeholder_email": "tu@correo.com",
+    "placeholder_message": "¿En qué puedo ayudarte?",
+    "send_message": "Enviar Mensaje",
+    "sending": "Enviando...",
+    "success_message": "Mensaje enviado con éxito",
+    "error_required_name": "Nombre requerido",
+    "error_invalid_email": "Correo inválido",
+    "error_min_message": "El mensaje debe ser descriptivo"
   }
 }

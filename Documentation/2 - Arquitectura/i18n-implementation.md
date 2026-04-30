@@ -58,6 +58,19 @@ OPEN_SOURCE       → "CÓDIGO_ABIERTO" / "OPEN_SOURCE"
 FEEDBACK          → "TESTIMONIOS" / "FEEDBACK"
 ```
 
+## Estructura de Diccionarios (Etiquetas Interactivas)
+
+Se ha estandarizado la clave raíz `labels` para gestionar la interactividad de los formularios HUD:
+
+```
+labels.contact            → "Contacto" / "Contact"
+labels.name               → "Nombre" / "Name"
+labels.email              → "Correo" / "Email"
+labels.message            → "Mensaje" / "Message"
+labels.send_message       → "Enviar Mensaje" / "Send Message"
+labels.success_message    → "Mensaje enviado con éxito" / "Message sent successfully"
+```
+
 ## Testing Mandatorios
 
 **Archivo**: `src/lib/i18n.ts` y `src/lib/i18n-client.ts`

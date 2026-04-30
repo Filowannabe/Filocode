@@ -87,7 +87,7 @@ export const HudPanel = memo(function HudPanel({
       {/* SCANLINE EFFECT */}
       <div className="absolute inset-0 top-8 bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.1)_50%)] bg-[length:100%_4px] pointer-events-none opacity-5" />
 
-      <div className="relative z-10 h-full w-full">
+      <div className="relative z-10 flex-grow w-full flex flex-col min-h-0">
         {children}
       </div>
     </MotionDiv>
