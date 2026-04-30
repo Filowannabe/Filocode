@@ -194,8 +194,8 @@ export function CollaborationContent({ project }: CollaborationContentProps) {
         </section>
 
         {/* SECTION: SPECS */}
-        <section className="scroll-mt-32 grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-6">
+        <section className="scroll-mt-32 grid grid-cols-1 xl:grid-cols-12 gap-12 items-start">
+          <div className="xl:col-span-6">
             <HudPanel id="specs" title={t("collaborations.core_technologies")}>
               <div className="p-6 md:p-10">
                 <div className="flex items-center justify-between mb-8">
@@ -216,7 +216,7 @@ export function CollaborationContent({ project }: CollaborationContentProps) {
             </HudPanel>
           </div>
 
-          <div className="lg:col-span-6">
+          <div className="xl:col-span-6">
             <HudPanel activeId="specs" title={t("collaborations.deployment_services")}>
               <div className="p-6 md:p-10">
                 <ul className="space-y-3">

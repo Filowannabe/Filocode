@@ -222,10 +222,10 @@ export function CollaborationsArchive({ id }: { id?: string }) {
               <MotionDiv 
                 key="console-view"
                 initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                className="flex flex-col lg:grid lg:grid-cols-12 gap-8 lg:gap-12 h-full"
+                className="flex flex-col xl:grid xl:grid-cols-12 gap-8 xl:gap-12 h-full"
               >
                 <div 
-                  className="order-first lg:order-last lg:col-span-7 flex flex-col h-[300px] md:h-[450px] lg:h-full group relative cursor-pointer"
+                  className="order-first xl:order-last xl:col-span-7 flex flex-col h-[300px] md:h-[450px] xl:h-full group relative cursor-pointer"
                   onClick={() => handleOpenLightbox(activeProject.id)}
                 >
                   <div className="relative flex-grow w-full h-full rounded-3xl overflow-hidden border border-white/10 bg-black shadow-2xl">
@@ -234,8 +234,8 @@ export function CollaborationsArchive({ id }: { id?: string }) {
                   </div>
                 </div>
 
-                <div className="lg:col-span-5 flex flex-col h-full gap-6 lg:gap-8 min-h-0">
-                  <div className="hidden lg:flex flex-col gap-2 overflow-y-auto h-[35%] min-h-[200px] pr-2 flex-none amber-scrollbar">
+                <div className="xl:col-span-5 flex flex-col h-full gap-6 xl:gap-8 min-h-0">
+                  <div className="hidden xl:flex flex-col gap-2 overflow-y-auto h-[35%] min-h-[200px] pr-2 flex-none amber-scrollbar">
                     {collaborations.map((project: Collaboration) => (
                       <button
                         key={project.id}
@@ -253,7 +253,7 @@ export function CollaborationsArchive({ id }: { id?: string }) {
                     ))}
                   </div>
 
-                  <div className="block lg:hidden w-full overflow-hidden relative py-2 flex-none border-b border-white/5 cursor-grab active:cursor-grabbing">
+                  <div className="block xl:hidden w-full overflow-hidden relative py-2 flex-none border-b border-white/5 cursor-grab active:cursor-grabbing">
                     <MotionDiv
                       ref={mobileSelectorRef}
                       className="flex gap-4 w-max px-4"

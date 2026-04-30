@@ -34,6 +34,9 @@ Cada panel es una pieza independiente de ingeniería visual:
     - Width: `4px` estricto.
     - Behavior: Track transparente.
 - **Default View Mandate (v3.0)**: La vista **CONSOLE** es ahora el punto de entrada predeterminado del sistema para maximizar la visibilidad de datos técnicos desde el primer contacto.
+- **Performance Shielding (v7.0)**: Todo panel debe implementar **Zustand Atomic Selectors** (`state => state.value`) para evitar re-renders masivos durante el scroll. Se prohíbe la desestructuración total del store en el cuerpo del componente.
+- **CSS Containment Standard (v7.2)**: Los contenedores de sección deben usar `[content-visibility:auto]` y `[contain-intrinsic-size:...]` para delegar en el navegador la omisión de renderizado de elementos fuera de vista, garantizando un frame-rate constante de 60FPS.
+- **Responsive Grid Split (v7.3)**: El salto de una a dos columnas en layouts de alta densidad debe ocurrir estrictamente en el breakpoint **`xl` (1280px)** para proteger la integridad visual en monitores verticales y iPads.
 
 ## 🎠 Estándar de Carousel Marquee Interactivo (v4.0)
 Para garantizar una experiencia inmersiva y fluida:

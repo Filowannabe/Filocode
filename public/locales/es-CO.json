@@ -59,7 +59,7 @@
   "arsenal": {
     "station_title": "ESTACION_PROYECTOS_TECNICOS",
     "title_open_source": "Código",
-    "title_arsenal": "Source",
+    "title_arsenal": "Abierto",
     "description": "Auditoría técnica de arquitectura y código fuente de {count} proyectos open source, sincronizados dinámicamente vía GitHub API.",
     "search_placeholder": "BUSCAR PROYECTO O TECNOLOGÍA...",
     "results_label": "Resultados:",

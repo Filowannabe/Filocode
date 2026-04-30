@@ -87,19 +87,19 @@ describe('UI Integrity Mandate - HUD Pro-Max (v28)', () => {
   });
 
   describe('Tactical Navigation', () => {
-    it('debe renderizar el TacticalNavbar con los puntos de entrada dinámicos en inglés', () => {
+    it('debe renderizar el TacticalNavbar con los puntos de entrada dinámicos en inglés', async () => {
       render(<Home />);
-      expect(screen.getAllByText(/IDENTITY/i).length).toBeGreaterThan(0);
-      expect(screen.getAllByText(/SKILL_TREE/i).length).toBeGreaterThan(0);
-      expect(screen.getAllByText(/TELEMETRY/i).length).toBeGreaterThan(0);
-      expect(screen.getAllByText(/INTEL_FEED/i).length).toBeGreaterThan(0);
-      expect(screen.getAllByText(/OPEN_SOURCE/i).length).toBeGreaterThan(0);
-      expect(screen.getAllByText(/FEEDBACK/i).length).toBeGreaterThan(0);
+      expect(await screen.findAllByText(/IDENTITY/i)).toBeTruthy();
+      expect(await screen.findAllByText(/SKILL_TREE/i)).toBeTruthy();
+      expect(await screen.findAllByText(/TELEMETRY/i)).toBeTruthy();
+      expect(await screen.findAllByText(/INTEL_FEED/i)).toBeTruthy();
+      expect(await screen.findAllByText(/OPEN_SOURCE/i)).toBeTruthy();
+      expect(await screen.findAllByText(/FEEDBACK/i)).toBeTruthy();
     });
 
-    it('el botón de base debe mostrar TOP_PROTOCOL en la home', () => {
+    it('el botón de base debe mostrar TOP_PROTOCOL en la home', async () => {
       render(<Home />);
-      expect(screen.getByText(/TOP_PROTOCOL/i)).toBeInTheDocument();
+      expect(await screen.findByText(/TOP_PROTOCOL/i)).toBeInTheDocument();
     });
   });
 });

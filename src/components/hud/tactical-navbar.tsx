@@ -31,7 +31,8 @@ export function TacticalNavbar({ returnLabel, items }: TacticalNavbarProps) {
   const pathname = usePathname();
   const isHome = pathname === "/" || pathname === "/Filocode/";
   
-  const { activeSection, setActiveSection } = useNavStore();
+  const activeSection = useNavStore((state) => state.activeSection);
+  const setActiveSection = useNavStore((state) => state.setActiveSection);
   const [isScrolled, setIsScrolled] = useState(false);
   const navRef = useRef<HTMLElement>(null);
   const itemsRef = useRef<{ [key: string]: HTMLButtonElement | null }>({});
